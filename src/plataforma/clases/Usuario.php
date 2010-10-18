@@ -19,6 +19,7 @@ class Usuario {
     private $administrador;
     private $fecha_creacion;
     private $ultimo_acceso;
+    private $habilitado;
 
     /**
      * Crea un usuario
@@ -55,6 +56,7 @@ class Usuario {
             $this->administrador = $usuario->administrador;
             $this->fecha_creacion = $usuario->fecha_creacion;
             $this->ultimo_acceso = $this->ultimoAcceso();
+            $this->habilitado = $usuario->habilitado;
 
             mysql_free_result($usuarioSQL);
             $db->desconectar();
@@ -95,6 +97,17 @@ class Usuario {
 
         $contrasena = DB::limpiarSQL($contrasena);
         if ($contrasena === $this->contrasena) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Verifica si un usuario se encuentra habilitado en el sistema
+     * @return boolean TRUE si el usuario esta habilitado, FALSE si no
+     */
+    public function verificarEstado() {
+        if ($this->habilitado) {
             return true;
         }
         return false;

@@ -10,7 +10,11 @@ if (isset($_POST['op'])) {
                         if ($login == 2) {
                             echo "true";
                         } else {
-                            echo "<span class='error'>EL ingreso a la plataforma fue deshabilitado temporalmente</span>";
+                            if ($login == 3) {
+                                echo "<span class='error'>Su cuenta se encuentra bloqueada, para reactivarla comun&iacute;quese con los administradores del sistema</span>";
+                            } else {
+                                echo "<span class='error'>EL ingreso a la plataforma fue deshabilitado temporalmente</span>";
+                            }
                         }
                     } else {
                         echo "<span class='error'>Usuario y/o contrase&ntilde;a inv&aacute;lidos</span>";
@@ -36,13 +40,18 @@ function iniciarSesion($usuario, $contrasena) {
 
     $usuario = new Usuario($usuario);
     if ($usuario->cargarUsuario()) {
-        if ($usuario->verificarContrasena($contrasena)) {
-            if (Login::loginHabilitado() || $usuario->getAdministrador()) {
-                Login::registrarIngreso($usuario->getUsuario());
-                return 2;
-            } else {
-                return 1;
+        if ($usuario->verificarEstado()) {
+            if ($usuario->verificarContrasena($contrasena)) {
+
+                if (Login::loginHabilitado() || $usuario->getAdministrador()) {
+                    Login::registrarIngreso($usuario->getUsuario());
+                    return 2;
+                } else {
+                    return 1;
+                }
             }
+        } else {
+            return 3;
         }
     }
     return 0;
