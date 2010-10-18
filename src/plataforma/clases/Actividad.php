@@ -1,8 +1,9 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
-*/
+ */
 
 /**
  * Description of Actividad
@@ -10,6 +11,7 @@
  * @author Cristian
  */
 class Actividad {
+
     private $id_actividad;
     private $id_usuario;
     private $id_texto;
@@ -34,7 +36,7 @@ class Actividad {
      * @param int $id_usuario Identificador de usuario
      * @param int $id_actividad Identificador del numero de la actividad
      */
-    public function  __construct( $id_usuario, $id_actividad) {
+    public function __construct($id_usuario, $id_actividad) {
         $this->id_actividad = $id_actividad;
         $this->id_usuario = $id_usuario;
     }
@@ -48,27 +50,27 @@ class Actividad {
         $db->conectar();
 
         $consulta = "SELECT id_texto,intentos,iniciada,fecha_inicio,fecha_fin
-                FROM actividades_por_usuario WHERE id_usuario=".DB::limpiarSQL($this->id_usuario)."
-                    AND id_actividad=".DB::limpiarSQL($this->id_actividad);
+                FROM actividades_por_usuario WHERE id_usuario=" . DB::limpiarSQL($this->id_usuario) . "
+                    AND id_actividad=" . DB::limpiarSQL($this->id_actividad);
 
         $actividadSQL = $db->consulta($consulta);
-        if($actividadSQL) {
+        if ($actividadSQL) {
             $actividad = mysql_fetch_object($actividadSQL);
             $this->puede_entrar = false;
-            if($actividad) {
+            if ($actividad) {
                 $this->intentos = $actividad->intentos;
                 $this->fecha_inicio = $actividad->fecha_inicio;
                 $this->fecha_fin = $actividad->fecha_fin;
                 $this->iniciada = $actividad->iniciada;
                 $this->id_texto = $actividad->id_texto;
-
             } else {
                 $this->fecha_inicio = "--";
                 $this->fecha_fin = "--";
             }
             $this->cargarDatosInterfaz();
             $this->estado = $this->calcularEstado();
-            if($this->estado) $this->puede_entrar = true;
+            if ($this->estado)
+                $this->puede_entrar = true;
 
             mysql_free_result($actividadSQL);
             return true;
@@ -78,13 +80,13 @@ class Actividad {
 
     public function terminarActividad() {
         $terminarActividad = array(
-                "fecha_fin" => time()
+            "fecha_fin" => time()
         );
-        $condicion = "id_usuario=".DB::limpiarSQL($this->id_usuario)." AND id_actividad='".DB::limpiarSQL($this->id_actividad)."'";
+        $condicion = "id_usuario=" . DB::limpiarSQL($this->id_usuario) . " AND id_actividad='" . DB::limpiarSQL($this->id_actividad) . "'";
 
         $db = new DB();
         $db->conectar();
-        if($db->actualizarArreglo($terminarActividad, "actividades_por_usuario", $condicion)) {
+        if ($db->actualizarArreglo($terminarActividad, "actividades_por_usuario", $condicion)) {
             return true;
         }
         return false;
@@ -95,14 +97,14 @@ class Actividad {
         $db = new DB();
         $db->conectar();
 
-        $consulta = "SELECT nombre,mostrar_texto_cifrado,id_metodo,tipo_respuesta,forma_respuesta,mostrar_clave FROM actividades WHERE id_actividad =".DB::limpiarSQL($this->id_actividad);
+        $consulta = "SELECT nombre,mostrar_texto_cifrado,id_metodo,tipo_respuesta,forma_respuesta,mostrar_clave FROM actividades WHERE id_actividad =" . DB::limpiarSQL($this->id_actividad);
         $datosActividadInterfazSQL = $db->consulta($consulta);
         $datosActividadInterfaz = mysql_fetch_object($datosActividadInterfazSQL);
 
         mysql_free_result($datosActividadInterfazSQL);
-        
 
-        if($datosActividadInterfaz) {
+
+        if ($datosActividadInterfaz) {
 
             $this->nombre = $datosActividadInterfaz->nombre;
             $this->mostrarTextoCifrado = $datosActividadInterfaz->mostrar_texto_cifrado;
@@ -111,7 +113,7 @@ class Actividad {
             $this->respuesta = $datosActividadInterfaz->tipo_respuesta;
             $this->forma_respuesta = $datosActividadInterfaz->forma_respuesta;
 
-            $consulta = "SELECT informacion_adicional FROM metodos WHERE id_metodo = ".DB::limpiarSQL($this->id_metodo);
+            $consulta = "SELECT informacion_adicional FROM metodos WHERE id_metodo = " . DB::limpiarSQL($this->id_metodo);
             $informacionAdicionalSQL = $db->consulta($consulta);
             $informacionAdicional = mysql_fetch_object($informacionAdicionalSQL);
             $this->informacion_adicional = $informacionAdicional->informacion_adicional;
@@ -131,15 +133,14 @@ class Actividad {
      */
     private function calcularEstado() {
         $estado = 0;
-        if($this->estaHabilitada()) {
-            if($this->fecha_inicio == "--") {
+        if ($this->estaHabilitada()) {
+            if ($this->fecha_inicio == "--") {
                 $estado = 1;
             } else {
-                if($this->fecha_fin == "--") {
+                if ($this->fecha_fin == "--") {
                     $estado = 2;
-                }
-                else {
-                    $estado =3;
+                } else {
+                    $estado = 3;
                 }
             }
         } else {
@@ -157,14 +158,14 @@ class Actividad {
         $db = new DB();
         $db->conectar();
 
-        $consulta = "SELECT habilitada FROM actividades WHERE id_actividad =".DB::limpiarSQL($this->id_actividad);
+        $consulta = "SELECT habilitada FROM actividades WHERE id_actividad =" . DB::limpiarSQL($this->id_actividad);
         $actividadHabilitadaSQL = $db->consulta($consulta);
         $actividadHabilitada = mysql_fetch_object($actividadHabilitadaSQL);
 
         mysql_free_result($actividadHabilitadaSQL);
         $db->desconectar();
 
-        if($actividadHabilitada) {
+        if ($actividadHabilitada) {
             return $actividadHabilitada->habilitada;
         }
         return false;
@@ -180,29 +181,28 @@ class Actividad {
 
         $id_texto = $this->generarTexto();
         $actividadNueva = array(
-                "id_usuario" => $this->id_usuario,
-                "id_actividad" => $this->id_actividad,
-                "id_texto" => $id_texto,
-                "iniciada" => 1,
-                "fecha_inicio" => time(),
-                "fecha_fin" => "--"
+            "id_usuario" => $this->id_usuario,
+            "id_actividad" => $this->id_actividad,
+            "id_texto" => $id_texto,
+            "iniciada" => 1,
+            "fecha_inicio" => time(),
+            "fecha_fin" => "--"
         );
 
         $textoAsignado = array(
-                "asignado" => 1
+            "asignado" => 1
         );
-        $condicion = "id_texto=".DB::limpiarSQL($id_texto);
+        $condicion = "id_texto=" . DB::limpiarSQL($id_texto);
 
         $db = new DB();
         $db->conectar();
 
-        if($db->insertarArreglo("actividades_por_usuario", $actividadNueva) &&
+        if ($db->insertarArreglo("actividades_por_usuario", $actividadNueva) &&
                 $db->actualizarArreglo($textoAsignado, "textos", $condicion)) {
             $db->desconectar();
             return true;
         }
         return false;
-
     }
 
     /**
@@ -214,10 +214,10 @@ class Actividad {
         $db = new DB();
         $db->conectar();
 
-        if($this->id_metodo==100) {
+        if ($this->id_metodo == 100) {
             $consulta = "SELECT id_texto FROM textos WHERE asignado=0 AND id_metodo<6 ORDER BY RAND() LIMIT 1";
         } else {
-            $consulta = "SELECT id_texto FROM textos WHERE asignado=0 AND id_metodo=".DB::limpiarSQL($this->id_metodo)." ORDER BY RAND() LIMIT 1";
+            $consulta = "SELECT id_texto FROM textos WHERE asignado=0 AND id_metodo=" . DB::limpiarSQL($this->id_metodo) . " ORDER BY RAND() LIMIT 1";
         }
 
 
@@ -225,7 +225,7 @@ class Actividad {
         $id_texto = mysql_fetch_object($id_textoSQL);
 
         $db->desconectar();
-        if($id_textoSQL) {
+        if ($id_textoSQL) {
             return $id_texto->id_texto;
         }
         return false;
@@ -238,10 +238,10 @@ class Actividad {
 
         $recursos = Array();
 
-        $consulta = "SELECT nombres_mostrar,id_recursos FROM recursos WHERE id_metodo=".DB::limpiarSQL($this->id_metodo);
+        $consulta = "SELECT nombres_mostrar,id_recursos FROM recursos WHERE id_metodo=" . DB::limpiarSQL($this->id_metodo);
         $recursosSQL = $db->consulta($consulta);
         $indice = 0;
-        while($recurso = mysql_fetch_object($recursosSQL)) {
+        while ($recurso = mysql_fetch_object($recursosSQL)) {
             $recursos[$indice] = $recurso;
             $indice++;
         }
@@ -256,14 +256,18 @@ class Actividad {
     }
 
     public function getFechaInicio($formatoUnix=false) {
-        if($formatoUnix) return $this->fecha_inicio;
-        if($this->fecha_inicio == '--') return $this->fecha_inicio;
+        if ($formatoUnix)
+            return $this->fecha_inicio;
+        if ($this->fecha_inicio == '--')
+            return $this->fecha_inicio;
         return date('d/m/Y h:i A', $this->fecha_inicio);
     }
 
     public function getFechaFin($formatoUnix=false) {
-        if($formatoUnix) return $this->fecha_fin;
-        if($this->fecha_fin == '--') return $this->fecha_fin;
+        if ($formatoUnix)
+            return $this->fecha_fin;
+        if ($this->fecha_fin == '--')
+            return $this->fecha_fin;
         return date('d/m/Y h:i A', $this->fecha_fin);
     }
 
@@ -292,7 +296,7 @@ class Actividad {
     }
 
     public function getFormaRespuesta() {
-        return html_entity_decode($this->forma_respuesta,ENT_COMPAT,'UTF-8');
+        return html_entity_decode($this->forma_respuesta, ENT_COMPAT, 'UTF-8');
     }
 
     public function getRespuesta() {
@@ -315,8 +319,10 @@ class Actividad {
         return $this->informacion_adicional;
     }
 
-    public function getIdTexto(){
+    public function getIdTexto() {
         return $this->id_texto;
     }
+
 }
+
 ?>

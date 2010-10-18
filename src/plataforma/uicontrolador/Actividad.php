@@ -1,6 +1,6 @@
 <?php
 
-if(isset ($_GET['act'])) {
+if (isset($_GET['act'])) {
     require_once '../clases/Actividad.php';
 
     session_start();
@@ -10,7 +10,7 @@ if(isset ($_GET['act'])) {
     $actividad->cargarActividad();
 
     switch ($actividad->getEstado()) {
-        case 0: header( 'Location: ../ui/inicio.php' );
+        case 0: header('Location: ../ui/inicio.php');
             break;
         case 1: $actividad = comenzarActividad($actividad);
         case 2:
@@ -19,10 +19,10 @@ if(isset ($_GET['act'])) {
     }
 }
 
-if(isset($_POST['op'])) {
+if (isset($_POST['op'])) {
     switch ($_POST['op']) {
         case "completarActividad": {
-                if(isset($_POST['clave']) && isset($_POST['idActividad'])) {
+                if (isset($_POST['clave']) && isset($_POST['idActividad'])) {
                     session_start();
 
                     $id_usuario = $_SESSION['usuario'];
@@ -36,7 +36,7 @@ if(isset($_POST['op'])) {
 
                     $texto = $actividad->getTexto();
                     $respuesta = $actividad->getRespuesta();
-                    switch($respuesta) {
+                    switch ($respuesta) {
                         case 1:
                             $claveValida = $texto->getTextoCifrado();
                             break;
@@ -47,27 +47,25 @@ if(isset($_POST['op'])) {
                             $claveValida = $texto->getClave();
                             break;
                         case 4:
-                            $claveValida = $texto->getClave().",".$texto->getTextoPlano();
+                            $claveValida = $texto->getClave() . "," . $texto->getTextoPlano();
                             break;
                     }
 
-                    if($clave == $claveValida) {
+                    if ($clave == $claveValida) {
                         $actividad->terminarActividad();
                         echo "true";
                     } else {
                         echo "<span class='error'>Respuesta equivocada, intentalo nuevamente</span>";
                     }
-
                 }
             }
             break;
-
     }
 }
 
 function comenzarActividad($actividad) {
     require_once '../clases/Actividad.php';
-    if($actividad->iniciarActividad()) {
+    if ($actividad->iniciarActividad()) {
         $actividad->cargarActividad();
         return $actividad;
     } else {
@@ -84,13 +82,5 @@ function cargarActividad($actividad) {
 function mostrarTexto() {
     echo "termianda";
 }
-
-
-
-
-
-
-
-
 
 ?>

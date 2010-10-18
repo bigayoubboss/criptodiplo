@@ -1,8 +1,9 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
-*/
+ */
 
 /**
  * Description of Perfil
@@ -10,6 +11,7 @@
  * @author Cristian
  */
 class Perfil {
+
     private $id_usuario;
     private $usuario;
     private $tiempoTotal;
@@ -21,7 +23,7 @@ class Perfil {
      * Contiene las actividades asociadas a un usuario
      * @param int $id_usuario Identificador de usuario
      */
-    public function  __construct($id_usuario) {
+    public function __construct($id_usuario) {
         $this->id_usuario = $id_usuario;
     }
 
@@ -40,11 +42,10 @@ class Perfil {
         while ($actividadDisponible = mysql_fetch_object($actividadesDisponiblesSQL)) {
 
             require_once '../clases/Actividad.php';
-            $actividad = new Actividad($this->id_usuario,$actividadDisponible->id_actividad);
+            $actividad = new Actividad($this->id_usuario, $actividadDisponible->id_actividad);
             $actividad->cargarActividad();
 
             $actividades[$actividadDisponible->id_actividad] = $actividad;
-
         }
         $this->actividades = $actividades;
         $this->calcularTiempoTotal($actividades);
@@ -61,8 +62,8 @@ class Perfil {
     private function calcularTiempoTotal($actividades) {
         $this->tiempoTotal = 0;
         foreach ($actividades as $actividad) {
-            if($actividad->getFechaInicio()!='' && $actividad->getFechaFin()!="--") {
-                $this->tiempoTotal +=  $actividad->getFechaFin(true) - $actividad->getFechaInicio(true);
+            if ($actividad->getFechaInicio() != '' && $actividad->getFechaFin() != "--") {
+                $this->tiempoTotal += $actividad->getFechaFin(true) - $actividad->getFechaInicio(true);
             }
         }
     }
@@ -72,7 +73,7 @@ class Perfil {
         $db = new DB();
         $db->conectar();
 
-        $consulta = "SELECT COUNT(*) AS actividades FROM actividades_por_usuario WHERE fecha_inicio!='' AND fecha_fin!='--' AND id_usuario=".$this->id_usuario;
+        $consulta = "SELECT COUNT(*) AS actividades FROM actividades_por_usuario WHERE fecha_inicio!='' AND fecha_fin!='--' AND id_usuario=" . $this->id_usuario;
         $actividadesTerminadasSQL = $db->consulta($consulta);
         $actividadesTerminadas = mysql_fetch_object($actividadesTerminadasSQL);
 
@@ -101,26 +102,27 @@ class Perfil {
 
         $segundos = $this->tiempoTotal;
 
-        $minutos = $segundos/60;
-        $horas = floor($minutos/60);
-        $dias = floor($horas/24);
+        $minutos = $segundos / 60;
+        $horas = floor($minutos / 60);
+        $dias = floor($horas / 24);
 
-        $segundos_60 = $segundos%60%60%60;
-        $minutos_60 = $minutos%60;
-        $horas_24 = $horas%24;
+        $segundos_60 = $segundos % 60 % 60 % 60;
+        $minutos_60 = $minutos % 60;
+        $horas_24 = $horas % 24;
 
 
-        if($segundos < 60) {
-            $tiempoTotal = $segundos_60.' segundos';
-        } elseif($segundos>60 && $segundos<3600) {
-            $tiempoTotal = $minutos_60.' minutos y '.$segundos_60.' segundos';
-        } elseif($segundos>3600 && $segundos<86400) {
-            $tiempoTotal = $horas_24.' horas '.$minutos_60.' minutos y '.$segundos_60.' segundos';
+        if ($segundos < 60) {
+            $tiempoTotal = $segundos_60 . ' segundos';
+        } elseif ($segundos > 60 && $segundos < 3600) {
+            $tiempoTotal = $minutos_60 . ' minutos y ' . $segundos_60 . ' segundos';
+        } elseif ($segundos > 3600 && $segundos < 86400) {
+            $tiempoTotal = $horas_24 . ' horas ' . $minutos_60 . ' minutos y ' . $segundos_60 . ' segundos';
         } else {
-            $tiempoTotal = $dias.' d&iacute;as '.$horas_24.' horas '.$minutos_60.' minutos y '.$segundos_60.' segundos';
+            $tiempoTotal = $dias . ' d&iacute;as ' . $horas_24 . ' horas ' . $minutos_60 . ' minutos y ' . $segundos_60 . ' segundos';
         }
         return $tiempoTotal;
     }
 
 }
+
 ?>

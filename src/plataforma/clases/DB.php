@@ -5,11 +5,11 @@
  * this class can store connection information.
  */
 class DB {
+
     protected $dbUsuario = "criptografia";
     protected $dbContrasena = "mysql8000?";
     protected $dbNombre = "criptografia";
     protected $dbHost = "localhost";
-
     private $enlace;
     private $ultimoError;
     private $ultimaInstruccion;
@@ -21,7 +21,7 @@ class DB {
     public function conectar() {
         $this->enlace = mysql_connect($this->dbHost, $this->dbUsuario, $this->dbContrasena);
         if ($this->enlace) {
-            if($this->seleccionarDB($this->dbNombre)) {
+            if ($this->seleccionarDB($this->dbNombre)) {
                 return $this->enlace;
             }
         }
@@ -43,7 +43,7 @@ class DB {
      * @return boolean TRUE si se selecciono la base de datos correctamente, FALSE si no
      */
     private function seleccionarDB($db) {
-        if(mysql_select_db($db)) {
+        if (mysql_select_db($db)) {
             return true;
         } else {
             $this->ultimoError = mysql_error();
@@ -65,18 +65,18 @@ class DB {
         }
         $columnas = "(";
         $valores = "(";
-        foreach ($datos as $columna=>$valor) {
-            $columnas .= $this->limpiarSQL($columna).",";
-            if($this->existeColumna($columna, $tabla)) {
+        foreach ($datos as $columna => $valor) {
+            $columnas .= $this->limpiarSQL($columna) . ",";
+            if ($this->existeColumna($columna, $tabla)) {
                 $tipo = $this->tipoColumna($columna, $tabla);
                 $valores .= $this->formatearParaInsertar($tipo, $valor);
             } else {
-                $this->ultimoError = "La columna: ".$columna." no es una columna v&aacute;lida";
+                $this->ultimoError = "La columna: " . $columna . " no es una columna v&aacute;lida";
                 return false;
             }
         }
-        $columnas = rtrim($columnas, ',').')';
-        $valores = rtrim($valores, ',').')';
+        $columnas = rtrim($columnas, ',') . ')';
+        $valores = rtrim($valores, ',') . ')';
 
         $insertar = "INSERT INTO $tabla $columnas VALUES $valores";
 
@@ -94,12 +94,14 @@ class DB {
 
         $resutlado = mysql_query($insertar);
         if (!$resutlado) {
-            $this->ultimoError=mysql_error();
+            $this->ultimoError = mysql_error();
             return false;
         }
         $idInsertado = mysql_insert_id();
-        if ($idInsertado == 0) return true;
-        else return $idInsertado;
+        if ($idInsertado == 0)
+            return true;
+        else
+            return $idInsertado;
     }
 
     /**
@@ -116,15 +118,15 @@ class DB {
             return false;
         }
         $valores = "";
-        foreach ($datos as $columna=>$valor) {
+        foreach ($datos as $columna => $valor) {
 
             $columna = $this->limpiarSQL($columna);
 
-            if($this->existeColumna($columna, $tabla)) {
+            if ($this->existeColumna($columna, $tabla)) {
                 $tipo = $this->tipoColumna($columna, $tabla);
-                $valores .= $columna."=".$this->formatearParaInsertar($tipo, $valor);
+                $valores .= $columna . "=" . $this->formatearParaInsertar($tipo, $valor);
             } else {
-                $this->ultimoError = "La columna: ".$columna." no es una columna v&aacute;lida";
+                $this->ultimoError = "La columna: " . $columna . " no es una columna v&aacute;lida";
                 return false;
             }
         }
@@ -147,12 +149,14 @@ class DB {
 
         $resutlado = mysql_query($actualizar);
         if (!$resutlado) {
-            $this->ultimoError=mysql_error();
+            $this->ultimoError = mysql_error();
             return false;
         }
         $filasAfectadas = mysql_affected_rows();
-        if ($filasAfectadas == 0) return true;
-        else return $filasAfectadas;
+        if ($filasAfectadas == 0)
+            return true;
+        else
+            return $filasAfectadas;
     }
 
     /**
@@ -162,12 +166,12 @@ class DB {
      * @param string $valor Dato a insertar
      * @return string Dato formateado
      */
-    private function formatearParaInsertar($tipo,$valor) {
-        if ($tipo=="string" || $tipo=="blob") {
-            return '"'.$this->limpiarSQL($valor).'",';
+    private function formatearParaInsertar($tipo, $valor) {
+        if ($tipo == "string" || $tipo == "blob") {
+            return '"' . $this->limpiarSQL($valor) . '",';
         } else {
             if ($tipo == "int") {
-                return $this->limpiarSQL($valor).',';
+                return $this->limpiarSQL($valor) . ',';
             }
         }
     }
@@ -180,10 +184,10 @@ class DB {
      */
     public function existeColumna($columna, $tabla) {
         $columna = $this->limpiarSQL($columna);
-        $consulta = "SELECT ".$columna." FROM ".$tabla." LIMIT 0, 1 ";
+        $consulta = "SELECT " . $columna . " FROM " . $tabla . " LIMIT 0, 1 ";
         $resultado = mysql_query($consulta);
 
-        if($resultado) {
+        if ($resultado) {
             mysql_free_result($resultado);
             return true;
         }
@@ -197,15 +201,14 @@ class DB {
      */
     public function existeTabla($tabla) {
         $tabla = $this->limpiarSQL($tabla);
-        $consulta = "SELECT * FROM ".$tabla." LIMIT 0, 1 ";
+        $consulta = "SELECT * FROM " . $tabla . " LIMIT 0, 1 ";
         $resultado = mysql_query($consulta);
 
-        if($resultado) {
+        if ($resultado) {
             mysql_free_result($resultado);
             return true;
         }
         return false;
-
     }
 
     /**
@@ -215,14 +218,14 @@ class DB {
      * @return string Retorna el tipo de la columna o FALSE si no se puede determinar
      */
     public function tipoColumna($columna, $tabla) {
-        $consulta =  "SELECT ".$columna." FROM ".$tabla." LIMIT 0, 1 ";
+        $consulta = "SELECT " . $columna . " FROM " . $tabla . " LIMIT 0, 1 ";
         $resultado = mysql_query($consulta);
-        if(!$resultado) {
-            $this->lastError=mysql_error();
+        if (!$resultado) {
+            $this->lastError = mysql_error();
             return false;
         }
         $tipo = mysql_field_type($resultado, 0);
-        if($tipo) {
+        if ($tipo) {
             mysql_free_result($resultado);
             return $tipo;
         } else {
@@ -241,7 +244,7 @@ class DB {
         $this->ultimaInstruccion = $consulta;
 
         $resultado = mysql_query($consulta);
-        if($resultado) {
+        if ($resultado) {
             return $resultado;
         }
         $this->ultimoError = mysql_error();
@@ -250,9 +253,9 @@ class DB {
 
     public static function limpiarSQL($dato) {
 
-        $dato = htmlentities($dato,ENT_COMPAT,'UTF-8');
+        $dato = htmlentities($dato, ENT_COMPAT, 'UTF-8');
         $dato = mysql_escape_string($dato);
-        
+
         return $dato;
     }
 
@@ -267,5 +270,7 @@ class DB {
     public function getEnlace() {
         return $this->enlace;
     }
+
 }
+
 ?>

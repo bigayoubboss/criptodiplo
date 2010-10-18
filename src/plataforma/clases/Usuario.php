@@ -1,14 +1,15 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
-*/
-
+ */
 
 /**
  *
  */
 class Usuario {
+
     private $id_usuario;
     private $nombres;
     private $apellidos;
@@ -23,11 +24,12 @@ class Usuario {
      * Crea un usuario
      * @param String $usuario Nick del usuario
      */
-    public function  __construct($usuario) {
+    public function __construct($usuario) {
         $this->usuario = $usuario;
     }
 
-    public function  __toString() {
+    public function __toString() {
+
     }
 
     /**
@@ -36,12 +38,12 @@ class Usuario {
      * FALSE si el usuario no existe u ocurrio un error al cargar sus datos
      */
     public function cargarUsuario() {
-        if($this->existeUsuario()) {
+        if ($this->existeUsuario()) {
             require_once 'DB.php';
             $db = new DB();
             $db->conectar();
 
-            $consulta = "SELECT * FROM usuarios WHERE usuario='".DB::limpiarSQL($this->usuario)."'";
+            $consulta = "SELECT * FROM usuarios WHERE usuario='" . DB::limpiarSQL($this->usuario) . "'";
             $usuarioSQL = $db->consulta($consulta);
             $usuario = mysql_fetch_object($usuarioSQL);
 
@@ -59,7 +61,6 @@ class Usuario {
             return true;
         }
         return false;
-
     }
 
     /**
@@ -71,14 +72,15 @@ class Usuario {
         $db = new DB();
         $db->conectar();
 
-        $consulta = "SELECT COUNT(*) FROM usuarios WHERE usuario='".DB::limpiarSQL($this->usuario)."'";
+        $consulta = "SELECT COUNT(*) FROM usuarios WHERE usuario='" . DB::limpiarSQL($this->usuario) . "'";
         $usuarioSQL = $db->consulta($consulta);
         $usuario = mysql_fetch_array($usuarioSQL);
 
         mysql_free_result($usuarioSQL);
         $db->desconectar();
 
-        if($usuario['COUNT(*)']) return true;
+        if ($usuario['COUNT(*)'])
+            return true;
         return false;
     }
 
@@ -92,7 +94,7 @@ class Usuario {
         require_once 'DB.php';
 
         $contrasena = DB::limpiarSQL($contrasena);
-        if($contrasena === $this->contrasena) {
+        if ($contrasena === $this->contrasena) {
             return true;
         }
         return false;
@@ -105,13 +107,13 @@ class Usuario {
      * @return boolean TRUE si se pudo crear el usuario, FALSE si ocurrio un problema
      */
     public function registrarNuevoUsuario($usuario) {
-        if(!$this->existeUsuario()) {
+        if (!$this->existeUsuario()) {
             require_once 'DB.php';
             $db = new DB();
             $db->conectar();
 
             $usuario['usuario'] = $this->usuario;
-            if($db->insertarArreglo("usuarios", $usuario)) {
+            if ($db->insertarArreglo("usuarios", $usuario)) {
                 return true;
             }
         }
@@ -127,14 +129,15 @@ class Usuario {
         $db = new DB();
         $db->conectar();
 
-        $consulta = "SELECT id_usuario FROM usuarios WHERE usuario='".DB::limpiarSQL($this->usuario)."'";
+        $consulta = "SELECT id_usuario FROM usuarios WHERE usuario='" . DB::limpiarSQL($this->usuario) . "'";
         $idUsuarioSQL = $db->consulta($consulta);
         $id_usuario = mysql_fetch_array($idUsuarioSQL);
 
         mysql_free_result($idUsuarioSQL);
         $db->desconectar();
 
-        if($id_usuario['id_usuario']) return $id_usuario['id_usuario'];
+        if ($id_usuario['id_usuario'])
+            return $id_usuario['id_usuario'];
         return false;
     }
 
@@ -147,14 +150,15 @@ class Usuario {
         $db = new DB();
         $db->conectar();
 
-        $consulta = "SELECT usuario FROM usuarios WHERE id_usuario=".DB::limpiarSQL($id_usuario);
+        $consulta = "SELECT usuario FROM usuarios WHERE id_usuario=" . DB::limpiarSQL($id_usuario);
         $usuarioSQL = $db->consulta($consulta);
         $usuario = mysql_fetch_array($usuarioSQL);
 
         mysql_free_result($usuarioSQL);
         $db->desconectar();
 
-        if($usuario['usuario']) return $usuario['usuario'];
+        if ($usuario['usuario'])
+            return $usuario['usuario'];
         return false;
     }
 
@@ -164,18 +168,19 @@ class Usuario {
         $db->conectar();
 
         $consulta = "SELECT fecha_ingreso FROM criptografia.login
-            WHERE id_usuario=".$this->id_usuario." ORDER BY fecha_ingreso DESC LIMIT 0,1";
+            WHERE id_usuario=" . $this->id_usuario . " ORDER BY fecha_ingreso DESC LIMIT 0,1";
         $ultimo_accesoSQL = $db->consulta($consulta);
         $ultimo_acceso = mysql_fetch_array($ultimo_accesoSQL);
 
-        mysql_free_result( $ultimo_accesoSQL);
+        mysql_free_result($ultimo_accesoSQL);
         $db->desconectar();
 
-        if($ultimo_acceso['fecha_ingreso']) return $ultimo_acceso['fecha_ingreso'];
+        if ($ultimo_acceso['fecha_ingreso'])
+            return $ultimo_acceso['fecha_ingreso'];
         return false;
     }
 
-     public static function registroHabilitado() {
+    public static function registroHabilitado() {
         require_once 'DB.php';
 
         $db = new DB();
@@ -192,17 +197,21 @@ class Usuario {
     public function getNombres() {
         return $this->nombres;
     }
+
     public function getApellidos() {
         return $this->apellidos;
     }
+
     public function getUsuario() {
         return $this->usuario;
     }
+
     public function getCorreoElectronico() {
         $this->correo_electronico = str_replace("@", " [arroba] ", $this->correo_electronico);
         $this->correo_electronico = str_replace(".", " [punto] ", $this->correo_electronico);
         return $this->correo_electronico;
     }
+
     public function getAdministrador() {
         return $this->administrador;
     }
@@ -213,7 +222,9 @@ class Usuario {
 
     public function getUltimoAcceso() {
 
-        return  date('d/m/Y h:i A', $this->ultimo_acceso);
+        return date('d/m/Y h:i A', $this->ultimo_acceso);
     }
+
 }
+
 ?>

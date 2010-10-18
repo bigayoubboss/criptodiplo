@@ -28,7 +28,9 @@ $(document).ready(function() {
                     $('#respuesta').html(data);
                     $('#respuesta').fadeIn("slow");
                     $('#respuesta').html(data);
-                    setTimeout(function() { $('#respuesta').fadeOut("slow"); }, 5000);
+                    setTimeout(function() {
+                        $('#respuesta').fadeOut("slow");
+                    }, 5000);
                 }
             });
             return false;

@@ -1,8 +1,9 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
-*/
+ */
 
 /**
  * Description of Metodo
@@ -10,6 +11,7 @@
  * @author SirLock
  */
 class Metodo {
+
     /**
      * Devuelve el id de un metodo de cifrado con base a su nombre
      * @param String $metodo Nombre del metodo de cifrado
@@ -20,14 +22,14 @@ class Metodo {
         $db = new DB();
         $db->conectar();
 
-        $consulta = "SELECT id_metodo FROM metodos WHERE metodo ='".DB::limpiarSQL($metodo)."'";
+        $consulta = "SELECT id_metodo FROM metodos WHERE metodo ='" . DB::limpiarSQL($metodo) . "'";
         $id_metodoSQL = $db->consulta($consulta);
         $id_metodo = mysql_fetch_object($id_metodoSQL);
 
         mysql_free_result($id_metodoSQL);
         $db->desconectar();
 
-        if($id_metodo) {
+        if ($id_metodo) {
             return $id_metodo->id_metodo;
         }
         return false;
@@ -43,17 +45,19 @@ class Metodo {
         $db = new DB();
         $db->conectar();
 
-        $consulta = "SELECT metodo FROM metodos WHERE id_metodo ='".DB::limpiarSQL($id_metodo)."'";
+        $consulta = "SELECT metodo FROM metodos WHERE id_metodo ='" . DB::limpiarSQL($id_metodo) . "'";
         $metodoSQL = $db->consulta($consulta);
         $metodo = mysql_fetch_object($metodoSQL);
 
         mysql_free_result($metodoSQL);
         $db->desconectar();
 
-        if($metodo) {
+        if ($metodo) {
             return $metodo->metodo;
         }
         return false;
     }
+
 }
+
 ?>

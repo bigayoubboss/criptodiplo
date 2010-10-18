@@ -1,6 +1,6 @@
 <?php
 require_once '../clases/Login.php';
-Login::redireccionarUsuarios(Login::existeUsuarioActivo(),0);
+Login::redireccionarUsuarios(Login::existeUsuarioActivo(), 0);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -31,7 +31,7 @@ Login::redireccionarUsuarios(Login::existeUsuarioActivo(),0);
                 <h1>Descarga de recursos</h1>
 
                 <div id="enlaces">
-                    <a href="actividad.php?act=<?php echo $_GET['actividad']?>" id="actividadVolver">Volver a la actividad</a>
+                    <a href="actividad.php?act=<?php echo $_GET['actividad'] ?>" id="actividadVolver">Volver a la actividad</a>
                     <a href="material.php" id="materialP">Material</a>
                     <a href="inicio.php" id="inicioPD">Inicio</a>
                     <a href="" id="logout">Cerrar sesi&oacute;n</a>
@@ -42,7 +42,7 @@ Login::redireccionarUsuarios(Login::existeUsuarioActivo(),0);
                     <?php
                     require_once '../uicontrolador/Descarga.php';
                     $recurso = descargarArchivo();
-                    if($recurso->id_recursos) {
+                    if ($recurso->id_recursos) {
                         redireccionarDescarga($recurso);
                     } else {
                         echo '<h2 id="descargaNo">Recurso no disponible</h2>';

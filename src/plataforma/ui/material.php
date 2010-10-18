@@ -1,8 +1,8 @@
 <?php
 require_once '../clases/Login.php';
 $rol = Login::existeUsuarioActivo();
-if($rol==-1){
-    Login::redireccionarUsuarios($rol,0);
+if ($rol == -1) {
+    Login::redireccionarUsuarios($rol, 0);
 }
 ?>
 
@@ -64,23 +64,24 @@ if($rol==-1){
 </html>
 
 <?php
-function imprimirRecursos($id_metodo) {
-    require_once '../clases/DB.php';
-    $db = new DB();
-    $db->conectar();
 
-    $consulta = "SELECT * FROM recursos WHERE id_metodo = ".DB::limpiarSQL($id_metodo);
-    $recursos = $db->consulta($consulta);
+                        function imprimirRecursos($id_metodo) {
+                            require_once '../clases/DB.php';
+                            $db = new DB();
+                            $db->conectar();
 
-    if(!$recursos) {
-        echo "<li>No hay recursos asociados a esta actividad</li>";
-    } else {
-        while ($recurso = mysql_fetch_object($recursos)) {
-            echo "<li><a href='".$recurso->enlace."'>".html_entity_decode($recurso->nombres_mostrar,ENT_COMPAT,'UTF-8')."</a></li>";
-        }
-    }
-    
-    mysql_free_result($recursos);
-    $db->desconectar();
-}
+                            $consulta = "SELECT * FROM recursos WHERE id_metodo = " . DB::limpiarSQL($id_metodo);
+                            $recursos = $db->consulta($consulta);
+
+                            if (!$recursos) {
+                                echo "<li>No hay recursos asociados a esta actividad</li>";
+                            } else {
+                                while ($recurso = mysql_fetch_object($recursos)) {
+                                    echo "<li><a href='" . $recurso->enlace . "'>" . html_entity_decode($recurso->nombres_mostrar, ENT_COMPAT, 'UTF-8') . "</a></li>";
+                                }
+                            }
+
+                            mysql_free_result($recursos);
+                            $db->desconectar();
+                        }
 ?>

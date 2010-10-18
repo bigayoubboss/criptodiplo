@@ -1,16 +1,17 @@
 <?php
-if (isset ($_POST['op']) && isset ($_POST['herramienta'])) {
+
+if (isset($_POST['op']) && isset($_POST['herramienta'])) {
 
     $opcion = $_POST['op'];
     $herramienta = $_POST['herramienta'];
 
-    if($opcion == "cargar") {
+    if ($opcion == "cargar") {
         cargarHerramienta($herramienta);
     }
 }
 
 function cargarHerramienta($herramienta) {
-    switch($herramienta) {
+    switch ($herramienta) {
         case 'verEstadoUsuarios': {
                 require_once '../admin/verEstadoUsuarios.php';
                 formularioVerEstadoUsuarios();

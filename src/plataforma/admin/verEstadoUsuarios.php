@@ -1,28 +1,29 @@
 <?php
+
 function formularioVerEstadoUsuarios() {
-    ?>
-<div id="estadoUsuarios" class="caja">
-    <h2>Estado de usuarios por actividad</h2>
-    <table id="tablaEstadoUsuarios">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th class="nombreUsuario">Usuario</th>
-                    <?php imprimirActividades();?>
+?>
+    <div id="estadoUsuarios" class="caja">
+        <h2>Estado de usuarios por actividad</h2>
+        <table id="tablaEstadoUsuarios">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th class="nombreUsuario">Usuario</th>
+<?php imprimirActividades(); ?>
             </tr>
         </thead>
         <tbody>
-                <?php $usuarios = imprimirUsuarios();?>
+<?php $usuarios = imprimirUsuarios(); ?>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="17">N&uacute;mero de usuarios registrados: <?php echo $usuarios-1; ?></td>
+                <td colspan="17">N&uacute;mero de usuarios registrados: <?php echo $usuarios - 1; ?></td>
             </tr>
         </tfoot>
     </table>
-        <?php cargarUsuarios();?>
+<?php cargarUsuarios(); ?>
 </div>
-    <?php
+<?php
 }
 
 function imprimirUsuarios() {
@@ -42,14 +43,14 @@ function imprimirUsuarios() {
         $actividades = $perfil->getActividades();
 
         echo "<tr>";
-        echo "<td>".$usuarios."</td>";
-        echo "<td title='Id: ".$id_usuario."'>".obtenerNmobreUsuario($id_usuario)."</td>";
+        echo "<td>" . $usuarios . "</td>";
+        echo "<td title='Id: " . $id_usuario . "'>" . obtenerNmobreUsuario($id_usuario) . "</td>";
         foreach ($actividades as $actividad) {
             $title = obtenerNombreEstado($actividad->getEstado());
-            if ($actividad->getIdTexto()!='') {
-                $title .= ' - Texto: '.$actividad->getIdTexto();
+            if ($actividad->getIdTexto() != '') {
+                $title .= ' - Texto: ' . $actividad->getIdTexto();
             }
-            echo '<td class="estado'.$actividad->getEstado().'" title="'.$title.'"></td>';
+            echo '<td class="estado' . $actividad->getEstado() . '" title="' . $title . '"></td>';
         }
         echo "</tr>";
 
@@ -67,8 +68,8 @@ function imprimirActividades() {
     $consulta = "SELECT nombre,id_actividad FROM actividades ORDER BY id_actividad";
     $actividadesSQL = $db->consulta($consulta);
 
-    while($actividad = mysql_fetch_object($actividadesSQL)) {
-        echo '<th title="'.$actividad->nombre.'">'.$actividad->id_actividad.'</th>';
+    while ($actividad = mysql_fetch_object($actividadesSQL)) {
+        echo '<th title="' . $actividad->nombre . '">' . $actividad->id_actividad . '</th>';
     }
 
     $db->desconectar();
@@ -80,14 +81,14 @@ function obtenerNmobreUsuario($id_usuario) {
     $db = new DB();
     $db->conectar();
 
-    $consulta = "SELECT nombres,apellidos FROM usuarios WHERE id_usuario=".$id_usuario;
+    $consulta = "SELECT nombres,apellidos FROM usuarios WHERE id_usuario=" . $id_usuario;
 
     $usuarioSQL = $db->consulta($consulta);
     $usuario = mysql_fetch_object($usuarioSQL);
 
     $db->desconectar();
 
-    return $usuario->nombres." ".$usuario->apellidos;
+    return $usuario->nombres . " " . $usuario->apellidos;
 }
 
 function obtenerIDsUsuarios() {
@@ -98,7 +99,7 @@ function obtenerIDsUsuarios() {
 
     $consulta = "SELECT id_usuario FROM usuarios WHERE administrador=0 ORDER BY nombres";
 
-    $listaUsuarios =  $db->consulta($consulta);
+    $listaUsuarios = $db->consulta($consulta);
     $db->desconectar();
 
     return $listaUsuarios;

@@ -151,7 +151,7 @@ class Login {
      * @param int $tipo_archivo Permisos sobre el tipo de archivo (-2: Redireccion obligatoria, -1: visitante,
      * 0: usuario, 1: administrador)
      */
-    public static function redireccionarUsuarios($administrador,$tipo_archivo) {
+        public static function redireccionarUsuarios($administrador,$tipo_archivo) {
         if($administrador != $tipo_archivo) {
 
             $origen = $_SERVER['PHP_SELF'];

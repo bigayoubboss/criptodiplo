@@ -2,8 +2,8 @@
 require_once '../clases/Login.php';
 require_once '../uicontrolador/Inicio.php';
 
-$usuarioActivo = Login::redireccionarUsuarios(Login::existeUsuarioActivo(),0);
-if($usuarioActivo) {
+$usuarioActivo = Login::redireccionarUsuarios(Login::existeUsuarioActivo(), 0);
+if ($usuarioActivo) {
     require_once '../clases/Perfil.php';
     session_start();
 
@@ -62,13 +62,15 @@ if($usuarioActivo) {
                             <th>Entrar</th>
                         </thead>
                         <tbody>
-                            <?php if($usuarioActivo) {
+                            <?php
+                            if ($usuarioActivo) {
                                 imprimirListaActividades($actividades);
-                            } ?>
+                            }
+                            ?>
                         </tbody>
                         <tfoot>
-                            <td colspan="3"><strong>Terminadas: </strong><?php echo $perfil->getActividadesTerminadas()." de ".$perfil->getNumeroActividades();?>  </td>
-                            <td colspan="3"><strong>Tiempo: </strong><?php echo $perfil->getTiempoTotal();?></td>
+                            <td colspan="3"><strong>Terminadas: </strong><?php echo $perfil->getActividadesTerminadas() . " de " . $perfil->getNumeroActividades(); ?>  </td>
+                            <td colspan="3"><strong>Tiempo: </strong><?php echo $perfil->getTiempoTotal(); ?></td>
                         </tfoot>
                     </table>
                     <noscript class="mensajeNoScript">
@@ -83,23 +85,23 @@ if($usuarioActivo) {
 
                     <h2 id="usuarioPerfil">Informaci&oacute;n de usuario</h2>
                     <p>
-                        <img src="../css/imagenes/usuarioActivo.png" alt="usuario" /><strong>Nombres y apellidos: </strong><?php echo $usuario->getNombres()." ".$usuario->getApellidos();?>
+                        <img src="../css/imagenes/usuarioActivo.png" alt="usuario" /><strong>Nombres y apellidos: </strong><?php echo $usuario->getNombres() . " " . $usuario->getApellidos(); ?>
                     </p>
                     <p>
-                        <img src="../css/imagenes/usuario.png" alt="usuario" /><strong>Nombre de usuario: </strong><?php echo $usuario->getUsuario();?>
+                        <img src="../css/imagenes/usuario.png" alt="usuario" /><strong>Nombre de usuario: </strong><?php echo $usuario->getUsuario(); ?>
                     </p>
                     <p>
-                        <img src="../css/imagenes/correoElectronico.png" alt="correo electronico" /><strong>Correo electr&oacute;nico: </strong><?php echo $usuario->getCorreoElectronico();?><br />
+                        <img src="../css/imagenes/correoElectronico.png" alt="correo electronico" /><strong>Correo electr&oacute;nico: </strong><?php echo $usuario->getCorreoElectronico(); ?><br />
                     </p>
                     <p>
-                        <img src="../css/imagenes/calenadrio.png" alt="ultimo acceso" /><strong>Ultimo acceso: </strong><?php echo $usuario->getUltimoAcceso();?><br />
+                        <img src="../css/imagenes/calenadrio.png" alt="ultimo acceso" /><strong>Ultimo acceso: </strong><?php echo $usuario->getUltimoAcceso(); ?><br />
                     </p>
                 </div>
 
                 <div id="contactoDudas"  class="caja">
                     <h2 id="ayuda">Estamos para colaborarles</h2>
                     <ul>
-                        <?php imprimirListaAdministradores(); ?>
+<?php imprimirListaAdministradores(); ?>
                     </ul>
                     <br />
 
