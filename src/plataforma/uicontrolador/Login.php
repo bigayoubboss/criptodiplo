@@ -1,0 +1,50 @@
+<?php
+if(isset($_POST['op'])) {
+    switch ($_POST['op']) {
+        case "login": {
+                if(isset($_POST['usuario']) && isset($_POST['contrasena'])) {
+                    require_once '../clases/Login.php';
+                    $login =iniciarSesion($_POST['usuario'], $_POST['contrasena']);
+                    if($login!=0) {
+                        if($login==2) {
+                            echo "true";
+                        } else {
+                            echo "<span class='error'>EL ingreso a la plataforma fue deshabilitado temporalmente</span>";
+                        }
+                    } else {
+                        echo "<span class='error'>Usuario y/o contrase&ntilde;a inv&aacute;lidos</span>";
+                    }
+                }
+            }
+            break;
+        case "logout": {
+                require_once '../clases/Login.php';
+                if(Login::registrarSalida()) {
+                    echo "true";
+                } else {
+                    echo "false";
+                }
+            }
+            break;
+    }
+}
+
+function iniciarSesion($usuario, $contrasena) {
+    require_once '../clases/Usuario.php';
+    require_once '../clases/Login.php';
+
+    $usuario = new Usuario($usuario);
+    if($usuario->cargarUsuario()) {
+        if($usuario->verificarContrasena($contrasena)) {
+            if(Login::loginHabilitado() || $usuario->getAdministrador()) {
+                Login::registrarIngreso($usuario->getUsuario());
+                return 2;
+            } else {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+?>

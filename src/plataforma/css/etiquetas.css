@@ -1,0 +1,108 @@
+*{
+    margin:0;
+    padding: 0;
+}
+body{
+    font-family:Verdana,Helvetica,Arial,Geneva,Helvetica,sans-serif;
+}
+
+/* ---------- HEADERS ---------- */
+h1{
+    background-image:url(imagenes/bgTitulo.jpg);
+    color: #ffffff;
+    font-size: 20px;
+    margin: 10px 0;
+    padding: 4px 0;
+    text-align: center;
+}
+h2{
+    color:#2e6583;
+    font-size: 16px;
+    margin: 10px 10px 15px 20px;
+    padding: 2px 0;
+    text-align: left;
+}
+
+/* ---------- LNKS ---------- */
+a{
+    color: #3b5998;
+    text-decoration: none;
+}
+a:hover{
+    color: red;
+    text-decoration: underline;
+}
+a img{
+    border:0;
+}
+/* ---------- IMAGES ---------- */
+img{
+    margin: 0 10px;
+    vertical-align:middle;
+}
+/* ---------- FORMS ---------- */
+p label:first-child{
+    color: #666666;
+    display: inline-block;
+    font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+    font-weight: bold;
+    margin: 5px 10px 5px 0;
+    text-align:right;
+}
+
+input[type="text"],input[type="password"],  select, textarea  {
+    border:1px solid #AAAAAA;
+    font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+    margin-top: 10px;
+}
+
+input[type="text"],input[type="password"],  select{
+    height: 18px;
+}
+
+input[type="text"]:focus,input[type="password"]:focus, textarea:focus, select:focus {
+    background-color:  #f6fafd;
+    border: 1px solid #aac9dc;
+}
+
+input[type="submit"],input[type="button"]{
+    font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 95%;
+    font-weight: bold;
+    margin: 15px 0 20px 0;
+    padding:3px;
+    width: 25%;
+}
+
+textarea{
+    font-size: 10px;
+}
+
+form, .caja {
+    background-color: #fbfbfb;
+    border: 1px solid #173981;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 0 0;
+    width: 590px;
+}
+
+p label{
+    padding-top: 5px;
+    vertical-align: top;
+}
+
+/* ---------- LIST ---------- */
+ul{
+    list-style-image:  url(imagenes/punto.png);
+    margin: 20px 80px;
+    text-align: left;
+}
+li{
+    margin: 5px;
+}
+
+/* ---------- TEXT ---------- */
+p{
+    vertical-align:middle;
+}

@@ -1,0 +1,38 @@
+/** Mensajes de Error **/ 
+input.error{
+    border: 1px #cc0000 solid;
+}
+
+label.error{
+    background:#FFFFFF url(imagenes/errorP.png) no-repeat  left center;
+    color: #cc0000;
+    font-size: 90%;
+    margin-left: 5px;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+
+span.informacion, span.error,span.mensaje{
+    display: block;
+    font-weight: bold;
+    padding: 15px 10px 15px 50px;
+    width: 530px;
+}
+
+span.informacion{
+    background: #edf0f2 url('imagenes/informacion.png') no-repeat 10px;
+    border-top: 1px solid #3d77aa;
+    color: #3d77aa;
+}
+
+span.error{
+    border-top: 1px solid #dd3c10;
+    background: #ffebe8 url('imagenes/error.png') no-repeat 10px;
+    color: #cc0000;
+}
+
+span.mensaje{
+    border-top: 1px solid #66a725;
+    background: #DFF2BF url('imagenes/mensaje.png') no-repeat 10px;
+    color: #4F8A10;
+}
