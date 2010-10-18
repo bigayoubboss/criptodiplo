@@ -33,7 +33,7 @@ function imprimirListaAdministradores() {
     $db = new DB();
     $db->conectar();
 
-    $consulta = "SELECT correo_electronico FROM usuarios WHERE administrador=1 ORDER BY correo_electronico";
+    $consulta = "SELECT correo_electronico FROM usuarios WHERE administrador=1 AND habilitado = 1 ORDER BY correo_electronico";
     $administradoresSQL = $db->consulta($consulta);
 
     while ($administrador = mysql_fetch_object($administradoresSQL)) {
