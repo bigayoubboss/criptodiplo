@@ -57,6 +57,11 @@ function cargarHerramienta($herramienta) {
                 formularioCambiarEstadoUsuario();
                 break;
             }
+        case 'cambiarRolUsuario': {
+                require_once '../admin/cambiarRolUsuario.php';
+                formularioCambiarRolUsuario();
+                break;
+            }
     }
 }
 

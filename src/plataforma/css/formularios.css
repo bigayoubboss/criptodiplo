@@ -25,6 +25,7 @@
 }
 
 #cambiarEstadoActividad label, #cambiarEstadoSeccion label, #verTexto label, #cambiarTexto label,
-#agregarTexto select, #cambiarEstadoActividad select, #cambiarEstadoSeccion select, #cambiarEstadoUsuario label{
+#agregarTexto select, #cambiarEstadoActividad select, #cambiarEstadoSeccion select, #cambiarEstadoUsuario label,
+#cambiarRolUsuario label{
     width: 160px;
 }

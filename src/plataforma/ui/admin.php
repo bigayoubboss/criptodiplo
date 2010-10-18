@@ -54,6 +54,7 @@ Login::redireccionarUsuarios(Login::existeUsuarioActivo(), 1);
                         <option value="agregarRecurso">Agregar Recurso</option>
                         <option value="--" disabled>---------------------------------------</option>
                         <option value="cambiarEstadoUsuario">Habilitar Usuario</option>
+                        <option value="cambiarRolUsuario">Cambiar Rol Usuario</option>
                     </select>
                 </p>
                 <p>
