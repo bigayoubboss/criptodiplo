@@ -78,6 +78,20 @@ class Actividad {
         return false;
     }
 
+    public function registrarIntentoActividad() {
+        $registroActividad = array(
+            "intentos" => ($this->intentos + 1)
+        );
+        $condicion = "id_usuario=" . DB::limpiarSQL($this->id_usuario) . " AND id_actividad='" . DB::limpiarSQL($this->id_actividad) . "'";
+
+        $db = new DB();
+        $db->conectar();
+        if ($db->actualizarArreglo($registroActividad, "actividades_por_usuario", $condicion)) {
+            return true;
+        }
+        return false;
+    }
+
     public function terminarActividad() {
         $terminarActividad = array(
             "fecha_fin" => time()

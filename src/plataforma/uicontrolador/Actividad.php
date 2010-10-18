@@ -51,6 +51,8 @@ if (isset($_POST['op'])) {
                             break;
                     }
 
+                    $actividad->registrarIntentoActividad();
+                    
                     if ($clave == $claveValida) {
                         $actividad->terminarActividad();
                         echo "true";
@@ -80,7 +82,7 @@ function cargarActividad($actividad) {
 }
 
 function mostrarTexto() {
-    echo "termianda";
+    echo "terminada";
 }
 
 ?>
