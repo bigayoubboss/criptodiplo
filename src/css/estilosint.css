@@ -1,0 +1,592 @@
+﻿/*
+---------------------------------------
+Universidad Nacional de Colombia
+Facultad de Ciencias
+Version: 04-2009
+--------------------------------------
+*/
+
+@charset "utf-8";
+/* Documento CSS */
+
+ 
+
+/* Body */
+
+body{
+	font-family:Arial, sans-serif, Helvetica;
+	font-size: 12px;
+	color: #000000;
+	margin:0;
+	padding:0;
+	background-image: url(../images/fondo.jpg);
+	background-repeat: no-repeat;
+	background-color: #A6CBE0;
+}
+
+/* Titulos */ 
+
+h1 {
+	background-image:url(../images/bg_noticias.jpg);
+	color: #FFFFFF;
+	font-size:18px;
+	padding:0px;
+	margin:0px;
+}
+h2 {
+	color: #1C384D;
+	font-size:16px;
+	padding:0px;
+	margin:0px;
+	margin-top:10px;
+}
+
+h3 {
+	color: #ffffff;
+	font-size:14px;
+	font-weight:bold;
+	padding:0px;
+	margin:0px;
+}
+
+h4 {
+	background-image:url(../images/bg_ppaltit.jpg);
+	color: #636d76;
+	font-size:18px;
+	padding:0px;
+	margin:0px;
+	margin-bottom:5px;	
+}
+
+h5 {
+	background-image:url(../images/bg_faculttit.jpg);
+	color: #636d76;
+	font-size:18px;
+	padding:0px;
+	margin:0px;
+	margin-bottom:5px;	
+}
+
+h6 {
+	background-image:url(../images/bg_eventos.jpg);
+	width:230px;
+	height:26px;
+	color: #ffffff;
+	text-align:center;
+	font-size:16px;
+	padding:0px;
+	margin:0px;
+	padding-top: 5px;
+}
+
+.lineatitulo{
+	background-color:#1C384D;
+	width:400px;
+	height:1px;
+}
+
+ul{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+	padding:0px;
+}
+
+li {
+	color: #000000;
+	font-size:11px;
+	margin:0px;
+	padding:0px;
+	margin-left:2px;
+	margin-bottom:2px;
+	font-weight: bolder;
+}
+
+.listmenu1 {
+	background-image:url(../images/bg_ppalmen1.jpg);
+	width: 170px;
+	height:32px;
+}
+.listmenu2 {
+	background-image:url(../images/bg_ppalmen1.jpg);
+	width: 170px;
+	height:32px;
+}
+.listmenu3 {
+	background-image:url(../images/bg_ppalmen1.jpg);
+	width: 170px;
+	height:32px;
+}
+.listmenu4 {
+	background-image:url(../images/bg_ppalmen1.jpg);
+	width: 170px;
+	height:32px;
+}
+.listmenu5 {
+	background-image:url(../images/bg_ppalmen1.jpg);
+	width: 170px;
+	height:32px;
+}
+
+.listmenu6 {
+	background-image:url(../images/bg_facultmen1.jpg);
+	width: 170px;
+	height:32px;
+}
+.listmenu7 {
+	background-image:url(../images/bg_facultmen1.jpg);
+	width: 170px;
+	height:32px;
+}
+.listmenu8 {
+	background-image:url(../images/bg_facultmen1.jpg);
+	width: 170px;
+	height:32px;
+}
+
+.listmenu9 {
+	background-image:url(../images/bg_facultmen1.jpg);
+	width: 168px;
+	height:32px;
+}
+
+.textmenu{
+	padding-left:15px;
+	padding-top:7px;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+/* Cajas */
+
+.bloque_noticias{
+	background: #dddddd;
+}
+
+/* Links */
+a:link, a:visited {
+	color:#FFFFFF;
+	font-weight:bold;
+	text-decoration:none;
+}
+a:hover {
+text-decoration:underline !important}
+
+/* Encabezado y Pie de Página */
+
+.encabezado{
+	width: 950px;
+	margin:0px auto;
+}
+
+.piepagina{
+	width: 948px;
+	background: #cccccc;
+	border: 1px solid #999999;
+	margin:5px auto;
+	margin-bottom:0px;
+}
+
+/* Estructura de la Web */
+
+.contenidoweb { 
+	width: 950px;
+	border: 1px solid #999999;
+	background: #FFFFFF;
+	padding:1px;
+	margin:7px auto;
+	margin-bottom:0px;
+} 
+
+.marcoweb { 
+	background: #FFFFFF;
+} 
+
+.barraizquierda {
+	width: 170px;
+	margin-left:7px;
+	margin-right:4px;
+	float: left;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin-top: 1px;
+	padding-top: 2px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+.barracentral {
+	width: 440px;
+	margin-left:8px;
+	margin-right:9px;
+	float: left;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	padding-top: 1px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+.barraderecha {
+	width: 230px;
+	float: left;
+	padding:10px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+}	
+
+/* Formularios */
+form {
+	margin:0px;
+	padding:0px;
+}
+
+/* BLOQUES */
+
+.bloque_banners {
+	width: 950px;
+	height:104px;
+	background: #FFFFFF;
+	text-align:center;
+	padding-top:5px;
+	margin-top: 15px;
+	margin-right: auto;
+	margin-bottom: 7px;
+	margin-left: auto;
+	z-index:0;
+}
+
+.bloque_bannersizq {
+	width: 170px;
+	background: #FFFFFF;
+	text-align:center;
+	padding-top:5px;
+	margin-top: 15px;
+	margin-right: auto;
+	margin-bottom: 7px;
+	margin-left: auto;
+}
+
+.bloque_logo { 
+	margin: 0;
+	margin-left:5px;
+	width: 280px;
+	padding: 2px 0; 
+	float: left;
+}
+
+.bloque_facultad { 
+	margin: 0;
+	margin-right:5px;
+	width: 950px;
+}
+
+.bloque_noticias {
+	text-align:center;
+}
+
+.bloque_secciones {
+	background: #000000;
+	color: #ffffff;
+}
+
+.bloque_investigacion {
+	text-align:justify;
+	border-top-width: 10px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-color: #cccccc;
+	border-right-color: #cccccc;
+	border-bottom-color: #cccccc;
+	border-left-color: #cccccc;
+}
+
+.bloque_eventos { 
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 10px;
+}
+
+.bloque_direccion { 
+	width: 170px; 
+	margin-left:10px;
+	float: left;
+	padding:10px;
+	font-size:10px; 
+}
+
+.bloque_logosext {
+	width: 530px;
+	text-align:center;
+	float: left;
+	padding:10px;
+}
+
+.bloque_correotel { 
+	width: 160px; 
+	margin-right:10px;
+	float: left;
+	text-align:right;
+	padding:10px; 
+	font-size:10px; 
+}
+
+/* FORMATO ESTANDAR DE LA UNIVERSIDAD*/
+.linksedes{
+	width: 400px;
+	float: right;
+	background-image:url(../images/bg_linksencab.jpg);
+
+}
+.titulofacultad{
+	width: 300px;
+	float: right;
+	height: 70px;
+	font-size:16px;
+	font-weight:bold;
+	padding-top:10px;
+	text-align:right;
+	padding-right:5px;
+}
+.titulosede{
+	width: 300px;
+	float: right;
+	font-size:16px;
+	font-weight:bold;
+	padding-top:10px;
+	text-align:right;
+	padding-right:5px;
+}
+
+.bloque_iniccorr {
+	width: 950px;
+	height:18px;
+	background-image:url(../images/bg_inicio.jpg);
+	float: left;
+}
+
+.bloque_correo {
+	width: 300px;
+	float: right;
+	height:18px;
+	background-color: #FFFFFF;
+}
+.bloque_botoninicio { 
+	width: 81px; 
+	float: left;
+	background-image:url(../images/bg_inicio.jpg);
+
+}
+
+.fechatexto {
+	font-size: 10px;
+	color: #666666;
+	text-align: left;
+	background-color: #FFFFFF;
+	margin-right: 8px;	
+}
+
+.notinvestigacion {
+	font-size:14px;
+	font-weight:bold;
+	margin-bottom:2px;
+}
+
+
+/* Eventos */
+
+.textosevento .cuadroevento li {
+	padding-left: 7px;
+	background:none;
+	background: url(../images/arrow.gif) no-repeat 0 2px;
+	display: block;
+}
+
+.textosevento .cuadroevento a {
+	padding:0;
+	background:transparent;
+}
+
+#content-eventos {
+	margin-left:0;
+	margin-right:0;
+}
+	
+.avisos {
+	background-color:#ffffff;
+}
+	
+#eventos {
+	float: left;
+	padding: 0px;
+}
+
+.item {
+	padding:0px;
+	margin:0px;
+	padding-top:10px;
+}
+
+#eventos a:link,
+
+#eventos a:visited {
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+	width: 230px;
+}
+
+
+ul.cuadroevento {
+	list-style:none;
+	padding:0;
+}
+
+ul.cuadroevento li {
+	font-size:10px;
+	padding-left: 7px;
+	background: url(../images/arrow.gif) no-repeat 0 2px;
+}
+
+.notievento {
+	color: #069;
+	font-size: 9px;
+	margin-top:1px;
+	margin-bottom:1px;
+	margin-right: 1px;
+	margin-left: 1px;
+}
+
+.textosevento, .textosevento ul {
+	margin:0;
+	padding:0;
+	padding-top:10px;
+}
+
+.textosevento h2 {
+	color: #fff;
+	font-size: 100%;
+	background: #999999;
+	width: 150px;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 10px;
+	margin-left: 0;
+	padding-top: 2px;
+	padding-right: 15px;
+	padding-bottom: 2px;
+	padding-left: 15px;
+}
+
+.textosevento h3 {
+	color: #ffffff;
+	font-size: 80%;
+	margin:0;
+	padding:1px 5px 1px 40px;
+}
+
+.textosevento .cajatitulo {
+	position: relative;
+	background: url(../images/textosevento_bg.gif) repeat;
+	padding-bottom: 70px;
+	margin-bottom: 20px;
+	margin-top: 0;
+	margin-right: 0;
+	margin-left: 40px;
+	height:25px;
+}
+
+
+.textosevento .estructura {
+	position: absolute;
+	top: 0;
+	left: -45px;
+	border:0;
+}
+
+
+.textosevento .naturejobs img {border: 0;}
+
+.textosevento .naturejobs h3 {
+	font-size: 80%;
+	padding-bottom:0;
+	overflow: hidden;
+}
+
+.textosevento h3 {
+	font-size: 12px;
+	padding-top:0;
+}
+
+
+.textosevento h3 {
+	padding-top:10px;
+}
+
+
+.textosevento h3 .heading {font-size: 80%;}
+.textosevento div {
+	min-height: 4px;
+	background-color: #FFFFFF;
+}
+
+.textosevento .cuadroevento {
+	padding-top: 8px;
+	padding-right: 10px;
+	padding-bottom: 20px;
+	padding-left: 35px;
+}
+
+.textosevento .cuadroevento li {
+	padding-left: 7px;
+	background:none;
+	display: block;
+	background-image: url(../images/arrow.gif);
+	background-repeat: no-repeat;
+	background-position: 0 5px;
+}
+
+.textosevento .cuadroevento a {
+	padding:0;
+	background:transparent;
+}
+
+
+.bloque_busqueda{
+	width: 160px;
+	float: left;
+}
+
+
+.field {
+	border: 1px solid #666;
+	width: 100px;
+	font-size: 10px;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+}
+
+.clear { 
+	clear:both;
+    float: none;
+	height:0;
+}
