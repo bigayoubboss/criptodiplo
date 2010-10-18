@@ -229,6 +229,10 @@ class Usuario {
         return $this->administrador;
     }
 
+    public function getHabilitado() {
+        return $this->habilitado;
+    }
+
     public function getFechaCreacion() {
         return $this->fecha_creacion;
     }

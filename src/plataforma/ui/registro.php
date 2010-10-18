@@ -25,7 +25,7 @@ Login::redireccionarUsuarios(Login::existeUsuarioActivo(), -1);
     </head>
     <body>
         <div id="contenido">
-            <div id="ccajaRegistro">
+            <div id="cajaRegistro">
 
                 <h1>Diplomado en Criptograf&iacute;a</h1>
 

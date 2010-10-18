@@ -50,9 +50,10 @@ Login::redireccionarUsuarios(Login::existeUsuarioActivo(), 1);
                         <option value="cambiarEstadoSeccion">Habilitar Login</option>                        
                         <option value="--" disabled>---------------------------------------</option>
                         <option value="cambiarTexto">Cambiar Texto</option>
-                        <option value="agregarTexto">Agregar Texto</option>
-                        <option value="--" disabled>---------------------------------------</option>
+                        <option value="agregarTexto">Agregar Texto</option>                        
                         <option value="agregarRecurso">Agregar Recurso</option>
+                        <option value="--" disabled>---------------------------------------</option>
+                        <option value="cambiarEstadoUsuario">Habilitar Usuario</option>
                     </select>
                 </p>
                 <p>

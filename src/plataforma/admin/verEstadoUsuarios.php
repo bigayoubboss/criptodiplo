@@ -8,6 +8,7 @@ function formularioVerEstadoUsuarios() {
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>Estado</th>
                     <th class="nombreUsuario">Usuario</th>
                 <?php imprimirActividades(); ?>
             </tr>
@@ -17,12 +18,14 @@ function formularioVerEstadoUsuarios() {
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="17">N&uacute;mero de usuarios registrados: <?php echo $usuarios - 1; ?></td>
+                    <td colspan="18">N&uacute;mero de usuarios registrados: <?php echo $usuarios - 1; ?></td>
                 </tr>
             </tfoot>
         </table>
-    <?php //cargarUsuarios(); ?>
-            </div>
+        <div class="informacionerror">
+            <span class="informacion">Posibles estados: H: Habilitado - D: Deshabilitado</span>
+        </div>
+    </div>
 <?php
             }
 
@@ -44,16 +47,17 @@ function formularioVerEstadoUsuarios() {
 
                     echo "<tr>";
                     echo "<td>" . $usuarios . "</td>";
+                    echo "<td >" . obtenerEstadoUsuario($id_usuario) . "</td>";
                     echo "<td title='Id: " . $id_usuario . "'>" . obtenerNmobreUsuario($id_usuario) . "</td>";
                     foreach ($actividades as $actividad) {
                         $title = obtenerNombreEstado($actividad->getEstado());
                         if ($actividad->getIdTexto() != '') {
                             $title .= ' - Texto: ' . $actividad->getIdTexto();
                             $title .= ' - Iniciada: ' . $actividad->getFechaInicio();
-                            if($actividad->getFechaFin() != '--'){
+                            if ($actividad->getFechaFin() != '--') {
                                 $title .= ' - Finalizada: ' . $actividad->getFechaFin();
                             }
-                             $title .= ' - Intentos: ' . $actividad->getIntentos();
+                            $title .= ' - Intentos: ' . $actividad->getIntentos();
                         }
                         echo '<td class="estado' . $actividad->getEstado() . '" title="' . $title . '"></td>';
                     }
@@ -94,6 +98,26 @@ function formularioVerEstadoUsuarios() {
                 $db->desconectar();
 
                 return $usuario->nombres . " " . $usuario->apellidos;
+            }
+
+            function obtenerEstadoUsuario($id_usuario) {
+                require_once '../clases/DB.php';
+
+                $db = new DB();
+                $db->conectar();
+
+                $consulta = "SELECT habilitado FROM usuarios WHERE id_usuario=" . $id_usuario;
+
+                $usuarioSQL = $db->consulta($consulta);
+                $usuario = mysql_fetch_object($usuarioSQL);
+
+                $db->desconectar();
+                if ($usuario->habilitado) {
+                    $estado = "H";
+                } else {
+                    $estado = "D";
+                }
+                return $estado;
             }
 
             function obtenerIDsUsuarios() {
