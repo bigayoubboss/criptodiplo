@@ -271,6 +271,10 @@ class Actividad {
         return date('d/m/Y h:i A', $this->fecha_fin);
     }
 
+    public function getIntentos() {
+        return $this->intentos;
+    }
+
     public function getEstado() {
         return $this->estado;
     }

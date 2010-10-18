@@ -45,13 +45,13 @@ Login::redireccionarUsuarios(Login::existeUsuarioActivo(), 1);
                         <option value="verEstadoUsuarios">Ver estado usuarios</option>
                         <option value="verEstadoBDTextos">Ver n&uacute;mero de textos disponibles</option>
                         <option value="verTexto">Ver texto</option>
-                        <option value="--">--</option>
+                        <option value="--" disabled>---------------------------------------</option>
                         <option value="cambiarEstadoActividad">Habilitar Actividad</option>
                         <option value="cambiarEstadoSeccion">Habilitar Login</option>                        
-                        <option value="--">--</option>
+                        <option value="--" disabled>---------------------------------------</option>
                         <option value="cambiarTexto">Cambiar Texto</option>
                         <option value="agregarTexto">Agregar Texto</option>
-                        <option value="--">--</option>
+                        <option value="--" disabled>---------------------------------------</option>
                         <option value="agregarRecurso">Agregar Recurso</option>
                     </select>
                 </p>
