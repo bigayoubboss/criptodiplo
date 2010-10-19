@@ -65,8 +65,8 @@ function imprimirTexto($texto) {
     $clave = '<div id="actividadClave"><p><strong>Clave: </strong>' . $clave . '</p></div>';
 
     $detalles = '<div id="actividadDetalles"><p><strong>Asignado a: </strong>' . $texto->asignado;
-    $detalles .= '</br><strong>M&eacute;todo: </strong>' . $texto->metodo;
-    $detalles .= '</br><strong>Idioma: </strong>' . $texto->idioma . '</p></div>';
+    $detalles .= '<br /><strong>M&eacute;todo: </strong>' . $texto->metodo;
+    $detalles .= '<br /><strong>Idioma: </strong>' . $texto->idioma . '</p></div>';
 
     echo $textoPlano . $textoCifrado . $clave . $detalles;
 }
