@@ -43,18 +43,14 @@ function formularioCambiarRolUsuario() {
             $db = new DB();
             $db->conectar();
 
-            $consulta = "SELECT id_usuario,nombres, apellidos, administrador FROM usuarios ORDER BY nombres";
+            $consulta = "SELECT id_usuario,nombres, apellidos, IF(administrador=1,'[A]','[U]') as administrador
+                FROM usuarios
+                ORDER BY nombres";
 
             $usuarioSQL = $db->consulta($consulta);
 
             while ($usuario = mysql_fetch_object($usuarioSQL)) {
-                $option = '<option value = "' . $usuario->id_usuario . '">[';
-                if ($usuario->administrador) {
-                    $option .= 'A';
-                } else {
-                    $option .= 'U';
-                }
-                $option .= '] ' . $usuario->nombres . ' ' . $usuario->apellidos . '</option>';
+                $option = '<option value = "' . $usuario->id_usuario . '">' . $usuario->administrador . ' ' . $usuario->nombres . ' ' . $usuario->apellidos . '</option>';
                 echo $option;
             }
         }

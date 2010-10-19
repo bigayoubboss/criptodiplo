@@ -26,6 +26,9 @@ function formularioCambiarEstadoActividad() {
         <input type="button" id="cambiarEstadoActividadBoton" value="Cambiar estado" />
     </p>
 
+    <div class="informacionerror">
+        <span class="informacion">Posibles estados: H: Habilitada - D: Deshabilitada</span>
+    </div>
     <div id="respuestaEstadoActividad"></div>
 
 </div>
@@ -39,12 +42,14 @@ function formularioCambiarEstadoActividad() {
             $db = new DB();
             $db->conectar();
 
-            $consulta = "SELECT id_actividad,nombre FROM actividades ORDER BY id_actividad";
+            $consulta = "SELECT id_actividad,nombre,IF(habilitada = 1, '[H]','[D]') as habilitada
+                FROM actividades
+                ORDER BY id_actividad";
 
             $actividadSQL = $db->consulta($consulta);
 
             while ($actividad = mysql_fetch_object($actividadSQL)) {
-                echo '<option value = "' . $actividad->id_actividad . '">' . $actividad->nombre . '</option>';
+                echo '<option value = "' . $actividad->id_actividad . '">' . $actividad->habilitada . ' ' . $actividad->nombre . '</option>';
             }
         }
 

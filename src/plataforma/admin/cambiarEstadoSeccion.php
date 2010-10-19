@@ -23,6 +23,9 @@ function formularioCambiarEstadoSeccion() {
         <input type="button" value="Cambiar estado" id="cambiarEstadoSeccionBoton"/>
     </p>
 
+    <div class="informacionerror">
+        <span class="informacion">Posibles estados: H: Habilitado - D: Deshabilitado</span>
+    </div>
     <div id="respuestaEstadoSeccion"></div>
 
 </div>
@@ -36,12 +39,13 @@ function formularioCambiarEstadoSeccion() {
             $db = new DB();
             $db->conectar();
 
-            $consulta = "SELECT id_seccion_habilitadas,seccion FROM secciones_habilitadas";
+            $consulta = "SELECT id_seccion_habilitadas,seccion,IF(habilitada = 1, '[H]','[D]') as habilitada
+                FROM secciones_habilitadas";
 
             $seccionesSQL = $db->consulta($consulta);
 
             while ($seccion = mysql_fetch_object($seccionesSQL)) {
-                echo '<option value = "' . $seccion->id_seccion_habilitadas . '">' . $seccion->seccion . '</option>';
+                echo '<option value = "' . $seccion->id_seccion_habilitadas . '">' . $seccion->habilitada . ' ' . $seccion->seccion . '</option>';
             }
         }
 

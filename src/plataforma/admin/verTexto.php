@@ -31,7 +31,16 @@ if (isset($_POST['idTexto'])) {
     $db = new DB();
     $db->conectar();
 
-    $consulta = "SELECT texto_cifrado, texto_plano, clave, asignado FROM textos WHERE id_texto=" . $id_texto;
+    $consulta = "SELECT t.texto_cifrado, t.texto_plano, t.clave, IF(t.asignado=0,'Sin asignar',(
+            SELECT CONCAT(u.nombres, ' ' , u.apellidos)
+            FROM actividades_por_usuario a, usuarios u
+            WHERE a.id_usuario = u.id_usuario
+            AND a.id_texto = t.id_texto)) as asignado, m.metodo, i.idioma
+        FROM textos t, metodos m, idiomas i, actividades_por_usuario a, usuarios u
+        WHERE m.id_metodo = t.id_metodo
+        AND a.id_usuario = u.id_usuario
+        AND i.id_idioma = t.id_idioma
+        AND t.id_texto = " . $id_texto;
 
     $textoSQL = $db->consulta($consulta);
     $texto = mysql_fetch_object($textoSQL);
@@ -55,6 +64,10 @@ function imprimirTexto($texto) {
     $clave = html_entity_decode($texto->clave, ENT_COMPAT, 'UTF-8');
     $clave = '<div id="actividadClave"><p><strong>Clave: </strong>' . $clave . '</p></div>';
 
-    echo $textoPlano . $textoCifrado . $clave;
+    $detalles = '<div id="actividadDetalles"><p><strong>Asignado a: </strong>' . $texto->asignado;
+    $detalles .= '</br><strong>M&eacute;todo: </strong>' . $texto->metodo;
+    $detalles .= '</br><strong>Idioma: </strong>' . $texto->idioma . '</p></div>';
+
+    echo $textoPlano . $textoCifrado . $clave . $detalles;
 }
 ?>

@@ -25,7 +25,7 @@ form p {
     margin: 10px 50px;
 }
 
-#actividadTextoCifrado span, #actividadTextoPlano span, #actividadClave p{
+#actividadTextoCifrado span, #actividadTextoPlano span, #actividadClave p, #actividadDetalles p{
     background-color: #ffffff;;
     border: 1px dashed #2e6583;
     display: block;

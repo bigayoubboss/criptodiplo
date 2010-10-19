@@ -1,8 +1,9 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
-*/
+ */
 
 /**
  * Description of Login
@@ -10,6 +11,7 @@
  * @author SirLock
  */
 class Login {
+
     /**
      * Registra el ingreso de un usuario a la plataforma, generando un registro en la base de datos
      * y su respectiva sesion de php
@@ -23,23 +25,22 @@ class Login {
         $usuario = new Usuario($usuario);
         $id_usuario = $usuario->devolverIdUsuario();
         $cadenaAleatoria = Login::cadenaAleatoria();
-        if($id_usuario) {
+        if ($id_usuario) {
             $login = array(
-                    "id_usuario" => $id_usuario,
-                    "no_cache" => $cadenaAleatoria ,
-                    "fecha_ingreso" => time(),
-                    "activo" => 1
+                "id_usuario" => $id_usuario,
+                "no_cache" => $cadenaAleatoria,
+                "fecha_ingreso" => time(),
+                "activo" => 1
             );
             $db = new DB();
             $db->conectar();
-            if($db->insertarArreglo("login", $login)) {
+            if ($db->insertarArreglo("login", $login)) {
                 $db->desconectar();
                 Login::registrarSesion($id_usuario, $cadenaAleatoria);
                 return true;
             }
         }
         return false;
-
     }
 
     /**
@@ -55,20 +56,18 @@ class Login {
         $aleatorio = $_SESSION['nocache'];
 
         $cierreSesion = array(
-                "fecha_salida" => time(),
-                "activo" => 0
+            "fecha_salida" => time(),
+            "activo" => 0
         );
-        $condicion = "id_usuario=".DB::limpiarSQL($id_usuario)." AND no_cache='".DB::limpiarSQL($aleatorio)."'";
+        $condicion = "id_usuario=" . DB::limpiarSQL($id_usuario) . " AND no_cache='" . DB::limpiarSQL($aleatorio) . "'";
 
         $db = new DB();
         $db->conectar();
-        if($db->actualizarArreglo($cierreSesion, "login", $condicion)) {
+        if ($db->actualizarArreglo($cierreSesion, "login", $condicion)) {
             session_destroy();
             return true;
         }
         return false;
-
-
     }
 
     /**
@@ -77,18 +76,18 @@ class Login {
      */
     private static function cadenaAleatoria() {
         $tamaño = 64;
-        $aleatorio="";
-        for($i=1;$i<=$tamaño;$i++) {
-            srand((double)microtime() * 1000000);
-            switch(rand(1,3)) {
+        $aleatorio = "";
+        for ($i = 1; $i <= $tamaño; $i++) {
+            srand((double) microtime() * 1000000);
+            switch (rand(1, 3)) {
                 case 1:
-                    $caracter = rand(48,57);
+                    $caracter = rand(48, 57);
                     break;
                 case 2:
-                    $caracter = rand(65,90);
+                    $caracter = rand(65, 90);
                     break;
                 case 3:
-                    $caracter = rand(97,122);
+                    $caracter = rand(97, 122);
                     break;
             }
 
@@ -115,23 +114,23 @@ class Login {
      */
     public static function existeUsuarioActivo() {
         session_start();
-        if(isset($_SESSION['nocache']) && isset($_SESSION['usuario'])) {
+        if (isset($_SESSION['nocache']) && isset($_SESSION['usuario'])) {
             require_once 'DB.php';
 
             $db = new DB();
             $db->conectar();
 
-            $consulta = "SELECT COUNT(*) FROM login WHERE id_usuario=".
-                    DB::limpiarSQL($_SESSION['usuario'])." AND no_cache='".
-                    DB::limpiarSQL($_SESSION['nocache'])."' AND activo=1";
+            $consulta = "SELECT COUNT(*) FROM login WHERE id_usuario=" .
+                    DB::limpiarSQL($_SESSION['usuario']) . " AND no_cache='" .
+                    DB::limpiarSQL($_SESSION['nocache']) . "' AND activo=1";
             $usuarioSQL = $db->consulta($consulta);
             $usuario = mysql_fetch_array($usuarioSQL);
 
             mysql_free_result($usuarioSQL);
 
-            if($usuario['COUNT(*)']) {
+            if ($usuario['COUNT(*)']) {
 
-                $consulta = "SELECT administrador FROM usuarios WHERE id_usuario=".DB::limpiarSQL($_SESSION['usuario']);
+                $consulta = "SELECT administrador FROM usuarios WHERE id_usuario=" . DB::limpiarSQL($_SESSION['usuario']);
 
                 $usuarioSQL = $db->consulta($consulta);
                 $usuario = mysql_fetch_object($usuarioSQL);
@@ -151,27 +150,27 @@ class Login {
      * @param int $tipo_archivo Permisos sobre el tipo de archivo (-2: Redireccion obligatoria, -1: visitante,
      * 0: usuario, 1: administrador)
      */
-        public static function redireccionarUsuarios($administrador,$tipo_archivo) {
-        if($administrador != $tipo_archivo) {
+    public static function redireccionarUsuarios($administrador, $tipo_archivo) {
+        if ($administrador != $tipo_archivo) {
 
             $origen = $_SERVER['PHP_SELF'];
 
             $destino = "";
-            if(strpos($origen,"/ui/") || strpos($origen,"/uicontrolador/") || strpos($origen,"/clases/")) {
+            if (strpos($origen, "/ui/") || strpos($origen, "/uicontrolador/") || strpos($origen, "/clases/")) {
                 $destino = "../";
             }
 
-            switch($administrador) {
+            switch ($administrador) {
                 case 0: {
-                        header( 'Location: '.$destino.'ui/inicio.php' );
+                        header('Location: ' . $destino . 'ui/inicio.php');
                         return true;
                     }
                 case 1: {
-                        header( 'Location: '.$destino.'ui/admin.php' );
+                        header('Location: ' . $destino . 'ui/admin.php');
                         return true;
                     }
                 case -1: {
-                        header( 'Location: '.$destino.'ui/login.php' );
+                        header('Location: ' . $destino . 'ui/login.php');
                         return false;
                     }
             }
@@ -194,6 +193,5 @@ class Login {
     }
 
 }
-
 
 ?>

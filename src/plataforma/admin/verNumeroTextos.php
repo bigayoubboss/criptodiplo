@@ -30,7 +30,7 @@ function imprimirNumeroTextos() {
     $db = new DB();
     $db->conectar();
 
-    $consulta = "SELECT metodo,id_metodo FROM metodos ORDER BY metodo";
+    $consulta = "SELECT metodo,id_metodo FROM metodos ORDER BY id_metodo";
     $metodosSQL = $db->consulta($consulta);
 
     while ($metodo = mysql_fetch_object($metodosSQL)) {

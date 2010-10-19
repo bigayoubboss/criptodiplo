@@ -42,9 +42,9 @@ Login::redireccionarUsuarios(Login::existeUsuarioActivo(), 1);
                 <p>
                     <label>Herramienta:</label>
                     <select id="herramientasOpciones">
-                        <option value="verEstadoUsuarios">Ver estado usuarios</option>
-                        <option value="verEstadoBDTextos">Ver n&uacute;mero de textos disponibles</option>
-                        <option value="verTexto">Ver texto</option>
+                        <option value="verEstadoUsuarios">Ver Estado Usuarios</option>
+                        <option value="verEstadoBDTextos">Ver N&uacute;mero de Textos disponibles</option>
+                        <option value="verTexto">Ver Texto</option>
                         <option value="--" disabled>---------------------------------------</option>
                         <option value="cambiarEstadoActividad">Habilitar Actividad</option>
                         <option value="cambiarEstadoSeccion">Habilitar Login</option>                        

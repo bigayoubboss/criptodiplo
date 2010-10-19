@@ -42,18 +42,14 @@ function formularioCambiarEstadoUsuario() {
             $db = new DB();
             $db->conectar();
 
-            $consulta = "SELECT id_usuario,nombres, apellidos, habilitado FROM usuarios ORDER BY nombres";
+            $consulta = "SELECT id_usuario,nombres, apellidos,IF(habilitado = 1, '[H]','[D]') as habilitado
+                FROM usuarios
+                ORDER BY nombres";
 
             $usuarioSQL = $db->consulta($consulta);
 
             while ($usuario = mysql_fetch_object($usuarioSQL)) {
-                $option = '<option value = "' . $usuario->id_usuario . '">[';
-                if ($usuario->habilitado) {
-                    $option .= 'H';
-                } else {
-                    $option .= 'D';
-                }
-                $option .= '] ' . $usuario->nombres . ' ' . $usuario->apellidos . '</option>';
+                $option = '<option value = "' . $usuario->id_usuario . '">' . $usuario->habilitado . ' ' . $usuario->nombres . ' ' . $usuario->apellidos . '</option>';
                 echo $option;
             }
         }
