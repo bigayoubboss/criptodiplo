@@ -4,7 +4,7 @@ function formularioAgregarRecurso() {
 ?>
     <div class="caja" id="agregarRecurso">
 
-        <h2>Agregar Texto</h2>
+        <h2>Agregar Recurso</h2>
         <p>
             <label>Nombre para mostrar:</label>
             <input type="text" id="nombre"/>
