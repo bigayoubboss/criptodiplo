@@ -99,7 +99,7 @@ if ($usuarioActivo) {
                 </div>
 
                 <div id="contactoDudas"  class="caja">
-                    <h2 id="ayuda">Estamos para colaborarles</h2>
+                    <h2 id="ayuda">Ayuda</h2>
                     <ul>
 <?php imprimirListaAdministradores(); ?>
                     </ul>
