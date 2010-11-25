@@ -44,7 +44,7 @@ class Actividad {
     /**
      * Carga la actividad con base a el id de usuario y al id de la actividad previamente cargados
      */
-    public function cargarActividad() {
+    public function cargarActividad($mostrarDetalles) {
         require_once 'DB.php';
         $db = new DB();
         $db->conectar();
@@ -67,7 +67,7 @@ class Actividad {
                 $this->fecha_inicio = "--";
                 $this->fecha_fin = "--";
             }
-            $this->cargarDatosInterfaz();
+            $this->cargarDatosInterfaz($mostrarDetalles);
             $this->estado = $this->calcularEstado();
             if ($this->estado)
                 $this->puede_entrar = true;
@@ -106,12 +106,17 @@ class Actividad {
         return false;
     }
 
-    private function cargarDatosInterfaz() {
+    private function cargarDatosInterfaz($mostrarDetalles) {
         require_once 'DB.php';
         $db = new DB();
         $db->conectar();
 
-        $consulta = "SELECT nombre,mostrar_texto_cifrado,id_metodo,tipo_respuesta,forma_respuesta,mostrar_clave FROM actividades WHERE id_actividad =" . DB::limpiarSQL($this->id_actividad);
+        if ($mostrarDetalles) {
+            $consulta = "SELECT nombre,mostrar_texto_cifrado,id_metodo,tipo_respuesta,forma_respuesta,mostrar_clave FROM actividades WHERE id_actividad =" . DB::limpiarSQL($this->id_actividad);
+        } else {
+            $consulta = "SELECT nombre FROM actividades WHERE id_actividad =" . DB::limpiarSQL($this->id_actividad);
+        }
+        
         $datosActividadInterfazSQL = $db->consulta($consulta);
         $datosActividadInterfaz = mysql_fetch_object($datosActividadInterfazSQL);
 
@@ -121,19 +126,24 @@ class Actividad {
         if ($datosActividadInterfaz) {
 
             $this->nombre = $datosActividadInterfaz->nombre;
-            $this->mostrarTextoCifrado = $datosActividadInterfaz->mostrar_texto_cifrado;
-            $this->mostrarClave = $datosActividadInterfaz->mostrar_clave;
-            $this->id_metodo = $datosActividadInterfaz->id_metodo;
-            $this->respuesta = $datosActividadInterfaz->tipo_respuesta;
-            $this->forma_respuesta = $datosActividadInterfaz->forma_respuesta;
 
-            $consulta = "SELECT informacion_adicional FROM metodos WHERE id_metodo = " . DB::limpiarSQL($this->id_metodo);
-            $informacionAdicionalSQL = $db->consulta($consulta);
-            $informacionAdicional = mysql_fetch_object($informacionAdicionalSQL);
-            $this->informacion_adicional = $informacionAdicional->informacion_adicional;
+            if ($mostrarDetalles) {
+
+                $this->mostrarTextoCifrado = $datosActividadInterfaz->mostrar_texto_cifrado;
+                $this->mostrarClave = $datosActividadInterfaz->mostrar_clave;
+                $this->id_metodo = $datosActividadInterfaz->id_metodo;
+                $this->respuesta = $datosActividadInterfaz->tipo_respuesta;
+                $this->forma_respuesta = $datosActividadInterfaz->forma_respuesta;
+
+                $consulta = "SELECT informacion_adicional FROM metodos WHERE id_metodo = " . DB::limpiarSQL($this->id_metodo);
+                $informacionAdicionalSQL = $db->consulta($consulta);
+                $informacionAdicional = mysql_fetch_object($informacionAdicionalSQL);
+                $this->informacion_adicional = $informacionAdicional->informacion_adicional;
+            }
+
 
             $db->desconectar();
-            return $datosActividadInterfaz->forma_respuesta;
+            return true;
         }
 
         $db->desconectar();

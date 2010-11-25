@@ -3,11 +3,13 @@
 if (isset($_GET['act'])) {
     require_once '../clases/Actividad.php';
 
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();
+    }
     $id_usuario = $_SESSION['usuario'];
 
     $actividad = new Actividad($id_usuario, $_GET['act']);
-    $actividad->cargarActividad();
+    $actividad->cargarActividad(true);
 
     switch ($actividad->getEstado()) {
         case 0: header('Location: ../ui/inicio.php');
@@ -23,7 +25,9 @@ if (isset($_POST['op'])) {
     switch ($_POST['op']) {
         case "completarActividad": {
                 if (isset($_POST['clave']) && isset($_POST['idActividad'])) {
-                    session_start();
+                    if (!isset($_SESSION)) {
+                        session_start();
+                    }
 
                     $id_usuario = $_SESSION['usuario'];
                     $id_actividad = $_POST['idActividad'];
@@ -31,7 +35,7 @@ if (isset($_POST['op'])) {
 
                     require_once '../clases/Actividad.php';
                     $actividad = new Actividad($id_usuario, $id_actividad);
-                    $actividad->cargarActividad();
+                    $actividad->cargarActividad(true);
                     $actividad->cargarTextoAsignado();
 
                     $texto = $actividad->getTexto();
@@ -52,7 +56,7 @@ if (isset($_POST['op'])) {
                     }
 
                     $actividad->registrarIntentoActividad();
-                    
+
                     if ($clave == $claveValida) {
                         $actividad->terminarActividad();
                         echo "true";
@@ -68,7 +72,7 @@ if (isset($_POST['op'])) {
 function comenzarActividad($actividad) {
     require_once '../clases/Actividad.php';
     if ($actividad->iniciarActividad()) {
-        $actividad->cargarActividad();
+        $actividad->cargarActividad(true);
         return $actividad;
     } else {
         echo "<span class='error'>Ocurrio un error comuniquese con el administrador del sistema</span>";

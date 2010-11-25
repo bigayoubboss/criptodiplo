@@ -5,7 +5,9 @@ require_once '../uicontrolador/Inicio.php';
 $usuarioActivo = Login::redireccionarUsuarios(Login::existeUsuarioActivo(), 0);
 if ($usuarioActivo) {
     require_once '../clases/Perfil.php';
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();
+    }
 
     $perfil = new Perfil($_SESSION['usuario']);
     $perfil->cargarPerfil();
@@ -62,11 +64,11 @@ if ($usuarioActivo) {
                             <th>Entrar</th>
                         </thead>
                         <tbody>
-                            <?php
-                            if ($usuarioActivo) {
-                                imprimirListaActividades($actividades);
-                            }
-                            ?>
+<?php
+if ($usuarioActivo) {
+    imprimirListaActividades($actividades);
+}
+?>
                         </tbody>
                         <tfoot>
                             <td colspan="3"><strong>Terminadas: </strong><?php echo $perfil->getActividadesTerminadas() . " de " . $perfil->getNumeroActividades(); ?>  </td>

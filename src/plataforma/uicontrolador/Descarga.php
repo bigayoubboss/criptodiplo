@@ -8,7 +8,9 @@ function descargarArchivo() {
 
     if (isset($_GET['actividad']) && isset($_GET['recurso'])) {
 
-        session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         $id_actividad = $_GET['actividad'];
         $id_recurso = $_GET['recurso'];
         $id_usuario = $_SESSION['usuario'];

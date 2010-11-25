@@ -51,7 +51,10 @@ class Login {
     public static function registrarSalida() {
         require_once 'DB.php';
 
-        session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
         $id_usuario = $_SESSION['usuario'];
         $aleatorio = $_SESSION['nocache'];
 
@@ -102,7 +105,9 @@ class Login {
      * @param <type> $no_cache
      */
     private static function registrarSesion($id_usuario, $no_cache) {
-        session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         $_SESSION['usuario'] = $id_usuario;
         $_SESSION['nocache'] = $no_cache;
     }
@@ -113,7 +118,9 @@ class Login {
      * 1: si existe una sesion de usurio activa
      */
     public static function existeUsuarioActivo() {
-        session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         if (isset($_SESSION['nocache']) && isset($_SESSION['usuario'])) {
             require_once 'DB.php';
 

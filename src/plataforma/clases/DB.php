@@ -34,7 +34,10 @@ class DB {
      * @return boolean TRUE si la conexión se cierra sin problemas, FALSE si no
      */
     public function desconectar() {
-        return mysql_close($this->enlace);
+        if (!$this->enlace) {
+            return mysql_close($this->enlace);
+        }
+        return true;
     }
 
     /**
@@ -43,7 +46,7 @@ class DB {
      * @return boolean TRUE si se selecciono la base de datos correctamente, FALSE si no
      */
     private function seleccionarDB($db) {
-        if (mysql_select_db($db)) {
+        if (mysql_select_db($db, $this->enlace)) {
             return true;
         } else {
             $this->ultimoError = mysql_error();

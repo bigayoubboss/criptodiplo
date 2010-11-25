@@ -40,7 +40,7 @@ class Texto {
             $this->texto_cifrado = $texto->texto_cifrado;
             $this->idioma = Idioma::devovlerIdioma($texto->id_idioma);
             $this->metodo = Metodo::devovlerMetodo($texto->id_metodo);
-            $this->asignado = $texto->asgnado;
+            $this->asignado = $texto->asignado;
             $this->clave = $texto->clave;
         }
         mysql_free_result($textoSQL);

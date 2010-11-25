@@ -43,7 +43,7 @@ class Perfil {
 
             require_once '../clases/Actividad.php';
             $actividad = new Actividad($this->id_usuario, $actividadDisponible->id_actividad);
-            $actividad->cargarActividad();
+            $actividad->cargarActividad(false);
 
             $actividades[$actividadDisponible->id_actividad] = $actividad;
         }
