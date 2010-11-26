@@ -55,7 +55,7 @@ class Login {
             session_start();
         }
 
-        $id_usuario = $_SESSION['usuario'];
+        $id_usuario = $_SESSION['idUsuario'];
         $aleatorio = $_SESSION['nocache'];
 
         $cierreSesion = array(
@@ -108,7 +108,7 @@ class Login {
         if (!isset($_SESSION)) {
             session_start();
         }
-        $_SESSION['usuario'] = $id_usuario;
+        $_SESSION['idUsuario'] = $id_usuario;
         $_SESSION['nocache'] = $no_cache;
     }
 
@@ -121,14 +121,14 @@ class Login {
         if (!isset($_SESSION)) {
             session_start();
         }
-        if (isset($_SESSION['nocache']) && isset($_SESSION['usuario'])) {
+        if (isset($_SESSION['nocache']) && isset($_SESSION['idUsuario'])) {
             require_once 'DB.php';
 
             $db = new DB();
             $db->conectar();
 
             $consulta = "SELECT COUNT(*) FROM login WHERE id_usuario=" .
-                    DB::limpiarSQL($_SESSION['usuario']) . " AND no_cache='" .
+                    DB::limpiarSQL($_SESSION['idUsuario']) . " AND no_cache='" .
                     DB::limpiarSQL($_SESSION['nocache']) . "' AND activo=1";
             $usuarioSQL = $db->consulta($consulta);
             $usuario = mysql_fetch_array($usuarioSQL);
@@ -137,7 +137,7 @@ class Login {
 
             if ($usuario['COUNT(*)']) {
 
-                $consulta = "SELECT administrador FROM usuarios WHERE id_usuario=" . DB::limpiarSQL($_SESSION['usuario']);
+                $consulta = "SELECT administrador FROM usuarios WHERE id_usuario=" . DB::limpiarSQL($_SESSION['idUsuario']);
 
                 $usuarioSQL = $db->consulta($consulta);
                 $usuario = mysql_fetch_object($usuarioSQL);

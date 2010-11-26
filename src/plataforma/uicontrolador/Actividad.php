@@ -6,7 +6,7 @@ if (isset($_GET['act'])) {
     if (!isset($_SESSION)) {
         session_start();
     }
-    $id_usuario = $_SESSION['usuario'];
+    $id_usuario = $_SESSION['idUsuario'];
 
     $actividad = new Actividad($id_usuario, $_GET['act']);
     $actividad->cargarActividad(true);
@@ -29,7 +29,7 @@ if (isset($_POST['op'])) {
                         session_start();
                     }
 
-                    $id_usuario = $_SESSION['usuario'];
+                    $id_usuario = $_SESSION['idUsuario'];
                     $id_actividad = $_POST['idActividad'];
                     $clave = $_POST['clave'];
 

@@ -9,7 +9,7 @@ if ($usuarioActivo) {
         session_start();
     }
 
-    $perfil = new Perfil($_SESSION['usuario']);
+    $perfil = new Perfil($_SESSION['idUsuario']);
     $perfil->cargarPerfil();
 
     $actividades = $perfil->getActividades();

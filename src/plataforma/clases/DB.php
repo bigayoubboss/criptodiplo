@@ -255,11 +255,13 @@ class DB {
     }
 
     public static function limpiarSQL($dato) {
-
-        $dato = htmlentities($dato, ENT_COMPAT, 'UTF-8');
-        $dato = mysql_escape_string($dato);
-
-        return $dato;
+        if (is_string($dato)) {
+            $dato = htmlentities($dato, ENT_COMPAT, 'UTF-8');
+            $dato = mysql_escape_string($dato);
+            return $dato;
+        } else {
+            return $dato;
+        }
     }
 
     /**

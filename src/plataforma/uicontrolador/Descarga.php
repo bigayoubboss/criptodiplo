@@ -13,7 +13,7 @@ function descargarArchivo() {
         }
         $id_actividad = $_GET['actividad'];
         $id_recurso = $_GET['recurso'];
-        $id_usuario = $_SESSION['usuario'];
+        $id_usuario = $_SESSION['idUsuario'];
 
         if ($id_usuario) {
 
