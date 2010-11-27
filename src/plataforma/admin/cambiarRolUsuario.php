@@ -36,43 +36,43 @@ function formularioCambiarRolUsuario() {
 <script type="text/javascript" src="../admin/cambiarRolUsuario.js"></script>
 
 <?php
-        }
+}
 
-        function cargarusuarios() {
-            require_once '../clases/DB.php';
-            $db = new DB();
-            $db->conectar();
+function cargarusuarios() {
+	require_once '../clases/DB.php';
+	$db = new DB();
+	$db->conectar();
 
-            $consulta = "SELECT id_usuario,nombres, apellidos, IF(administrador=1,'[A]','[U]') as administrador
+	$consulta = "SELECT id_usuario,nombres, apellidos, IF(administrador=1,'[A]','[U]') as administrador
                 FROM usuarios
                 ORDER BY nombres";
 
-            $usuarioSQL = $db->consulta($consulta);
+	$usuarioSQL = $db->consulta($consulta);
 
-            while ($usuario = mysql_fetch_object($usuarioSQL)) {
-                $option = '<option value = "' . $usuario->id_usuario . '">' . $usuario->administrador . ' ' . $usuario->nombres . ' ' . $usuario->apellidos . '</option>';
-                echo $option;
-            }
-        }
+	while ($usuario = mysql_fetch_object($usuarioSQL)) {
+		$option = '<option value = "'.$usuario->id_usuario.'">'.$usuario->administrador.' '.$usuario->nombres.' '.$usuario->apellidos.'</option>';
+		echo $option;
+	}
+}
 
-        if (isset($_POST['usuario']) && isset($_POST['rolUsuario'])) {
+if (isset($_POST['usuario']) && isset($_POST['rolUsuario'])) {
 
-            require_once '../clases/DB.php';
+	require_once '../clases/DB.php';
 
-            $id_usuario = DB::limpiarSQL($_POST['usuario']);
-            $administrador = DB::limpiarSQL($_POST['rolUsuario']);
+	$id_usuario = DB::limpiarSQL($_POST['usuario']);
+	$administrador = DB::limpiarSQL($_POST['rolUsuario']);
 
-            $rolUsuario = array(
-                "administrador" => $administrador
-            );
+	$rolUsuario = array(
+		"administrador" => $administrador
+	);
 
-            $db = new DB();
-            $db->conectar();
+	$db = new DB();
+	$db->conectar();
 
-            if ($db->actualizarArreglo($rolUsuario, "usuarios", "id_usuario=" . $id_usuario)) {
-                echo "<span class='mensaje'>El rol de la usuario se cambio exitosamente.</span>";
-            } else {
-                echo "<span class='error'>No se completo el cambio de rol de la usuario.</span>";
-            }
-        }
+	if ($db->actualizarArreglo($rolUsuario, "usuarios", "id_usuario=".$id_usuario)) {
+		echo "<span class='mensaje'>El rol de la usuario se cambio exitosamente.</span>";
+	} else {
+		echo "<span class='error'>No se completo el cambio de rol de la usuario.</span>";
+	}
+}
 ?>

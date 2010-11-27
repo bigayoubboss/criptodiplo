@@ -41,47 +41,46 @@ function formularioAgregarRecurso() {
 
 <script type="text/javascript" src="../admin/agregarRecurso.js"></script>
 <?php
-        }
+}
 
-        function cargarMetodos() {
-            require_once '../clases/DB.php';
-            $db = new DB();
-            $db->conectar();
+function cargarMetodos() {
+	require_once '../clases/DB.php';
+	$db = new DB();
+	$db->conectar();
 
-            $consulta = "SELECT id_metodo, metodo FROM metodos";
+	$consulta = "SELECT id_metodo, metodo FROM metodos";
 
-            $metodosSQL = $db->consulta($consulta);
+	$metodosSQL = $db->consulta($consulta);
 
-            while ($metodo = mysql_fetch_object($metodosSQL)) {
-                echo '<option value = "' . $metodo->id_metodo . '" ' . $selected . '>' . $metodo->metodo . '</option>';
-            }
-        }
+	while ($metodo = mysql_fetch_object($metodosSQL)) {
+		echo '<option value = "'.$metodo->id_metodo.'" '.$selected.'>'.$metodo->metodo.'</option>';
+	}
+}
 
-        if (isset($_POST['nombre']) && isset($_POST['enlace']) && isset($_POST['prerequisitos'])
-                && isset($_POST['idMetodo'])) {
+if (isset($_POST['nombre']) && isset($_POST['enlace']) && isset($_POST['prerequisitos']) && isset($_POST['idMetodo'])) {
 
-            require_once '../clases/DB.php';
+	require_once '../clases/DB.php';
 
-            $nombre = DB::limpiarSQL($_POST['nombre']);
-            $enlace = DB::limpiarSQL($_POST['enlace']);
-            $prerequisitos = DB::limpiarSQL($_POST['prerequisitos']);
-            $idMetodo = DB::limpiarSQL($_POST['idMetodo']);
+	$nombre = DB::limpiarSQL($_POST['nombre']);
+	$enlace = DB::limpiarSQL($_POST['enlace']);
+	$prerequisitos = DB::limpiarSQL($_POST['prerequisitos']);
+	$idMetodo = DB::limpiarSQL($_POST['idMetodo']);
 
-            $nuevoRecurso = array(
-                "nombres_mostrar" => $nombre,
-                "enlace" => $enlace,
-                "id_metodo" => $idMetodo,
-                "requisitos" => $prerequisitos
-            );
+	$nuevoRecurso = array(
+		"nombres_mostrar" => $nombre,
+		"enlace" => $enlace,
+		"id_metodo" => $idMetodo,
+		"requisitos" => $prerequisitos
+	);
 
-            $db = new DB();
-            $db->conectar();
+	$db = new DB();
+	$db->conectar();
 
-            if ($db->insertarArreglo("recursos", $nuevoRecurso)) {
-                echo "<span class='mensaje'>El recurso se agrego correctamente.</span>";
-            } else {
-                echo "<span class='error'>Ocurrio un error al agregar el recurso.</span>";
-            }
-            $db->desconectar();
-        }
+	if ($db->insertarArreglo("recursos", $nuevoRecurso)) {
+		echo "<span class='mensaje'>El recurso se agrego correctamente.</span>";
+	} else {
+		echo "<span class='error'>Ocurrio un error al agregar el recurso.</span>";
+	}
+	$db->desconectar();
+}
 ?>

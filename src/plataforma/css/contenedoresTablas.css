@@ -1,115 +1,120 @@
 /** contenedores **/
-
-#contenido, #contenidoAdmin{
-    display: block;
-    font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
-    font-size:12px;
-    margin: 0 auto;
-    width: 700px;
+#contenido,#contenidoAdmin {
+	display: block;
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+	font-size: 12px;
+	margin: 0 auto;
+	width: 700px;
 }
 
 form p {
-    text-align: left;
+	text-align: left;
 }
 
-#enlaces{
-    margin: 20px 10px 0 0;
-    text-align: right;
+#enlaces {
+	margin: 20px 10px 0 0;
+	text-align: right;
 }
 
-#informacionDeUsuario{
-    text-align: left;
+#informacionDeUsuario {
+	text-align: left;
 }
 
-#informacionDeUsuario p{
-    margin: 10px 50px;
+#informacionDeUsuario p {
+	margin: 10px 50px;
 }
 
-#actividadTextoCifrado span, #actividadTextoPlano span, #actividadClave p, #actividadDetalles p{
-    background-color: #ffffff;;
-    border: 1px dashed #2e6583;
-    display: block;
-    margin: 10px auto 20px;
-    text-align: justify;
-    padding: 10px;
-    width: 85%;
-    word-wrap: break-word;
+#actividadTextoCifrado span,#actividadTextoPlano span,#actividadClave p,#actividadDetalles p
+	{
+	background-color: #ffffff;;
+	border: 1px dashed #2e6583;
+	display: block;
+	margin: 10px auto 20px;
+	text-align: justify;
+	padding: 10px;
+	width: 85%;
+	word-wrap: break-word;
 }
 
-.caja p, form p{
-    margin: 5px 30px;
+.caja p,form p {
+	margin: 5px 30px;
 }
 
-.centrado{
-    text-align: center;
+.centrado {
+	text-align: center;
 }
+
 /** Tablas **/
-
-#tablaEstadoTextos, #tablaActividades, #tablaEstadoUsuarios{
-    border-collapse:collapse;
-    margin: 0 auto 20px auto;
-    text-align:center;
-    width:520px;
+#tablaEstadoTextos,#tablaActividades,#tablaEstadoUsuarios {
+	border-collapse: collapse;
+	margin: 0 auto 20px auto;
+	text-align: center;
+	width: 520px;
 }
 
-#tablaEstadoTextos td, #tablaActividades td{
-    padding: 3px;
+#tablaEstadoTextos td,#tablaActividades td {
+	padding: 3px;
 }
 
-#tablaEstadoTextos thead th, #tablaActividades thead th, #tablaEstadoUsuarios thead th{
-    border-bottom: 3px double #95BCE2;
-    color: #173e63;
-    font-size: 12px;
-    height: 25px;
-    padding: 0 5px;
+#tablaEstadoTextos thead th,#tablaActividades thead th,#tablaEstadoUsuarios thead th
+	{
+	border-bottom: 3px double #95BCE2;
+	color: #173e63;
+	font-size: 12px;
+	height: 25px;
+	padding: 0 5px;
 }
 
-#tablaEstadoTextos tbody tr, #tablaActividades tbody tr, #tablaEstadoUsuarios tbody tr{
-    background-color: #fff;
-    border-bottom: 1px solid #95BCE2;
+#tablaEstadoTextos tbody tr,#tablaActividades tbody tr,#tablaEstadoUsuarios tbody tr
+	{
+	background-color: #fff;
+	border-bottom: 1px solid #95BCE2;
 }
 
-#tablaEstadoTextos tbody tr.zebra, #tablaActividades tbody tr.zebra, #tablaEstadoUsuarios tbody tr.zebra{
-    background-color: #ecf6fc;
+#tablaEstadoTextos tbody tr.zebra,#tablaActividades tbody tr.zebra,#tablaEstadoUsuarios tbody tr.zebra
+	{
+	background-color: #ecf6fc;
 }
 
-#tablaEstadoTextos tbody tr:hover, #tablaActividades tbody tr:hover, #tablaEstadoUsuarios tbody tr:hover{
-    background-color: #d6e3f1;
+#tablaEstadoTextos tbody tr:hover,#tablaActividades tbody tr:hover,#tablaEstadoUsuarios tbody tr:hover
+	{
+	background-color: #d6e3f1;
 }
 
-#tablaEstadoTextos tfoot, #tablaActividades tfoot, #tablaEstadoUsuarios tfoot{
-    background-color: #e4e3e3;
-    border-top: 1px dashed #06486b;
-    font-size: 11px;
-    height: 23px;
+#tablaEstadoTextos tfoot,#tablaActividades tfoot,#tablaEstadoUsuarios tfoot
+	{
+	background-color: #e4e3e3;
+	border-top: 1px dashed #06486b;
+	font-size: 11px;
+	height: 23px;
 }
 
-#estadoUsuarios td{
-    font-size: 10px;
-    height: 20px;
-    width: 20px;
+#estadoUsuarios td {
+	font-size: 10px;
+	height: 20px;
+	width: 20px;
 }
 
-#tablaEstadoUsuarios th.nombreUsuario{
-    width: 200px;
+#tablaEstadoUsuarios th.nombreUsuario {
+	width: 200px;
 }
 
-td.estado0{
-    background-color: #ffebe8;
-    border: 1px solid #d39d95;
+td.estado0 {
+	background-color: #ffebe8;
+	border: 1px solid #d39d95;
 }
 
-td.estado1{
-    background-color: #fdf3cc;
-    border: 1px solid #cbb55f;
+td.estado1 {
+	background-color: #fdf3cc;
+	border: 1px solid #cbb55f;
 }
 
-td.estado2{
-    background-color: #8ac1e5;
-    border: 1px solid #5698c4;
+td.estado2 {
+	background-color: #8ac1e5;
+	border: 1px solid #5698c4;
 }
 
-td.estado3{
-    background-color: #def2bf;
-    border: 1px solid #a2c36a;
+td.estado3 {
+	background-color: #def2bf;
+	border: 1px solid #a2c36a;
 }
