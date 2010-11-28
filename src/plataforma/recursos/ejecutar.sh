@@ -6,4 +6,4 @@ rm Criptex.rar
 clear
 echo "Por favor no cierre esta ventana mientras la aplicación se encuentra abierta."
 echo "Buena suerte!!!"
-java -jar CP-GUI.jar
+java -jar criptex.jar
