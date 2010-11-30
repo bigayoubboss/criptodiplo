@@ -56,12 +56,14 @@ if ($usuarioActivo) {
 
                     <table id="tablaActividades">
                         <thead>
-                            <th>#</th>
-                            <th>Actividad</th>
-                            <th>Estado</th>
-                            <th>Fecha inicio</th>
-                            <th>Fecha fin</th>
-                            <th>Entrar</th>
+                        	<tr>
+	                            <th>#</th>
+	                            <th>Actividad</th>
+	                            <th>Estado</th>
+	                            <th>Fecha inicio</th>
+	                            <th>Fecha fin</th>
+	                            <th>Entrar</th>
+                            </tr>
                         </thead>
                         <tbody>
 <?php
@@ -71,8 +73,10 @@ if ($usuarioActivo) {
 ?>
                         </tbody>
                         <tfoot>
-                            <td colspan="3"><strong>Terminadas: </strong><?php echo $perfil->getActividadesTerminadas()." de ".$perfil->getNumeroActividades(); ?>  </td>
-                            <td colspan="3"><strong>Tiempo: </strong><?php echo $perfil->getTiempoTotal(); ?></td>
+                        	<tr>
+	                            <td colspan="3"><strong>Terminadas: </strong><?php echo $perfil->getActividadesTerminadas()." de ".$perfil->getNumeroActividades(); ?>  </td>
+	                            <td colspan="3"><strong>Tiempo: </strong><?php echo $perfil->getTiempoTotal(); ?></td>
+                            </tr>
                         </tfoot>
                     </table>
                     <noscript class="mensajeNoScript">

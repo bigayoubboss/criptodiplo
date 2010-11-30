@@ -449,18 +449,8 @@ public class MarvinImage implements Cloneable {
 	 */
 	public double Multi8p(int x, int y,double masc){
 		int aR = getRed(x-1,y-1);     int bR = getRed(x-1,y);    int cR = getRed(x-1,y+1);
-		int aG = getGreen(x-1,y-1);   int bG = getGreen(x-1,y);  int cG = getGreen(x-1,y+1);
-		int aB = getGreen(x-1,y-1);   int bB = getGreen(x-1,y);  int cB = getGreen(x-1,y+1);
-
-		
 		int dR = getRed(x,y-1);        int eR = getRed(x,y);     int fR = getRed(x,y+1);
-		int dG = getGreen(x,y-1);      int eG = getGreen(x,y);   int fG = getGreen(x,y+1);
-		int dB = getGreen(x,y-1);      int eB = getGreen(x,y);   int fB = getGreen(x,y+1);
-
-		
 		int gR = getRed(x+1,y-1);      int hR = getRed(x+1,y);     int iR = getRed(x+1,y+1);
-		int gG = getGreen(x+1,y-1);    int hG = getGreen(x+1,y);   int iG = getGreen(x+1,y+1);
-		int gB = getGreen(x+1,y-1);    int hB = getGreen(x+1,y);   int iB = getGreen(x+1,y+1);
 
 		double rgb = 0;
 

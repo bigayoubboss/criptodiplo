@@ -47,6 +47,10 @@ import java.util.logging.Logger;
  */
 public class gui extends javax.swing.JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public javax.swing.JTextField[] arregloSustitucion;
 	public String textoPlanoInicial = "";
 	// Estas variables habiltian o deshabilitan algun metodo de cifrado
@@ -1010,7 +1014,11 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -1040,7 +1048,11 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -1062,7 +1074,11 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -1328,7 +1344,11 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -1350,7 +1370,11 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -1372,7 +1396,11 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -2154,7 +2182,11 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -2175,7 +2207,11 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -2196,7 +2232,11 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -5509,6 +5549,10 @@ public class gui extends javax.swing.JFrame {
 			tabla.setModel(new javax.swing.table.DefaultTableModel(datos,
 					etiquetas) {
 
+				/**
+						 * 
+						 */
+						private static final long serialVersionUID = 1L;
 				Class[] types = types2;
 
 				public Class getColumnClass(int columnIndex) {
@@ -5521,6 +5565,10 @@ public class gui extends javax.swing.JFrame {
 			tabla.setModel(new javax.swing.table.DefaultTableModel(datos,
 					etiquetas) {
 
+				/**
+						 * 
+						 */
+						private static final long serialVersionUID = 1L;
 				Class[] types = types4;
 
 				public Class getColumnClass(int columnIndex) {
@@ -5533,6 +5581,10 @@ public class gui extends javax.swing.JFrame {
 			tabla.setModel(new javax.swing.table.DefaultTableModel(datos,
 					etiquetas) {
 
+				/**
+						 * 
+						 */
+						private static final long serialVersionUID = 1L;
 				Class[] types = types6;
 
 				public Class getColumnClass(int columnIndex) {

@@ -88,9 +88,10 @@ if ($usuarioActivo) {
                                 <input type="submit" value="Completar" />
                             </p>
                             <div id="respuestaCompletar"></div>
+                            <div>
                             <span class="informacion"><?php if ($actividad->getFormaRespuesta() != '')
 		echo $actividad->getFormaRespuesta();
-?></span>
+?></span></div>
                     <?php } ?>
                 </form>
 
