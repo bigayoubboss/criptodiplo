@@ -814,7 +814,6 @@ public class gui extends javax.swing.JFrame {
         textoTipoCifradoDesplazamiento.setBounds(25, 29, 90, 20);
         panelMetodoDesplazamiento.add(textoTipoCifradoDesplazamiento, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        textoTipoCifradoDesplazamientoT.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoTipoCifradoDesplazamientoT.setText("Monoalfabético por desplazamiento (z189)");
         textoTipoCifradoDesplazamientoT.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         textoTipoCifradoDesplazamientoT.setFocusable(false);
@@ -825,7 +824,6 @@ public class gui extends javax.swing.JFrame {
 
         textoDescripcionDesplazamiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         textoDescripcionDesplazamiento.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        textoDescripcionDesplazamiento.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         textoDescripcionDesplazamiento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         textoDescripcionDesplazamiento.setEnabled(false);
         textoDescripcionDesplazamiento.setFocusable(false);
@@ -836,9 +834,9 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionDesplazamientoT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionDesplazamientoT.setColumns(150);
         textoDescripcionDesplazamientoT.setEditable(false);
-        textoDescripcionDesplazamientoT.setFont(new java.awt.Font("Tahoma", 0, 10));
+        textoDescripcionDesplazamientoT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDescripcionDesplazamientoT.setLineWrap(true);
-        textoDescripcionDesplazamientoT.setRows(5);
+        textoDescripcionDesplazamientoT.setRows(4);
         textoDescripcionDesplazamientoT.setTabSize(6);
         textoDescripcionDesplazamientoT.setText("Al cifrar, cada letra del alfabeto es reemplazada por la k-ésima que le sigue en orden, siendo k la clave utilizada. El paso a texto plano es realizado por FUERZA BRUTA.");
         textoDescripcionDesplazamientoT.setWrapStyleWord(true);
@@ -846,6 +844,7 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionDesplazamientoT.setBorder(null);
         textoDescripcionDesplazamientoT.setFocusable(false);
         textoDescripcionDesplazamientoT.setHighlighter(null);
+        textoDescripcionDesplazamientoT.setOpaque(false);
         textoDescripcionDesplazamientoT.setRequestFocusEnabled(false);
         textoDescripcionDesplazamiento.setViewportView(textoDescripcionDesplazamientoT);
 
@@ -996,6 +995,7 @@ public class gui extends javax.swing.JFrame {
         cajaDescripcionDesplazamiento.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descripción", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
         cajaDescripcionDesplazamiento.setEnabled(false);
         cajaDescripcionDesplazamiento.setFocusable(false);
+        cajaDescripcionDesplazamiento.setOpaque(false);
         panelDescripcionDesplazamiento.setViewportView(cajaDescripcionDesplazamiento);
 
         panelDescripcionDesplazamiento.setBounds(10, 10, 380, 110);
@@ -1177,7 +1177,6 @@ public class gui extends javax.swing.JFrame {
         textoFuncionamientoSustitucion.setBounds(25, 51, 90, 58);
         panelMetodoSustitucion.add(textoFuncionamientoSustitucion, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        textoTipoCifradoSustitucionT.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoTipoCifradoSustitucionT.setText("Monoalfabético por sustitución (z26)");
         textoTipoCifradoSustitucionT.setFocusable(false);
         textoTipoCifradoSustitucionT.setInheritsPopupMenu(false);
@@ -1188,9 +1187,9 @@ public class gui extends javax.swing.JFrame {
 
         textoDescripcionSustitucion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         textoDescripcionSustitucion.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        textoDescripcionSustitucion.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         textoDescripcionSustitucion.setEnabled(false);
         textoDescripcionSustitucion.setFocusable(false);
+        textoDescripcionSustitucion.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoDescripcionSustitucion.setOpaque(false);
         textoDescripcionSustitucion.setRequestFocusEnabled(false);
         textoDescripcionSustitucion.setVerifyInputWhenFocusTarget(false);
@@ -1198,10 +1197,10 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionSustitucionT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionSustitucionT.setColumns(20);
         textoDescripcionSustitucionT.setEditable(false);
-        textoDescripcionSustitucionT.setFont(new java.awt.Font("Tahoma", 0, 10));
+        textoDescripcionSustitucionT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDescripcionSustitucionT.setLineWrap(true);
-        textoDescripcionSustitucionT.setRows(5);
-        textoDescripcionSustitucionT.setText("\nAl cifrar, cada letra del texto plano es reemplazada por el símbolo que ocupa la misma posición en la clave seleccionada. El paso de texto cifrado a plano es MANUAL.");
+        textoDescripcionSustitucionT.setRows(4);
+        textoDescripcionSustitucionT.setText("Al cifrar, cada letra del texto plano es reemplazada por el símbolo que ocupa la misma posición en la clave seleccionada. El paso de texto cifrado a plano es MANUAL.");
         textoDescripcionSustitucionT.setWrapStyleWord(true);
         textoDescripcionSustitucionT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         textoDescripcionSustitucionT.setFocusable(false);
@@ -1237,22 +1236,22 @@ public class gui extends javax.swing.JFrame {
 
         textoSustitucionDes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         textoSustitucionDes.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        textoSustitucionDes.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         textoSustitucionDes.setEnabled(false);
         textoSustitucionDes.setFocusable(false);
+        textoSustitucionDes.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        textoSustitucionDes.setPreferredSize(new java.awt.Dimension(160, 70));
 
         textoSustitucionDesT.setBackground(new java.awt.Color(232, 232, 232));
         textoSustitucionDesT.setColumns(20);
         textoSustitucionDesT.setEditable(false);
-        textoSustitucionDesT.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        textoSustitucionDesT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoSustitucionDesT.setLineWrap(true);
-        textoSustitucionDesT.setRows(5);
+        textoSustitucionDesT.setRows(3);
         textoSustitucionDesT.setText("Ingrese la clave de acuerdo a como desee la sustitución del alfabeto.");
         textoSustitucionDesT.setWrapStyleWord(true);
         textoSustitucionDesT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         textoSustitucionDesT.setFocusable(false);
         textoSustitucionDesT.setOpaque(false);
-        textoSustitucionDesT.setPreferredSize(new java.awt.Dimension(160, 60));
         textoSustitucionDesT.setRequestFocusEnabled(false);
         textoSustitucionDesT.setVerifyInputWhenFocusTarget(false);
         textoSustitucionDes.setViewportView(textoSustitucionDesT);
@@ -2018,7 +2017,6 @@ public class gui extends javax.swing.JFrame {
         textoFuncionamientoAffine.setBounds(25, 51, 90, 58);
         panelMetodoAffine.add(textoFuncionamientoAffine, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        textoTipoCifradoAffineT.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoTipoCifradoAffineT.setText("Monoalfabético por sustitución (z26)");
         textoTipoCifradoAffineT.setFocusable(false);
         textoTipoCifradoAffineT.setInheritsPopupMenu(false);
@@ -2029,16 +2027,15 @@ public class gui extends javax.swing.JFrame {
 
         textoDescripcionAffine.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         textoDescripcionAffine.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        textoDescripcionAffine.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         textoDescripcionAffine.setEnabled(false);
         textoDescripcionAffine.setFocusable(false);
 
         textoDescripcionAffineT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionAffineT.setColumns(20);
         textoDescripcionAffineT.setEditable(false);
-        textoDescripcionAffineT.setFont(new java.awt.Font("Tahoma", 0, 10));
+        textoDescripcionAffineT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDescripcionAffineT.setLineWrap(true);
-        textoDescripcionAffineT.setRows(5);
+        textoDescripcionAffineT.setRows(4);
         textoDescripcionAffineT.setText("Al cifrar, cada letra del texto plano es desplazada según la fórmula e(x) = (Ax+B) mod 26. El paso de texto cifrado a texto plano es realizado por CRIPTOANáLISIS.");
         textoDescripcionAffineT.setWrapStyleWord(true);
         textoDescripcionAffineT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
@@ -2315,18 +2312,19 @@ public class gui extends javax.swing.JFrame {
 
         textoDescripcionVigenere.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         textoDescripcionVigenere.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        textoDescripcionVigenere.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         textoDescripcionVigenere.setEnabled(false);
         textoDescripcionVigenere.setFocusable(false);
+        textoDescripcionVigenere.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         textoDescripcionVigenereT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionVigenereT.setColumns(20);
         textoDescripcionVigenereT.setEditable(false);
-        textoDescripcionVigenereT.setFont(new java.awt.Font("Tahoma", 0, 11));
+        textoDescripcionVigenereT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDescripcionVigenereT.setLineWrap(true);
-        textoDescripcionVigenereT.setRows(5);
+        textoDescripcionVigenereT.setRows(4);
         textoDescripcionVigenereT.setText("Al cifrar, se sitúa la clave debajo del texto plano de manera repetitiva hasta cubrir su longitud, luego se suma cada columna. El paso de texto cifrado a plano se realiza por CRIPTOANáLISIS.");
         textoDescripcionVigenereT.setWrapStyleWord(true);
+        textoDescripcionVigenereT.setAutoscrolls(false);
         textoDescripcionVigenereT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         textoDescripcionVigenereT.setFocusable(false);
         textoDescripcionVigenereT.setOpaque(false);
@@ -2507,19 +2505,20 @@ public class gui extends javax.swing.JFrame {
 
         textoDescripcionHill.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         textoDescripcionHill.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        textoDescripcionHill.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         textoDescripcionHill.setEnabled(false);
         textoDescripcionHill.setFocusable(false);
+        textoDescripcionHill.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         textoDescripcionHillT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionHillT.setColumns(20);
         textoDescripcionHillT.setEditable(false);
-        textoDescripcionHillT.setFont(new java.awt.Font("Tahoma", 0, 11));
+        textoDescripcionHillT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDescripcionHillT.setLineWrap(true);
-        textoDescripcionHillT.setRows(5);
+        textoDescripcionHillT.setRows(4);
         textoDescripcionHillT.setText("Al cifrar, el texto plano es dividido en vectores de 1 por n, en donde n es el orden de la matriz clave, luego cada vector es multiplicado por la clave. El paso de texto cifrado a plano NO está disponible.");
         textoDescripcionHillT.setWrapStyleWord(true);
         textoDescripcionHillT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
+        textoDescripcionHillT.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         textoDescripcionHillT.setFocusable(false);
         textoDescripcionHillT.setOpaque(false);
         textoDescripcionHillT.setRequestFocusEnabled(false);
@@ -2826,9 +2825,9 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionPermutacionT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionPermutacionT.setColumns(20);
         textoDescripcionPermutacionT.setEditable(false);
-        textoDescripcionPermutacionT.setFont(new java.awt.Font("Tahoma", 0, 11));
+        textoDescripcionPermutacionT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDescripcionPermutacionT.setLineWrap(true);
-        textoDescripcionPermutacionT.setRows(5);
+        textoDescripcionPermutacionT.setRows(4);
         textoDescripcionPermutacionT.setText("Al cifrar, el texto plano es separado en bloques del tamaño de la clave, luego cada bloque es reordenado según las posiciones que se indiquen en la clave. El paso de texto cifrado a plano NO está disponible.");
         textoDescripcionPermutacionT.setWrapStyleWord(true);
         textoDescripcionPermutacionT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
