@@ -82,7 +82,7 @@ public class AESCipher {
 
         // check length of data
         if (text.length() > 16) {
-            System.out.println(text + " is too long, using the first 16 ASCII characters");
+            // System.out.println(text + " is too long, using the first 16 ASCII characters");
         }
 
         // does ASCII data have 16 characters?
@@ -115,7 +115,7 @@ public class AESCipher {
 
         // check length of data
         if (hexaText.length() > 32) {
-            System.out.println(hexaText + " is too long, using the first 32 hexa characters");
+            // System.out.println(hexaText + " is too long, using the first 32 hexa characters");
         }
 
         // less than 32 characters - fill with NULLs
@@ -605,7 +605,7 @@ public class AESCipher {
     }
 
     public static String longEncrypt(String plainText, String key) {
-        System.out.println("aesCipher running...");
+        // System.out.println("aesCipher running...");
         String result = "";
         int[] arrayKey = stringKeytoArray(key);
         int x = 0;
@@ -625,7 +625,7 @@ public class AESCipher {
     }
 
     public static String longDecrypt(String cypherText, String key) {
-        System.out.println("aesCipher running...");
+        // System.out.println("aesCipher running...");
         String result = "";
         int[] arrayKey = stringKeytoArray(key);
         int x = 0;
@@ -649,7 +649,7 @@ public class AESCipher {
 
         // check length of data
         if (key.length() > 32) {
-            System.out.println(key + " is too long, using the first 32 hexa characters");
+            // System.out.println(key + " is too long, using the first 32 hexa characters");
         }
 
         // less than 32 characters - fill with NULLs

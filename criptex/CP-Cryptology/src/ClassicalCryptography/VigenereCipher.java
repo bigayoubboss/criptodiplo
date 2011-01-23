@@ -54,7 +54,7 @@ public class VigenereCipher {
      * @return the cipher text string
      */
     public static String encrypt(String plainText, String keyWord) {
-        System.out.println("vigenereCipher running...");
+        // System.out.println("vigenereCipher running...");
 
         // Algorithm
         // encodeMod26 plainText
@@ -316,7 +316,7 @@ public class VigenereCipher {
 
         m = index+1;
 
-        System.out.println("FIN INDICE COINCIDENCIA: " + m);
+        // System.out.println("FIN INDICE COINCIDENCIA: " + m);
 
         return m;
     }

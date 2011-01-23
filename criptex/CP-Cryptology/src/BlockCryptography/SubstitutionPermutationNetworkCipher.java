@@ -31,7 +31,7 @@ public class SubstitutionPermutationNetworkCipher {
      * @return the cipher text string
      */
     public static String encrypt(String plainText, int[] substitution, int[] permutation, String key, int Nr) {
-        System.out.println("SPN Cipher encrypt method running...");
+        // System.out.println("SPN Cipher encrypt method running...");
 
 
         // initialize l and m

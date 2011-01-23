@@ -28,7 +28,7 @@ public class ShiftCipher {
      */
     @Deprecated
     public static String encrypt(String plainText, int key) {
-        System.out.println("ShiftCipher running..."+plainText);
+        // System.out.println("ShiftCipher running..."+plainText);
         // Algorithm
         // encodeMod26 plainText
         int[] encodedPlainText = Code.encodeMod26(plainText);
@@ -80,7 +80,7 @@ public class ShiftCipher {
      * @return the cipher text string
      */
     public static String encryptMod189(String plainText, int key) {
-        System.out.println("ShiftCipher running..." + plainText);
+        // System.out.println("ShiftCipher running..." + plainText);
         // ALGORITHM
         // encodeMod189 plainText
         int[] encodedPlainText = Code.encodeMod189(plainText);

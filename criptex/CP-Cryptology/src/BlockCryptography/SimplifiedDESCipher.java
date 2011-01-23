@@ -59,7 +59,7 @@ public class SimplifiedDESCipher {
     }
 
     public static String encryptDecrypt(String text, String hexaKeyString, boolean mode) {
-        System.out.println("Simplified DES Cipher encrypt method running...");
+        // System.out.println("Simplified DES Cipher encrypt method running...");
 
         int keys[][] = keySchedulingAlgorithm(hexaKeyString);
 

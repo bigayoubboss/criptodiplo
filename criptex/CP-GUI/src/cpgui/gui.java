@@ -59,10 +59,10 @@ public class gui extends javax.swing.JFrame {
 	private final boolean publicosVisible = false;
 	private final boolean desplazamientoVisible = true;
 	private final boolean sustitucionVisible = true;
-	private final boolean affineVisible = false;
-	private final boolean vigenereVisible = false;
-	private final boolean hillVisible = false;
-	private final boolean permutacionVisible = false;
+	private final boolean affineVisible = true;
+	private final boolean vigenereVisible = true;
+	private final boolean hillVisible = true;
+	private final boolean permutacionVisible = true;
 	private final boolean DESSVisible = true;
 	private final boolean TDESSVisible = true;
 	private final boolean DESVisible = true;
@@ -792,7 +792,7 @@ public class gui extends javax.swing.JFrame {
 
         panelMetodosClasicos.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
         panelMetodosClasicos.setFocusable(false);
-        panelMetodosClasicos.setFont(new java.awt.Font("Tahoma", 0, 10));
+        panelMetodosClasicos.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         panelMetodoDesplazamiento.setBackground(new java.awt.Color(232, 232, 232));
         panelMetodoDesplazamiento.setFocusable(false);
@@ -814,7 +814,7 @@ public class gui extends javax.swing.JFrame {
         textoTipoCifradoDesplazamiento.setBounds(25, 29, 90, 20);
         panelMetodoDesplazamiento.add(textoTipoCifradoDesplazamiento, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        textoTipoCifradoDesplazamientoT.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        textoTipoCifradoDesplazamientoT.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoTipoCifradoDesplazamientoT.setText("Monoalfabético por desplazamiento (z189)");
         textoTipoCifradoDesplazamientoT.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         textoTipoCifradoDesplazamientoT.setFocusable(false);
@@ -829,14 +829,14 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionDesplazamiento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         textoDescripcionDesplazamiento.setEnabled(false);
         textoDescripcionDesplazamiento.setFocusable(false);
-        textoDescripcionDesplazamiento.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        textoDescripcionDesplazamiento.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoDescripcionDesplazamiento.setOpaque(false);
         textoDescripcionDesplazamiento.setVerifyInputWhenFocusTarget(false);
 
         textoDescripcionDesplazamientoT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionDesplazamientoT.setColumns(150);
         textoDescripcionDesplazamientoT.setEditable(false);
-        textoDescripcionDesplazamientoT.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        textoDescripcionDesplazamientoT.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoDescripcionDesplazamientoT.setLineWrap(true);
         textoDescripcionDesplazamientoT.setRows(5);
         textoDescripcionDesplazamientoT.setTabSize(6);
@@ -936,7 +936,7 @@ public class gui extends javax.swing.JFrame {
         labelMuestraDesplazamientoDe.setText("De:");
 
         muestraDesplazamientoDe.setEditable(false);
-        muestraDesplazamientoDe.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        muestraDesplazamientoDe.setFont(new java.awt.Font("Tahoma", 0, 10));
         muestraDesplazamientoDe.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         muestraDesplazamientoDe.setText("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
@@ -944,7 +944,7 @@ public class gui extends javax.swing.JFrame {
         labelMuestraDesplazamientoa.setText("a:");
 
         muestraDesplazamientoA.setEditable(false);
-        muestraDesplazamientoA.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        muestraDesplazamientoA.setFont(new java.awt.Font("Tahoma", 0, 10));
         muestraDesplazamientoA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout panelMuestraDesplazamientoLayout = new javax.swing.GroupLayout(panelMuestraDesplazamiento);
@@ -1005,7 +1005,7 @@ public class gui extends javax.swing.JFrame {
         panelResultadosDesplazamiento.setFocusable(false);
 
         tablaResultadosDesplazamiento.setAutoCreateRowSorter(true);
-        tablaResultadosDesplazamiento.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        tablaResultadosDesplazamiento.setFont(new java.awt.Font("Tahoma", 0, 10));
         tablaResultadosDesplazamiento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null}
@@ -1014,11 +1014,7 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -1039,7 +1035,7 @@ public class gui extends javax.swing.JFrame {
         textoMasProbablesClavesDesplazamientoR.setInheritsPopupMenu(false);
 
         tablaResultadosDesplazamientoBigramas.setAutoCreateRowSorter(true);
-        tablaResultadosDesplazamientoBigramas.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        tablaResultadosDesplazamientoBigramas.setFont(new java.awt.Font("Tahoma", 0, 10));
         tablaResultadosDesplazamientoBigramas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null}
@@ -1048,11 +1044,7 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -1065,7 +1057,7 @@ public class gui extends javax.swing.JFrame {
         contenedorResultadosDesplazamientoBigramas.setViewportView(tablaResultadosDesplazamientoBigramas);
 
         tablaResultadosDesplazamientoTrigramas.setAutoCreateRowSorter(true);
-        tablaResultadosDesplazamientoTrigramas.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        tablaResultadosDesplazamientoTrigramas.setFont(new java.awt.Font("Tahoma", 0, 10));
         tablaResultadosDesplazamientoTrigramas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null}
@@ -1074,11 +1066,7 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -1113,9 +1101,9 @@ public class gui extends javax.swing.JFrame {
             panelResultadosDesplazamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResultadosDesplazamientoLayout.createSequentialGroup()
                 .addGroup(panelResultadosDesplazamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contenedorResultadosDesplazamiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                    .addComponent(contenedorResultadosDesplazamientoTrigramas, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                    .addComponent(contenedorResultadosDesplazamientoBigramas, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
+                    .addComponent(contenedorResultadosDesplazamiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                    .addComponent(contenedorResultadosDesplazamientoTrigramas, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                    .addComponent(contenedorResultadosDesplazamientoBigramas, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelResultadosDesplazamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textoMasProbablesClavesDesplazamientoR, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1189,7 +1177,7 @@ public class gui extends javax.swing.JFrame {
         textoFuncionamientoSustitucion.setBounds(25, 51, 90, 58);
         panelMetodoSustitucion.add(textoFuncionamientoSustitucion, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        textoTipoCifradoSustitucionT.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        textoTipoCifradoSustitucionT.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoTipoCifradoSustitucionT.setText("Monoalfabético por sustitución (z26)");
         textoTipoCifradoSustitucionT.setFocusable(false);
         textoTipoCifradoSustitucionT.setInheritsPopupMenu(false);
@@ -1210,7 +1198,7 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionSustitucionT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionSustitucionT.setColumns(20);
         textoDescripcionSustitucionT.setEditable(false);
-        textoDescripcionSustitucionT.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        textoDescripcionSustitucionT.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoDescripcionSustitucionT.setLineWrap(true);
         textoDescripcionSustitucionT.setRows(5);
         textoDescripcionSustitucionT.setText("\nAl cifrar, cada letra del texto plano es reemplazada por el símbolo que ocupa la misma posición en la clave seleccionada. El paso de texto cifrado a plano es MANUAL.");
@@ -1264,6 +1252,7 @@ public class gui extends javax.swing.JFrame {
         textoSustitucionDesT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         textoSustitucionDesT.setFocusable(false);
         textoSustitucionDesT.setOpaque(false);
+        textoSustitucionDesT.setPreferredSize(new java.awt.Dimension(160, 60));
         textoSustitucionDesT.setRequestFocusEnabled(false);
         textoSustitucionDesT.setVerifyInputWhenFocusTarget(false);
         textoSustitucionDes.setViewportView(textoSustitucionDesT);
@@ -1288,19 +1277,20 @@ public class gui extends javax.swing.JFrame {
         panelMuestraSustitucionLayout.setVerticalGroup(
             panelMuestraSustitucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMuestraSustitucionLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(panelMuestraSustitucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(muestraSustitucionDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelMuestraSustitucionDe))
-                .addGap(6, 6, 6)
-                .addGroup(panelMuestraSustitucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(claveSustitucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelClaveSustitucion))
+                .addGroup(panelMuestraSustitucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelMuestraSustitucionLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(textoSustitucionDes, 0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelMuestraSustitucionLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(panelMuestraSustitucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(muestraSustitucionDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelMuestraSustitucionDe))
+                        .addGap(6, 6, 6)
+                        .addGroup(panelMuestraSustitucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(claveSustitucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelClaveSustitucion))))
                 .addGap(17, 17, 17))
-            .addGroup(panelMuestraSustitucionLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(textoSustitucionDes, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                .addContainerGap())
         );
 
         panelMuestraSustitucion.setBounds(10, 168, 380, 90);
@@ -1335,7 +1325,7 @@ public class gui extends javax.swing.JFrame {
         panelResultadosSustitucion.setFocusable(false);
 
         tablaResultadosSusLetras.setAutoCreateRowSorter(true);
-        tablaResultadosSusLetras.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        tablaResultadosSusLetras.setFont(new java.awt.Font("Tahoma", 0, 10));
         tablaResultadosSusLetras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null}
@@ -1344,11 +1334,7 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -1361,7 +1347,7 @@ public class gui extends javax.swing.JFrame {
         contenedorResultadoSusLetras.setViewportView(tablaResultadosSusLetras);
 
         tablaResultadosSusBigramas.setAutoCreateRowSorter(true);
-        tablaResultadosSusBigramas.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        tablaResultadosSusBigramas.setFont(new java.awt.Font("Tahoma", 0, 10));
         tablaResultadosSusBigramas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null}
@@ -1370,11 +1356,7 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -1387,7 +1369,7 @@ public class gui extends javax.swing.JFrame {
         contenedorResultadosSusBigramas.setViewportView(tablaResultadosSusBigramas);
 
         tablaResultadosSusTrigramas.setAutoCreateRowSorter(true);
-        tablaResultadosSusTrigramas.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        tablaResultadosSusTrigramas.setFont(new java.awt.Font("Tahoma", 0, 10));
         tablaResultadosSusTrigramas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null}
@@ -1396,11 +1378,7 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -1462,7 +1440,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualA.setText("a:");
         labelSusManualA.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionA.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionA.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionA.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1475,7 +1453,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualB.setText("b:");
         labelSusManualB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionB.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionB.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionB.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionB.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1488,7 +1466,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualC.setText("c:");
         labelSusManualC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionC.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionC.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1501,7 +1479,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualD.setText("d:");
         labelSusManualD.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionD.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionD.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionD.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1514,7 +1492,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualE.setText("e:");
         labelSusManualE.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionE.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionE.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionE.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionE.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1527,7 +1505,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualF.setText("f:");
         labelSusManualF.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionF.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1540,7 +1518,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualG.setText("g:");
         labelSusManualG.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionG.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionG.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionG.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionG.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1553,7 +1531,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualH.setText("h:");
         labelSusManualH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionH.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionH.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionH.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionH.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1566,7 +1544,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualI.setText("i:");
         labelSusManualI.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionI.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionI.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionI.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1579,7 +1557,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualJ.setText("j:");
         labelSusManualJ.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionJ.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionJ.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionJ.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionJ.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1592,7 +1570,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualK.setText("k:");
         labelSusManualK.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionK.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionK.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionK.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionK.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1605,7 +1583,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualL.setText("l:");
         labelSusManualL.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionL.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionL.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionL.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionL.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1618,7 +1596,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualM.setText("m:");
         labelSusManualM.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionM.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionM.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionM.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1631,7 +1609,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualN.setText("n:");
         labelSusManualN.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionN.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionN.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionN.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionN.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1644,7 +1622,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualO.setText("o:");
         labelSusManualO.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionO.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionO.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionO.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1657,7 +1635,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualP.setText("p:");
         labelSusManualP.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionP.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionP.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1670,7 +1648,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualQ.setText("q:");
         labelSusManualQ.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionQ.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionQ.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionQ.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionQ.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1683,7 +1661,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualR.setText("r:");
         labelSusManualR.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionR.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionR.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionR.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionR.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1696,7 +1674,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualS.setText("s:");
         labelSusManualS.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionS.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionS.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionS.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1709,7 +1687,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualT.setText("t:");
         labelSusManualT.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionT.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionT.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionT.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1722,7 +1700,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualU.setText("u:");
         labelSusManualU.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionU.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionU.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionU.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionU.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1735,7 +1713,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualV.setText("v:");
         labelSusManualV.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionV.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionV.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionV.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionV.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1748,7 +1726,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualW.setText("w:");
         labelSusManualW.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionW.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionW.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionW.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionW.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1761,7 +1739,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualX.setText("x:");
         labelSusManualX.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionX.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionX.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionX.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionX.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1774,7 +1752,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualY.setText("y:");
         labelSusManualY.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionY.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionY.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionY.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionY.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1787,7 +1765,7 @@ public class gui extends javax.swing.JFrame {
         labelSusManualZ.setText("z:");
         labelSusManualZ.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        claveSustitucionZ.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        claveSustitucionZ.setFont(new java.awt.Font("Tahoma", 0, 10));
         claveSustitucionZ.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveSustitucionZ.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -2040,7 +2018,7 @@ public class gui extends javax.swing.JFrame {
         textoFuncionamientoAffine.setBounds(25, 51, 90, 58);
         panelMetodoAffine.add(textoFuncionamientoAffine, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        textoTipoCifradoAffineT.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        textoTipoCifradoAffineT.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoTipoCifradoAffineT.setText("Monoalfabético por sustitución (z26)");
         textoTipoCifradoAffineT.setFocusable(false);
         textoTipoCifradoAffineT.setInheritsPopupMenu(false);
@@ -2058,7 +2036,7 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionAffineT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionAffineT.setColumns(20);
         textoDescripcionAffineT.setEditable(false);
-        textoDescripcionAffineT.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        textoDescripcionAffineT.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoDescripcionAffineT.setLineWrap(true);
         textoDescripcionAffineT.setRows(5);
         textoDescripcionAffineT.setText("Al cifrar, cada letra del texto plano es desplazada según la fórmula e(x) = (Ax+B) mod 26. El paso de texto cifrado a texto plano es realizado por CRIPTOANáLISIS.");
@@ -2143,7 +2121,7 @@ public class gui extends javax.swing.JFrame {
                     .addComponent(textoAffine2)
                     .addComponent(claveAffineB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textoAffine3))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelClaveAffine.setBounds(10, 168, 380, 90);
@@ -2182,11 +2160,7 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -2207,11 +2181,7 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -2232,11 +2202,7 @@ public class gui extends javax.swing.JFrame {
                 "Resultados"
             }
         ) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean [] {
                 false
             };
 
@@ -2469,7 +2435,7 @@ public class gui extends javax.swing.JFrame {
                 .addComponent(textoResultadoVigenere)
                 .addGap(47, 47, 47)
                 .addComponent(textoResultadoVigenereClave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         panelResultadosVigenere.setBounds(405, 10, 360, 248);
@@ -2597,7 +2563,10 @@ public class gui extends javax.swing.JFrame {
         cajaDescripcionHillClave.setColumns(20);
         cajaDescripcionHillClave.setRows(5);
         cajaDescripcionHillClave.setBorder(null);
+        cajaDescripcionHillClave.setEnabled(false);
         cajaDescripcionHillClave.setFocusable(false);
+        cajaDescripcionHillClave.setOpaque(false);
+        cajaDescripcionHillClave.setRequestFocusEnabled(false);
         panelDescripcionHillClave.setViewportView(cajaDescripcionHillClave);
 
         panelDescripcionHillClave.setBounds(10, 176, 390, 80);
@@ -2767,7 +2736,7 @@ public class gui extends javax.swing.JFrame {
                             .addComponent(claveHill9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(claveHill8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(claveHill7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         panelClaveHill.setBounds(405, 10, 360, 248);
@@ -3747,7 +3716,7 @@ public class gui extends javax.swing.JFrame {
                             .addGroup(panelClaveSPNLayout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addComponent(sustitucionSPN, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         panelClaveSPN.setBounds(400, 50, 360, 160);
@@ -3824,7 +3793,7 @@ public class gui extends javax.swing.JFrame {
                     .addComponent(calcularL1L3)
                     .addComponent(textoL1L3)
                     .addComponent(L1L2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         panelCriptoanalisis.setBounds(10, 140, 380, 120);
@@ -3863,7 +3832,7 @@ public class gui extends javax.swing.JFrame {
             parejasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, parejasPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(nTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
                 .addGap(2, 2, 2)
                 .addComponent(nParejas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -4074,7 +4043,7 @@ public class gui extends javax.swing.JFrame {
                 .addGroup(panelClaveRSAabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tipoClaveRSAe, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cajaClaveRSAe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelClaveRSAabLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cajaClaveRSAd, tipoClaveRSAd});
@@ -4170,7 +4139,7 @@ public class gui extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelClaveRSAnpqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cajaClaveRSAq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textoClaveRSAq, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
+                    .addComponent(textoClaveRSAq, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
                 .addGap(21, 21, 21))
         );
 
@@ -5661,6 +5630,11 @@ public class gui extends javax.swing.JFrame {
 		claveHill7.setEditable(false);
 		claveHill8.setEditable(false);
 		claveHill9.setEditable(false);
+                claveHill3.setText("");
+		claveHill6.setText("");
+		claveHill7.setText("");
+		claveHill8.setText("");
+                claveHill9.setText("");
 	}// GEN-LAST:event_tipoClaveHill2ActionPerformed
 
 	private void claveHill9KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill9KeyTyped

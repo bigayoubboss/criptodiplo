@@ -102,7 +102,7 @@ public class AffineCipher implements Comparator {
      * @return the cipher text string
      */
     public static String encrypt(String plainText, int keyA, int keyB) {
-        System.out.println("affineCipher running...");
+        // System.out.println("affineCipher running...");
 
         // Algorithm
         // encodeMod26 plainText

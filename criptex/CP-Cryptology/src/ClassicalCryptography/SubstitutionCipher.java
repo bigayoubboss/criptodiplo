@@ -26,7 +26,7 @@ public class SubstitutionCipher {
      * @return the cipher text string
      */
     public static String encrypt(String plainText, String newAlphabet) {
-        System.out.println("SubstitutionCipher running...");
+        // System.out.println("SubstitutionCipher running...");
 
         // Algorithm
         // encodeMod26 plainText

@@ -28,7 +28,7 @@ public class HillCipher {
      * @return the cipher text string
      */
     public static String encrypt(String plainText, Matrix key){
-        System.out.println("hillCipher running...");
+        // System.out.println("hillCipher running...");
 
         // Algorithm
         // encodeMod26 plainText
@@ -55,7 +55,7 @@ public class HillCipher {
                 actualPosition++;
             }
         }
-        System.out.println("Print coded name");
+        // System.out.println("Print coded name");
         printMatrixes(encodedPlainTextMatrixes);
 
         // e(x) = xK
@@ -65,7 +65,7 @@ public class HillCipher {
         for(int i = 0; i < plainTextDivisionQuantity; i++){
             Results[i] = encodedPlainTextMatrixes[i].times(key);
         }
-        System.out.println("Print coded results");
+        // System.out.println("Print coded results");
         printMatrixes(Results);
 
         // export Results a to number array

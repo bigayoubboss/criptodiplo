@@ -797,9 +797,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="contenedorResultadosDesplazamiento" alignment="1" pref="183" max="32767" attributes="0"/>
-                                      <Component id="contenedorResultadosDesplazamientoTrigramas" pref="183" max="32767" attributes="0"/>
-                                      <Component id="contenedorResultadosDesplazamientoBigramas" pref="183" max="32767" attributes="0"/>
+                                      <Component id="contenedorResultadosDesplazamiento" alignment="1" pref="184" max="32767" attributes="0"/>
+                                      <Component id="contenedorResultadosDesplazamientoTrigramas" pref="184" max="32767" attributes="0"/>
+                                      <Component id="contenedorResultadosDesplazamientoBigramas" pref="184" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1148,22 +1148,25 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="muestraSustitucionDe" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelMuestraSustitucionDe" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="claveSustitucion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelClaveSustitucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="1">
+                                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                          <Component id="textoSustitucionDes" min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="muestraSustitucionDe" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="labelMuestraSustitucionDe" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="claveSustitucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="labelClaveSustitucion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                  <Component id="textoSustitucionDes" pref="53" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1245,6 +1248,9 @@
                                 </Property>
                                 <Property name="focusable" type="boolean" value="false"/>
                                 <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[160, 60]"/>
+                                </Property>
                                 <Property name="requestFocusEnabled" type="boolean" value="false"/>
                                 <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
                               </Properties>
@@ -2451,7 +2457,7 @@
                                       <Component id="claveAffineB" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="textoAffine3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -3005,7 +3011,7 @@
                                   <Component id="textoResultadoVigenere" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                   <Component id="textoResultadoVigenereClave" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <EmptySpace pref="87" max="32767" attributes="0"/>
+                                  <EmptySpace pref="88" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -3298,7 +3304,10 @@
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="null"/>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                             <Property name="focusable" type="boolean" value="false"/>
+                            <Property name="opaque" type="boolean" value="false"/>
+                            <Property name="requestFocusEnabled" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -3390,7 +3399,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="47" max="32767" attributes="0"/>
+                                  <EmptySpace pref="48" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -5408,7 +5417,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="12" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -5540,7 +5549,7 @@
                                       <Component id="textoL1L3" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="L1L2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                                  <EmptySpace pref="16" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -5616,7 +5625,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="nTexto" pref="20" max="32767" attributes="0"/>
+                                  <Component id="nTexto" pref="18" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                   <Component id="nParejas" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -6016,7 +6025,7 @@
                                       <Component id="tipoClaveRSAe" linkSize="18" min="-2" pref="11" max="-2" attributes="1"/>
                                       <Component id="cajaClaveRSAe" linkSize="18" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="13" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -6121,7 +6130,7 @@
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="cajaClaveRSAq" linkSize="19" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textoClaveRSAq" pref="20" max="32767" attributes="0"/>
+                                      <Component id="textoClaveRSAq" pref="22" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               </Group>
