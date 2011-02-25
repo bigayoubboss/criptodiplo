@@ -86,10 +86,17 @@ function cumpleRequisitos($id_actividad, $id_usuario) {
 	$numeroactividadesTermiandasSQL = $db->consulta($consulta);
 	$numeroactividadesTermiandas = mysql_fetch_array($numeroactividadesTermiandasSQL);
 
+	$consulta = "SELECT COUNT(*) FROM actividades
+        WHERE id_actividad<".DB::limpiarSQL($id_actividad);
+
+	$numeroactividadesAnterioresSQL = $db->consulta($consulta);
+	$numeroactividadesAnteriores = mysql_fetch_array($numeroactividadesAnterioresSQL);
+
 	mysql_free_result($numeroactividadesTermiandasSQL);
+	mysql_free_result($numeroactividadesAnterioresSQL);
 	$db->desconectar();
 
-	if ($numeroactividadesTermiandas['COUNT(*)'] == ($id_actividad - 1))
+	if ($numeroactividadesTermiandas['COUNT(*)'] == $numeroactividadesAnteriores['COUNT(*)'])
 		return true;
 	return false;
 }
