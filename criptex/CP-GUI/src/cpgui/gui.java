@@ -20,6 +20,7 @@ import cpcommonmethods.Code;
 import cpcommonmethods.LettersOcurrence;
 import cpcommonmethods.TrigramsOcurrence;
 import jama.Matrix;
+import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import javax.swing.table.*;
 import java.util.Random;
@@ -47,244 +48,244 @@ import java.util.logging.Logger;
  */
 public class gui extends javax.swing.JFrame {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	public javax.swing.JTextField[] arregloSustitucion;
-	public String textoPlanoInicial = "";
-	// Estas variables habiltian o deshabilitan algun metodo de cifrado
-	private final boolean clasicosVisible = true;
-	private final boolean bloquesVisible = true;
-	private final boolean publicosVisible = false;
-	private final boolean desplazamientoVisible = true;
-	private final boolean sustitucionVisible = true;
-	private final boolean affineVisible = true;
-	private final boolean vigenereVisible = true;
-	private final boolean hillVisible = true;
-	private final boolean permutacionVisible = true;
-	private final boolean DESSVisible = true;
-	private final boolean TDESSVisible = true;
-	private final boolean DESVisible = true;
-	private final boolean TDESVisible = true;
-	private final boolean AESVisible = false;
-	private final boolean SPNVisible = false;
-	private final boolean CBCMACVisible = false;
-	private final boolean RSAVisible = false;
-	private final boolean optimizacionRSAVisible = false;
-	private final String separador = System.getProperty("file.separator");
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    public javax.swing.JTextField[] arregloSustitucion;
+    public String textoPlanoInicial = "";
+    // Estas variables habiltian o deshabilitan algun metodo de cifrado
+    private final boolean clasicosVisible = true;
+    private final boolean bloquesVisible = true;
+    private final boolean publicosVisible = false;
+    private final boolean desplazamientoVisible = true;
+    private final boolean sustitucionVisible = true;
+    private final boolean affineVisible = true;
+    private final boolean vigenereVisible = true;
+    private final boolean hillVisible = true;
+    private final boolean permutacionVisible = true;
+    private final boolean DESSVisible = true;
+    private final boolean TDESSVisible = true;
+    private final boolean DESVisible = true;
+    private final boolean TDESVisible = true;
+    private final boolean AESVisible = false;
+    private final boolean SPNVisible = false;
+    private final boolean CBCMACVisible = false;
+    private final boolean RSAVisible = false;
+    private final boolean optimizacionRSAVisible = false;
+    private final String separador = System.getProperty("file.separator");
 
-	public void iniciarArregloSustitucion() {
-		arregloSustitucion = new javax.swing.JTextField[] { claveSustitucionA,
-				claveSustitucionB, claveSustitucionC, claveSustitucionD,
-				claveSustitucionE, claveSustitucionF, claveSustitucionG,
-				claveSustitucionH, claveSustitucionI, claveSustitucionJ,
-				claveSustitucionK, claveSustitucionL, claveSustitucionM,
-				claveSustitucionN, claveSustitucionO, claveSustitucionP,
-				claveSustitucionQ, claveSustitucionR, claveSustitucionS,
-				claveSustitucionT, claveSustitucionU, claveSustitucionV,
-				claveSustitucionW, claveSustitucionX, claveSustitucionY,
-				claveSustitucionZ };
-	}
+    public void iniciarArregloSustitucion() {
+        arregloSustitucion = new javax.swing.JTextField[]{claveSustitucionA,
+                    claveSustitucionB, claveSustitucionC, claveSustitucionD,
+                    claveSustitucionE, claveSustitucionF, claveSustitucionG,
+                    claveSustitucionH, claveSustitucionI, claveSustitucionJ,
+                    claveSustitucionK, claveSustitucionL, claveSustitucionM,
+                    claveSustitucionN, claveSustitucionO, claveSustitucionP,
+                    claveSustitucionQ, claveSustitucionR, claveSustitucionS,
+                    claveSustitucionT, claveSustitucionU, claveSustitucionV,
+                    claveSustitucionW, claveSustitucionX, claveSustitucionY,
+                    claveSustitucionZ};
+    }
 
-	private void ocultarMetodos() {
-		if (clasicosVisible) {
-			if (!desplazamientoVisible) {
-				panelMetodosClasicos.remove(panelMetodoDesplazamiento);
-			}
-			if (!sustitucionVisible) {
-				panelMetodosClasicos.remove(panelMetodoSustitucion);
-			}
-			if (!affineVisible) {
-				panelMetodosClasicos.remove(panelMetodoAffine);
-			}
-			if (!vigenereVisible) {
-				panelMetodosClasicos.remove(panelMetodoVigenere);
-			}
-			if (!hillVisible) {
-				panelMetodosClasicos.remove(panelMetodoHill);
-			}
-			if (!permutacionVisible) {
-				panelMetodosClasicos.remove(panelMetodoPermutacion);
-			}
-		} else {
-			panelClasesCifrados.remove(panelCifradoresClasicos);
-		}
-		if (bloquesVisible) {
-			if (!SPNVisible) {
-				panelMetodosBloque.remove(panelMetodosSPN);
-			}
-			if (!DESSVisible) {
-				panelMetodosBloque.remove(panelMetodoDESS);
-			}
-			if (!TDESSVisible) {
-				panelMetodosBloque.remove(panelMetodoTripleDESS);
-			}
-			if (!DESVisible) {
-				panelMetodosBloque.remove(panelMetodoDES);
-			}
-			if (!TDESVisible) {
-				panelMetodosBloque.remove(panelMetodoTDES);
-			}
-			if (!AESVisible) {
-				panelMetodosBloque.remove(panelMetodoAES);
-			}
-			if (!CBCMACVisible) {
-				panelMetodosBloque.remove(panelMetodoCBCMAC);
-			}
-		} else {
-			panelClasesCifrados.remove(panelCifradoresBloque);
-		}
-		if (publicosVisible) {
-			if (!RSAVisible) {
-				panelMetodosPublicos.remove(panelMetodoRSA);
-			} else {
-				if (!optimizacionRSAVisible) {
-					tipoOptimizacionRSA.setVisible(false);
-					tipoOptimizacionRSA.setEnabled(false);
-				}
-			}
-		} else {
-			panelClasesCifrados.remove(panelCifradoresPublicos);
-		}
+    private void ocultarMetodos() {
+        if (clasicosVisible) {
+            if (!desplazamientoVisible) {
+                panelMetodosClasicos.remove(panelMetodoDesplazamiento);
+            }
+            if (!sustitucionVisible) {
+                panelMetodosClasicos.remove(panelMetodoSustitucion);
+            }
+            if (!affineVisible) {
+                panelMetodosClasicos.remove(panelMetodoAffine);
+            }
+            if (!vigenereVisible) {
+                panelMetodosClasicos.remove(panelMetodoVigenere);
+            }
+            if (!hillVisible) {
+                panelMetodosClasicos.remove(panelMetodoHill);
+            }
+            if (!permutacionVisible) {
+                panelMetodosClasicos.remove(panelMetodoPermutacion);
+            }
+        } else {
+            panelClasesCifrados.remove(panelCifradoresClasicos);
+        }
+        if (bloquesVisible) {
+            if (!SPNVisible) {
+                panelMetodosBloque.remove(panelMetodosSPN);
+            }
+            if (!DESSVisible) {
+                panelMetodosBloque.remove(panelMetodoDESS);
+            }
+            if (!TDESSVisible) {
+                panelMetodosBloque.remove(panelMetodoTripleDESS);
+            }
+            if (!DESVisible) {
+                panelMetodosBloque.remove(panelMetodoDES);
+            }
+            if (!TDESVisible) {
+                panelMetodosBloque.remove(panelMetodoTDES);
+            }
+            if (!AESVisible) {
+                panelMetodosBloque.remove(panelMetodoAES);
+            }
+            if (!CBCMACVisible) {
+                panelMetodosBloque.remove(panelMetodoCBCMAC);
+            }
+        } else {
+            panelClasesCifrados.remove(panelCifradoresBloque);
+        }
+        if (publicosVisible) {
+            if (!RSAVisible) {
+                panelMetodosPublicos.remove(panelMetodoRSA);
+            } else {
+                if (!optimizacionRSAVisible) {
+                    tipoOptimizacionRSA.setVisible(false);
+                    tipoOptimizacionRSA.setEnabled(false);
+                }
+            }
+        } else {
+            panelClasesCifrados.remove(panelCifradoresPublicos);
+        }
 
-	}
+    }
 
-	/** Creates new form gui */
-	public gui() {
-		initComponents();
-		this.setIconImage(new ImageIcon(getClass().getResource(
-				"/images/icon.png")).getImage());
-		this.iniciarArregloSustitucion();
-		ocultarMetodos();
-		String fontFileName = "/lib/tahoma.ttf";
-		InputStream is = this.getClass().getResourceAsStream(fontFileName);
-		try {
-			Font ttfBase;
-			ttfBase = Font.createFont(Font.TRUETYPE_FONT, is);
-			Font tahoma10 = ttfBase.deriveFont(Font.PLAIN, 10);
-			Font tahoma11 = ttfBase.deriveFont(Font.PLAIN, 11);
-			Font tahoma12 = ttfBase.deriveFont(Font.PLAIN, 12);
+    /** Creates new form gui */
+    public gui() {
+        initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource(
+                "/images/icon.png")).getImage());
+        this.iniciarArregloSustitucion();
+        ocultarMetodos();
+        String fontFileName = "/lib/tahoma.ttf";
+        InputStream is = this.getClass().getResourceAsStream(fontFileName);
+        try {
+            Font ttfBase;
+            ttfBase = Font.createFont(Font.TRUETYPE_FONT, is);
+            Font tahoma10 = ttfBase.deriveFont(Font.PLAIN, 10);
+            Font tahoma11 = ttfBase.deriveFont(Font.PLAIN, 11);
+            Font tahoma12 = ttfBase.deriveFont(Font.PLAIN, 12);
 
-			// cajaTextoplano y cajaTextoCifrado
-			cajaTextoCifrado.setFont(tahoma12);
-			cajaTextoPlano.setFont(tahoma12);
+            // cajaTextoplano y cajaTextoCifrado
+            cajaTextoCifrado.setFont(tahoma12);
+            cajaTextoPlano.setFont(tahoma12);
 
-			// Fuentes desplazamiento
-			textoDescripcionDesplazamientoT.setFont(tahoma11);
-			textoTipoCifradoDesplazamientoT.setFont(tahoma12);
-			textoTipoCifradoDesplazamiento.setFont(tahoma11);
-			textoFuncionamientoDesplazamiento.setFont(tahoma11);
-			textoMasProbablesClavesDesplazamiento.setFont(tahoma11);
-			textoMasProbablesClavesDesplazamientoR.setFont(tahoma11);
-			muestraDesplazamientoA.setFont(tahoma10);
-			muestraDesplazamientoDe.setFont(tahoma10);
-			claveDesplazamientoCaracter.setFont(tahoma11);
-			claveDesplazamientoNumero.setFont(tahoma11);
-			tipoClaveDesplazamientoCaracter.setFont(tahoma11);
-			tipoClaveDesplazamientoNumero.setFont(tahoma11);
-			labelMuestraDesplazamientoDe.setFont(tahoma11);
-			labelMuestraDesplazamientoa.setFont(tahoma11);
+            // Fuentes desplazamiento
+            textoDescripcionDesplazamientoT.setFont(tahoma11);
+            textoTipoCifradoDesplazamientoT.setFont(tahoma12);
+            textoTipoCifradoDesplazamiento.setFont(tahoma11);
+            textoFuncionamientoDesplazamiento.setFont(tahoma11);
+            textoMasProbablesClavesDesplazamiento.setFont(tahoma11);
+            textoMasProbablesClavesDesplazamientoR.setFont(tahoma11);
+            muestraDesplazamientoA.setFont(tahoma10);
+            muestraDesplazamientoDe.setFont(tahoma10);
+            claveDesplazamientoCaracter.setFont(tahoma11);
+            claveDesplazamientoNumero.setFont(tahoma11);
+            tipoClaveDesplazamientoCaracter.setFont(tahoma11);
+            tipoClaveDesplazamientoNumero.setFont(tahoma11);
+            labelMuestraDesplazamientoDe.setFont(tahoma11);
+            labelMuestraDesplazamientoa.setFont(tahoma11);
 
-			// Fuentes sustitución
-			textoDescripcionSustitucionT.setFont(tahoma11);
-			textoTipoCifradoSustitucionT.setFont(tahoma12);
-			textoTipoCifradoSustitucion.setFont(tahoma11);
-			textoFuncionamientoSustitucion.setFont(tahoma11);
-			textoSustitucionDesT.setFont(tahoma11);
-			textoSustitucionDes.setAlignmentY(0.5f);
-			labelMuestraSustitucionDe.setFont(tahoma11);
-			labelClaveSustitucion.setFont(tahoma11);
-			muestraSustitucionDe.setFont(tahoma10);
-			claveSustitucion.setFont(tahoma10);
-			labelClaveActualSust.setFont(tahoma11);
+            // Fuentes sustitución
+            textoDescripcionSustitucionT.setFont(tahoma11);
+            textoTipoCifradoSustitucionT.setFont(tahoma12);
+            textoTipoCifradoSustitucion.setFont(tahoma11);
+            textoFuncionamientoSustitucion.setFont(tahoma11);
+            textoSustitucionDesT.setFont(tahoma11);
+            textoSustitucionDes.setAlignmentY(0.5f);
+            labelMuestraSustitucionDe.setFont(tahoma11);
+            labelClaveSustitucion.setFont(tahoma11);
+            muestraSustitucionDe.setFont(tahoma10);
+            claveSustitucion.setFont(tahoma10);
+            labelClaveActualSust.setFont(tahoma11);
 
-			// Fuentes afin
-			textoDescripcionAffineT.setFont(tahoma11);
-			textoTipoCifradoAffineT.setFont(tahoma12);
-			textoTipoCifradoAffine.setFont(tahoma11);
-			textoFuncionamientoAffine.setFont(tahoma11);
-			textoAffineClave.setFont(tahoma11);
-			textoMasProbablesClavesAffine.setFont(tahoma11);
+            // Fuentes afin
+            textoDescripcionAffineT.setFont(tahoma11);
+            textoTipoCifradoAffineT.setFont(tahoma12);
+            textoTipoCifradoAffine.setFont(tahoma11);
+            textoFuncionamientoAffine.setFont(tahoma11);
+            textoAffineClave.setFont(tahoma11);
+            textoMasProbablesClavesAffine.setFont(tahoma11);
 
-			// Fuentes vigenere
-			textoDescripcionVigenereT.setFont(tahoma11);
-			textoTipoCifradoVigenereT.setFont(tahoma12);
-			textoTipoCifradoVigenere.setFont(tahoma11);
-			textoFuncionamientoVigenere.setFont(tahoma11);
-			textoDescripcion10.setFont(tahoma11);
-			textoResultadoVigenere.setFont(tahoma11);
+            // Fuentes vigenere
+            textoDescripcionVigenereT.setFont(tahoma11);
+            textoTipoCifradoVigenereT.setFont(tahoma12);
+            textoTipoCifradoVigenere.setFont(tahoma11);
+            textoFuncionamientoVigenere.setFont(tahoma11);
+            textoDescripcion10.setFont(tahoma11);
+            textoResultadoVigenere.setFont(tahoma11);
 
-			// Fuentes hill
-			textoDescripcionHillT.setFont(tahoma11);
-			textoTipoCifradoHillT.setFont(tahoma12);
-			textoTipoCifradoHill.setFont(tahoma11);
-			textoFuncionamientoHill.setFont(tahoma11);
-			textoInfoHill.setFont(tahoma11);
-			tipoClaveHill2.setFont(tahoma11);
-			tipoClaveHill3.setFont(tahoma11);
+            // Fuentes hill
+            textoDescripcionHillT.setFont(tahoma11);
+            textoTipoCifradoHillT.setFont(tahoma12);
+            textoTipoCifradoHill.setFont(tahoma11);
+            textoFuncionamientoHill.setFont(tahoma11);
+            textoInfoHill.setFont(tahoma11);
+            tipoClaveHill2.setFont(tahoma11);
+            tipoClaveHill3.setFont(tahoma11);
 
-			// Fuentes permutacion
-			textoDescripcionPermutacionT.setFont(tahoma11);
-			textoTipoCifradoPermutacionT.setFont(tahoma12);
-			textoTipoCifradoPermutacion.setFont(tahoma11);
-			textoFuncionamientoPermutacion.setFont(tahoma11);
-			textoDescripcionPermutacionT1.setFont(tahoma11);
-			clavePermutacionAlternativa.setFont(tahoma12);
+            // Fuentes permutacion
+            textoDescripcionPermutacionT.setFont(tahoma11);
+            textoTipoCifradoPermutacionT.setFont(tahoma12);
+            textoTipoCifradoPermutacion.setFont(tahoma11);
+            textoFuncionamientoPermutacion.setFont(tahoma11);
+            textoDescripcionPermutacionT1.setFont(tahoma11);
+            clavePermutacionAlternativa.setFont(tahoma12);
 
-			// Fuentes SPN
-			textoDetallesSPN1.setFont(tahoma11);
-			textoParejas.setFont(tahoma11);
-			textoL1L3.setFont(tahoma11);
-			textoClaveSPN.setFont(tahoma11);
-			textoSustitucionSPN.setFont(tahoma11);
-			textoPermutacionSPN.setFont(tahoma11);
-			textoNumeroRondasSPN.setFont(tahoma11);
-			nTexto.setFont(tahoma11);
+            // Fuentes SPN
+            textoDetallesSPN1.setFont(tahoma11);
+            textoParejas.setFont(tahoma11);
+            textoL1L3.setFont(tahoma11);
+            textoClaveSPN.setFont(tahoma11);
+            textoSustitucionSPN.setFont(tahoma11);
+            textoPermutacionSPN.setFont(tahoma11);
+            textoNumeroRondasSPN.setFont(tahoma11);
+            nTexto.setFont(tahoma11);
 
-			// Fuentes SDES
-			textoDetallesDESS.setFont(tahoma11);
-			textoDescripcionDESS.setFont(tahoma11);
+            // Fuentes SDES
+            textoDetallesDESS.setFont(tahoma11);
+            textoDescripcionDESS.setFont(tahoma11);
 
-			// Fuentes Triple SDES
-			textoDetallesTripleDESS.setFont(tahoma11);
-			textoDescripcionTripleDESS.setFont(tahoma11);
+            // Fuentes Triple SDES
+            textoDetallesTripleDESS.setFont(tahoma11);
+            textoDescripcionTripleDESS.setFont(tahoma11);
 
-			// Fuentes DES
-			textoDetallesDESS.setFont(tahoma11);
-			textoDescripcionDESS.setFont(tahoma11);
+            // Fuentes DES
+            textoDetallesDESS.setFont(tahoma11);
+            textoDescripcionDESS.setFont(tahoma11);
 
-			// Fuentes AES
-			textoDetallesAES.setFont(tahoma11);
-			textoDescripcionAES.setFont(tahoma11);
+            // Fuentes AES
+            textoDetallesAES.setFont(tahoma11);
+            textoDescripcionAES.setFont(tahoma11);
 
-			// Fuentes CBCMAC
-			textoDetallesCBCMAC.setFont(tahoma11);
-			textoDescripcionCBCMAC.setFont(tahoma11);
+            // Fuentes CBCMAC
+            textoDetallesCBCMAC.setFont(tahoma11);
+            textoDescripcionCBCMAC.setFont(tahoma11);
 
-			// Fuentes RSA
-			tipoClaveRSAn.setFont(tahoma11);
-			tipoClaveRSAd.setFont(tahoma11);
-			tipoClaveRSAe.setFont(tahoma11);
-			tipoClaveRSApq.setFont(tahoma11);
-			textoClaveRSAq.setFont(tahoma11);
-			tipoOptimizacionRSA.setFont(tahoma11);
+            // Fuentes RSA
+            tipoClaveRSAn.setFont(tahoma11);
+            tipoClaveRSAd.setFont(tahoma11);
+            tipoClaveRSAe.setFont(tahoma11);
+            tipoClaveRSApq.setFont(tahoma11);
+            textoClaveRSAq.setFont(tahoma11);
+            tipoOptimizacionRSA.setFont(tahoma11);
 
-		} catch (FontFormatException ex) {
-			Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (IOException ex) {
-			Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
-		}
+        } catch (FontFormatException ex) {
+            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-	}
+    }
 
-	/**
-	 * This method is called from within the constructor to initialize the form.
-	 * WARNING: Do NOT modify this code. The content of this method is always
-	 * regenerated by the Form Editor.
-	 */
-	@SuppressWarnings("unchecked")
-	// <editor-fold defaultstate="collapsed"
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -614,6 +615,21 @@ public class gui extends javax.swing.JFrame {
         textoDetallesCBCMAC = new javax.swing.JTextArea();
         panelDescripcionCBCMAC = new javax.swing.JScrollPane();
         cajaDescripcionCBCMAC = new javax.swing.JTextArea();
+        panelMetodoTableta = new javax.swing.JLayeredPane();
+        infoTableta = new javax.swing.JLabel();
+        panelClaveTableta = new javax.swing.JPanel();
+        claveTableta = new javax.swing.JTextField();
+        textoDescripcionTableta1 = new javax.swing.JLabel();
+        panelDetallesTableta = new javax.swing.JScrollPane();
+        textoDetallesTableta = new javax.swing.JTextArea();
+        panelDescripcionTableta = new javax.swing.JScrollPane();
+        cajaDescripcionTableta = new javax.swing.JTextArea();
+        panelTablaCifrado = new javax.swing.JPanel();
+        botonTablaCifrado = new javax.swing.JButton();
+        textoDescripcionSimboloTableta = new javax.swing.JLabel();
+        tablaSimboloSeparador = new javax.swing.JTextField();
+        botonClaveTableta = new javax.swing.JButton();
+        botonLimpiarTableta = new javax.swing.JButton();
         panelCifradoresPublicos = new javax.swing.JLayeredPane();
         panelMetodosPublicos = new javax.swing.JTabbedPane();
         panelMetodoRSA = new javax.swing.JLayeredPane();
@@ -796,7 +812,7 @@ public class gui extends javax.swing.JFrame {
 
         panelMetodosClasicos.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
         panelMetodosClasicos.setFocusable(false);
-        panelMetodosClasicos.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        panelMetodosClasicos.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         panelMetodoDesplazamiento.setBackground(new java.awt.Color(232, 232, 232));
         panelMetodoDesplazamiento.setFocusable(false);
@@ -838,7 +854,7 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionDesplazamientoT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionDesplazamientoT.setColumns(150);
         textoDescripcionDesplazamientoT.setEditable(false);
-        textoDescripcionDesplazamientoT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        textoDescripcionDesplazamientoT.setFont(new java.awt.Font("Tahoma", 0, 11));
         textoDescripcionDesplazamientoT.setLineWrap(true);
         textoDescripcionDesplazamientoT.setRows(4);
         textoDescripcionDesplazamientoT.setTabSize(6);
@@ -1201,7 +1217,7 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionSustitucionT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionSustitucionT.setColumns(20);
         textoDescripcionSustitucionT.setEditable(false);
-        textoDescripcionSustitucionT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        textoDescripcionSustitucionT.setFont(new java.awt.Font("Tahoma", 0, 11));
         textoDescripcionSustitucionT.setLineWrap(true);
         textoDescripcionSustitucionT.setRows(4);
         textoDescripcionSustitucionT.setText("Al cifrar, cada letra del texto plano es reemplazada por el símbolo que ocupa la misma posición en la clave seleccionada. El paso de texto cifrado a plano es MANUAL.");
@@ -1242,13 +1258,13 @@ public class gui extends javax.swing.JFrame {
         textoSustitucionDes.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         textoSustitucionDes.setEnabled(false);
         textoSustitucionDes.setFocusable(false);
-        textoSustitucionDes.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        textoSustitucionDes.setFont(new java.awt.Font("Tahoma", 0, 10));
         textoSustitucionDes.setPreferredSize(new java.awt.Dimension(160, 70));
 
         textoSustitucionDesT.setBackground(new java.awt.Color(232, 232, 232));
         textoSustitucionDesT.setColumns(20);
         textoSustitucionDesT.setEditable(false);
-        textoSustitucionDesT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        textoSustitucionDesT.setFont(new java.awt.Font("Tahoma", 0, 11));
         textoSustitucionDesT.setLineWrap(true);
         textoSustitucionDesT.setRows(3);
         textoSustitucionDesT.setText("Ingrese la clave de acuerdo a como desee la sustitución del alfabeto.");
@@ -2037,7 +2053,7 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionAffineT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionAffineT.setColumns(20);
         textoDescripcionAffineT.setEditable(false);
-        textoDescripcionAffineT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        textoDescripcionAffineT.setFont(new java.awt.Font("Tahoma", 0, 11));
         textoDescripcionAffineT.setLineWrap(true);
         textoDescripcionAffineT.setRows(4);
         textoDescripcionAffineT.setText("Al cifrar, cada letra del texto plano es desplazada según la fórmula e(x) = (Ax+B) mod 26. El paso de texto cifrado a texto plano es realizado por CRIPTOANáLISIS.");
@@ -2323,7 +2339,7 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionVigenereT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionVigenereT.setColumns(20);
         textoDescripcionVigenereT.setEditable(false);
-        textoDescripcionVigenereT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        textoDescripcionVigenereT.setFont(new java.awt.Font("Tahoma", 0, 11));
         textoDescripcionVigenereT.setLineWrap(true);
         textoDescripcionVigenereT.setRows(4);
         textoDescripcionVigenereT.setText("Al cifrar, se sitúa la clave debajo del texto plano de manera repetitiva hasta cubrir su longitud, luego se suma cada columna. El paso de texto cifrado a plano se realiza por CRIPTOANáLISIS.");
@@ -2516,7 +2532,7 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionHillT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionHillT.setColumns(20);
         textoDescripcionHillT.setEditable(false);
-        textoDescripcionHillT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        textoDescripcionHillT.setFont(new java.awt.Font("Tahoma", 0, 11));
         textoDescripcionHillT.setLineWrap(true);
         textoDescripcionHillT.setRows(4);
         textoDescripcionHillT.setText("Al cifrar, el texto plano es dividido en vectores de 1 por n, en donde n es el orden de la matriz clave, luego cada vector es multiplicado por la clave. El paso de texto cifrado a plano NO está disponible.");
@@ -2829,7 +2845,7 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionPermutacionT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionPermutacionT.setColumns(20);
         textoDescripcionPermutacionT.setEditable(false);
-        textoDescripcionPermutacionT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        textoDescripcionPermutacionT.setFont(new java.awt.Font("Tahoma", 0, 11));
         textoDescripcionPermutacionT.setLineWrap(true);
         textoDescripcionPermutacionT.setRows(4);
         textoDescripcionPermutacionT.setText("Al cifrar, el texto plano es separado en bloques del tamaño de la clave, luego cada bloque es reordenado según las posiciones que se indiquen en la clave. El paso de texto cifrado a plano NO está disponible.");
@@ -2960,7 +2976,7 @@ public class gui extends javax.swing.JFrame {
 
         panelMetodosBloque.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
         panelMetodosBloque.setFocusable(false);
-        panelMetodosBloque.setFont(new java.awt.Font("Tahoma", 0, 10));
+        panelMetodosBloque.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         panelMetodoDESS.setName("sdes"); // NOI18N
 
@@ -3972,6 +3988,169 @@ public class gui extends javax.swing.JFrame {
 
         panelMetodosBloque.addTab("CBC-MAC", new javax.swing.ImageIcon(getClass().getResource("/images/bloque.png")), panelMetodoCBCMAC); // NOI18N
 
+        panelMetodoTableta.setName("tablet"); // NOI18N
+
+        infoTableta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/informacion.png"))); // NOI18N
+        infoTableta.setBounds(30, 40, 40, 40);
+        panelMetodoTableta.add(infoTableta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        panelClaveTableta.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingrese una clave", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
+        panelClaveTableta.setFocusable(false);
+
+        claveTableta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        claveTableta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                claveTabletaKeyTyped(evt);
+            }
+        });
+
+        textoDescripcionTableta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textoDescripcionTableta1.setText("de 8 a 15 carácteres");
+        textoDescripcionTableta1.setFocusable(false);
+        textoDescripcionTableta1.setInheritsPopupMenu(false);
+
+        javax.swing.GroupLayout panelClaveTabletaLayout = new javax.swing.GroupLayout(panelClaveTableta);
+        panelClaveTableta.setLayout(panelClaveTabletaLayout);
+        panelClaveTabletaLayout.setHorizontalGroup(
+            panelClaveTabletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelClaveTabletaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelClaveTabletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(claveTableta, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                    .addComponent(textoDescripcionTableta1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panelClaveTabletaLayout.setVerticalGroup(
+            panelClaveTabletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelClaveTabletaLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(textoDescripcionTableta1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(claveTableta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelClaveTableta.setBounds(10, 168, 380, 90);
+        panelMetodoTableta.add(panelClaveTableta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        panelDetallesTableta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
+        panelDetallesTableta.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        panelDetallesTableta.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        panelDetallesTableta.setEnabled(false);
+        panelDetallesTableta.setFocusable(false);
+
+        textoDetallesTableta.setBackground(new java.awt.Color(232, 232, 232));
+        textoDetallesTableta.setColumns(20);
+        textoDetallesTableta.setEditable(false);
+        textoDetallesTableta.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        textoDetallesTableta.setLineWrap(true);
+        textoDetallesTableta.setRows(5);
+        textoDetallesTableta.setText("Se utilizan bloques del tamaño de la clave, los cuales son cifrados según la tabla secreta generada a partir de la clave ingresada");
+        textoDetallesTableta.setWrapStyleWord(true);
+        textoDetallesTableta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
+        textoDetallesTableta.setFocusable(false);
+        textoDetallesTableta.setOpaque(false);
+        textoDetallesTableta.setRequestFocusEnabled(false);
+        textoDetallesTableta.setVerifyInputWhenFocusTarget(false);
+        panelDetallesTableta.setViewportView(textoDetallesTableta);
+
+        panelDetallesTableta.setBounds(80, 40, 300, 60);
+        panelMetodoTableta.add(panelDetallesTableta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        panelDescripcionTableta.setBorder(null);
+        panelDescripcionTableta.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        panelDescripcionTableta.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        panelDescripcionTableta.setEnabled(false);
+        panelDescripcionTableta.setPreferredSize(new java.awt.Dimension(370, 110));
+
+        cajaDescripcionTableta.setBackground(new java.awt.Color(232, 232, 232));
+        cajaDescripcionTableta.setColumns(20);
+        cajaDescripcionTableta.setEditable(false);
+        cajaDescripcionTableta.setRows(4);
+        cajaDescripcionTableta.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descripción", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
+        cajaDescripcionTableta.setEnabled(false);
+        cajaDescripcionTableta.setFocusable(false);
+        panelDescripcionTableta.setViewportView(cajaDescripcionTableta);
+
+        panelDescripcionTableta.setBounds(10, 10, 380, 110);
+        panelMetodoTableta.add(panelDescripcionTableta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        panelTablaCifrado.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Guardar tabla", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
+        panelTablaCifrado.setFocusable(false);
+
+        botonTablaCifrado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/guardar.png"))); // NOI18N
+        botonTablaCifrado.setText("Guradar tabla de cifrado");
+        botonTablaCifrado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonTablaCifradoActionPerformed(evt);
+            }
+        });
+
+        textoDescripcionSimboloTableta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        textoDescripcionSimboloTableta.setText("Separar las columnas con el símbolo:");
+        textoDescripcionSimboloTableta.setFocusable(false);
+        textoDescripcionSimboloTableta.setInheritsPopupMenu(false);
+
+        tablaSimboloSeparador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tablaSimboloSeparador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tablaSimboloSeparadorKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelTablaCifradoLayout = new javax.swing.GroupLayout(panelTablaCifrado);
+        panelTablaCifrado.setLayout(panelTablaCifradoLayout);
+        panelTablaCifradoLayout.setHorizontalGroup(
+            panelTablaCifradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTablaCifradoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelTablaCifradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonTablaCifrado, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                    .addGroup(panelTablaCifradoLayout.createSequentialGroup()
+                        .addComponent(textoDescripcionSimboloTableta, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tablaSimboloSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        panelTablaCifradoLayout.setVerticalGroup(
+            panelTablaCifradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTablaCifradoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelTablaCifradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoDescripcionSimboloTableta, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tablaSimboloSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonTablaCifrado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        panelTablaCifrado.setBounds(402, 10, 365, 120);
+        panelMetodoTableta.add(panelTablaCifrado, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panelTablaCifrado.getAccessibleContext().setAccessibleName("Guardar tablas");
+
+        botonClaveTableta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clave.png"))); // NOI18N
+        botonClaveTableta.setText("Generar una clave");
+        botonClaveTableta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonClaveTabletaActionPerformed(evt);
+            }
+        });
+        botonClaveTableta.setBounds(10, 130, 340, 30);
+        panelMetodoTableta.add(botonClaveTableta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        botonLimpiarTableta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reiniciar.png"))); // NOI18N
+        botonLimpiarTableta.setToolTipText("Limpiar o reiniciar clave");
+        botonLimpiarTableta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        botonLimpiarTableta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonLimpiarTabletaActionPerformed(evt);
+            }
+        });
+        botonLimpiarTableta.setBounds(360, 130, 30, 30);
+        panelMetodoTableta.add(botonLimpiarTableta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        panelMetodosBloque.addTab("Tableta", new javax.swing.ImageIcon(getClass().getResource("/images/bloque.png")), panelMetodoTableta); // NOI18N
+
         panelMetodosBloque.setBounds(0, 0, 780, 300);
         panelCifradoresBloque.add(panelMetodosBloque, javax.swing.JLayeredPane.DEFAULT_LAYER);
         panelMetodosBloque.getAccessibleContext().setAccessibleName("Triple DES-Simplificado");
@@ -4215,2640 +4394,2657 @@ public class gui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-	private void botonAbrirCifradoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonAbrirCifradoActionPerformed
-		JFileChooser chooser = new JFileChooser();
-		chooser.addChoosableFileFilter(new TxTFilter());
-		chooser.showOpenDialog(this);
-		File archivo = chooser.getSelectedFile();
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(archivo));
-			String linea = "";
-			String texto = "";
-			while ((linea = reader.readLine()) != null) {
-				texto = texto.concat(linea).concat("\n");
-			}
-			reader.close();
-			cajaTextoCifrado.setText(texto);
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
-		}
-	}// GEN-LAST:event_botonAbrirCifradoActionPerformed
-
-	/**
-	 * This method is called when inputs a key on boxText cajaTextoPlano and
-	 * tranforms the upperletters to lowerletters and prevents the inputs of
-	 * white spaces, symbols or numbers
-	 * 
-	 * @param evt
-	 */
-	private void cajaTextoPlanoKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaTextoPlanoKeyTyped
-		char c = evt.getKeyChar();
-		if (c < 32 || (c > 126 && c < 161) || c > 255) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_cajaTextoPlanoKeyTyped
-
-	/**
-	 * This method is called when inputs a key on boxText cajaTextoPlano and
-	 * tranforms the lowerletter to supperletters and prevents the inputs of
-	 * white spaces, symbols or numbers
-	 * 
-	 * @param evt
-	 */
-	private void cajaTextoCifradoKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaTextoCifradoKeyTyped
-		char c = evt.getKeyChar();
-		if (c < 32 || (c > 126 && c < 161) || c > 255) {
-			evt.consume();
-		} else {
-			if (Character.isLowerCase(c)) {
-				c = Character.toUpperCase(c);
-				cajaTextoCifrado.setText(cajaTextoCifrado.getText().concat(
-						String.valueOf(c)));
-				evt.consume();
-			}
-		}
-	}// GEN-LAST:event_cajaTextoCifradoKeyTyped
-
-	private void encriptarDesplazamiento(String textoPlano) {
-		if ((tipoClaveDesplazamientoNumero.isSelected() && claveDesplazamientoNumero
-				.getText().isEmpty())
-				|| (claveDesplazamientoCaracter.getText().isEmpty() && tipoClaveDesplazamientoCaracter
-						.isSelected())) {
-			botonClaveDesplazamientoActionPerformed(null);
-			int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
-			String textoCifrado = ShiftCipher.encryptMod189(textoPlano, clave);
-			cajaTextoCifrado.setText(textoCifrado);
-			cajaTextoPlano.setText(textoPlano);
-		} else {
-			if (tipoClaveDesplazamientoNumero.isSelected()) {
-				try {
-					if (Integer.parseInt(claveDesplazamientoNumero.getText()) <= 188
-							&& Integer.parseInt(claveDesplazamientoNumero
-									.getText()) >= 0) {
-						int clave = Integer.parseInt(claveDesplazamientoNumero
-								.getText());
-						String textoCifrado = ShiftCipher.encryptMod189(
-								textoPlano, clave);
-						cajaTextoCifrado.setText(textoCifrado);
-						cajaTextoPlano.setText(textoPlano);
-					}
-				} catch (Exception e) {
-					JOptionPane
-							.showMessageDialog(
-									this,
-									"Ingrese una clave númerica válida o pruebe pulsando el botón\n          Generar una clave",
-									"Error al cifrar",
-									JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
-				if (claveDesplazamientoCaracter.getText().length() == 1) {
-					int clave = Integer.parseInt(claveDesplazamientoNumero
-							.getText());
-					String textoCifrado = ShiftCipher.encryptMod189(textoPlano,
-							clave);
-					cajaTextoCifrado.setText(textoCifrado);
-					cajaTextoPlano.setText(textoPlano);
-				} else {
-					JOptionPane
-							.showMessageDialog(
-									this,
-									"Ingrese una clave válida o pruebe pulsando el botón\n          Generar una clave",
-									"Error al cifrar",
-									JOptionPane.ERROR_MESSAGE);
-				}
-			}
-		}
-	}
-
-	private void encriptarSustitucion(String textoPlano) {
-		if (claveSustitucion.getText().isEmpty()) {
-			botonClaveSustitucionActionPerformed(null);
-			String clave = claveSustitucion.getText();
-			String textoCifrado = SubstitutionCipher.encrypt(textoPlano, clave);
-			cajaTextoCifrado.setText(textoCifrado);
-			cajaTextoPlano.setText(textoPlano);
-		} else {
-			if (claveSustitucion.getText().length() == 26) {
-				String clave = claveSustitucion.getText();
-				String textoCifrado = SubstitutionCipher.encrypt(textoPlano,
-						clave);
-				cajaTextoCifrado.setText(textoCifrado);
-				cajaTextoPlano.setText(textoPlano);
-			} else {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"La clave ingresada no es valida\nIngrese los 26 simbolos de la clave para poder continuar o pruebe pulsando el botón\n          Generar una clave",
-								"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			}
-		}
-	}
-
-	private void encriptarAffine(String textoPlano) {
-		if (claveAffineA.getText().isEmpty()
-				&& claveAffineB.getText().isEmpty()) {
-			botonClaveAffineActionPerformed(null);
-			int claveA = Integer.parseInt(claveAffineA.getText());
-			int claveB = Integer.parseInt(claveAffineB.getText());
-			String textoCifrado = AffineCipher.encrypt(textoPlano, claveA,
-					claveB);
-			cajaTextoCifrado.setText(textoCifrado);
-			cajaTextoPlano.setText(textoPlano);
-		} else {
-			if (claveAffineA.getText().isEmpty()
-					|| claveAffineB.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(this,
-						"Ingrese los dos componentes de la clave",
-						"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			} else {
-				try {
-					if (mcd(Integer.parseInt(claveAffineA.getText()), 26) == 1) {
-						int claveA = Integer.parseInt(claveAffineA.getText());
-						int claveB = Integer.parseInt(claveAffineB.getText());
-						String textoCifrado = AffineCipher.encrypt(textoPlano,
-								claveA, claveB);
-						cajaTextoCifrado.setText(textoCifrado);
-						cajaTextoPlano.setText(textoPlano);
-					} else {
-						JOptionPane
-								.showMessageDialog(
-										this,
-										"La clave ingresada no es valida\nA debe ser primo relativo con 26 y B un numero entero positivo menor a 26\n          Generar una clave",
-										"Error al cifrar",
-										JOptionPane.ERROR_MESSAGE);
-					}
-				} catch (Exception e) {
-					JOptionPane
-							.showMessageDialog(
-									this,
-									"La clave ingresada no es valida\nEl caracter A debe ser primo relativo con 26 y B un numero entero positivo menor a 26\n          Generar una clave",
-									"Error al cifrar",
-									JOptionPane.ERROR_MESSAGE);
-				}
-			}
-		}
-	}
-
-	private void encriptarVigenere(String textoPlano) {
-		if (claveVigenere.getText().isEmpty()) {
-			botonClaveVigenereActionPerformed(null);
-			String clave = claveVigenere.getText();
-			String textoCifrado = VigenereCipher.encrypt(textoPlano, clave);
-			cajaTextoCifrado.setText(textoCifrado);
-			cajaTextoPlano.setText(textoPlano);
-		} else {
-			if (claveVigenere.getText().length() < 9) {
-				try {
-					String clave = claveVigenere.getText();
-					String textoCifrado = VigenereCipher.encrypt(textoPlano,
-							clave);
-					cajaTextoCifrado.setText(textoCifrado);
-					cajaTextoPlano.setText(textoPlano);
-				} catch (Exception e) {
-					JOptionPane
-							.showMessageDialog(
-									this,
-									"La clave ingresada no es valida\nIngrese una clave de por lo menos 3 caracteres\n          Generar una clave",
-									"Error al cifrar",
-									JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"La clave ingresada no es valida\nIngrese una clave de máximo 8 caracteres\n          Generar una clave",
-								"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			}
-		}
-	}
-
-	private void encriptarHill(String textoPlano) {
-		Matrix clave = null;
-		if (tipoClaveHill2.isSelected()) {
-			if (claveHill1.getText().isEmpty()
-					&& claveHill2.getText().isEmpty()
-					&& claveHill4.getText().isEmpty()
-					&& claveHill5.getText().isEmpty()) {
-				botonClaveHillActionPerformed(null);
-				double[][] valoresClave = {
-						{ Double.parseDouble(claveHill1.getText()),
-								Double.parseDouble(claveHill2.getText()) },
-						{ Double.parseDouble(claveHill4.getText()),
-								Double.parseDouble(claveHill5.getText()) } };
-				clave = new Matrix(valoresClave);
-			} else {
-				if (claveHill1.getText().isEmpty()
-						|| claveHill2.getText().isEmpty()
-						|| claveHill4.getText().isEmpty()
-						|| claveHill5.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(this,
-							"Ingrese todos los valores de la clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-				} else {
-					double[][] valoresClave = {
-							{ Double.parseDouble(claveHill1.getText()),
-									Double.parseDouble(claveHill2.getText()) },
-							{ Double.parseDouble(claveHill4.getText()),
-									Double.parseDouble(claveHill5.getText()) } };
-					clave = new Matrix(valoresClave);
-				}
-			}
-		} else {
-			if (claveHill1.getText().isEmpty()
-					&& claveHill2.getText().isEmpty()
-					&& claveHill4.getText().isEmpty()
-					&& claveHill5.getText().isEmpty()
-					&& claveHill3.getText().isEmpty()
-					&& claveHill6.getText().isEmpty()
-					&& claveHill7.getText().isEmpty()
-					&& claveHill8.getText().isEmpty()
-					&& claveHill9.getText().isEmpty()) {
-				botonClaveHillActionPerformed(null);
-				double[][] valoresClave = {
-						{ Double.parseDouble(claveHill1.getText()),
-								Double.parseDouble(claveHill2.getText()),
-								Double.parseDouble(claveHill3.getText()) },
-						{ Double.parseDouble(claveHill4.getText()),
-								Double.parseDouble(claveHill5.getText()),
-								Double.parseDouble(claveHill6.getText()) },
-						{ Double.parseDouble(claveHill7.getText()),
-								Double.parseDouble(claveHill8.getText()),
-								Double.parseDouble(claveHill9.getText()) } };
-				clave = new Matrix(valoresClave);
-			} else {
-				if (claveHill1.getText().isEmpty()
-						|| claveHill2.getText().isEmpty()
-						|| claveHill4.getText().isEmpty()
-						|| claveHill5.getText().isEmpty()
-						|| claveHill3.getText().isEmpty()
-						|| claveHill6.getText().isEmpty()
-						|| claveHill7.getText().isEmpty()
-						|| claveHill8.getText().isEmpty()
-						|| claveHill9.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(this,
-							"Ingrese todos los valores de la clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-				} else {
-					double[][] valoresClave = {
-							{ Double.parseDouble(claveHill1.getText()),
-									Double.parseDouble(claveHill2.getText()),
-									Double.parseDouble(claveHill3.getText()) },
-							{ Double.parseDouble(claveHill4.getText()),
-									Double.parseDouble(claveHill5.getText()),
-									Double.parseDouble(claveHill6.getText()) },
-							{ Double.parseDouble(claveHill7.getText()),
-									Double.parseDouble(claveHill8.getText()),
-									Double.parseDouble(claveHill9.getText()) } };
-					clave = new Matrix(valoresClave);
-				}
-			}
-		}
-		int det = (int) Math.round(clave.det());
-		if (mcd(det, 26) == 1) {
-			String textoCifrado = HillCipher.encrypt(textoPlano, clave);
-			cajaTextoCifrado.setText(textoCifrado);
-			cajaTextoPlano.setText(textoPlano);
-		} else {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegurese que el MCD del determinante y 26 sea 1",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-		}
-	}
-
-	private void encriptarPermutacion(String textoPlano) {
-		String clave = clavePermutacion.getText();
-		try {
-			String textoCifrado = "";
-			if (clavePermutacionAlternativa.isSelected()) {
-				textoCifrado = PermutationCipher.encryptAlternate(textoPlano,
-						clave);
-				textoCifrado = PermutationCipher.encryptAlternate(
-						textoCifrado.toUpperCase(), clave);
-			} else {
-				textoCifrado = PermutationCipher.encrypt(textoPlano, clave);
-			}
-			cajaTextoCifrado.setText(textoCifrado);
-			cajaTextoPlano.setText(textoPlano);
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegurese que la clave es una secuencia de 1 a n (con n menor a 9) en cualquier orden sin repetir o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			System.out.println(e.toString());
-		}
-	}
-
-	private void encriptarSPN(String textoPlano) {
-		String clave = claveSPN.getText();
-		if (clave.length() != 8) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegurese que la clave es una palabra de 8 caracteres o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-		} else {
-			try {
-				int nr = Integer.parseInt(numeroRondasSPN.getText());
-				if (nr < 1 || nr > 25) {
-					JOptionPane
-							.showMessageDialog(
-									this,
-									"El número de rondas es inválido\nAsegurese que el numero de rondas sea mayor a 0 y menor a 16 o pruebe pulsando el botón\n          Generar una clave",
-									"Error al cifrar",
-									JOptionPane.ERROR_MESSAGE);
-				} else {
-					if (permutacionSPN.getText().length() != 16
-							|| sustitucionSPN.getText().length() != 16) {
-						JOptionPane
-								.showMessageDialog(
-										this,
-										"Las funciones de permutación o sustitución son inválidas\nAsegurese que sean secuencias de 0 a F en cualquier orden sin repetir ningun valor o pruebe pulsando el botón\n          Generar una clave",
-										"Error al cifrar",
-										JOptionPane.ERROR_MESSAGE);
-					} else {
-						char[] permutacionChar = permutacionSPN.getText()
-								.toCharArray();
-						char[] sustitucionChar = sustitucionSPN.getText()
-								.toCharArray();
-						int[] permutacion = new int[16];
-						int[] sustitucion = new int[16];
-						for (int x = 0; x < 16; x++) {
-							permutacion[x] = (Integer.parseInt(
-									String.valueOf(permutacionChar[x]), 16)) + 1;
-							sustitucion[x] = Integer.parseInt(
-									String.valueOf(sustitucionChar[x]), 16);
-						}
-						try {
-							// System.out.println("textoPlano.length() " +
-							// textoPlano.length());
-							while (textoPlano.length() % 4 != 0) {
-								textoPlano = textoPlano.concat("a");
-							}
-							// System.out.println("textoPlano.length() after" +
-							// textoPlano.length());
-							String secret = "";
-							for (int y = 0; y < textoPlano.length(); y = y + 4) {
-								secret = secret
-										.concat(SubstitutionPermutationNetworkCipher
-												.encrypt(textoPlano.substring(
-														y, (y + 4)),
-														sustitucion,
-														permutacion, clave, nr));
-							}
-							cajaTextoCifrado.setText(secret.toUpperCase());
-							cajaTextoPlano.setText(textoPlano);
-						} catch (Exception e) {
-							JOptionPane
-									.showMessageDialog(
-											this,
-											"Los valores ingresados son inválidos\no pruebe pulsando el botón\n          Generar una clave",
-											"Error al cifrar",
-											JOptionPane.ERROR_MESSAGE);
-						}
-					}
-				}
-			} catch (Exception e) {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"El número de rondas es inválido\nAsegurese que el numero de rondas sea mayor a 0 y menor a 25 o pruebe pulsando el botón\n          Generar una clave",
-								"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			}
-		}
-	}
-
-	private void encriptarSDES(String textoPlano) {
-		try {
-			String textoHexa = "";
-			String textoCifrado = "";
-
-			String clave = claveDESS.getText();
-			if (clave.length() == 10) {
-				for (int x = 0; x < textoPlano.length(); x++) {
-					textoHexa = cpcommonmethods.HexTools
-							.fromASCIIStringToHexString(textoPlano.substring(x,
-									x + 1));
-					textoCifrado = textoCifrado.concat(SimplifiedDESCipher
-							.encryptDecrypt(textoHexa, clave, true));
-				}
-				cajaTextoCifrado.setText(textoCifrado);
-			} else {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 10 bits o pruebe pulsando el botón\n          Generar una clave",
-								"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			}
-
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 10 bits o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			System.out.print(e.toString());
-		}
-	}
-
-	private void encriptarTSDES(String textoPlano) {
-		try {
-			String textoHexa = "";
-			String textoCifrado = "";
-
-			String clave = claveTripleDESS.getText();
-			if (clave.length() == 30) {
-				String stringTemp = "";
-				for (int x = 0; x < textoPlano.length(); x++) {
-
-					textoHexa = cpcommonmethods.HexTools
-							.fromASCIIStringToHexString(textoPlano.substring(x,
-									x + 1));
-
-					stringTemp = SimplifiedDESCipher.encryptDecrypt(textoHexa,
-							clave.substring(0, 10), true);
-					stringTemp = SimplifiedDESCipher.encryptDecrypt(stringTemp,
-							clave.substring(10, 20), false);
-					textoCifrado = textoCifrado.concat(SimplifiedDESCipher
-							.encryptDecrypt(stringTemp,
-									clave.substring(20, 30), true));
-				}
-				cajaTextoCifrado.setText(textoCifrado);
-			} else {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 30 bits o pruebe pulsando el botón\n          Generar una clave",
-								"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			}
-
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 10 bits o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			System.out.print(e.toString());
-		}
-	}
-
-	private void encriptarDES(String textoPlano) {
-
-		try {
-			cajaTextoPlano.setText(textoPlano);
-			String claveHexa = "";
-			String textoHexa = "";
-			String textoCifrado = "";
-			Random rand = new Random();
-			while (textoPlano.length() % 8 != 0) {
-				char letra = (char) (rand.nextInt(25) + 65);
-				textoPlano = textoPlano.concat(String.valueOf(letra));
-			}
-
-			claveHexa = claveDES.getText();
-			if (claveHexa.length() == 16) {
-				for (int x = 0; x < textoPlano.length(); x = x + 8) {
-					textoHexa = cpcommonmethods.HexTools
-							.fromASCIIStringToHexString(textoPlano.substring(x,
-									x + 8));
-					textoCifrado = textoCifrado.concat(DESCipher
-							.encryptDecrypt(textoHexa, claveHexa, true));
-				}
-				cajaTextoCifrado.setText(textoCifrado);
-			} else {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 16 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
-								"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			}
-
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 16 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			System.out.print(e.toString());
-		}
-	}
-
-	private void encriptarTDES(String textoPlano) {
-
-		try {
-			cajaTextoPlano.setText(textoPlano);
-			String claveHexa = "";
-			String textoHexa = "";
-			String textoCifrado = "";
-			Random rand = new Random();
-			while (textoPlano.length() % 8 != 0) {
-				char letra = (char) (rand.nextInt(25) + 65);
-				textoPlano = textoPlano.concat(String.valueOf(letra));
-			}
-
-			claveHexa = claveTDES.getText();
-			if (claveHexa.length() == 48) {
-				String stringTemp = "";
-				for (int x = 0; x < textoPlano.length(); x = x + 8) {
-					textoHexa = cpcommonmethods.HexTools
-							.fromASCIIStringToHexString(textoPlano.substring(x,
-									x + 8));
-					stringTemp = DESCipher.encryptDecrypt(textoHexa,
-							claveHexa.substring(0, 16), true);
-					stringTemp = DESCipher.encryptDecrypt(stringTemp,
-							claveHexa.substring(16, 32), false);
-					textoCifrado = textoCifrado.concat(DESCipher
-							.encryptDecrypt(stringTemp,
-									claveHexa.substring(32, 48), true));
-				}
-				cajaTextoCifrado.setText(textoCifrado);
-				cajaTextoPlano.setText(textoPlano);
-			} else {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 48 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
-								"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			}
-
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 48 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			System.out.print(e.toString());
-		}
-	}
-
-	private void encriptarAES(String textoPlano) {
-
-		try {
-			String clave = claveAES.getText();
-			if (clave.length() != 32) {
-				throw new NumberFormatException();
-			}
-			String textoCifrado = AESCipher.longEncrypt(textoPlano, clave);
-			cajaTextoCifrado.setText(textoCifrado);
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegúrese que la clave está compuesta por 32 hexadecimales o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			System.out.println(e.toString());
-		}
-	}
-
-	private void encriptarCBCMAC(String textoPlano) {
-		String claveCadena = claveAES.getText();
-		try {
-			if (claveCadena.length() != 32) {
-				throw new Exception("Clave muy corta o muy larga");
-			}
-			int[] clave = new int[16];
-			for (int i = 0; i < 16; i++) {
-				int j = i * 2;
-				clave[i] = Integer
-						.parseInt(claveCadena.substring(j, j + 2), 16);
-			}
-			cajaTextoCifrado.setText(CBCMac.encrypt(textoPlano, clave));
-			cajaTextoPlano.setText(textoPlano);
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegúrese que la clave está compuesta por 32 hexadecimales o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			System.out.println(e.toString());
-		}
-	}
-
-	private void encriptarRSA(String textoPlano) {
-		try {
-			String result = "";
-			String n = cajaClaveRSAn.getText();
-			String p = cajaClaveRSAp.getText();
-			String q = cajaClaveRSAq.getText();
-			String e = cajaClaveRSAe.getText();
-			String d = cajaClaveRSAd.getText();
-
-			if (tipoClaveRSAn.isSelected()) {
-				tipoClaveRSAeActionPerformed(null);
-				if (n.isEmpty()) {
-					throw new Exception(
-							"Es necesario ingresar el valor de n para cifrar el texto.");
-				}
-				if (e.isEmpty()) {
-					throw new Exception(
-							"Es necesario ingresar el valor de e para cifrar el texto.");
-				}
-				if (tipoOptimizacionRSA.isSelected()) {
-					result = BellareRogawayCipher.encrypt(textoPlano, n, e);
-				} else {
-					result = RSACipher.encrypt(n, e, textoPlano);
-				}
-			} else {
-				if (p.isEmpty() || q.isEmpty()) {
-					throw new Exception(
-							"Es necesario ingresar los valores de p y q para cifrar el texto.");
-				}
-				if (tipoClaveRSAd.isSelected()) {
-					tipoClaveRSAeActionPerformed(null);
-					if (d.isEmpty()) {
-						throw new Exception(
-								"Es necesario ingresar el valor de e para cifrar el texto.");
-					} else {
-						e = RSACipher.calculateInverse(d, p, q);
-					}
-				} else {
-					if (e.isEmpty()) {
-						throw new Exception(
-								"Es necesario ingresar el valor de e para cifrar el texto.");
-					} else {
-						d = RSACipher.calculateInverse(e, p, q);
-					}
-				}
-				if (tipoOptimizacionRSA.isSelected()) {
-					result = BellareRogawayCipher.encrypt(textoPlano, p, q, e);
-				} else {
-					result = RSACipher.encrypt(p, q, e, textoPlano);
-				}
-				cajaClaveRSAn.setText(RSACipher.calculateN(p, q));
-				cajaClaveRSAd.setText(d);
-				cajaClaveRSAe.setText(e);
-			}
-
-			cajaTextoCifrado.setText(result);
-			cajaTextoPlano.setText(textoPlano);
-		} catch (NumberFormatException e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"El formato de la clave es inválido. Asegúrese de usar únicamente números en formato decimal.",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-		} catch (OutOfMemoryError e) {
-			JOptionPane.showMessageDialog(this,
-					"Se ha excedido la capacidad de máquina.",
-					"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(this, e.getMessage(),
-					"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-		}
-	}
-
-	private void botonEncriptarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonEncriptarActionPerformed
-		if (cajaTextoPlano.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(this,
-					"Ingrese un texto plano para cifrarlo", "Error al cifrar",
-					JOptionPane.ERROR_MESSAGE);
-		} else {
-			String metodo = "";
-			if (panelClasesCifrados.getSelectedIndex() == 0) {
-				metodo = panelMetodosClasicos.getSelectedComponent().getName();
-			} else if (panelClasesCifrados.getSelectedIndex() == 1) {
-				metodo = panelMetodosBloque.getSelectedComponent().getName();
-			} else {
-				metodo = panelMetodosPublicos.getSelectedComponent().getName();
-			}
-			String textoPlano = cajaTextoPlano.getText();
-			String textoPlanoMod26 = Code
-					.removeCharactersOutOfMod26(textoPlano).toLowerCase();
-			String textoPlanoMod189 = Code
-					.removeCharactersOutOfMod189(textoPlano);
-
-			if (metodo.equals("desplazamiento")) {
-				encriptarDesplazamiento(textoPlanoMod189);
-			}
-			if (metodo.equals("sustitucion")) {
-				encriptarSustitucion(textoPlanoMod26);
-			}
-			if (metodo.equals("affine")) {
-				encriptarAffine(textoPlanoMod26);
-			}
-			if (metodo.equals("vigenere")) {
-				encriptarVigenere(textoPlanoMod26);
-			}
-			if (metodo.equals("hill")) {
-				encriptarHill(textoPlanoMod26);
-			}
-			if (metodo.equals("permutacion")) {
-				encriptarPermutacion(textoPlanoMod26);
-			}
-			if (metodo.equals("spn")) {
-				encriptarSPN(textoPlanoMod189);
-			}
-			if (metodo.equals("sdes")) {
-				encriptarSDES(textoPlanoMod189);
-			}
-			if (metodo.equals("tsdes")) {
-				encriptarTSDES(textoPlanoMod189);
-			}
-			if (metodo.equals("des")) {
-				encriptarDES(textoPlanoMod189);
-			}
-			if (metodo.equals("tdes")) {
-				encriptarTDES(textoPlanoMod189);
-			}
-			if (metodo.equals("aes")) {
-				encriptarAES(textoPlano);
-			}
-			if (metodo.equals("cbcmac")) {
-				encriptarCBCMAC(textoPlano);
-			}
-			if (metodo.equals("rsa")) {
-				encriptarRSA(textoPlano);
-			}
-		}
-	}// GEN-LAST:event_botonEncriptarActionPerformed
-
-	private void fuerzaBrutaDesplazamiento(String textoCifrado) {
-		String[] posibilidades = ShiftCipher.cryptoAnalysisMod189(textoCifrado);
-		String textoPlano = "";
-		for (int pos = 0; pos < posibilidades.length; pos++) {
-			int[] decode = { pos };
-			String texto = Code.decodeMod189(decode);
-			textoPlano = textoPlano.concat("Clave " + pos + ": "
-					+ texto.concat("\n"));
-			textoPlano = textoPlano.concat(posibilidades[pos]).concat("\n\n");
-		}
-		cajaTextoPlano.setText(textoPlano);
-		cajaTextoCifrado.setText(textoCifrado);
-		// Frecuencias
-		ArrayList<LettersOcurrence> frecLetras = LettersOcurrence
-				.frequenciesMod189(Code.encodeMod189(textoCifrado));
-		Object[][] datos = new Object[189][2];
-		String etiquetas[] = { "Letra", "Frecuencia" };
-		for (LettersOcurrence frecuencia : frecLetras) {
-			int[] aux = { frecuencia.getLetter() };
-			int letra = frecuencia.getLetter();
-			int frec = frecuencia.getFrequency();
-			datos[letra][0] = Code.decodeMod189(aux);
-			datos[letra][1] = frec;
-		}
-		pintarFrecuencias(tablaResultadosDesplazamiento, 2, datos, etiquetas);
-		// Frecuencias bigramas
-		ArrayList<BigramsOcurrence> frecBigramas = BigramsOcurrence
-				.frequenciesMod189(textoCifrado);
-		int i = 0;
-		datos = new Object[frecBigramas.size()][6];
-		String etiquetas2[] = { "Bigrama", "Frec" };
-		for (BigramsOcurrence frecuencia : frecBigramas) {
-			int[] aux = { frecuencia.getFirstLetter(),
-					frecuencia.getSecondLetter() };
-			int frec = frecuencia.getFrequency();
-			datos[i][0] = Code.decodeMod189(aux);
-			datos[i][1] = frec;
-			i++;
-		}
-		pintarFrecuencias(tablaResultadosDesplazamientoBigramas, 4, datos,
-				etiquetas2);
-		// Frecuencias trigramas
-		ArrayList<TrigramsOcurrence> frecTrigramas = TrigramsOcurrence
-				.frequenciesMod189(textoCifrado);
-		i = 0;
-		datos = new Object[frecTrigramas.size()][6];
-		String etiquetas3[] = { "Trigrama", "Frec" };
-		for (TrigramsOcurrence frecuencia : frecTrigramas) {
-			int[] aux = { frecuencia.getFirstLetter(),
-					frecuencia.getSecondLetter(), frecuencia.getThirdLetter() };
-			int frec = frecuencia.getFrequency();
-			datos[i][0] = Code.decodeMod189(aux);
-			datos[i][1] = frec;
-			i++;
-		}
-		pintarFrecuencias(tablaResultadosDesplazamientoTrigramas, 6, datos,
-				etiquetas3);
-		LettersOcurrence masFrecuente = LettersOcurrence.greatest(frecLetras);
-		int probable = masFrecuente.getLetter() - 69;
-		if (probable < 0) {
-			probable += 189;
-		}
-		textoMasProbablesClavesDesplazamientoR.setText(Code.decodeMod189(
-				new int[] { probable }).concat(" = " + probable));
-	}
-
-	private void analisisFrecuenciasSustitucion(String textoCifrado) {
-		// Frecuencias letras
-		ArrayList<LettersOcurrence> frecLetras = LettersOcurrence
-				.frequencies(Code.encodeMod26(textoCifrado));
-
-		Object[][] datos = new Object[26][6];
-		String etiquetas[] = { "Letra", "Frec" };
-		for (LettersOcurrence frecuencia : frecLetras) {
-			int[] aux = { frecuencia.getLetter() };
-			int letra = frecuencia.getLetter();
-			int frec = frecuencia.getFrequency();
-			datos[letra][0] = Code.decodeMod26(aux).toUpperCase();
-			datos[letra][1] = frec;
-		}
-		pintarFrecuencias(tablaResultadosSusLetras, 2, datos, etiquetas);
-		// Frecuencias bigramas
-		ArrayList<BigramsOcurrence> frecBigramas = BigramsOcurrence
-				.frequenciesMod26(textoCifrado);
-		int i = 0;
-		datos = new Object[frecBigramas.size()][6];
-		String etiquetas2[] = { "Bigrama", "Frec" };
-		for (BigramsOcurrence frecuencia : frecBigramas) {
-			int[] aux = { frecuencia.getFirstLetter(),
-					frecuencia.getSecondLetter() };
-			int frec = frecuencia.getFrequency();
-			datos[i][0] = Code.decodeMod26(aux).toUpperCase();
-			datos[i][1] = frec;
-			i++;
-		}
-		pintarFrecuencias(tablaResultadosSusBigramas, 4, datos, etiquetas2);
-		// Frecuencias trigramas
-		ArrayList<TrigramsOcurrence> frecTrigramas = TrigramsOcurrence
-				.frequenciesMod26(textoCifrado);
-		i = 0;
-		datos = new Object[frecTrigramas.size()][6];
-		String etiquetas3[] = { "Trigrama", "Frec" };
-		for (TrigramsOcurrence frecuencia : frecTrigramas) {
-			int[] aux = { frecuencia.getFirstLetter(),
-					frecuencia.getSecondLetter(), frecuencia.getThirdLetter() };
-			int frec = frecuencia.getFrequency();
-			datos[i][0] = Code.decodeMod26(aux).toUpperCase();
-			datos[i][1] = frec;
-			i++;
-		}
-		pintarFrecuencias(tablaResultadosSusTrigramas, 6, datos, etiquetas3);
-
-		cajaTextoPlano.setText(textoCifrado);
-		cajaTextoCifrado.setText(textoCifrado);
-		textoPlanoInicial = cajaTextoCifrado.getText();
-	}
-
-	private void criptoAnalisisAffine(String textoCifrado) {
-		String textoPlano = "";
-		// Frecuencias letras
-		ArrayList<LettersOcurrence> frecLetras = LettersOcurrence
-				.frequencies(Code.encodeMod26(textoCifrado));
-
-		Object[][] datos = new Object[26][6];
-		String etiquetas[] = { "Letra", "Frec" };
-		for (LettersOcurrence frecuencia : frecLetras) {
-			int[] aux = { frecuencia.getLetter() };
-			int letra = frecuencia.getLetter();
-			int frec = frecuencia.getFrequency();
-			datos[letra][0] = Code.decodeMod26(aux);
-			datos[letra][1] = frec;
-		}
-		pintarFrecuencias(tablaResultadosAffineLetras, 2, datos, etiquetas);
-		// Frecuencias bigramas
-		ArrayList<BigramsOcurrence> frecBigramas = BigramsOcurrence
-				.frequenciesMod26(textoCifrado);
-		int i = 0;
-		datos = new Object[frecBigramas.size()][6];
-		String etiquetas2[] = { "Bigrama", "Frec" };
-		for (BigramsOcurrence frecuencia : frecBigramas) {
-			int[] aux = { frecuencia.getFirstLetter(),
-					frecuencia.getSecondLetter() };
-			int frec = frecuencia.getFrequency();
-			datos[i][0] = Code.decodeMod26(aux);
-			datos[i][1] = frec;
-			i++;
-		}
-		pintarFrecuencias(tablaResultadosAffineBigramas, 4, datos, etiquetas2);
-		// Frecuencias trigramas
-		ArrayList<TrigramsOcurrence> frecTrigramas = TrigramsOcurrence
-				.frequenciesMod26(textoCifrado);
-		i = 0;
-		datos = new Object[frecTrigramas.size()][6];
-		String etiquetas3[] = { "Trigrama", "Frec" };
-		for (TrigramsOcurrence frecuencia : frecTrigramas) {
-			int[] aux = { frecuencia.getFirstLetter(),
-					frecuencia.getSecondLetter(), frecuencia.getThirdLetter() };
-			int frec = frecuencia.getFrequency();
-			datos[i][0] = Code.decodeMod26(aux);
-			datos[i][1] = frec;
-			i++;
-		}
-		pintarFrecuencias(tablaResultadosAffineTrigramas, 6, datos, etiquetas3);
-		ArrayList<AffineCipher> textosPlanos = AffineCipher
-				.cryptoAnalysis(textoCifrado);
-		String claves = "";
-		int contador = 0;
-		for (AffineCipher affine : textosPlanos.subList(0, 25)) {
-			int aditivo = affine.getAdditiveKey();
-			int multiplicativo = affine.getMultiplicativeKey();
-			if (contador < 7) {
-				claves = claves.concat("(" + String.valueOf(multiplicativo)
-						+ "," + String.valueOf(aditivo) + ") ");
-				contador++;
-			}
-			String textoAffine = affine.getText();
-			textoPlano = textoPlano.concat("Clave: ( "
-					+ String.valueOf(multiplicativo) + " , "
-					+ String.valueOf(aditivo) + " )\n");
-			textoPlano = textoPlano.concat(textoAffine.concat("\n\n"));
-		}
-		textoMasProbablesClavesAffineR.setText(claves);
-		cajaTextoPlano.setText(textoPlano);
-		cajaTextoCifrado.setText(textoCifrado);
-	}
-
-	private void criptoAnalisisVigenere(String textoCifrado) {
-		try {
-			cajaTextoPlano.setText("");
-			ArrayList<VigenereCipher> textoPlanoArray = VigenereCipher
-					.cryptoAnalysis(textoCifrado);
-			VigenereCipher textoPlano = textoPlanoArray.get(0);
-			cajaTextoPlano.setText(textoPlano.getText());
-			cajaTextoCifrado.setText(textoCifrado);
-			textoResultadoVigenereClave.setText(textoPlano.getKey()
-					.toUpperCase());
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"El texto cifrado no aporta suficiente información para calcular el índice de coincidencia",
-							"Error al realizar el criptoanálisis",
-							JOptionPane.ERROR_MESSAGE);
-		}
-	}
-
-	private void fuerzaBrutaDESS(String textoCifrado) {
-		textoCifrado = Code.removeCharactersOutOfHexa(cajaTextoCifrado
-				.getText());
-
-		if (textoCifrado.length() % 2 != 0) {
-			Random rand = new Random();
-			char randChar = (char) (rand.nextInt(6) + 65);
-			textoCifrado = textoCifrado.concat(String.valueOf(randChar));
-		}
-		String[][] p = SimplifiedDESCipher.bruteForce(textoCifrado);
-		String textoPlano = "";
-		for (int x = 0; x < 1024; x++) {
-			textoPlano = textoPlano.concat("Clave: ".concat(p[x][0]).concat(
-					"\n"));
-			textoPlano = textoPlano.concat(p[x][1].concat("\n\n"));
-		}
-		cajaTextoPlano.setText(textoPlano);
-		cajaTextoCifrado.setText(textoCifrado);
-	}
-
-	private void descifrarTSDES(String textoCifrado) {
-		try {
-			String clave = "";
-			String textoHexa = "";
-			String textoPlano = "";
-
-			Random rand = new Random();
-			while (textoCifrado.length() % 2 != 0) {
-				char letra = (char) (rand.nextInt(6) + 65);
-				textoCifrado = textoCifrado.concat(String.valueOf(letra));
-			}
-
-			clave = claveTripleDESS.getText();
-			String stringTemp = "";
-			if (clave.length() == 30) {
-				for (int x = 0; x < textoCifrado.length(); x = x + 2) {
-					textoHexa = textoCifrado.substring(x, x + 2);
-					stringTemp = SimplifiedDESCipher.encryptDecrypt(textoHexa,
-							clave.substring(20, 30), false);
-					stringTemp = SimplifiedDESCipher.encryptDecrypt(stringTemp,
-							clave.substring(10, 20), true);
-					textoPlano = textoPlano.concat(SimplifiedDESCipher
-							.encryptDecrypt(stringTemp, clave.substring(0, 10),
-									false));
-				}
-				cajaTextoPlano.setText(cpcommonmethods.HexTools
-						.fromHexStringToASCIIString(textoPlano));
-				cajaTextoCifrado.setText(textoCifrado);
-			} else {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 30 dígitos binarios o pruebe pulsando el botón\n          Generar una clave",
-								"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			}
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 30 dígitos binarios o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			System.out.print(e.toString());
-		}
-
-	}
-
-	private void descifrarDES(String textoCifrado) {
-
-		try {
-			String claveHexa = "";
-			String textoHexa = "";
-			String textoPlano = "";
-
-			Random rand = new Random();
-			while (textoCifrado.length() % 16 != 0) {
-				char letra = (char) (rand.nextInt(6) + 65);
-				textoCifrado = textoCifrado.concat(String.valueOf(letra));
-			}
-
-			claveHexa = claveDES.getText();
-			if (claveHexa.length() == 16) {
-				for (int x = 0; x < textoCifrado.length(); x = x + 16) {
-					textoHexa = textoCifrado.substring(x, x + 16);
-					textoPlano = textoPlano.concat(DESCipher.encryptDecrypt(
-							textoHexa, claveHexa, false));
-				}
-				cajaTextoPlano.setText(cpcommonmethods.HexTools
-						.fromHexStringToASCIIString(textoPlano));
-				cajaTextoCifrado.setText(textoCifrado);
-			} else {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 16 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
-								"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			}
-
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 16 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			System.out.print(e.toString());
-		}
-	}
-
-	private void descifrarTDES(String textoCifrado) {
-		try {
-			String claveHexa = "";
-			String textoHexa = "";
-			String textoPlano = "";
-
-			Random rand = new Random();
-			while (textoCifrado.length() % 16 != 0) {
-				char letra = (char) (rand.nextInt(6) + 65);
-				textoCifrado = textoCifrado.concat(String.valueOf(letra));
-			}
-
-			claveHexa = claveTDES.getText();
-			if (claveHexa.length() == 48) {
-				String stringTemp = "";
-				for (int x = 0; x < textoCifrado.length(); x = x + 16) {
-					textoHexa = textoCifrado.substring(x, x + 16);
-
-					stringTemp = DESCipher.encryptDecrypt(textoHexa,
-							claveHexa.substring(32, 48), false);
-					stringTemp = DESCipher.encryptDecrypt(stringTemp,
-							claveHexa.substring(16, 32), true);
-					textoPlano = textoPlano.concat(DESCipher.encryptDecrypt(
-							stringTemp, claveHexa.substring(0, 16), false));
-
-				}
-				cajaTextoPlano.setText(cpcommonmethods.HexTools
-						.fromHexStringToASCIIString(textoPlano));
-				cajaTextoCifrado.setText(textoCifrado);
-			} else {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 48 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
-								"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			}
-
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 48 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			System.out.print(e.toString());
-		}
-	}
-
-	private void descifrarAES(String textoCifrado) {
-		String clave = claveAES.getText();
-		cajaTextoCifrado.setText(textoCifrado);
-		String textoPlano = "";
-		try {
-			if (clave.length() != 32) {
-				throw new NumberFormatException();
-			}
-			textoPlano = AESCipher.longDecrypt(textoCifrado, clave);
-			cajaTextoPlano.setText(textoPlano);
-		} catch (Exception e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es válida\nAsegúrese que la clave está compuesta por 32 hexadecimales o pruebe pulsando el botón\n          Generar una clave",
-							"Error al cifrar", JOptionPane.ERROR_MESSAGE);
-			System.out.println(e.toString());
-		}
-	}
-
-	private void descifrarRSA(String textoCifrado) {
-		try {
-			String result;
-			String n = cajaClaveRSAn.getText();
-			String p = cajaClaveRSAp.getText();
-			String q = cajaClaveRSAq.getText();
-			String e = cajaClaveRSAe.getText();
-			String d = cajaClaveRSAd.getText();
-
-			if (tipoClaveRSAn.isSelected()) {
-				tipoClaveRSAdActionPerformed(null);
-				if (n.isEmpty()) {
-					throw new Exception(
-							"Es necesario ingresar el valor de n para descifrar el texto.");
-				}
-				if (d.isEmpty()) {
-					throw new Exception(
-							"Es necesario ingresar el valor de d para cifrar el texto.");
-				}
-				if (tipoOptimizacionRSA.isSelected()) {
-					result = BellareRogawayCipher.decrypt(textoCifrado, n, d);
-				} else {
-					result = RSACipher.decrypt(d, n, textoCifrado);
-				}
-			} else {
-				if (p.isEmpty() || q.isEmpty()) {
-					throw new Exception(
-							"Es necesario ingresar los valores de p y q para descifrar \nel texto.");
-				}
-				if (tipoClaveRSAe.isSelected()) {
-					tipoClaveRSAdActionPerformed(null);
-					if (e.isEmpty()) {
-						throw new Exception(
-								"Es necesario ingresar el valor de d para descifrar el texto.");
-					} else {
-						d = RSACipher.calculateInverse(e, p, q);
-					}
-				} else {
-					if (d.isEmpty()) {
-						throw new Exception(
-								"Es necesario ingresar el valor de d para cifrar el texto.");
-					} else {
-						e = RSACipher.calculateInverse(d, p, q);
-					}
-				}
-				if (tipoOptimizacionRSA.isSelected()) {
-					result = BellareRogawayCipher
-							.decrypt(textoCifrado, p, q, d);
-				} else {
-					result = RSACipher.decrypt(p, q, d, textoCifrado);
-				}
-				cajaClaveRSAn.setText(RSACipher.calculateN(p, q));
-				cajaClaveRSAd.setText(d);
-				cajaClaveRSAe.setText(e);
-			}
-
-			cajaTextoPlano.setText(result);
-			cajaTextoCifrado.setText(textoCifrado);
-		} catch (NumberFormatException e) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"El formato de la clave es inválido. Asegúrese de usar únicamente números en formato decimal.",
-							"Error al descifrar", JOptionPane.ERROR_MESSAGE);
-		} catch (OutOfMemoryError e) {
-			JOptionPane.showMessageDialog(this,
-					"Se ha excedido la capacidad de máquina.",
-					"Error al descifrar", JOptionPane.ERROR_MESSAGE);
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(this, e.getMessage(),
-					"Error al descifrar", JOptionPane.ERROR_MESSAGE);
-		}
-	}
-
-	private void botonCriptoanalisisActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonCriptoanalisisActionPerformed
-		if (!cajaTextoCifrado.getText().isEmpty()) {
-			cajaTextoPlano.setText("");
-
-			String metodo = "";
-			if (panelClasesCifrados.getSelectedIndex() == 0) {
-				metodo = panelMetodosClasicos.getSelectedComponent().getName();
-			} else if (panelClasesCifrados.getSelectedIndex() == 1) {
-				metodo = panelMetodosBloque.getSelectedComponent().getName();
-			} else {
-				metodo = panelMetodosPublicos.getSelectedComponent().getName();
-			}
-
-			String textoCifrado = cajaTextoCifrado.getText();
-			String textoCifradoMod26 = Code.removeCharactersOutOfMod26(
-					textoCifrado).toUpperCase();
-			String textoCifradoMod189 = Code
-					.removeCharactersOutOfMod189(textoCifrado);
-			String textoCifradoDigitos = Code
-					.removeCharactersOutOfDigits(textoCifrado);
-			String textoCifradoHexa = Code
-					.removeCharactersOutOfHexa(textoCifrado);
-
-			if (metodo.equals("desplazamiento")) {
-				fuerzaBrutaDesplazamiento(textoCifradoMod189);
-			}
-			if (metodo.equals("sustitucion")) {
-				analisisFrecuenciasSustitucion(textoCifradoMod26);
-			}
-			if (metodo.equals("affine")) {
-				criptoAnalisisAffine(textoCifradoMod26);
-			}
-			if (metodo.equals("vigenere")) {
-				criptoAnalisisVigenere(textoCifradoMod26);
-			}
-			if (metodo.equals("hill")) {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"El criptoanálisis para el metodo de Hill no esta disponible.",
-								"Error al realizar el criptoanálisis",
-								JOptionPane.ERROR_MESSAGE);
-			}
-			if (metodo.equals("permutacion")) {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"El criptoanálisis para el metodo de Permutación no esta disponible.",
-								"Error al realizar el criptoanálisis",
-								JOptionPane.ERROR_MESSAGE);
-			}
-			if (metodo.equals("spn")) {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"El criptoanálisis para el metodo SPN está disponible únicamente \n por aproximación lineal.",
-								"Error al realizar el criptoanálisis",
-								JOptionPane.ERROR_MESSAGE);
-			}
-			if (metodo.equals("sdes")) {
-				fuerzaBrutaDESS(textoCifradoHexa);
-			}
-			if (metodo.equals("tsdes")) {
-				descifrarTSDES(textoCifradoHexa);
-			}
-			if (metodo.equals("des")) {
-				descifrarDES(textoCifradoHexa);
-			}
-			if (metodo.equals("tdes")) {
-				descifrarTDES(textoCifradoHexa);
-			}
-			if (metodo.equals("aes")) {
-				descifrarAES(textoCifradoHexa);
-			}
-			if (metodo.equals("cbcmac")) {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"El criptoanálisis para el metodo CBCMAC no esta disponible.",
-								"Error al realizar el criptoanálisis",
-								JOptionPane.ERROR_MESSAGE);
-			}
-			if (metodo.equals("rsa")) {
-				descifrarRSA(textoCifradoDigitos);
-			}
-
-			textoPlanoInicial = cajaTextoPlano.getText();
-		} else {
-			JOptionPane.showMessageDialog(this,
-					"Ingrese un texto cifrado para descifrarlo.",
-					"Error al realizar el criptoanálisis",
-					JOptionPane.ERROR_MESSAGE);
-		}
-	}// GEN-LAST:event_botonCriptoanalisisActionPerformed
-
-	private void pintarFrecuencias(javax.swing.JTable tabla, int columnas,
-			Object[][] datos, String[] etiquetas) {
-		switch (columnas) {
-		case 2: {
-			tabla.setModel(new javax.swing.table.DefaultTableModel(datos,
-					etiquetas) {
-
-				/**
-						 * 
-						 */
-						private static final long serialVersionUID = 1L;
-				Class[] types = types2;
-
-				public Class getColumnClass(int columnIndex) {
-					return types[columnIndex];
-				}
-			});
-		}
-			break;
-		case 4: {
-			tabla.setModel(new javax.swing.table.DefaultTableModel(datos,
-					etiquetas) {
-
-				/**
-						 * 
-						 */
-						private static final long serialVersionUID = 1L;
-				Class[] types = types4;
-
-				public Class getColumnClass(int columnIndex) {
-					return types[columnIndex];
-				}
-			});
-		}
-			break;
-		case 6: {
-			tabla.setModel(new javax.swing.table.DefaultTableModel(datos,
-					etiquetas) {
-
-				/**
-						 * 
-						 */
-						private static final long serialVersionUID = 1L;
-				Class[] types = types6;
-
-				public Class getColumnClass(int columnIndex) {
-					return types[columnIndex];
-				}
-			});
-		}
-			break;
-		}
-
-		centrarCeldas(tabla);
-	}
-
-	Class[] types2 = new Class[] { java.lang.String.class,
-			java.lang.Integer.class };
-	Class[] types4 = new Class[] { java.lang.String.class,
-			java.lang.Integer.class, java.lang.String.class,
-			java.lang.Integer.class };
-	Class[] types6 = new Class[] { java.lang.String.class,
-			java.lang.Integer.class, java.lang.String.class,
-			java.lang.Integer.class, java.lang.String.class,
-			java.lang.Integer.class };
-
-	private void centrarCeldas(javax.swing.JTable tabla) {
-		DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
-		tcr.setHorizontalAlignment(SwingConstants.CENTER);
-		for (int c = 0; c < tabla.getColumnCount(); c++) {
-			tabla.getColumnModel().getColumn(c).setCellRenderer(tcr);
-		}
-
-	}
-
-	private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonSalirActionPerformed
-		System.exit(0);
-	}// GEN-LAST:event_botonSalirActionPerformed
-
-	private void clavePermutacionKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_clavePermutacionKeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c) || c == '0') {
-			evt.consume();
-		} else {
-			String clave = clavePermutacion.getText();
-			if (clave.contains(c.toString())) {
-				evt.consume();
-			}
-		}
-	}// GEN-LAST:event_clavePermutacionKeyTyped
-
-	private void botonClavePermutacionActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClavePermutacionActionPerformed
-		Random rnd = new Random();
-		int numero = 0;
-		String clave = String.valueOf(rnd.nextInt(8) + 1);
-		while (clave.length() != 9) {
-			numero = rnd.nextInt(9) + 1;
-			if (numero != 0 && !clave.contains(String.valueOf(numero))) {
-				clave = clave.concat(String.valueOf(numero));
-			}
-		}
-		clavePermutacion.setText(clave);
-	}// GEN-LAST:event_botonClavePermutacionActionPerformed
-
-	private void tipoClaveHill3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveHill3ActionPerformed
-		claveHill3.setEditable(true);
-		claveHill6.setEditable(true);
-		claveHill7.setEditable(true);
-		claveHill8.setEditable(true);
-		claveHill9.setEditable(true);
-	}// GEN-LAST:event_tipoClaveHill3ActionPerformed
-
-	private void tipoClaveHill2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveHill2ActionPerformed
-		claveHill3.setEditable(false);
-		claveHill6.setEditable(false);
-		claveHill7.setEditable(false);
-		claveHill8.setEditable(false);
-		claveHill9.setEditable(false);
-                claveHill3.setText("");
-		claveHill6.setText("");
-		claveHill7.setText("");
-		claveHill8.setText("");
-                claveHill9.setText("");
-	}// GEN-LAST:event_tipoClaveHill2ActionPerformed
-
-	private void claveHill9KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill9KeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)
-				|| Integer.parseInt(claveHill9.getText().concat(c.toString())) > 25) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveHill9KeyTyped
-
-	private void claveHill8KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill8KeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)
-				|| Integer.parseInt(claveHill8.getText().concat(c.toString())) > 25) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveHill8KeyTyped
-
-	private void claveHill7KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill7KeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)
-				|| Integer.parseInt(claveHill7.getText().concat(c.toString())) > 25) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveHill7KeyTyped
-
-	private void claveHill6KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill6KeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)
-				|| Integer.parseInt(claveHill6.getText().concat(c.toString())) > 25) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveHill6KeyTyped
-
-	private void claveHill5KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill5KeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)
-				|| Integer.parseInt(claveHill5.getText().concat(c.toString())) > 25) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveHill5KeyTyped
-
-	private void claveHill4KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill4KeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)
-				|| Integer.parseInt(claveHill4.getText().concat(c.toString())) > 25) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveHill4KeyTyped
-
-	private void claveHill3KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill3KeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)
-				|| Integer.parseInt(claveHill3.getText().concat(c.toString())) > 25) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveHill3KeyTyped
-
-	private void claveHill2KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill2KeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)
-				|| Integer.parseInt(claveHill2.getText().concat(c.toString())) > 25) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveHill2KeyTyped
-
-	private void claveHill1KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill1KeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)
-				|| Integer.parseInt(claveHill1.getText().concat(c.toString())) > 25) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveHill1KeyTyped
-
-	private void botonClaveHillActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveHillActionPerformed
-		Random rnd = new Random();
-		if (tipoClaveHill2.isSelected()) {
-			int det = 2;
-			while (mcd(det, 26) != 1) {
-				double[][] valores = { { rnd.nextInt(25), rnd.nextInt(25) },
-						{ rnd.nextInt(25), rnd.nextInt(25) } };
-				claveHill1.setText(String.valueOf((int) valores[0][0]));
-				claveHill2.setText(String.valueOf((int) valores[0][1]));
-				claveHill4.setText(String.valueOf((int) valores[1][0]));
-				claveHill5.setText(String.valueOf((int) valores[1][1]));
-				Matrix clave = new Matrix(valores);
-				det = (int) Math.round(clave.det());
-			}
-		} else {
-			int det = 2;
-			while (mcd(det, 26) != 1) {
-				double[][] valores = {
-						{ rnd.nextInt(25), rnd.nextInt(25), rnd.nextInt(25) },
-						{ rnd.nextInt(25), rnd.nextInt(25), rnd.nextInt(25) },
-						{ rnd.nextInt(25), rnd.nextInt(25), rnd.nextInt(25) } };
-				claveHill1.setText(String.valueOf((int) valores[0][0]));
-				claveHill2.setText(String.valueOf((int) valores[0][1]));
-				claveHill3.setText(String.valueOf((int) valores[0][2]));
-				claveHill4.setText(String.valueOf((int) valores[1][0]));
-				claveHill5.setText(String.valueOf((int) valores[1][1]));
-				claveHill6.setText(String.valueOf((int) valores[1][2]));
-				claveHill7.setText(String.valueOf((int) valores[2][0]));
-				claveHill8.setText(String.valueOf((int) valores[2][1]));
-				claveHill9.setText(String.valueOf((int) valores[2][2]));
-				Matrix clave = new Matrix(valores);
-				det = (int) Math.round(clave.det());
-			}
-		}
-	}// GEN-LAST:event_botonClaveHillActionPerformed
-
-	private void claveVigenereKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveVigenereKeyTyped
-		char c = evt.getKeyChar();
-		if ((!Character.isLetter(c) && !Character.isWhitespace(c)) || c == 'ñ'
-				|| c == 'Ñ' || claveVigenere.getText().length() == 8) {
-			evt.consume();
-		} else {
-			if (Character.isLowerCase(c)) {
-				c = Character.toUpperCase(c);
-				claveVigenere.setText(claveVigenere.getText().concat(
-						String.valueOf(c)));
-				evt.consume();
-			}
-		}
-	}// GEN-LAST:event_claveVigenereKeyTyped
-
-	private void botonClaveVigenereActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveVigenereActionPerformed
-		Random rnd = new Random();
-		String clave = "";
-		for (int x = 0; x < 8; x++) {
-			char claveChar = (char) (rnd.nextInt(25) + 65);
-			clave = clave.concat(String.valueOf(claveChar));
-		}
-		claveVigenere.setText(clave);
-	}// GEN-LAST:event_botonClaveVigenereActionPerformed
-
-	private void claveAffineBKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveAffineBKeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)) {
-			evt.consume();
-		} else {
-			if (Integer.parseInt(claveAffineB.getText().concat(
-					String.valueOf(c))) > 25) {
-				evt.consume();
-			}
-		}
-	}// GEN-LAST:event_claveAffineBKeyTyped
-
-	private void claveAffineAKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveAffineAKeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)) {
-			evt.consume();
-		} else {
-			if (Integer.parseInt(claveAffineA.getText().concat(
-					String.valueOf(c))) > 25) {
-				evt.consume();
-			}
-		}
-	}// GEN-LAST:event_claveAffineAKeyTyped
-
-	private void botonClaveAffineActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveAffineActionPerformed
-		Random rnd = new Random();
-		int clave = 2;
-		while (mcd(clave, 26) != 1) {
-			clave = rnd.nextInt(25);
-		}
-		claveAffineA.setText(String.valueOf(clave));
-		claveAffineB.setText(String.valueOf(rnd.nextInt(25)));
-	}// GEN-LAST:event_botonClaveAffineActionPerformed
-
-	private void claveSustitucionKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionKeyTyped
-		char c = evt.getKeyChar();
-		if (!Character.isLetter(c) || c == 'ñ' || c == 'Ñ'
-				|| claveSustitucion.getText().length() == 26) {
-			evt.consume();
-		} else {
-			String clave = claveSustitucion.getText();
-			if (clave.contains(String.valueOf(c).toUpperCase())) {
-				evt.consume();
-			} else {
-				if (Character.isLowerCase(c)) {
-					c = Character.toUpperCase(c);
-					claveSustitucion.setText(claveSustitucion.getText().concat(
-							String.valueOf(c)));
-					evt.consume();
-				}
-			}
-		}
-	}// GEN-LAST:event_claveSustitucionKeyTyped
-
-	private void botonClaveSustitucionActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveSustitucionActionPerformed
-		Random rnd = new Random();
-		String clave = "";
-		while (clave.length() != 26) {
-			char claveChar = (char) (rnd.nextInt(26) + 65);
-			if (!clave.contains(String.valueOf(claveChar))) {
-				clave = clave.concat(String.valueOf(claveChar));
-			}
-		}
-		claveSustitucion.setText(clave);
-	}// GEN-LAST:event_botonClaveSustitucionActionPerformed
-
-	private void tipoClaveDesplazamientoCaracterActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveDesplazamientoCaracterActionPerformed
-		claveDesplazamientoNumero.setEnabled(false);
-		claveDesplazamientoCaracter.setEnabled(true);
-	}// GEN-LAST:event_tipoClaveDesplazamientoCaracterActionPerformed
-
-	private void claveDesplazamientoCaracterKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveDesplazamientoCaracterKeyTyped
-		Character c = evt.getKeyChar();
-		if (c < 32 || (c > 126 && c < 161) || c > 255) {
-			evt.consume();
-		} else {
-			claveDesplazamientoCaracter.setText("");
-			int[] encode = Code.encodeMod189(String.valueOf(evt.getKeyChar()));
-			claveDesplazamientoNumero.setText(String.valueOf(encode[0]));
-
-			int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
-			String textoCifrado = ShiftCipher.encryptMod189(
-					muestraDesplazamientoDe.getText(), clave);
-			muestraDesplazamientoA.setText(textoCifrado);
-		}
-	}// GEN-LAST:event_claveDesplazamientoCaracterKeyTyped
-
-	private void tipoClaveDesplazamientoNumeroActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveDesplazamientoNumeroActionPerformed
-		claveDesplazamientoCaracter.setEnabled(false);
-		claveDesplazamientoNumero.setEnabled(true);
-	}// GEN-LAST:event_tipoClaveDesplazamientoNumeroActionPerformed
-
-	private void claveDesplazamientoNumeroKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveDesplazamientoNumeroKeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)) {
-			evt.consume();
-		} else {
-			String decode = "A";
-			if (!claveDesplazamientoNumero.getText().isEmpty()) {
-				int clave = Integer.parseInt(claveDesplazamientoNumero
-						.getText());
-				if (clave == 0) {
-					claveDesplazamientoNumero.setText("");
-				}
-
-				clave = Integer.parseInt(claveDesplazamientoNumero.getText()
-						.concat(c.toString()));
-				if (clave > 188) {
-					claveDesplazamientoNumero.setText("");
-				}
-
-				clave = Integer.parseInt(claveDesplazamientoNumero.getText()
-						.concat(c.toString()));
-				int decodeNumber[] = { Integer
-						.parseInt(claveDesplazamientoNumero.getText().concat(
-								c.toString())) };
-				decode = Code.decodeMod189(decodeNumber);
-
-				muestraDesplazamientoA.setText(ShiftCipher.encryptMod189(
-						muestraDesplazamientoDe.getText(), clave));
-			} else {
-				int decodeNumber[] = { Integer.parseInt(c.toString()) };
-				decode = Code.decodeMod189(decodeNumber);
-				muestraDesplazamientoA.setText(ShiftCipher.encryptMod189(
-						muestraDesplazamientoDe.getText(), decodeNumber[0]));
-			}
-
-			claveDesplazamientoCaracter.setText(decode);
-		}
-	}// GEN-LAST:event_claveDesplazamientoNumeroKeyTyped
-
-	private void botonClaveDesplazamientoActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveDesplazamientoActionPerformed
-		Random rnd = new Random();
-		int clave = rnd.nextInt(188);
-		claveDesplazamientoNumero.setText(String.valueOf(clave));
-		muestraDesplazamientoA.setText(ShiftCipher.encryptMod189(
-				muestraDesplazamientoDe.getText(), clave));
-
-		int decodeNumber[] = { clave };
-		String decode = Code.decodeMod189(decodeNumber);
-		claveDesplazamientoCaracter.setText(decode);
-	}// GEN-LAST:event_botonClaveDesplazamientoActionPerformed
-
-	private void clavePermutacionAlternativaActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clavePermutacionAlternativaActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_clavePermutacionAlternativaActionPerformed
-
-	private void panelMetodoPermutacionFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_panelMetodoPermutacionFocusGained
-		JOptionPane
-				.showMessageDialog(
-						this,
-						"Ingrese un texto cifrado para poder realizar el criptoanálisis",
-						"Error al realizar el criptoanálisis",
-						JOptionPane.ERROR_MESSAGE);
-	}// GEN-LAST:event_panelMetodoPermutacionFocusGained
-
-	private void botonAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonAcercaDeActionPerformed
-		JOptionPane.showMessageDialog(this, "Realizado por:\n"
-				+ "\nAgustín Moreno Cañadas - amorenoca@unal.edu.co"
-				+ "\nDavid Montaño Fetecua - damontanofe@unal.edu.co"
-				+ "\nLaura Moreno Cubillos - lvmorenoc@unal.edu.co"
-				+ "\nChristian Rodríguez Bustos - carodriguezb@unal.edu.co\n"
-				+ "\nUniversidad Nacional de Colombia" + "\nSede Bogotá\n\n",
-				"Acerca de...", JOptionPane.INFORMATION_MESSAGE);
-	}// GEN-LAST:event_botonAcercaDeActionPerformed
-
-	public class TxTFilter extends javax.swing.filechooser.FileFilter {
-
-		final static String txt = "txt";
-
-		/** Creates a new instance of XMLFilter */
-		public TxTFilter() {
-		}
-
-		public boolean accept(File f) {
-			if (f.isDirectory()) {
-				return true;
-			}
-			String s = f.getName();
-			int i = s.lastIndexOf('.');
-
-			if (i > 0 && i < s.length() - 1) {
-				String extension = s.substring(i + 1).toLowerCase();
-				if (txt.equals(extension)) {
-					return true;
-				} else {
-					return false;
-				}
-			}
-			return false;
-		}
-
-		public String getDescription() {
-			return "archivos .txt";
-		}
-	}
-
-	private void botonGuardarCifradoActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonGuardarCifradoActionPerformed
-		JFileChooser chooser = new JFileChooser();
-		chooser.addChoosableFileFilter(new TxTFilter());
-		chooser.showSaveDialog(this);
-		File archivo = chooser.getSelectedFile();
-		try {
-			PrintWriter writer = new PrintWriter(archivo);
-			writer.print(cajaTextoCifrado.getText());
-			writer.close();
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
-		}
-	}// GEN-LAST:event_botonGuardarCifradoActionPerformed
-
-	private void botonAbrirPlanoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonAbrirPlanoActionPerformed
-		JFileChooser chooser = new JFileChooser();
-		chooser.addChoosableFileFilter(new TxTFilter());
-		chooser.showOpenDialog(this);
-		File archivo = chooser.getSelectedFile();
-
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(archivo));
-			String linea = "";
-			String texto = "";
-			while ((linea = reader.readLine()) != null) {
-				texto = texto.concat(linea).concat("\n");
-			}
-			reader.close();
-			cajaTextoPlano.setText(texto);
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
-		}
-	}// GEN-LAST:event_botonAbrirPlanoActionPerformed
-
-	private void botonLimpiarCifradoActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarCifradoActionPerformed
-		cajaTextoCifrado.setText("");
-	}// GEN-LAST:event_botonLimpiarCifradoActionPerformed
-
-	private void botonGuardarPlanoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonGuardarPlanoActionPerformed
-		JFileChooser chooser = new JFileChooser();
-		chooser.addChoosableFileFilter(new TxTFilter());
-		chooser.showSaveDialog(this);
-		File archivo = chooser.getSelectedFile();
-		try {
-			PrintWriter writer = new PrintWriter(archivo);
-			writer.print(cajaTextoPlano.getText());
-			writer.close();
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
-		}
-	}// GEN-LAST:event_botonGuardarPlanoActionPerformed
-
-	private void botonLimpiarPlano1ActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarPlano1ActionPerformed
-		cajaTextoPlano.setText("");
-	}// GEN-LAST:event_botonLimpiarPlano1ActionPerformed
-
-	private void botonLimpiarPermutacionActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarPermutacionActionPerformed
-		clavePermutacion.setText("");
-		clavePermutacionAlternativa.setSelected(false);
-	}// GEN-LAST:event_botonLimpiarPermutacionActionPerformed
-
-	private void botonLimpiarHillActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarHillActionPerformed
-		claveHill1.setText("");
-		claveHill2.setText("");
-		claveHill3.setText("");
-		claveHill4.setText("");
-		claveHill5.setText("");
-		claveHill6.setText("");
-		claveHill7.setText("");
-		claveHill8.setText("");
-		claveHill9.setText("");
-		claveHill3.setEditable(false);
-		claveHill6.setEditable(false);
-		claveHill7.setEditable(false);
-		claveHill8.setEditable(false);
-		claveHill9.setEditable(false);
-		tipoClaveHill2.setSelected(true);
-	}// GEN-LAST:event_botonLimpiarHillActionPerformed
-
-	private void botonLimpiarVigenereActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarVigenereActionPerformed
-		claveVigenere.setText("");
-	}// GEN-LAST:event_botonLimpiarVigenereActionPerformed
-
-	private void botonLimpiarAffineActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarAffineActionPerformed
-		claveAffineA.setText("");
-		claveAffineB.setText("");
-	}// GEN-LAST:event_botonLimpiarAffineActionPerformed
-
-	private void botonLimpiarSustitucionActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarSustitucionActionPerformed
-		claveSustitucion.setText("");
-	}// GEN-LAST:event_botonLimpiarSustitucionActionPerformed
-
-	private void botonLimpiarDesplazamientoActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarDesplazamientoActionPerformed
-		claveDesplazamientoCaracter.setText("");
-		claveDesplazamientoCaracter.setEnabled(false);
-		claveDesplazamientoNumero.setEnabled(true);
-		claveDesplazamientoNumero.setText("");
-		tipoClaveDesplazamientoNumero.setSelected(true);
-		muestraDesplazamientoA.setText("");
-	}// GEN-LAST:event_botonLimpiarDesplazamientoActionPerformed
-
-	public void sustitucionTodos(java.awt.event.KeyEvent evt, int n) {
-		Character c = evt.getKeyChar();
-		if (!Character.isLetter(c) || c == 'ñ' || c == 'Ñ'
-				|| arregloSustitucion[n].getText().length() == 1) {
-			evt.consume();
-		} else {
-			if (Character.isLowerCase(c)) {
-				c = Character.toUpperCase(c);
-				arregloSustitucion[n].setText(arregloSustitucion[n].getText()
-						.concat(String.valueOf(c)));
-				evt.consume();
-			}
-			for (int i = 0; i < 26; i++) {
-				if (n != i) {
-					if (arregloSustitucion[i].getText().equals(
-							String.valueOf(c))) {
-						arregloSustitucion[i].setText("");
-						break;
-					}
-				}
-			}
-			textoMasProbablesClavesSustitucionR.setText("");
-			for (int i = 0; i < 26; i++) {
-				if (!arregloSustitucion[i].getText().isEmpty()) {
-					textoMasProbablesClavesSustitucionR
-							.setText(textoMasProbablesClavesSustitucionR
-									.getText().concat(
-											arregloSustitucion[i].getText()));
-				} else {
-					textoMasProbablesClavesSustitucionR
-							.setText(textoMasProbablesClavesSustitucionR
-									.getText().concat("-"));
-				}
-			}
-
-			reEscribirTextoPlanoCambiar();
-		}
-	}
-
-	public void reEscribirTextoPlanoCambiar() {
-		String textoPlano = cajaTextoCifrado.getText();
-		for (int i = 0; i < 26; i++) {
-			String cambio = arregloSustitucion[i].getText();
-			if (!cambio.equals("")) {
-				textoPlano = textoPlano.replace(cambio,
-						Code.decodeMod26(new int[] { i }));
-			}
-		}
-		cajaTextoPlano.setText(textoPlano);
-	}
-
-	private void claveSustitucionAKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionAKeyTyped
-		this.sustitucionTodos(evt, 0);
-	}// GEN-LAST:event_claveSustitucionAKeyTyped
-
-	private void claveSustitucionBKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionBKeyTyped
-		this.sustitucionTodos(evt, 1);
-	}// GEN-LAST:event_claveSustitucionBKeyTyped
-
-	private void claveSustitucionCKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionCKeyTyped
-		this.sustitucionTodos(evt, 2);
-	}// GEN-LAST:event_claveSustitucionCKeyTyped
-
-	private void claveSustitucionDKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionDKeyTyped
-		this.sustitucionTodos(evt, 3);
-	}// GEN-LAST:event_claveSustitucionDKeyTyped
-
-	private void claveSustitucionEKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionEKeyTyped
-		this.sustitucionTodos(evt, 4);
-	}// GEN-LAST:event_claveSustitucionEKeyTyped
-
-	private void claveSustitucionGKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionGKeyTyped
-		this.sustitucionTodos(evt, 6);
-	}// GEN-LAST:event_claveSustitucionGKeyTyped
-
-	private void claveSustitucionFKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionFKeyTyped
-		this.sustitucionTodos(evt, 5);
-	}// GEN-LAST:event_claveSustitucionFKeyTyped
-
-	private void claveSustitucionIKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionIKeyTyped
-		this.sustitucionTodos(evt, 8);
-	}// GEN-LAST:event_claveSustitucionIKeyTyped
-
-	private void claveSustitucionHKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionHKeyTyped
-		this.sustitucionTodos(evt, 7);
-	}// GEN-LAST:event_claveSustitucionHKeyTyped
-
-	private void claveSustitucionJKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionJKeyTyped
-		this.sustitucionTodos(evt, 9);
-	}// GEN-LAST:event_claveSustitucionJKeyTyped
-
-	private void claveSustitucionKKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionKKeyTyped
-		this.sustitucionTodos(evt, 10);
-	}// GEN-LAST:event_claveSustitucionKKeyTyped
-
-	private void claveSustitucionLKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionLKeyTyped
-		this.sustitucionTodos(evt, 11);
-	}// GEN-LAST:event_claveSustitucionLKeyTyped
-
-	private void claveSustitucionMKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionMKeyTyped
-		this.sustitucionTodos(evt, 12);
-	}// GEN-LAST:event_claveSustitucionMKeyTyped
-
-	private void claveSustitucionNKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionNKeyTyped
-		this.sustitucionTodos(evt, 13);
-	}// GEN-LAST:event_claveSustitucionNKeyTyped
-
-	private void claveSustitucionOKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionOKeyTyped
-		this.sustitucionTodos(evt, 14);
-	}// GEN-LAST:event_claveSustitucionOKeyTyped
-
-	private void claveSustitucionPKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionPKeyTyped
-		this.sustitucionTodos(evt, 15);
-	}// GEN-LAST:event_claveSustitucionPKeyTyped
-
-	private void claveSustitucionQKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionQKeyTyped
-		this.sustitucionTodos(evt, 16);
-	}// GEN-LAST:event_claveSustitucionQKeyTyped
-
-	private void claveSustitucionRKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionRKeyTyped
-		this.sustitucionTodos(evt, 17);
-	}// GEN-LAST:event_claveSustitucionRKeyTyped
-
-	private void claveSustitucionSKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionSKeyTyped
-		this.sustitucionTodos(evt, 18);
-	}// GEN-LAST:event_claveSustitucionSKeyTyped
-
-	private void claveSustitucionTKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionTKeyTyped
-		this.sustitucionTodos(evt, 19);
-	}// GEN-LAST:event_claveSustitucionTKeyTyped
-
-	private void claveSustitucionUKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionUKeyTyped
-		this.sustitucionTodos(evt, 20);
-	}// GEN-LAST:event_claveSustitucionUKeyTyped
-
-	private void claveSustitucionVKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionVKeyTyped
-		this.sustitucionTodos(evt, 21);
-	}// GEN-LAST:event_claveSustitucionVKeyTyped
-
-	private void claveSustitucionWKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionWKeyTyped
-		this.sustitucionTodos(evt, 22);
-	}// GEN-LAST:event_claveSustitucionWKeyTyped
-
-	private void claveSustitucionXKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionXKeyTyped
-		this.sustitucionTodos(evt, 23);
-	}// GEN-LAST:event_claveSustitucionXKeyTyped
-
-	private void claveSustitucionYKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionYKeyTyped
-		this.sustitucionTodos(evt, 24);
-	}// GEN-LAST:event_claveSustitucionYKeyTyped
-
-	private void claveSustitucionZKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionZKeyTyped
-		this.sustitucionTodos(evt, 25);
-	}// GEN-LAST:event_claveSustitucionZKeyTyped
-
-	private void botonLimpiarSustitucionManualActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarSustitucionManualActionPerformed
-		if (cajaTextoCifrado.getText().isEmpty()) {
-			textoPlanoInicial = "";
-		} else {
-			cajaTextoPlano.setText(textoPlanoInicial);
-			textoMasProbablesClavesSustitucionR.setText("");
-		}
-		for (int i = 0; i < 26; i++) {
-			arregloSustitucion[i].setText("");
-		}
-	}// GEN-LAST:event_botonLimpiarSustitucionManualActionPerformed
-
-	private void clavePermutacionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clavePermutacionActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_clavePermutacionActionPerformed
-
-	private void botonClaveSPNActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveSPNActionPerformed
-		// Clave aleatoria SPN
-		Random rnd = new Random();
-		String clave = "";
-		for (int x = 0; x < 8; x++) {
-			char claveChar = (char) (rnd.nextInt(16) + 65);
-			clave = clave.concat(String.valueOf(claveChar));
-		}
-		claveSPN.setText(clave);
-
-		char[] hexa = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
-				'B', 'C', 'D', 'E', 'F' };
-
-		// Permutación aleatoria
-		clave = "";
-		while (clave.length() != 16) {
-			char claveChar = hexa[rnd.nextInt(16)];
-			// System.out.println("char  " + claveChar);
-			if (!clave.contains(String.valueOf(claveChar))) {
-				clave = clave.concat(String.valueOf(claveChar));
-			}
-		}
-		permutacionSPN.setText(clave);
-
-		// Sustitución aleatoria
-		clave = "";
-		while (clave.length() != 16) {
-			char claveChar = hexa[rnd.nextInt(16)];
-			// System.out.println("char  " + claveChar);
-			if (!clave.contains(String.valueOf(claveChar))) {
-				clave = clave.concat(String.valueOf(claveChar));
-			}
-		}
-		sustitucionSPN.setText(clave);
-
-		// Número de rondas aleatorio
-		numeroRondasSPN.setText(String.valueOf(rnd.nextInt(4) + 1));
-	}// GEN-LAST:event_botonClaveSPNActionPerformed
-
-	private void botonLimpiarSPNActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarSPNActionPerformed
-		claveSPN.setText("");
-		permutacionSPN.setText("");
-		sustitucionSPN.setText("");
-		numeroRondasSPN.setText("");
-	}// GEN-LAST:event_botonLimpiarSPNActionPerformed
-
-	private void claveSPNKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSPNKeyTyped
-		char c = evt.getKeyChar();
-		if ((!Character.isLetter(c) && !Character.isWhitespace(c))
-				|| ((int) c >= 113) || c == 'ñ' || c == 'Ñ'
-				|| claveSPN.getText().length() == 8) {
-			evt.consume();
-		} else {
-			if (Character.isLowerCase(c)) {
-				c = Character.toUpperCase(c);
-				claveSPN.setText(claveSPN.getText().concat(String.valueOf(c)));
-				evt.consume();
-			}
-		}
-	}// GEN-LAST:event_claveSPNKeyTyped
-
-	private void permutacionSPNKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_permutacionSPNKeyTyped
-		char c = evt.getKeyChar();
-		c = String.valueOf(c).toUpperCase().charAt(0);
-
-		if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E'
-				&& c != 'F' && !Character.isDigit(c)
-				|| permutacionSPN.getText().length() == 16) {
-			evt.consume();
-		} else {
-			String clave = permutacionSPN.getText();
-			if (clave.contains(String.valueOf(c).toUpperCase())
-					|| clave.contains(String.valueOf(c).toLowerCase())) {
-				evt.consume();
-			} else {
-				if (Character.isLowerCase(c)) {
-					c = Character.toUpperCase(c);
-					permutacionSPN.setText(permutacionSPN.getText().concat(
-							String.valueOf(c)));
-					evt.consume();
-				}
-			}
-		}
-	}// GEN-LAST:event_permutacionSPNKeyTyped
-
-	private void sustitucionSPNKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_sustitucionSPNKeyTyped
-		char c = evt.getKeyChar();
-		c = String.valueOf(c).toUpperCase().charAt(0);
-		if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E'
-				&& c != 'F' && !Character.isDigit(c)
-				|| sustitucionSPN.getText().length() == 16) {
-			evt.consume();
-		} else {
-			String clave = sustitucionSPN.getText();
-			if (clave.contains(String.valueOf(c).toUpperCase())
-					|| clave.contains(String.valueOf(c).toLowerCase())) {
-				evt.consume();
-			} else {
-				if (Character.isLowerCase(c)) {
-					c = Character.toUpperCase(c);
-					sustitucionSPN.setText(sustitucionSPN.getText().concat(
-							String.valueOf(c)));
-					evt.consume();
-				}
-			}
-		}
-	}// GEN-LAST:event_sustitucionSPNKeyTyped
-
-	private void numeroRondasSPNKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_numeroRondasSPNKeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)) {
-			evt.consume();
-		} else {
-			if (Integer.parseInt(numeroRondasSPN.getText().concat(
-					String.valueOf(c))) > 4
-					|| Integer.parseInt(numeroRondasSPN.getText().concat(
-							String.valueOf(c))) < 1) {
-				evt.consume();
-			}
-		}
-	}// GEN-LAST:event_numeroRondasSPNKeyTyped
-
-	private void buscarParejasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buscarParejasActionPerformed
-		JFileChooser chooser = new JFileChooser();
-		chooser.addChoosableFileFilter(new TxTFilter());
-		chooser.showOpenDialog(this);
-		File archivo = chooser.getSelectedFile();
-		try {
-			rutaParejas.setText(archivo.getPath());
-		} catch (Exception ex) {
-			System.out.println("Carga cancelada");
-		}
-	}// GEN-LAST:event_buscarParejasActionPerformed
-
-	private void calcularL1L3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_calcularL1L3ActionPerformed
-		File archivo = new File(rutaParejas.getText());
-		if (archivo.isFile()) {
-			try {
-				boolean format = true;
-				BufferedReader reader = new BufferedReader(new FileReader(
-						archivo));
-				Vector<String> cadenas = new Vector<String>();
-				String linea;
-
-				while ((linea = reader.readLine()) != null) {
-					if (linea.length() != 9
-							|| !linea.matches("[a-pA-P]{4} {1}[a-pA-P]{4}")) {
-						format = false;
-						break;
-					}
-					cadenas.add(linea);
-				}
-
-				if (format) {
-					String[][] matrix = new String[cadenas.size()][2];
-					for (int i = 0; i < cadenas.size(); i++) {
-						matrix[i][0] = cadenas.get(i).substring(0, 4);
-						matrix[i][1] = cadenas.get(i).substring(5, 9);
-					}
-
-					char[] sustitucionChar = sustitucionSPN.getText()
-							.toCharArray();
-					int[] sustitucion = new int[16];
-					for (int x = 0; x < 16; x++) {
-						sustitucion[Integer.parseInt(
-								String.valueOf(sustitucionChar[x]), 16)] = x;
-					}
-
-					int[] maxKey = SubstitutionPermutationNetworkCipher
-							.linearAttack(matrix, sustitucion);
-					String clave = Code.decodeMod26(maxKey).toUpperCase();
-					L1L2.setText("( " + clave.substring(0, 1) + " , "
-							+ clave.substring(1, 2) + " )");
-				} else {
-					JOptionPane
-							.showMessageDialog(
-									this,
-									"El formato del archivo es inválido.\nAsegurese que cada pareja texto plano - texto cifrado del archivo esté separada por un espacio, \n y que cada texto tenga 4 caracteres entre a y p. ",
-									"Error al realizar la aproximación lineal",
-									JOptionPane.ERROR_MESSAGE);
-				}
-			} catch (Exception ex) {
-				System.out.println(ex.getMessage());
-			}
-		} else {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"Ruta de archivo inválida.\nAsegurese de especificar un archivo existente. ",
-							"Error al realizar la aproximación lineal",
-							JOptionPane.ERROR_MESSAGE);
-		}
-	}// GEN-LAST:event_calcularL1L3ActionPerformed
-
-	private void botonMuestrasSPNActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonMuestrasSPNActionPerformed
-		String clave = claveSPN.getText();
-		if (clave.length() != 8) {
-			JOptionPane
-					.showMessageDialog(
-							this,
-							"La clave ingresada no es valida\nAsegurese que la clave es una palabra de 8 caracteres o pruebe pulsando el botón\n          Generar una clave",
-							"Error al generar parejas",
-							JOptionPane.ERROR_MESSAGE);
-		} else {
-			try {
-				int nr = Integer.parseInt(numeroRondasSPN.getText());
-				if (nr < 1 || nr > 4) {
-					JOptionPane
-							.showMessageDialog(
-									this,
-									"El número de rondas es inválido\nAsegurese que el numero de rondas sea mayor a 0 y menor a 16 o pruebe pulsando el botón\n          Generar una clave",
-									"Error al generar parejas",
-									JOptionPane.ERROR_MESSAGE);
-				} else {
-					if (permutacionSPN.getText().length() != 16
-							|| sustitucionSPN.getText().length() != 16) {
-						JOptionPane
-								.showMessageDialog(
-										this,
-										"Las funciones de permutación o sustitución son inválidas\nAsegurese que sean secuencias de 0 a F en cualquier orden sin repetir ningun valor o pruebe pulsando el botón\n          Generar una clave",
-										"Error al generar parejas",
-										JOptionPane.ERROR_MESSAGE);
-					} else {
-						int n = Integer.parseInt(nParejas.getText());
-						if (n > 65000 || n < 1) {
-							JOptionPane
-									.showMessageDialog(
-											this,
-											"El número de parejas es inválido. \nLa cantidad n de parejas debe ser igual o mayor que 1 y menor que 65000\n",
-											"Error al generar parejas",
-											JOptionPane.ERROR_MESSAGE);
-						} else {
-							char[] permutacionChar = permutacionSPN.getText()
-									.toCharArray();
-							char[] sustitucionChar = sustitucionSPN.getText()
-									.toCharArray();
-							int[] permutacion = new int[16];
-							int[] sustitucion = new int[16];
-							for (int x = 0; x < 16; x++) {
-								permutacion[x] = (Integer.parseInt(
-										String.valueOf(permutacionChar[x]), 16)) + 1;
-								sustitucion[x] = Integer.parseInt(
-										String.valueOf(sustitucionChar[x]), 16);
-							}
-							try {
-								JFileChooser chooser = new JFileChooser();
-								chooser.addChoosableFileFilter(new TxTFilter());
-								chooser.showSaveDialog(this);
-								File archivo = chooser.getSelectedFile();
-								FileWriter fw = null;
-								try {
-									fw = new FileWriter(archivo);
-									String matrix[][] = SubstitutionPermutationNetworkCipher
-											.generateSamples(sustitucion,
-													permutacion, clave, nr, n);
-									for (int i = 0; i < n; i++) {
-										fw.write(matrix[i][0] + " "
-												+ matrix[i][1] + "\n");
-									}
-
-								} catch (IOException e) {
-									e.printStackTrace();
-								} finally {
-									if (fw != null) {
-										try {
-											fw.close();
-										} catch (IOException e) {
-											e.printStackTrace();
-										}
-										fw = null;
-									}
-								}
-							} catch (Exception e) {
-								System.out.println("Operación cancelada");
-							}
-						}
-					}
-				}
-			} catch (Exception e) {
-				JOptionPane
-						.showMessageDialog(
-								this,
-								"El número de rondas es inválido\nAsegurese que el numero de rondas sea mayor a 0 y menor a 25 o pruebe pulsando el botón\n          Generar una clave",
-								"Error al generar parejas",
-								JOptionPane.ERROR_MESSAGE);
-			}
-		}
-	}// GEN-LAST:event_botonMuestrasSPNActionPerformed
-
-	private void nParejasKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_nParejasKeyTyped
-		Character c = evt.getKeyChar();
-		if (!Character.isDigit(c)) {
-			evt.consume();
-		} else {
-			if (Integer.parseInt(nParejas.getText().concat(String.valueOf(c))) < 1
-					|| Integer.parseInt(nParejas.getText().concat(
-							String.valueOf(c))) > 65000) {
-				evt.consume();
-			}
-		}
-	}// GEN-LAST:event_nParejasKeyTyped
-
-	private void botonClaveDESSActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveDESSActionPerformed
-		Random rnd = new Random();
-		String clave = "";
-		while (clave.length() != 10) {
-			int claveBit = rnd.nextInt(2);
-			clave = clave.concat(String.valueOf(claveBit));
-		}
-		claveDESS.setText(clave);
-	}// GEN-LAST:event_botonClaveDESSActionPerformed
-
-	private void botonLimpiarDESSActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarDESSActionPerformed
-		claveDESS.setText("");
-	}// GEN-LAST:event_botonLimpiarDESSActionPerformed
-
-	private void claveDESSKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveDESSKeyTyped
-		char c = evt.getKeyChar();
-		if ((c != '1' && c != '0') || claveDESS.getText().length() == 10) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveDESSKeyTyped
-
-	private void botonClaveAESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveAESActionPerformed
-		Random rnd = new Random();
-		char[] hexa = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
-				'B', 'C', 'D', 'E', 'F' };
-		String clave = "";
-		clave = "";
-		while (clave.length() != 32) {
-			char claveChar = hexa[rnd.nextInt(16)];
-			clave = clave.concat(String.valueOf(claveChar));
-		}
-		claveAES.setText(clave);
-	}// GEN-LAST:event_botonClaveAESActionPerformed
-
-	private void botonLimpiarAESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarAESActionPerformed
-		claveAES.setText("");
-	}// GEN-LAST:event_botonLimpiarAESActionPerformed
-
-	private void claveAESKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveAESKeyTyped
-		char c = evt.getKeyChar();
-		c = String.valueOf(c).toUpperCase().charAt(0);
-
-		if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E'
-				&& c != 'F' && !Character.isDigit(c)
-				|| permutacionSPN.getText().length() == 32) {
-			evt.consume();
-		} else {
-			String clave = claveAES.getText();
-			if (clave.contains(String.valueOf(c).toUpperCase())
-					|| clave.contains(String.valueOf(c).toLowerCase())) {
-				evt.consume();
-			} else {
-				if (Character.isLowerCase(c)) {
-					c = Character.toUpperCase(c);
-					claveAES.setText(claveAES.getText().concat(
-							String.valueOf(c)));
-					evt.consume();
-				}
-			}
-		}
-	}// GEN-LAST:event_claveAESKeyTyped
-
-	private void botonClaveCBCMACActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveCBCMACActionPerformed
-		Random rnd = new Random();
-		char[] hexa = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
-				'B', 'C', 'D', 'E', 'F' };
-		String clave = "";
-		clave = "";
-		while (clave.length() != 32) {
-			char claveChar = hexa[rnd.nextInt(16)];
-			clave = clave.concat(String.valueOf(claveChar));
-		}
-		claveCBCMAC.setText(clave);
-	}// GEN-LAST:event_botonClaveCBCMACActionPerformed
-
-	private void botonLimpiarCBCMACActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarCBCMACActionPerformed
-		claveAES.setText("");
-	}// GEN-LAST:event_botonLimpiarCBCMACActionPerformed
-
-	private void claveCBCMACKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveCBCMACKeyTyped
-		// TODO add your handling code here:
-	}// GEN-LAST:event_claveCBCMACKeyTyped
-
-	private void tipoClaveRSAnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveRSAnActionPerformed
-		cajaClaveRSAp.setEnabled(false);
-		cajaClaveRSAq.setEnabled(false);
-		cajaClaveRSAn.setEnabled(true);
-		cajaClaveRSAn.setEnabled(true);
-	}// GEN-LAST:event_tipoClaveRSAnActionPerformed
-
-	private void tipoClaveRSApqActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveRSApqActionPerformed
-		cajaClaveRSAn.setEnabled(false);
-		cajaClaveRSAn.setEnabled(false);
-		cajaClaveRSAp.setEnabled(true);
-		cajaClaveRSAq.setEnabled(true);
-	}// GEN-LAST:event_tipoClaveRSApqActionPerformed
-
-	private void tipoClaveRSAdActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveRSAdActionPerformed
-		cajaClaveRSAe.setEnabled(false);
-		cajaClaveRSAd.setEnabled(true);
-		tipoClaveRSAd.setSelected(true);
-		tipoClaveRSAe.setSelected(false);
-	}// GEN-LAST:event_tipoClaveRSAdActionPerformed
-
-	private void tipoClaveRSAeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveRSAeActionPerformed
-		cajaClaveRSAd.setEnabled(false);
-		cajaClaveRSAe.setEnabled(true);
-		tipoClaveRSAe.setSelected(true);
-		tipoClaveRSAd.setSelected(false);
-	}// GEN-LAST:event_tipoClaveRSAeActionPerformed
-
-	private void botonLimpiarRSAActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarRSAActionPerformed
-		cajaClaveRSAp.setText("");
-		cajaClaveRSAq.setText("");
-		cajaClaveRSAn.setText("");
-		cajaClaveRSAe.setText("");
-		cajaClaveRSAd.setText("");
-	}// GEN-LAST:event_botonLimpiarRSAActionPerformed
-
-	private void botonClaveRSAActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveRSAActionPerformed
-		String result[] = RSACipher.generateKeys();
-		cajaClaveRSAp.setText(result[0]);
-		cajaClaveRSAq.setText(result[1]);
-		cajaClaveRSAn.setText(result[2]);
-		cajaClaveRSAe.setText(result[3]);
-		cajaClaveRSAd.setText(result[4]);
-	}// GEN-LAST:event_botonClaveRSAActionPerformed
-
-	private void panelMetodoRSAFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_panelMetodoRSAFocusGained
-		// TODO add your handling code here:
-	}// GEN-LAST:event_panelMetodoRSAFocusGained
-
-	private void tipoOptimizacionRSAActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoOptimizacionRSAActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_tipoOptimizacionRSAActionPerformed
-
-	private void cajaClaveRSApKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSApKeyTyped
-		char c = evt.getKeyChar();
-		if (!Character.isDigit(c)) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_cajaClaveRSApKeyTyped
-
-	private void cajaClaveRSAqKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSAqKeyTyped
-		char c = evt.getKeyChar();
-		if (!Character.isDigit(c)) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_cajaClaveRSAqKeyTyped
-
-	private void cajaClaveRSAdKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSAdKeyTyped
-		char c = evt.getKeyChar();
-		if (!Character.isDigit(c)) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_cajaClaveRSAdKeyTyped
-
-	private void cajaClaveRSAeKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSAeKeyTyped
-		char c = evt.getKeyChar();
-		if (!Character.isDigit(c)) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_cajaClaveRSAeKeyTyped
-
-	private void botonClaveDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveDESActionPerformed
-		// TODO add your handling code here:
-		Random rnd = new Random();
-		char[] hexa = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
-				'B', 'C', 'D', 'E', 'F' };
-		String clave = "";
-		clave = "";
-		while (clave.length() != 16) {
-			char claveChar = hexa[rnd.nextInt(16)];
-			clave = clave.concat(String.valueOf(claveChar));
-		}
-		claveDES.setText(clave);
-	}// GEN-LAST:event_botonClaveDESActionPerformed
-
-	private void botonLimpiarDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarDESActionPerformed
-		// TODO add your handling code here:
-		claveDES.setText("");
-	}// GEN-LAST:event_botonLimpiarDESActionPerformed
-
-	private void claveDESKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveDESKeyTyped
-		// TODO add your handling code here:
-		char c = evt.getKeyChar();
-		c = Character.toString(c).toUpperCase().charAt(0);
-
-		if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E'
-				&& c != 'F' && !Character.isDigit(c)
-				|| claveDES.getText().length() == 17) {
-			evt.consume();
-		} else {
-			claveDES.setText(claveDES.getText().concat(String.valueOf(c)));
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveDESKeyTyped
-
-	private void botonClaveTripleDESSActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveTripleDESSActionPerformed
-		// TODO add your handling code here:
-		Random rnd = new Random();
-		String clave = "";
-		while (clave.length() != 30) {
-			int claveBit = rnd.nextInt(2);
-			clave = clave.concat(String.valueOf(claveBit));
-		}
-		claveTripleDESS.setText(clave);
-	}// GEN-LAST:event_botonClaveTripleDESSActionPerformed
-
-	private void botonLimpiarTripleDESSActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarTripleDESSActionPerformed
-		// TODO add your handling code here:
-		claveTripleDESS.setText("");
-	}// GEN-LAST:event_botonLimpiarTripleDESSActionPerformed
-
-	private void claveTripleDESSKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveTripleDESSKeyTyped
-		// TODO add your handling code here:
-		char c = evt.getKeyChar();
-		if ((c != '1' && c != '0') || claveTripleDESS.getText().length() == 30) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_claveTripleDESSKeyTyped
-
-	private void botonClaveTDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveTDESActionPerformed
-		// TODO add your handling code here:
-		// TODO add your handling code here:
-		Random rnd = new Random();
-		char[] hexa = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
-				'B', 'C', 'D', 'E', 'F' };
-		String clave = "";
-		clave = "";
-		while (clave.length() != 48) {
-			char claveChar = hexa[rnd.nextInt(16)];
-			clave = clave.concat(String.valueOf(claveChar));
-		}
-		claveTDES.setText(clave);
-	}// GEN-LAST:event_botonClaveTDESActionPerformed
-
-	private void botonLimpiarTDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarTDESActionPerformed
-		// TODO add your handling code here:
-		claveTDES.setText("");
-	}// GEN-LAST:event_botonLimpiarTDESActionPerformed
-
-	private void claveTDESKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveTDESKeyTyped
-		// TODO add your handling code here:
-	}// GEN-LAST:event_claveTDESKeyTyped
-
-	private void cajaClaveRSAnKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSAnKeyTyped
-		char c = evt.getKeyChar();
-		if (!Character.isDigit(c)) {
-			evt.consume();
-		}
-	}// GEN-LAST:event_cajaClaveRSAnKeyTyped
-
-	private void cajaClaveRSAnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cajaClaveRSAnActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_cajaClaveRSAnActionPerformed
-
-	public int mcd(int a, int b) {
-		if (b == 0) {
-			return a;
-		} else {
-			return mcd(b, a % b);
-		}
-
-	}
-
-	/**
-	 * @param args
-	 *            the command line arguments
-	 */
-	public static void main(String args[]) {
-
-		java.awt.EventQueue.invokeLater(new Runnable() {
-
-			public void run() {
-				try {
-					UIManager
-							.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceBusinessBlackSteelLookAndFeel");
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				new gui().setVisible(true);
-			}
-		});
-	}
-
+    private void botonClaveTabletaActionPerformed(java.awt.event.ActionEvent evt) {
+        Random rnd = new Random();
+        String clave = "";
+        for (int x = 0; x < (8 + rnd.nextInt(7)); x++) {
+            char claveChar = (char) (rnd.nextInt(25) + 65);
+            clave = clave.concat(String.valueOf(claveChar));
+        }
+        claveTableta.setText(clave);
+    }
+
+        private void claveTabletaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_claveTabletaKeyTyped
+            char c = evt.getKeyChar();
+            if ((!(Character.isLetter(c) || Character.isDigit(c)) && !Character.isWhitespace(c)) || claveTableta.getText().length() > 15) {
+                evt.consume();
+            } else {
+                if (Character.isLowerCase(c)) {
+                    c = Character.toUpperCase(c);
+                    claveTableta.setText(claveTableta.getText().concat(
+                            String.valueOf(c)));
+                    evt.consume();
+                }
+            }
+        }//GEN-LAST:event_claveTabletaKeyTyped
+
+        private void botonTablaCifradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTablaCifradoActionPerformed
+            String claveCadena = claveTableta.getText().toLowerCase();
+            if (claveCadena.length() < 8 || claveCadena.length() > 15) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nAsegúrese que la clave está compuesta por 8 a 15 letras y/o números o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            } else {
+
+                char separador;
+                if (tablaSimboloSeparador.getText().length() == 0) {
+                    separador = ';';
+                } else {
+                    separador = tablaSimboloSeparador.getText().charAt(0);
+                }
+
+                JFileChooser chooser = new JFileChooser();
+                chooser.addChoosableFileFilter(new CSVFilter());
+                chooser.showSaveDialog(this);
+
+                File archivo = chooser.getSelectedFile();
+                try {
+                    PrintWriter writer = new PrintWriter(archivo);
+                    writer.print(TabletCipher.getCipherTable(claveCadena, separador));
+                    writer.close();
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+
+
+        }//GEN-LAST:event_botonTablaCifradoActionPerformed
+
+        private void tablaSimboloSeparadorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaSimboloSeparadorKeyTyped
+            Character c = evt.getKeyChar();
+            if (tablaSimboloSeparador.getText().length() == 1) {
+                evt.consume();
+            }
+        }//GEN-LAST:event_tablaSimboloSeparadorKeyTyped
+
+        private void botonLimpiarTabletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarDesplazamiento1ActionPerformed
+            claveTableta.setText("");
+        }//GEN-LAST:event_botonLimpiarDesplazamiento1ActionPerformed
+
+    private void botonAbrirCifradoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonAbrirCifradoActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.addChoosableFileFilter(new TxTFilter());
+        chooser.showOpenDialog(this);
+        File archivo = chooser.getSelectedFile();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(archivo));
+            String linea = "";
+            String texto = "";
+            while ((linea = reader.readLine()) != null) {
+                texto = texto.concat(linea).concat("\n");
+            }
+            reader.close();
+            cajaTextoCifrado.setText(texto);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }// GEN-LAST:event_botonAbrirCifradoActionPerformed
+
+    /**
+     * This method is called when inputs a key on boxText cajaTextoPlano and
+     * tranforms the upperletters to lowerletters and prevents the inputs of
+     * white spaces, symbols or numbers
+     *
+     * @param evt
+     */
+    private void cajaTextoPlanoKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaTextoPlanoKeyTyped
+        char c = evt.getKeyChar();
+        if (c < 32 || (c > 126 && c < 161) || c > 255) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_cajaTextoPlanoKeyTyped
+
+    /**
+     * This method is called when inputs a key on boxText cajaTextoPlano and
+     * tranforms the lowerletter to supperletters and prevents the inputs of
+     * white spaces, symbols or numbers
+     *
+     * @param evt
+     */
+    private void cajaTextoCifradoKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaTextoCifradoKeyTyped
+        char c = evt.getKeyChar();
+        if (c < 32 || (c > 126 && c < 161) || c > 255) {
+            evt.consume();
+        } else {
+            if (Character.isLowerCase(c)) {
+                c = Character.toUpperCase(c);
+                cajaTextoCifrado.setText(cajaTextoCifrado.getText().concat(
+                        String.valueOf(c)));
+                evt.consume();
+            }
+        }
+    }// GEN-LAST:event_cajaTextoCifradoKeyTyped
+
+    private void encriptarDesplazamiento(String textoPlano) {
+        if ((tipoClaveDesplazamientoNumero.isSelected() && claveDesplazamientoNumero.getText().isEmpty())
+                || (claveDesplazamientoCaracter.getText().isEmpty() && tipoClaveDesplazamientoCaracter.isSelected())) {
+            botonClaveDesplazamientoActionPerformed(null);
+            int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
+            String textoCifrado = ShiftCipher.encryptMod189(textoPlano, clave);
+            cajaTextoCifrado.setText(textoCifrado);
+            cajaTextoPlano.setText(textoPlano);
+        } else {
+            if (tipoClaveDesplazamientoNumero.isSelected()) {
+                try {
+                    if (Integer.parseInt(claveDesplazamientoNumero.getText()) <= 188
+                            && Integer.parseInt(claveDesplazamientoNumero.getText()) >= 0) {
+                        int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
+                        String textoCifrado = ShiftCipher.encryptMod189(
+                                textoPlano, clave);
+                        cajaTextoCifrado.setText(textoCifrado);
+                        cajaTextoPlano.setText(textoPlano);
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Ingrese una clave númerica válida o pruebe pulsando el botón\n          Generar una clave",
+                            "Error al cifrar",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                if (claveDesplazamientoCaracter.getText().length() == 1) {
+                    int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
+                    String textoCifrado = ShiftCipher.encryptMod189(textoPlano,
+                            clave);
+                    cajaTextoCifrado.setText(textoCifrado);
+                    cajaTextoPlano.setText(textoPlano);
+                } else {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Ingrese una clave válida o pruebe pulsando el botón\n          Generar una clave",
+                            "Error al cifrar",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }
+
+    private void encriptarSustitucion(String textoPlano) {
+        if (claveSustitucion.getText().isEmpty()) {
+            botonClaveSustitucionActionPerformed(null);
+            String clave = claveSustitucion.getText();
+            String textoCifrado = SubstitutionCipher.encrypt(textoPlano, clave);
+            cajaTextoCifrado.setText(textoCifrado);
+            cajaTextoPlano.setText(textoPlano);
+        } else {
+            if (claveSustitucion.getText().length() == 26) {
+                String clave = claveSustitucion.getText();
+                String textoCifrado = SubstitutionCipher.encrypt(textoPlano,
+                        clave);
+                cajaTextoCifrado.setText(textoCifrado);
+                cajaTextoPlano.setText(textoPlano);
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nIngrese los 26 simbolos de la clave para poder continuar o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void encriptarAffine(String textoPlano) {
+        if (claveAffineA.getText().isEmpty()
+                && claveAffineB.getText().isEmpty()) {
+            botonClaveAffineActionPerformed(null);
+            int claveA = Integer.parseInt(claveAffineA.getText());
+            int claveB = Integer.parseInt(claveAffineB.getText());
+            String textoCifrado = AffineCipher.encrypt(textoPlano, claveA,
+                    claveB);
+            cajaTextoCifrado.setText(textoCifrado);
+            cajaTextoPlano.setText(textoPlano);
+        } else {
+            if (claveAffineA.getText().isEmpty()
+                    || claveAffineB.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this,
+                        "Ingrese los dos componentes de la clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                    if (mcd(Integer.parseInt(claveAffineA.getText()), 26) == 1) {
+                        int claveA = Integer.parseInt(claveAffineA.getText());
+                        int claveB = Integer.parseInt(claveAffineB.getText());
+                        String textoCifrado = AffineCipher.encrypt(textoPlano,
+                                claveA, claveB);
+                        cajaTextoCifrado.setText(textoCifrado);
+                        cajaTextoPlano.setText(textoPlano);
+                    } else {
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "La clave ingresada no es valida\nA debe ser primo relativo con 26 y B un numero entero positivo menor a 26\n          Generar una clave",
+                                "Error al cifrar",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "La clave ingresada no es valida\nEl caracter A debe ser primo relativo con 26 y B un numero entero positivo menor a 26\n          Generar una clave",
+                            "Error al cifrar",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }
+
+    private void encriptarVigenere(String textoPlano) {
+        if (claveVigenere.getText().isEmpty()) {
+            botonClaveVigenereActionPerformed(null);
+            String clave = claveVigenere.getText();
+            String textoCifrado = VigenereCipher.encrypt(textoPlano, clave);
+            cajaTextoCifrado.setText(textoCifrado);
+            cajaTextoPlano.setText(textoPlano);
+        } else {
+            if (claveVigenere.getText().length() < 9) {
+                try {
+                    String clave = claveVigenere.getText();
+                    String textoCifrado = VigenereCipher.encrypt(textoPlano,
+                            clave);
+                    cajaTextoCifrado.setText(textoCifrado);
+                    cajaTextoPlano.setText(textoPlano);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "La clave ingresada no es valida\nIngrese una clave de por lo menos 3 caracteres\n          Generar una clave",
+                            "Error al cifrar",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nIngrese una clave de máximo 8 caracteres\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void encriptarHill(String textoPlano) {
+        Matrix clave = null;
+        if (tipoClaveHill2.isSelected()) {
+            if (claveHill1.getText().isEmpty()
+                    && claveHill2.getText().isEmpty()
+                    && claveHill4.getText().isEmpty()
+                    && claveHill5.getText().isEmpty()) {
+                botonClaveHillActionPerformed(null);
+                double[][] valoresClave = {
+                    {Double.parseDouble(claveHill1.getText()),
+                        Double.parseDouble(claveHill2.getText())},
+                    {Double.parseDouble(claveHill4.getText()),
+                        Double.parseDouble(claveHill5.getText())}};
+                clave = new Matrix(valoresClave);
+            } else {
+                if (claveHill1.getText().isEmpty()
+                        || claveHill2.getText().isEmpty()
+                        || claveHill4.getText().isEmpty()
+                        || claveHill5.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(this,
+                            "Ingrese todos los valores de la clave",
+                            "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    double[][] valoresClave = {
+                        {Double.parseDouble(claveHill1.getText()),
+                            Double.parseDouble(claveHill2.getText())},
+                        {Double.parseDouble(claveHill4.getText()),
+                            Double.parseDouble(claveHill5.getText())}};
+                    clave = new Matrix(valoresClave);
+                }
+            }
+        } else {
+            if (claveHill1.getText().isEmpty()
+                    && claveHill2.getText().isEmpty()
+                    && claveHill4.getText().isEmpty()
+                    && claveHill5.getText().isEmpty()
+                    && claveHill3.getText().isEmpty()
+                    && claveHill6.getText().isEmpty()
+                    && claveHill7.getText().isEmpty()
+                    && claveHill8.getText().isEmpty()
+                    && claveHill9.getText().isEmpty()) {
+                botonClaveHillActionPerformed(null);
+                double[][] valoresClave = {
+                    {Double.parseDouble(claveHill1.getText()),
+                        Double.parseDouble(claveHill2.getText()),
+                        Double.parseDouble(claveHill3.getText())},
+                    {Double.parseDouble(claveHill4.getText()),
+                        Double.parseDouble(claveHill5.getText()),
+                        Double.parseDouble(claveHill6.getText())},
+                    {Double.parseDouble(claveHill7.getText()),
+                        Double.parseDouble(claveHill8.getText()),
+                        Double.parseDouble(claveHill9.getText())}};
+                clave = new Matrix(valoresClave);
+            } else {
+                if (claveHill1.getText().isEmpty()
+                        || claveHill2.getText().isEmpty()
+                        || claveHill4.getText().isEmpty()
+                        || claveHill5.getText().isEmpty()
+                        || claveHill3.getText().isEmpty()
+                        || claveHill6.getText().isEmpty()
+                        || claveHill7.getText().isEmpty()
+                        || claveHill8.getText().isEmpty()
+                        || claveHill9.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(this,
+                            "Ingrese todos los valores de la clave",
+                            "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    double[][] valoresClave = {
+                        {Double.parseDouble(claveHill1.getText()),
+                            Double.parseDouble(claveHill2.getText()),
+                            Double.parseDouble(claveHill3.getText())},
+                        {Double.parseDouble(claveHill4.getText()),
+                            Double.parseDouble(claveHill5.getText()),
+                            Double.parseDouble(claveHill6.getText())},
+                        {Double.parseDouble(claveHill7.getText()),
+                            Double.parseDouble(claveHill8.getText()),
+                            Double.parseDouble(claveHill9.getText())}};
+                    clave = new Matrix(valoresClave);
+                }
+            }
+        }
+        int det = (int) Math.round(clave.det());
+        if (mcd(det, 26) == 1) {
+            String textoCifrado = HillCipher.encrypt(textoPlano, clave);
+            cajaTextoCifrado.setText(textoCifrado);
+            cajaTextoPlano.setText(textoPlano);
+        } else {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegurese que el MCD del determinante y 26 sea 1",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void encriptarPermutacion(String textoPlano) {
+        String clave = clavePermutacion.getText();
+        try {
+            String textoCifrado = "";
+            if (clavePermutacionAlternativa.isSelected()) {
+                textoCifrado = PermutationCipher.encryptAlternate(textoPlano,
+                        clave);
+                textoCifrado = PermutationCipher.encryptAlternate(
+                        textoCifrado.toUpperCase(), clave);
+            } else {
+                textoCifrado = PermutationCipher.encrypt(textoPlano, clave);
+            }
+            cajaTextoCifrado.setText(textoCifrado);
+            cajaTextoPlano.setText(textoPlano);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegurese que la clave es una secuencia de 1 a n (con n menor a 9) en cualquier orden sin repetir o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        }
+    }
+
+    private void encriptarSPN(String textoPlano) {
+        String clave = claveSPN.getText();
+        if (clave.length() != 8) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegurese que la clave es una palabra de 8 caracteres o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+        } else {
+            try {
+                int nr = Integer.parseInt(numeroRondasSPN.getText());
+                if (nr < 1 || nr > 25) {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "El número de rondas es inválido\nAsegurese que el numero de rondas sea mayor a 0 y menor a 16 o pruebe pulsando el botón\n          Generar una clave",
+                            "Error al cifrar",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    if (permutacionSPN.getText().length() != 16
+                            || sustitucionSPN.getText().length() != 16) {
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "Las funciones de permutación o sustitución son inválidas\nAsegurese que sean secuencias de 0 a F en cualquier orden sin repetir ningun valor o pruebe pulsando el botón\n          Generar una clave",
+                                "Error al cifrar",
+                                JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        char[] permutacionChar = permutacionSPN.getText().toCharArray();
+                        char[] sustitucionChar = sustitucionSPN.getText().toCharArray();
+                        int[] permutacion = new int[16];
+                        int[] sustitucion = new int[16];
+                        for (int x = 0; x < 16; x++) {
+                            permutacion[x] = (Integer.parseInt(
+                                    String.valueOf(permutacionChar[x]), 16)) + 1;
+                            sustitucion[x] = Integer.parseInt(
+                                    String.valueOf(sustitucionChar[x]), 16);
+                        }
+                        try {
+                            // System.out.println("textoPlano.length() " +
+                            // textoPlano.length());
+                            while (textoPlano.length() % 4 != 0) {
+                                textoPlano = textoPlano.concat("a");
+                            }
+                            // System.out.println("textoPlano.length() after" +
+                            // textoPlano.length());
+                            String secret = "";
+                            for (int y = 0; y < textoPlano.length(); y = y + 4) {
+                                secret = secret.concat(SubstitutionPermutationNetworkCipher.encrypt(textoPlano.substring(
+                                        y, (y + 4)),
+                                        sustitucion,
+                                        permutacion, clave, nr));
+                            }
+                            cajaTextoCifrado.setText(secret.toUpperCase());
+                            cajaTextoPlano.setText(textoPlano);
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(
+                                    this,
+                                    "Los valores ingresados son inválidos\no pruebe pulsando el botón\n          Generar una clave",
+                                    "Error al cifrar",
+                                    JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "El número de rondas es inválido\nAsegurese que el numero de rondas sea mayor a 0 y menor a 25 o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void encriptarSDES(String textoPlano) {
+        try {
+            String textoHexa = "";
+            String textoCifrado = "";
+
+            String clave = claveDESS.getText();
+            if (clave.length() == 10) {
+                for (int x = 0; x < textoPlano.length(); x++) {
+                    textoHexa = cpcommonmethods.HexTools.fromASCIIStringToHexString(textoPlano.substring(x,
+                            x + 1));
+                    textoCifrado = textoCifrado.concat(SimplifiedDESCipher.encryptDecrypt(textoHexa, clave, true));
+                }
+                cajaTextoCifrado.setText(textoCifrado);
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 10 bits o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 10 bits o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            System.out.print(e.toString());
+        }
+    }
+
+    private void encriptarTSDES(String textoPlano) {
+        try {
+            String textoHexa = "";
+            String textoCifrado = "";
+
+            String clave = claveTripleDESS.getText();
+            if (clave.length() == 30) {
+                String stringTemp = "";
+                for (int x = 0; x < textoPlano.length(); x++) {
+
+                    textoHexa = cpcommonmethods.HexTools.fromASCIIStringToHexString(textoPlano.substring(x,
+                            x + 1));
+
+                    stringTemp = SimplifiedDESCipher.encryptDecrypt(textoHexa,
+                            clave.substring(0, 10), true);
+                    stringTemp = SimplifiedDESCipher.encryptDecrypt(stringTemp,
+                            clave.substring(10, 20), false);
+                    textoCifrado = textoCifrado.concat(SimplifiedDESCipher.encryptDecrypt(stringTemp,
+                            clave.substring(20, 30), true));
+                }
+                cajaTextoCifrado.setText(textoCifrado);
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 30 bits o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 10 bits o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            System.out.print(e.toString());
+        }
+    }
+
+    private void encriptarDES(String textoPlano) {
+
+        try {
+            cajaTextoPlano.setText(textoPlano);
+            String claveHexa = "";
+            String textoHexa = "";
+            String textoCifrado = "";
+            Random rand = new Random();
+            while (textoPlano.length() % 8 != 0) {
+                char letra = (char) (rand.nextInt(25) + 65);
+                textoPlano = textoPlano.concat(String.valueOf(letra));
+            }
+
+            claveHexa = claveDES.getText();
+            if (claveHexa.length() == 16) {
+                for (int x = 0; x < textoPlano.length(); x = x + 8) {
+                    textoHexa = cpcommonmethods.HexTools.fromASCIIStringToHexString(textoPlano.substring(x,
+                            x + 8));
+                    textoCifrado = textoCifrado.concat(DESCipher.encryptDecrypt(textoHexa, claveHexa, true));
+                }
+                cajaTextoCifrado.setText(textoCifrado);
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 16 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 16 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            System.out.print(e.toString());
+        }
+    }
+
+    private void encriptarTDES(String textoPlano) {
+
+        try {
+            cajaTextoPlano.setText(textoPlano);
+            String claveHexa = "";
+            String textoHexa = "";
+            String textoCifrado = "";
+            Random rand = new Random();
+            while (textoPlano.length() % 8 != 0) {
+                char letra = (char) (rand.nextInt(25) + 65);
+                textoPlano = textoPlano.concat(String.valueOf(letra));
+            }
+
+            claveHexa = claveTDES.getText();
+            if (claveHexa.length() == 48) {
+                String stringTemp = "";
+                for (int x = 0; x < textoPlano.length(); x = x + 8) {
+                    textoHexa = cpcommonmethods.HexTools.fromASCIIStringToHexString(textoPlano.substring(x,
+                            x + 8));
+                    stringTemp = DESCipher.encryptDecrypt(textoHexa,
+                            claveHexa.substring(0, 16), true);
+                    stringTemp = DESCipher.encryptDecrypt(stringTemp,
+                            claveHexa.substring(16, 32), false);
+                    textoCifrado = textoCifrado.concat(DESCipher.encryptDecrypt(stringTemp,
+                            claveHexa.substring(32, 48), true));
+                }
+                cajaTextoCifrado.setText(textoCifrado);
+                cajaTextoPlano.setText(textoPlano);
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 48 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 48 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            System.out.print(e.toString());
+        }
+    }
+
+    private void encriptarAES(String textoPlano) {
+
+        try {
+            String clave = claveAES.getText();
+            if (clave.length() != 32) {
+                throw new NumberFormatException();
+            }
+            String textoCifrado = AESCipher.longEncrypt(textoPlano, clave);
+            cajaTextoCifrado.setText(textoCifrado);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegúrese que la clave está compuesta por 32 hexadecimales o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        }
+    }
+
+    private void encriptarCBCMAC(String textoPlano) {
+        String claveCadena = claveAES.getText();
+        try {
+            if (claveCadena.length() != 32) {
+                throw new Exception("Clave muy corta o muy larga");
+            }
+            int[] clave = new int[16];
+            for (int i = 0; i < 16; i++) {
+                int j = i * 2;
+                clave[i] = Integer.parseInt(claveCadena.substring(j, j + 2), 16);
+            }
+            cajaTextoCifrado.setText(CBCMac.encrypt(textoPlano, clave));
+            cajaTextoPlano.setText(textoPlano);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegúrese que la clave está compuesta por 32 hexadecimales o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        }
+    }
+
+    private void encriptarTablet(String textoPlano) {
+        String claveCadena = claveTableta.getText();
+        if (claveCadena.length() < 8 || claveCadena.length() > 15) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegúrese que la clave está compuesta por 8 a 15 letras y/o números o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+        } else {
+            try {
+                cajaTextoCifrado.setText(TabletCipher.encrypt(textoPlano, claveCadena));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nAsegúrese que la clave está compuesta por 8 a 15 letras y/o números o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void encriptarRSA(String textoPlano) {
+        try {
+            String result = "";
+            String n = cajaClaveRSAn.getText();
+            String p = cajaClaveRSAp.getText();
+            String q = cajaClaveRSAq.getText();
+            String e = cajaClaveRSAe.getText();
+            String d = cajaClaveRSAd.getText();
+
+            if (tipoClaveRSAn.isSelected()) {
+                tipoClaveRSAeActionPerformed(null);
+                if (n.isEmpty()) {
+                    throw new Exception(
+                            "Es necesario ingresar el valor de n para cifrar el texto.");
+                }
+                if (e.isEmpty()) {
+                    throw new Exception(
+                            "Es necesario ingresar el valor de e para cifrar el texto.");
+                }
+                if (tipoOptimizacionRSA.isSelected()) {
+                    result = BellareRogawayCipher.encrypt(textoPlano, n, e);
+                } else {
+                    result = RSACipher.encrypt(n, e, textoPlano);
+                }
+            } else {
+                if (p.isEmpty() || q.isEmpty()) {
+                    throw new Exception(
+                            "Es necesario ingresar los valores de p y q para cifrar el texto.");
+                }
+                if (tipoClaveRSAd.isSelected()) {
+                    tipoClaveRSAeActionPerformed(null);
+                    if (d.isEmpty()) {
+                        throw new Exception(
+                                "Es necesario ingresar el valor de e para cifrar el texto.");
+                    } else {
+                        e = RSACipher.calculateInverse(d, p, q);
+                    }
+                } else {
+                    if (e.isEmpty()) {
+                        throw new Exception(
+                                "Es necesario ingresar el valor de e para cifrar el texto.");
+                    } else {
+                        d = RSACipher.calculateInverse(e, p, q);
+                    }
+                }
+                if (tipoOptimizacionRSA.isSelected()) {
+                    result = BellareRogawayCipher.encrypt(textoPlano, p, q, e);
+                } else {
+                    result = RSACipher.encrypt(p, q, e, textoPlano);
+                }
+                cajaClaveRSAn.setText(RSACipher.calculateN(p, q));
+                cajaClaveRSAd.setText(d);
+                cajaClaveRSAe.setText(e);
+            }
+
+            cajaTextoCifrado.setText(result);
+            cajaTextoPlano.setText(textoPlano);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "El formato de la clave es inválido. Asegúrese de usar únicamente números en formato decimal.",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+        } catch (OutOfMemoryError e) {
+            JOptionPane.showMessageDialog(this,
+                    "Se ha excedido la capacidad de máquina.",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(),
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void botonEncriptarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonEncriptarActionPerformed
+        if (cajaTextoPlano.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Ingrese un texto plano para cifrarlo", "Error al cifrar",
+                    JOptionPane.ERROR_MESSAGE);
+        } else {
+            String metodo = "";
+            if (panelClasesCifrados.getSelectedIndex() == 0) {
+                metodo = panelMetodosClasicos.getSelectedComponent().getName();
+            } else if (panelClasesCifrados.getSelectedIndex() == 1) {
+                metodo = panelMetodosBloque.getSelectedComponent().getName();
+            } else {
+                metodo = panelMetodosPublicos.getSelectedComponent().getName();
+            }
+            String textoPlano = cajaTextoPlano.getText();
+            String textoPlanoMod26 = Code.removeCharactersOutOfMod26(textoPlano).toLowerCase();
+            String textoPlanoMod189 = Code.removeCharactersOutOfMod189(textoPlano);
+
+            if (metodo.equals("desplazamiento")) {
+                encriptarDesplazamiento(textoPlanoMod189);
+            }
+            if (metodo.equals("sustitucion")) {
+                encriptarSustitucion(textoPlanoMod26);
+            }
+            if (metodo.equals("affine")) {
+                encriptarAffine(textoPlanoMod26);
+            }
+            if (metodo.equals("vigenere")) {
+                encriptarVigenere(textoPlanoMod26);
+            }
+            if (metodo.equals("hill")) {
+                encriptarHill(textoPlanoMod26);
+            }
+            if (metodo.equals("permutacion")) {
+                encriptarPermutacion(textoPlanoMod26);
+            }
+            if (metodo.equals("spn")) {
+                encriptarSPN(textoPlanoMod189);
+            }
+            if (metodo.equals("sdes")) {
+                encriptarSDES(textoPlanoMod189);
+            }
+            if (metodo.equals("tsdes")) {
+                encriptarTSDES(textoPlanoMod189);
+            }
+            if (metodo.equals("des")) {
+                encriptarDES(textoPlanoMod189);
+            }
+            if (metodo.equals("tdes")) {
+                encriptarTDES(textoPlanoMod189);
+            }
+            if (metodo.equals("aes")) {
+                encriptarAES(textoPlano);
+            }
+            if (metodo.equals("cbcmac")) {
+                encriptarCBCMAC(textoPlano);
+            }
+            if (metodo.equals("rsa")) {
+                encriptarRSA(textoPlano);
+            }
+            if (metodo.equals("tablet")) {
+                encriptarTablet(textoPlano);
+            }
+        }
+    }// GEN-LAST:event_botonEncriptarActionPerformed
+
+    private void fuerzaBrutaDesplazamiento(String textoCifrado) {
+        String[] posibilidades = ShiftCipher.cryptoAnalysisMod189(textoCifrado);
+        String textoPlano = "";
+        for (int pos = 0; pos < posibilidades.length; pos++) {
+            int[] decode = {pos};
+            String texto = Code.decodeMod189(decode);
+            textoPlano = textoPlano.concat("Clave " + pos + ": "
+                    + texto.concat("\n"));
+            textoPlano = textoPlano.concat(posibilidades[pos]).concat("\n\n");
+        }
+        cajaTextoPlano.setText(textoPlano);
+        cajaTextoCifrado.setText(textoCifrado);
+        // Frecuencias
+        ArrayList<LettersOcurrence> frecLetras = LettersOcurrence.frequenciesMod189(Code.encodeMod189(textoCifrado));
+        Object[][] datos = new Object[189][2];
+        String etiquetas[] = {"Letra", "Frecuencia"};
+        for (LettersOcurrence frecuencia : frecLetras) {
+            int[] aux = {frecuencia.getLetter()};
+            int letra = frecuencia.getLetter();
+            int frec = frecuencia.getFrequency();
+            datos[letra][0] = Code.decodeMod189(aux);
+            datos[letra][1] = frec;
+        }
+        pintarFrecuencias(tablaResultadosDesplazamiento, 2, datos, etiquetas);
+        // Frecuencias bigramas
+        ArrayList<BigramsOcurrence> frecBigramas = BigramsOcurrence.frequenciesMod189(textoCifrado);
+        int i = 0;
+        datos = new Object[frecBigramas.size()][6];
+        String etiquetas2[] = {"Bigrama", "Frec"};
+        for (BigramsOcurrence frecuencia : frecBigramas) {
+            int[] aux = {frecuencia.getFirstLetter(),
+                frecuencia.getSecondLetter()};
+            int frec = frecuencia.getFrequency();
+            datos[i][0] = Code.decodeMod189(aux);
+            datos[i][1] = frec;
+            i++;
+        }
+        pintarFrecuencias(tablaResultadosDesplazamientoBigramas, 4, datos,
+                etiquetas2);
+        // Frecuencias trigramas
+        ArrayList<TrigramsOcurrence> frecTrigramas = TrigramsOcurrence.frequenciesMod189(textoCifrado);
+        i = 0;
+        datos = new Object[frecTrigramas.size()][6];
+        String etiquetas3[] = {"Trigrama", "Frec"};
+        for (TrigramsOcurrence frecuencia : frecTrigramas) {
+            int[] aux = {frecuencia.getFirstLetter(),
+                frecuencia.getSecondLetter(), frecuencia.getThirdLetter()};
+            int frec = frecuencia.getFrequency();
+            datos[i][0] = Code.decodeMod189(aux);
+            datos[i][1] = frec;
+            i++;
+        }
+        pintarFrecuencias(tablaResultadosDesplazamientoTrigramas, 6, datos,
+                etiquetas3);
+        LettersOcurrence masFrecuente = LettersOcurrence.greatest(frecLetras);
+        int probable = masFrecuente.getLetter() - 69;
+        if (probable < 0) {
+            probable += 189;
+        }
+        textoMasProbablesClavesDesplazamientoR.setText(Code.decodeMod189(
+                new int[]{probable}).concat(" = " + probable));
+    }
+
+    private void analisisFrecuenciasSustitucion(String textoCifrado) {
+        // Frecuencias letras
+        ArrayList<LettersOcurrence> frecLetras = LettersOcurrence.frequencies(Code.encodeMod26(textoCifrado));
+
+        Object[][] datos = new Object[26][6];
+        String etiquetas[] = {"Letra", "Frec"};
+        for (LettersOcurrence frecuencia : frecLetras) {
+            int[] aux = {frecuencia.getLetter()};
+            int letra = frecuencia.getLetter();
+            int frec = frecuencia.getFrequency();
+            datos[letra][0] = Code.decodeMod26(aux).toUpperCase();
+            datos[letra][1] = frec;
+        }
+        pintarFrecuencias(tablaResultadosSusLetras, 2, datos, etiquetas);
+        // Frecuencias bigramas
+        ArrayList<BigramsOcurrence> frecBigramas = BigramsOcurrence.frequenciesMod26(textoCifrado);
+        int i = 0;
+        datos = new Object[frecBigramas.size()][6];
+        String etiquetas2[] = {"Bigrama", "Frec"};
+        for (BigramsOcurrence frecuencia : frecBigramas) {
+            int[] aux = {frecuencia.getFirstLetter(),
+                frecuencia.getSecondLetter()};
+            int frec = frecuencia.getFrequency();
+            datos[i][0] = Code.decodeMod26(aux).toUpperCase();
+            datos[i][1] = frec;
+            i++;
+        }
+        pintarFrecuencias(tablaResultadosSusBigramas, 4, datos, etiquetas2);
+        // Frecuencias trigramas
+        ArrayList<TrigramsOcurrence> frecTrigramas = TrigramsOcurrence.frequenciesMod26(textoCifrado);
+        i = 0;
+        datos = new Object[frecTrigramas.size()][6];
+        String etiquetas3[] = {"Trigrama", "Frec"};
+        for (TrigramsOcurrence frecuencia : frecTrigramas) {
+            int[] aux = {frecuencia.getFirstLetter(),
+                frecuencia.getSecondLetter(), frecuencia.getThirdLetter()};
+            int frec = frecuencia.getFrequency();
+            datos[i][0] = Code.decodeMod26(aux).toUpperCase();
+            datos[i][1] = frec;
+            i++;
+        }
+        pintarFrecuencias(tablaResultadosSusTrigramas, 6, datos, etiquetas3);
+
+        cajaTextoPlano.setText(textoCifrado);
+        cajaTextoCifrado.setText(textoCifrado);
+        textoPlanoInicial = cajaTextoCifrado.getText();
+    }
+
+    private void criptoAnalisisAffine(String textoCifrado) {
+        String textoPlano = "";
+        // Frecuencias letras
+        ArrayList<LettersOcurrence> frecLetras = LettersOcurrence.frequencies(Code.encodeMod26(textoCifrado));
+
+        Object[][] datos = new Object[26][6];
+        String etiquetas[] = {"Letra", "Frec"};
+        for (LettersOcurrence frecuencia : frecLetras) {
+            int[] aux = {frecuencia.getLetter()};
+            int letra = frecuencia.getLetter();
+            int frec = frecuencia.getFrequency();
+            datos[letra][0] = Code.decodeMod26(aux);
+            datos[letra][1] = frec;
+        }
+        pintarFrecuencias(tablaResultadosAffineLetras, 2, datos, etiquetas);
+        // Frecuencias bigramas
+        ArrayList<BigramsOcurrence> frecBigramas = BigramsOcurrence.frequenciesMod26(textoCifrado);
+        int i = 0;
+        datos = new Object[frecBigramas.size()][6];
+        String etiquetas2[] = {"Bigrama", "Frec"};
+        for (BigramsOcurrence frecuencia : frecBigramas) {
+            int[] aux = {frecuencia.getFirstLetter(),
+                frecuencia.getSecondLetter()};
+            int frec = frecuencia.getFrequency();
+            datos[i][0] = Code.decodeMod26(aux);
+            datos[i][1] = frec;
+            i++;
+        }
+        pintarFrecuencias(tablaResultadosAffineBigramas, 4, datos, etiquetas2);
+        // Frecuencias trigramas
+        ArrayList<TrigramsOcurrence> frecTrigramas = TrigramsOcurrence.frequenciesMod26(textoCifrado);
+        i = 0;
+        datos = new Object[frecTrigramas.size()][6];
+        String etiquetas3[] = {"Trigrama", "Frec"};
+        for (TrigramsOcurrence frecuencia : frecTrigramas) {
+            int[] aux = {frecuencia.getFirstLetter(),
+                frecuencia.getSecondLetter(), frecuencia.getThirdLetter()};
+            int frec = frecuencia.getFrequency();
+            datos[i][0] = Code.decodeMod26(aux);
+            datos[i][1] = frec;
+            i++;
+        }
+        pintarFrecuencias(tablaResultadosAffineTrigramas, 6, datos, etiquetas3);
+        ArrayList<AffineCipher> textosPlanos = AffineCipher.cryptoAnalysis(textoCifrado);
+        String claves = "";
+        int contador = 0;
+        for (AffineCipher affine : textosPlanos.subList(0, 25)) {
+            int aditivo = affine.getAdditiveKey();
+            int multiplicativo = affine.getMultiplicativeKey();
+            if (contador < 7) {
+                claves = claves.concat("(" + String.valueOf(multiplicativo)
+                        + "," + String.valueOf(aditivo) + ") ");
+                contador++;
+            }
+            String textoAffine = affine.getText();
+            textoPlano = textoPlano.concat("Clave: ( "
+                    + String.valueOf(multiplicativo) + " , "
+                    + String.valueOf(aditivo) + " )\n");
+            textoPlano = textoPlano.concat(textoAffine.concat("\n\n"));
+        }
+        textoMasProbablesClavesAffineR.setText(claves);
+        cajaTextoPlano.setText(textoPlano);
+        cajaTextoCifrado.setText(textoCifrado);
+    }
+
+    private void criptoAnalisisVigenere(String textoCifrado) {
+        try {
+            cajaTextoPlano.setText("");
+            ArrayList<VigenereCipher> textoPlanoArray = VigenereCipher.cryptoAnalysis(textoCifrado);
+            VigenereCipher textoPlano = textoPlanoArray.get(0);
+            cajaTextoPlano.setText(textoPlano.getText());
+            cajaTextoCifrado.setText(textoCifrado);
+            textoResultadoVigenereClave.setText(textoPlano.getKey().toUpperCase());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "El texto cifrado no aporta suficiente información para calcular el índice de coincidencia",
+                    "Error al realizar el criptoanálisis",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void fuerzaBrutaDESS(String textoCifrado) {
+        textoCifrado = Code.removeCharactersOutOfHexa(cajaTextoCifrado.getText());
+
+        if (textoCifrado.length() % 2 != 0) {
+            Random rand = new Random();
+            char randChar = (char) (rand.nextInt(6) + 65);
+            textoCifrado = textoCifrado.concat(String.valueOf(randChar));
+        }
+        String[][] p = SimplifiedDESCipher.bruteForce(textoCifrado);
+        String textoPlano = "";
+        for (int x = 0; x < 1024; x++) {
+            textoPlano = textoPlano.concat("Clave: ".concat(p[x][0]).concat(
+                    "\n"));
+            textoPlano = textoPlano.concat(p[x][1].concat("\n\n"));
+        }
+        cajaTextoPlano.setText(textoPlano);
+        cajaTextoCifrado.setText(textoCifrado);
+    }
+
+    private void descifrarTSDES(String textoCifrado) {
+        try {
+            String clave = "";
+            String textoHexa = "";
+            String textoPlano = "";
+
+            Random rand = new Random();
+            while (textoCifrado.length() % 2 != 0) {
+                char letra = (char) (rand.nextInt(6) + 65);
+                textoCifrado = textoCifrado.concat(String.valueOf(letra));
+            }
+
+            clave = claveTripleDESS.getText();
+            String stringTemp = "";
+            if (clave.length() == 30) {
+                for (int x = 0; x < textoCifrado.length(); x = x + 2) {
+                    textoHexa = textoCifrado.substring(x, x + 2);
+                    stringTemp = SimplifiedDESCipher.encryptDecrypt(textoHexa,
+                            clave.substring(20, 30), false);
+                    stringTemp = SimplifiedDESCipher.encryptDecrypt(stringTemp,
+                            clave.substring(10, 20), true);
+                    textoPlano = textoPlano.concat(SimplifiedDESCipher.encryptDecrypt(stringTemp, clave.substring(0, 10),
+                            false));
+                }
+                cajaTextoPlano.setText(cpcommonmethods.HexTools.fromHexStringToASCIIString(textoPlano));
+                cajaTextoCifrado.setText(textoCifrado);
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 30 dígitos binarios o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 30 dígitos binarios o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            System.out.print(e.toString());
+        }
+
+    }
+
+    private void descifrarDES(String textoCifrado) {
+
+        try {
+            String claveHexa = "";
+            String textoHexa = "";
+            String textoPlano = "";
+
+            Random rand = new Random();
+            while (textoCifrado.length() % 16 != 0) {
+                char letra = (char) (rand.nextInt(6) + 65);
+                textoCifrado = textoCifrado.concat(String.valueOf(letra));
+            }
+
+            claveHexa = claveDES.getText();
+            if (claveHexa.length() == 16) {
+                for (int x = 0; x < textoCifrado.length(); x = x + 16) {
+                    textoHexa = textoCifrado.substring(x, x + 16);
+                    textoPlano = textoPlano.concat(DESCipher.encryptDecrypt(
+                            textoHexa, claveHexa, false));
+                }
+                cajaTextoPlano.setText(cpcommonmethods.HexTools.fromHexStringToASCIIString(textoPlano));
+                cajaTextoCifrado.setText(textoCifrado);
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 16 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 16 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            System.out.print(e.toString());
+        }
+    }
+
+    private void descifrarTDES(String textoCifrado) {
+        try {
+            String claveHexa = "";
+            String textoHexa = "";
+            String textoPlano = "";
+
+            Random rand = new Random();
+            while (textoCifrado.length() % 16 != 0) {
+                char letra = (char) (rand.nextInt(6) + 65);
+                textoCifrado = textoCifrado.concat(String.valueOf(letra));
+            }
+
+            claveHexa = claveTDES.getText();
+            if (claveHexa.length() == 48) {
+                String stringTemp = "";
+                for (int x = 0; x < textoCifrado.length(); x = x + 16) {
+                    textoHexa = textoCifrado.substring(x, x + 16);
+
+                    stringTemp = DESCipher.encryptDecrypt(textoHexa,
+                            claveHexa.substring(32, 48), false);
+                    stringTemp = DESCipher.encryptDecrypt(stringTemp,
+                            claveHexa.substring(16, 32), true);
+                    textoPlano = textoPlano.concat(DESCipher.encryptDecrypt(
+                            stringTemp, claveHexa.substring(0, 16), false));
+
+                }
+                cajaTextoPlano.setText(cpcommonmethods.HexTools.fromHexStringToASCIIString(textoPlano));
+                cajaTextoCifrado.setText(textoCifrado);
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 48 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegurese que la clave esta compuesta por 48 dígitos hexadecimales o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            System.out.print(e.toString());
+        }
+    }
+
+    private void descifrarAES(String textoCifrado) {
+        String clave = claveAES.getText();
+        cajaTextoCifrado.setText(textoCifrado);
+        String textoPlano = "";
+        try {
+            if (clave.length() != 32) {
+                throw new NumberFormatException();
+            }
+            textoPlano = AESCipher.longDecrypt(textoCifrado, clave);
+            cajaTextoPlano.setText(textoPlano);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es válida\nAsegúrese que la clave está compuesta por 32 hexadecimales o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        }
+    }
+
+    private void descifrarRSA(String textoCifrado) {
+        try {
+            String result;
+            String n = cajaClaveRSAn.getText();
+            String p = cajaClaveRSAp.getText();
+            String q = cajaClaveRSAq.getText();
+            String e = cajaClaveRSAe.getText();
+            String d = cajaClaveRSAd.getText();
+
+            if (tipoClaveRSAn.isSelected()) {
+                tipoClaveRSAdActionPerformed(null);
+                if (n.isEmpty()) {
+                    throw new Exception(
+                            "Es necesario ingresar el valor de n para descifrar el texto.");
+                }
+                if (d.isEmpty()) {
+                    throw new Exception(
+                            "Es necesario ingresar el valor de d para cifrar el texto.");
+                }
+                if (tipoOptimizacionRSA.isSelected()) {
+                    result = BellareRogawayCipher.decrypt(textoCifrado, n, d);
+                } else {
+                    result = RSACipher.decrypt(d, n, textoCifrado);
+                }
+            } else {
+                if (p.isEmpty() || q.isEmpty()) {
+                    throw new Exception(
+                            "Es necesario ingresar los valores de p y q para descifrar \nel texto.");
+                }
+                if (tipoClaveRSAe.isSelected()) {
+                    tipoClaveRSAdActionPerformed(null);
+                    if (e.isEmpty()) {
+                        throw new Exception(
+                                "Es necesario ingresar el valor de d para descifrar el texto.");
+                    } else {
+                        d = RSACipher.calculateInverse(e, p, q);
+                    }
+                } else {
+                    if (d.isEmpty()) {
+                        throw new Exception(
+                                "Es necesario ingresar el valor de d para cifrar el texto.");
+                    } else {
+                        e = RSACipher.calculateInverse(d, p, q);
+                    }
+                }
+                if (tipoOptimizacionRSA.isSelected()) {
+                    result = BellareRogawayCipher.decrypt(textoCifrado, p, q, d);
+                } else {
+                    result = RSACipher.decrypt(p, q, d, textoCifrado);
+                }
+                cajaClaveRSAn.setText(RSACipher.calculateN(p, q));
+                cajaClaveRSAd.setText(d);
+                cajaClaveRSAe.setText(e);
+            }
+
+            cajaTextoPlano.setText(result);
+            cajaTextoCifrado.setText(textoCifrado);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "El formato de la clave es inválido. Asegúrese de usar únicamente números en formato decimal.",
+                    "Error al descifrar", JOptionPane.ERROR_MESSAGE);
+        } catch (OutOfMemoryError e) {
+            JOptionPane.showMessageDialog(this,
+                    "Se ha excedido la capacidad de máquina.",
+                    "Error al descifrar", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(),
+                    "Error al descifrar", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void botonCriptoanalisisActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonCriptoanalisisActionPerformed
+        if (!cajaTextoCifrado.getText().isEmpty()) {
+            cajaTextoPlano.setText("");
+
+            String metodo = "";
+            if (panelClasesCifrados.getSelectedIndex() == 0) {
+                metodo = panelMetodosClasicos.getSelectedComponent().getName();
+            } else if (panelClasesCifrados.getSelectedIndex() == 1) {
+                metodo = panelMetodosBloque.getSelectedComponent().getName();
+            } else {
+                metodo = panelMetodosPublicos.getSelectedComponent().getName();
+            }
+
+            String textoCifrado = cajaTextoCifrado.getText();
+            String textoCifradoMod26 = Code.removeCharactersOutOfMod26(
+                    textoCifrado).toUpperCase();
+            String textoCifradoMod189 = Code.removeCharactersOutOfMod189(textoCifrado);
+            String textoCifradoDigitos = Code.removeCharactersOutOfDigits(textoCifrado);
+            String textoCifradoHexa = Code.removeCharactersOutOfHexa(textoCifrado);
+
+            if (metodo.equals("desplazamiento")) {
+                fuerzaBrutaDesplazamiento(textoCifradoMod189);
+            }
+            if (metodo.equals("sustitucion")) {
+                analisisFrecuenciasSustitucion(textoCifradoMod26);
+            }
+            if (metodo.equals("affine")) {
+                criptoAnalisisAffine(textoCifradoMod26);
+            }
+            if (metodo.equals("vigenere")) {
+                criptoAnalisisVigenere(textoCifradoMod26);
+            }
+            if (metodo.equals("hill")) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "El criptoanálisis para el metodo de Hill no esta disponible.",
+                        "Error al realizar el criptoanálisis",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            if (metodo.equals("permutacion")) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "El criptoanálisis para el metodo de Permutación no esta disponible.",
+                        "Error al realizar el criptoanálisis",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            if (metodo.equals("spn")) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "El criptoanálisis para el metodo SPN está disponible únicamente \n por aproximación lineal.",
+                        "Error al realizar el criptoanálisis",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            if (metodo.equals("sdes")) {
+                fuerzaBrutaDESS(textoCifradoHexa);
+            }
+            if (metodo.equals("tsdes")) {
+                descifrarTSDES(textoCifradoHexa);
+            }
+            if (metodo.equals("des")) {
+                descifrarDES(textoCifradoHexa);
+            }
+            if (metodo.equals("tdes")) {
+                descifrarTDES(textoCifradoHexa);
+            }
+            if (metodo.equals("aes")) {
+                descifrarAES(textoCifradoHexa);
+            }
+            if (metodo.equals("cbcmac")) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "El criptoanálisis para el metodo CBCMAC no esta disponible.",
+                        "Error al realizar el criptoanálisis",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            if (metodo.equals("rsa")) {
+                descifrarRSA(textoCifradoDigitos);
+            }
+
+            textoPlanoInicial = cajaTextoPlano.getText();
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Ingrese un texto cifrado para descifrarlo.",
+                    "Error al realizar el criptoanálisis",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }// GEN-LAST:event_botonCriptoanalisisActionPerformed
+
+    private void pintarFrecuencias(javax.swing.JTable tabla, int columnas,
+            Object[][] datos, String[] etiquetas) {
+        switch (columnas) {
+            case 2: {
+                tabla.setModel(new javax.swing.table.DefaultTableModel(datos,
+                        etiquetas) {
+
+                    /**
+                     *
+                     */
+                    private static final long serialVersionUID = 1L;
+                    Class[] types = types2;
+
+                    public Class getColumnClass(int columnIndex) {
+                        return types[columnIndex];
+                    }
+                });
+            }
+            break;
+            case 4: {
+                tabla.setModel(new javax.swing.table.DefaultTableModel(datos,
+                        etiquetas) {
+
+                    /**
+                     *
+                     */
+                    private static final long serialVersionUID = 1L;
+                    Class[] types = types4;
+
+                    public Class getColumnClass(int columnIndex) {
+                        return types[columnIndex];
+                    }
+                });
+            }
+            break;
+            case 6: {
+                tabla.setModel(new javax.swing.table.DefaultTableModel(datos,
+                        etiquetas) {
+
+                    /**
+                     *
+                     */
+                    private static final long serialVersionUID = 1L;
+                    Class[] types = types6;
+
+                    public Class getColumnClass(int columnIndex) {
+                        return types[columnIndex];
+                    }
+                });
+            }
+            break;
+        }
+
+        centrarCeldas(tabla);
+    }
+    Class[] types2 = new Class[]{java.lang.String.class,
+        java.lang.Integer.class};
+    Class[] types4 = new Class[]{java.lang.String.class,
+        java.lang.Integer.class, java.lang.String.class,
+        java.lang.Integer.class};
+    Class[] types6 = new Class[]{java.lang.String.class,
+        java.lang.Integer.class, java.lang.String.class,
+        java.lang.Integer.class, java.lang.String.class,
+        java.lang.Integer.class};
+
+    private void centrarCeldas(javax.swing.JTable tabla) {
+        DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
+        tcr.setHorizontalAlignment(SwingConstants.CENTER);
+        for (int c = 0; c < tabla.getColumnCount(); c++) {
+            tabla.getColumnModel().getColumn(c).setCellRenderer(tcr);
+        }
+
+    }
+
+    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonSalirActionPerformed
+        System.exit(0);
+    }// GEN-LAST:event_botonSalirActionPerformed
+
+    private void clavePermutacionKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_clavePermutacionKeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c) || c == '0') {
+            evt.consume();
+        } else {
+            String clave = clavePermutacion.getText();
+            if (clave.contains(c.toString())) {
+                evt.consume();
+            }
+        }
+    }// GEN-LAST:event_clavePermutacionKeyTyped
+
+    private void botonClavePermutacionActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClavePermutacionActionPerformed
+        Random rnd = new Random();
+        int numero = 0;
+        String clave = String.valueOf(rnd.nextInt(8) + 1);
+        while (clave.length() != 9) {
+            numero = rnd.nextInt(9) + 1;
+            if (numero != 0 && !clave.contains(String.valueOf(numero))) {
+                clave = clave.concat(String.valueOf(numero));
+            }
+        }
+        clavePermutacion.setText(clave);
+    }// GEN-LAST:event_botonClavePermutacionActionPerformed
+
+    private void tipoClaveHill3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveHill3ActionPerformed
+        claveHill3.setEditable(true);
+        claveHill6.setEditable(true);
+        claveHill7.setEditable(true);
+        claveHill8.setEditable(true);
+        claveHill9.setEditable(true);
+    }// GEN-LAST:event_tipoClaveHill3ActionPerformed
+
+    private void tipoClaveHill2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveHill2ActionPerformed
+        claveHill3.setEditable(false);
+        claveHill6.setEditable(false);
+        claveHill7.setEditable(false);
+        claveHill8.setEditable(false);
+        claveHill9.setEditable(false);
+        claveHill3.setText("");
+        claveHill6.setText("");
+        claveHill7.setText("");
+        claveHill8.setText("");
+        claveHill9.setText("");
+    }// GEN-LAST:event_tipoClaveHill2ActionPerformed
+
+    private void claveHill9KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill9KeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)
+                || Integer.parseInt(claveHill9.getText().concat(c.toString())) > 25) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveHill9KeyTyped
+
+    private void claveHill8KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill8KeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)
+                || Integer.parseInt(claveHill8.getText().concat(c.toString())) > 25) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveHill8KeyTyped
+
+    private void claveHill7KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill7KeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)
+                || Integer.parseInt(claveHill7.getText().concat(c.toString())) > 25) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveHill7KeyTyped
+
+    private void claveHill6KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill6KeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)
+                || Integer.parseInt(claveHill6.getText().concat(c.toString())) > 25) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveHill6KeyTyped
+
+    private void claveHill5KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill5KeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)
+                || Integer.parseInt(claveHill5.getText().concat(c.toString())) > 25) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveHill5KeyTyped
+
+    private void claveHill4KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill4KeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)
+                || Integer.parseInt(claveHill4.getText().concat(c.toString())) > 25) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveHill4KeyTyped
+
+    private void claveHill3KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill3KeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)
+                || Integer.parseInt(claveHill3.getText().concat(c.toString())) > 25) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveHill3KeyTyped
+
+    private void claveHill2KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill2KeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)
+                || Integer.parseInt(claveHill2.getText().concat(c.toString())) > 25) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveHill2KeyTyped
+
+    private void claveHill1KeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveHill1KeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)
+                || Integer.parseInt(claveHill1.getText().concat(c.toString())) > 25) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveHill1KeyTyped
+
+    private void botonClaveHillActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveHillActionPerformed
+        Random rnd = new Random();
+        if (tipoClaveHill2.isSelected()) {
+            int det = 2;
+            while (mcd(det, 26) != 1) {
+                double[][] valores = {{rnd.nextInt(25), rnd.nextInt(25)},
+                    {rnd.nextInt(25), rnd.nextInt(25)}};
+                claveHill1.setText(String.valueOf((int) valores[0][0]));
+                claveHill2.setText(String.valueOf((int) valores[0][1]));
+                claveHill4.setText(String.valueOf((int) valores[1][0]));
+                claveHill5.setText(String.valueOf((int) valores[1][1]));
+                Matrix clave = new Matrix(valores);
+                det = (int) Math.round(clave.det());
+            }
+        } else {
+            int det = 2;
+            while (mcd(det, 26) != 1) {
+                double[][] valores = {
+                    {rnd.nextInt(25), rnd.nextInt(25), rnd.nextInt(25)},
+                    {rnd.nextInt(25), rnd.nextInt(25), rnd.nextInt(25)},
+                    {rnd.nextInt(25), rnd.nextInt(25), rnd.nextInt(25)}};
+                claveHill1.setText(String.valueOf((int) valores[0][0]));
+                claveHill2.setText(String.valueOf((int) valores[0][1]));
+                claveHill3.setText(String.valueOf((int) valores[0][2]));
+                claveHill4.setText(String.valueOf((int) valores[1][0]));
+                claveHill5.setText(String.valueOf((int) valores[1][1]));
+                claveHill6.setText(String.valueOf((int) valores[1][2]));
+                claveHill7.setText(String.valueOf((int) valores[2][0]));
+                claveHill8.setText(String.valueOf((int) valores[2][1]));
+                claveHill9.setText(String.valueOf((int) valores[2][2]));
+                Matrix clave = new Matrix(valores);
+                det = (int) Math.round(clave.det());
+            }
+        }
+    }// GEN-LAST:event_botonClaveHillActionPerformed
+
+    private void claveVigenereKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveVigenereKeyTyped
+        char c = evt.getKeyChar();
+        if ((!Character.isLetter(c) && !Character.isWhitespace(c)) || c == 'ñ'
+                || c == 'Ñ' || claveVigenere.getText().length() == 8) {
+            evt.consume();
+        } else {
+            if (Character.isLowerCase(c)) {
+                c = Character.toUpperCase(c);
+                claveVigenere.setText(claveVigenere.getText().concat(
+                        String.valueOf(c)));
+                evt.consume();
+            }
+        }
+    }// GEN-LAST:event_claveVigenereKeyTyped
+
+    private void botonClaveVigenereActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveVigenereActionPerformed
+        Random rnd = new Random();
+        String clave = "";
+        for (int x = 0; x < 8; x++) {
+            char claveChar = (char) (rnd.nextInt(25) + 65);
+            clave = clave.concat(String.valueOf(claveChar));
+        }
+        claveVigenere.setText(clave);
+    }// GEN-LAST:event_botonClaveVigenereActionPerformed
+
+    private void claveAffineBKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveAffineBKeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        } else {
+            if (Integer.parseInt(claveAffineB.getText().concat(
+                    String.valueOf(c))) > 25) {
+                evt.consume();
+            }
+        }
+    }// GEN-LAST:event_claveAffineBKeyTyped
+
+    private void claveAffineAKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveAffineAKeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        } else {
+            if (Integer.parseInt(claveAffineA.getText().concat(
+                    String.valueOf(c))) > 25) {
+                evt.consume();
+            }
+        }
+    }// GEN-LAST:event_claveAffineAKeyTyped
+
+    private void botonClaveAffineActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveAffineActionPerformed
+        Random rnd = new Random();
+        int clave = 2;
+        while (mcd(clave, 26) != 1) {
+            clave = rnd.nextInt(25);
+        }
+        claveAffineA.setText(String.valueOf(clave));
+        claveAffineB.setText(String.valueOf(rnd.nextInt(25)));
+    }// GEN-LAST:event_botonClaveAffineActionPerformed
+
+    private void claveSustitucionKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) || c == 'ñ' || c == 'Ñ'
+                || claveSustitucion.getText().length() == 26) {
+            evt.consume();
+        } else {
+            String clave = claveSustitucion.getText();
+            if (clave.contains(String.valueOf(c).toUpperCase())) {
+                evt.consume();
+            } else {
+                if (Character.isLowerCase(c)) {
+                    c = Character.toUpperCase(c);
+                    claveSustitucion.setText(claveSustitucion.getText().concat(
+                            String.valueOf(c)));
+                    evt.consume();
+                }
+            }
+        }
+    }// GEN-LAST:event_claveSustitucionKeyTyped
+
+    private void botonClaveSustitucionActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveSustitucionActionPerformed
+        Random rnd = new Random();
+        String clave = "";
+        while (clave.length() != 26) {
+            char claveChar = (char) (rnd.nextInt(26) + 65);
+            if (!clave.contains(String.valueOf(claveChar))) {
+                clave = clave.concat(String.valueOf(claveChar));
+            }
+        }
+        claveSustitucion.setText(clave);
+    }// GEN-LAST:event_botonClaveSustitucionActionPerformed
+
+    private void tipoClaveDesplazamientoCaracterActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveDesplazamientoCaracterActionPerformed
+        claveDesplazamientoNumero.setEnabled(false);
+        claveDesplazamientoCaracter.setEnabled(true);
+    }// GEN-LAST:event_tipoClaveDesplazamientoCaracterActionPerformed
+
+    private void claveDesplazamientoCaracterKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveDesplazamientoCaracterKeyTyped
+        Character c = evt.getKeyChar();
+        if (c < 32 || (c > 126 && c < 161) || c > 255) {
+            evt.consume();
+        } else {
+            claveDesplazamientoCaracter.setText("");
+            int[] encode = Code.encodeMod189(String.valueOf(evt.getKeyChar()));
+            claveDesplazamientoNumero.setText(String.valueOf(encode[0]));
+
+            int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
+            String textoCifrado = ShiftCipher.encryptMod189(
+                    muestraDesplazamientoDe.getText(), clave);
+            muestraDesplazamientoA.setText(textoCifrado);
+        }
+    }// GEN-LAST:event_claveDesplazamientoCaracterKeyTyped
+
+    private void tipoClaveDesplazamientoNumeroActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveDesplazamientoNumeroActionPerformed
+        claveDesplazamientoCaracter.setEnabled(false);
+        claveDesplazamientoNumero.setEnabled(true);
+    }// GEN-LAST:event_tipoClaveDesplazamientoNumeroActionPerformed
+
+    private void claveDesplazamientoNumeroKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveDesplazamientoNumeroKeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        } else {
+            String decode = "A";
+            if (!claveDesplazamientoNumero.getText().isEmpty()) {
+                int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
+                if (clave == 0) {
+                    claveDesplazamientoNumero.setText("");
+                }
+
+                clave = Integer.parseInt(claveDesplazamientoNumero.getText().concat(c.toString()));
+                if (clave > 188) {
+                    claveDesplazamientoNumero.setText("");
+                }
+
+                clave = Integer.parseInt(claveDesplazamientoNumero.getText().concat(c.toString()));
+                int decodeNumber[] = {Integer.parseInt(claveDesplazamientoNumero.getText().concat(
+                    c.toString()))};
+                decode = Code.decodeMod189(decodeNumber);
+
+                muestraDesplazamientoA.setText(ShiftCipher.encryptMod189(
+                        muestraDesplazamientoDe.getText(), clave));
+            } else {
+                int decodeNumber[] = {Integer.parseInt(c.toString())};
+                decode = Code.decodeMod189(decodeNumber);
+                muestraDesplazamientoA.setText(ShiftCipher.encryptMod189(
+                        muestraDesplazamientoDe.getText(), decodeNumber[0]));
+            }
+
+            claveDesplazamientoCaracter.setText(decode);
+        }
+    }// GEN-LAST:event_claveDesplazamientoNumeroKeyTyped
+
+    private void botonClaveDesplazamientoActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveDesplazamientoActionPerformed
+        Random rnd = new Random();
+        int clave = rnd.nextInt(188);
+        claveDesplazamientoNumero.setText(String.valueOf(clave));
+        muestraDesplazamientoA.setText(ShiftCipher.encryptMod189(
+                muestraDesplazamientoDe.getText(), clave));
+
+        int decodeNumber[] = {clave};
+        String decode = Code.decodeMod189(decodeNumber);
+        claveDesplazamientoCaracter.setText(decode);
+    }// GEN-LAST:event_botonClaveDesplazamientoActionPerformed
+
+    private void clavePermutacionAlternativaActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clavePermutacionAlternativaActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_clavePermutacionAlternativaActionPerformed
+
+    private void panelMetodoPermutacionFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_panelMetodoPermutacionFocusGained
+        JOptionPane.showMessageDialog(
+                this,
+                "Ingrese un texto cifrado para poder realizar el criptoanálisis",
+                "Error al realizar el criptoanálisis",
+                JOptionPane.ERROR_MESSAGE);
+    }// GEN-LAST:event_panelMetodoPermutacionFocusGained
+
+    private void botonAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonAcercaDeActionPerformed
+        JOptionPane.showMessageDialog(this, "Realizado por:\n"
+                + "\nAgustín Moreno Cañadas - amorenoca@unal.edu.co"
+                + "\nDavid Montaño Fetecua - damontanofe@unal.edu.co"
+                + "\nLaura Moreno Cubillos - lvmorenoc@unal.edu.co"
+                + "\nChristian Rodríguez Bustos - carodriguezb@unal.edu.co\n"
+                + "\nUniversidad Nacional de Colombia" + "\nSede Bogotá\n\n",
+                "Acerca de...", JOptionPane.INFORMATION_MESSAGE);
+    }// GEN-LAST:event_botonAcercaDeActionPerformed
+
+    public class TxTFilter extends javax.swing.filechooser.FileFilter {
+
+        final static String txt = "txt";
+
+        /** Creates a new instance of XMLFilter */
+        public TxTFilter() {
+        }
+
+        public boolean accept(File f) {
+            if (f.isDirectory()) {
+                return true;
+            }
+            String s = f.getName();
+            int i = s.lastIndexOf('.');
+
+            if (i > 0 && i < s.length() - 1) {
+                String extension = s.substring(i + 1).toLowerCase();
+                if (txt.equals(extension)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public String getDescription() {
+            return "archivos .txt";
+        }
+    }
+
+    public class CSVFilter extends javax.swing.filechooser.FileFilter {
+
+        final static String csv = "txt";
+
+        /** Creates a new instance of XMLFilter */
+        public CSVFilter() {
+        }
+
+        public boolean accept(File f) {
+            if (f.isDirectory()) {
+                return true;
+            }
+            String s = f.getName();
+            int i = s.lastIndexOf('.');
+
+            if (i > 0 && i < s.length() - 1) {
+                String extension = s.substring(i + 1).toLowerCase();
+                if (csv.equals(extension)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public String getDescription() {
+            return "archivos .csv";
+        }
+    }
+
+    private void botonGuardarCifradoActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonGuardarCifradoActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.addChoosableFileFilter(new TxTFilter());
+        chooser.showSaveDialog(this);
+        File archivo = chooser.getSelectedFile();
+        try {
+            PrintWriter writer = new PrintWriter(archivo);
+            writer.print(cajaTextoCifrado.getText());
+            writer.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }// GEN-LAST:event_botonGuardarCifradoActionPerformed
+
+    private void botonAbrirPlanoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonAbrirPlanoActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.addChoosableFileFilter(new TxTFilter());
+        chooser.showOpenDialog(this);
+        File archivo = chooser.getSelectedFile();
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(archivo));
+            String linea = "";
+            String texto = "";
+            while ((linea = reader.readLine()) != null) {
+                texto = texto.concat(linea).concat("\n");
+            }
+            reader.close();
+            cajaTextoPlano.setText(texto);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }// GEN-LAST:event_botonAbrirPlanoActionPerformed
+
+    private void botonLimpiarCifradoActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarCifradoActionPerformed
+        cajaTextoCifrado.setText("");
+    }// GEN-LAST:event_botonLimpiarCifradoActionPerformed
+
+    private void botonGuardarPlanoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonGuardarPlanoActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.addChoosableFileFilter(new TxTFilter());
+        chooser.showSaveDialog(this);
+        File archivo = chooser.getSelectedFile();
+        try {
+            PrintWriter writer = new PrintWriter(archivo);
+            writer.print(cajaTextoPlano.getText());
+            writer.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }// GEN-LAST:event_botonGuardarPlanoActionPerformed
+
+    private void botonLimpiarPlano1ActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarPlano1ActionPerformed
+        cajaTextoPlano.setText("");
+    }// GEN-LAST:event_botonLimpiarPlano1ActionPerformed
+
+    private void botonLimpiarPermutacionActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarPermutacionActionPerformed
+        clavePermutacion.setText("");
+        clavePermutacionAlternativa.setSelected(false);
+    }// GEN-LAST:event_botonLimpiarPermutacionActionPerformed
+
+    private void botonLimpiarHillActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarHillActionPerformed
+        claveHill1.setText("");
+        claveHill2.setText("");
+        claveHill3.setText("");
+        claveHill4.setText("");
+        claveHill5.setText("");
+        claveHill6.setText("");
+        claveHill7.setText("");
+        claveHill8.setText("");
+        claveHill9.setText("");
+        claveHill3.setEditable(false);
+        claveHill6.setEditable(false);
+        claveHill7.setEditable(false);
+        claveHill8.setEditable(false);
+        claveHill9.setEditable(false);
+        tipoClaveHill2.setSelected(true);
+    }// GEN-LAST:event_botonLimpiarHillActionPerformed
+
+    private void botonLimpiarVigenereActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarVigenereActionPerformed
+        claveVigenere.setText("");
+    }// GEN-LAST:event_botonLimpiarVigenereActionPerformed
+
+    private void botonLimpiarAffineActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarAffineActionPerformed
+        claveAffineA.setText("");
+        claveAffineB.setText("");
+    }// GEN-LAST:event_botonLimpiarAffineActionPerformed
+
+    private void botonLimpiarSustitucionActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarSustitucionActionPerformed
+        claveSustitucion.setText("");
+    }// GEN-LAST:event_botonLimpiarSustitucionActionPerformed
+
+    private void botonLimpiarDesplazamientoActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarDesplazamientoActionPerformed
+        claveDesplazamientoCaracter.setText("");
+        claveDesplazamientoCaracter.setEnabled(false);
+        claveDesplazamientoNumero.setEnabled(true);
+        claveDesplazamientoNumero.setText("");
+        tipoClaveDesplazamientoNumero.setSelected(true);
+        muestraDesplazamientoA.setText("");
+    }// GEN-LAST:event_botonLimpiarDesplazamientoActionPerformed
+
+    public void sustitucionTodos(java.awt.event.KeyEvent evt, int n) {
+        Character c = evt.getKeyChar();
+        if (!Character.isLetter(c) || c == 'ñ' || c == 'Ñ'
+                || arregloSustitucion[n].getText().length() == 1) {
+            evt.consume();
+        } else {
+            if (Character.isLowerCase(c)) {
+                c = Character.toUpperCase(c);
+                arregloSustitucion[n].setText(arregloSustitucion[n].getText().concat(String.valueOf(c)));
+                evt.consume();
+            }
+            for (int i = 0; i < 26; i++) {
+                if (n != i) {
+                    if (arregloSustitucion[i].getText().equals(
+                            String.valueOf(c))) {
+                        arregloSustitucion[i].setText("");
+                        break;
+                    }
+                }
+            }
+            textoMasProbablesClavesSustitucionR.setText("");
+            for (int i = 0; i < 26; i++) {
+                if (!arregloSustitucion[i].getText().isEmpty()) {
+                    textoMasProbablesClavesSustitucionR.setText(textoMasProbablesClavesSustitucionR.getText().concat(
+                            arregloSustitucion[i].getText()));
+                } else {
+                    textoMasProbablesClavesSustitucionR.setText(textoMasProbablesClavesSustitucionR.getText().concat("-"));
+                }
+            }
+
+            reEscribirTextoPlanoCambiar();
+        }
+    }
+
+    public void reEscribirTextoPlanoCambiar() {
+        String textoPlano = cajaTextoCifrado.getText();
+        for (int i = 0; i < 26; i++) {
+            String cambio = arregloSustitucion[i].getText();
+            if (!cambio.equals("")) {
+                textoPlano = textoPlano.replace(cambio,
+                        Code.decodeMod26(new int[]{i}));
+            }
+        }
+        cajaTextoPlano.setText(textoPlano);
+    }
+
+    private void claveSustitucionAKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionAKeyTyped
+        this.sustitucionTodos(evt, 0);
+    }// GEN-LAST:event_claveSustitucionAKeyTyped
+
+    private void claveSustitucionBKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionBKeyTyped
+        this.sustitucionTodos(evt, 1);
+    }// GEN-LAST:event_claveSustitucionBKeyTyped
+
+    private void claveSustitucionCKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionCKeyTyped
+        this.sustitucionTodos(evt, 2);
+    }// GEN-LAST:event_claveSustitucionCKeyTyped
+
+    private void claveSustitucionDKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionDKeyTyped
+        this.sustitucionTodos(evt, 3);
+    }// GEN-LAST:event_claveSustitucionDKeyTyped
+
+    private void claveSustitucionEKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionEKeyTyped
+        this.sustitucionTodos(evt, 4);
+    }// GEN-LAST:event_claveSustitucionEKeyTyped
+
+    private void claveSustitucionGKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionGKeyTyped
+        this.sustitucionTodos(evt, 6);
+    }// GEN-LAST:event_claveSustitucionGKeyTyped
+
+    private void claveSustitucionFKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionFKeyTyped
+        this.sustitucionTodos(evt, 5);
+    }// GEN-LAST:event_claveSustitucionFKeyTyped
+
+    private void claveSustitucionIKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionIKeyTyped
+        this.sustitucionTodos(evt, 8);
+    }// GEN-LAST:event_claveSustitucionIKeyTyped
+
+    private void claveSustitucionHKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionHKeyTyped
+        this.sustitucionTodos(evt, 7);
+    }// GEN-LAST:event_claveSustitucionHKeyTyped
+
+    private void claveSustitucionJKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionJKeyTyped
+        this.sustitucionTodos(evt, 9);
+    }// GEN-LAST:event_claveSustitucionJKeyTyped
+
+    private void claveSustitucionKKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionKKeyTyped
+        this.sustitucionTodos(evt, 10);
+    }// GEN-LAST:event_claveSustitucionKKeyTyped
+
+    private void claveSustitucionLKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionLKeyTyped
+        this.sustitucionTodos(evt, 11);
+    }// GEN-LAST:event_claveSustitucionLKeyTyped
+
+    private void claveSustitucionMKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionMKeyTyped
+        this.sustitucionTodos(evt, 12);
+    }// GEN-LAST:event_claveSustitucionMKeyTyped
+
+    private void claveSustitucionNKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionNKeyTyped
+        this.sustitucionTodos(evt, 13);
+    }// GEN-LAST:event_claveSustitucionNKeyTyped
+
+    private void claveSustitucionOKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionOKeyTyped
+        this.sustitucionTodos(evt, 14);
+    }// GEN-LAST:event_claveSustitucionOKeyTyped
+
+    private void claveSustitucionPKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionPKeyTyped
+        this.sustitucionTodos(evt, 15);
+    }// GEN-LAST:event_claveSustitucionPKeyTyped
+
+    private void claveSustitucionQKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionQKeyTyped
+        this.sustitucionTodos(evt, 16);
+    }// GEN-LAST:event_claveSustitucionQKeyTyped
+
+    private void claveSustitucionRKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionRKeyTyped
+        this.sustitucionTodos(evt, 17);
+    }// GEN-LAST:event_claveSustitucionRKeyTyped
+
+    private void claveSustitucionSKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionSKeyTyped
+        this.sustitucionTodos(evt, 18);
+    }// GEN-LAST:event_claveSustitucionSKeyTyped
+
+    private void claveSustitucionTKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionTKeyTyped
+        this.sustitucionTodos(evt, 19);
+    }// GEN-LAST:event_claveSustitucionTKeyTyped
+
+    private void claveSustitucionUKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionUKeyTyped
+        this.sustitucionTodos(evt, 20);
+    }// GEN-LAST:event_claveSustitucionUKeyTyped
+
+    private void claveSustitucionVKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionVKeyTyped
+        this.sustitucionTodos(evt, 21);
+    }// GEN-LAST:event_claveSustitucionVKeyTyped
+
+    private void claveSustitucionWKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionWKeyTyped
+        this.sustitucionTodos(evt, 22);
+    }// GEN-LAST:event_claveSustitucionWKeyTyped
+
+    private void claveSustitucionXKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionXKeyTyped
+        this.sustitucionTodos(evt, 23);
+    }// GEN-LAST:event_claveSustitucionXKeyTyped
+
+    private void claveSustitucionYKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionYKeyTyped
+        this.sustitucionTodos(evt, 24);
+    }// GEN-LAST:event_claveSustitucionYKeyTyped
+
+    private void claveSustitucionZKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSustitucionZKeyTyped
+        this.sustitucionTodos(evt, 25);
+    }// GEN-LAST:event_claveSustitucionZKeyTyped
+
+    private void botonLimpiarSustitucionManualActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarSustitucionManualActionPerformed
+        if (cajaTextoCifrado.getText().isEmpty()) {
+            textoPlanoInicial = "";
+        } else {
+            cajaTextoPlano.setText(textoPlanoInicial);
+            textoMasProbablesClavesSustitucionR.setText("");
+        }
+        for (int i = 0; i < 26; i++) {
+            arregloSustitucion[i].setText("");
+        }
+    }// GEN-LAST:event_botonLimpiarSustitucionManualActionPerformed
+
+    private void clavePermutacionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clavePermutacionActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_clavePermutacionActionPerformed
+
+    private void botonClaveSPNActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveSPNActionPerformed
+        // Clave aleatoria SPN
+        Random rnd = new Random();
+        String clave = "";
+        for (int x = 0; x < 8; x++) {
+            char claveChar = (char) (rnd.nextInt(16) + 65);
+            clave = clave.concat(String.valueOf(claveChar));
+        }
+        claveSPN.setText(clave);
+
+        char[] hexa = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
+            'B', 'C', 'D', 'E', 'F'};
+
+        // Permutación aleatoria
+        clave = "";
+        while (clave.length() != 16) {
+            char claveChar = hexa[rnd.nextInt(16)];
+            // System.out.println("char  " + claveChar);
+            if (!clave.contains(String.valueOf(claveChar))) {
+                clave = clave.concat(String.valueOf(claveChar));
+            }
+        }
+        permutacionSPN.setText(clave);
+
+        // Sustitución aleatoria
+        clave = "";
+        while (clave.length() != 16) {
+            char claveChar = hexa[rnd.nextInt(16)];
+            // System.out.println("char  " + claveChar);
+            if (!clave.contains(String.valueOf(claveChar))) {
+                clave = clave.concat(String.valueOf(claveChar));
+            }
+        }
+        sustitucionSPN.setText(clave);
+
+        // Número de rondas aleatorio
+        numeroRondasSPN.setText(String.valueOf(rnd.nextInt(4) + 1));
+    }// GEN-LAST:event_botonClaveSPNActionPerformed
+
+    private void botonLimpiarSPNActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarSPNActionPerformed
+        claveSPN.setText("");
+        permutacionSPN.setText("");
+        sustitucionSPN.setText("");
+        numeroRondasSPN.setText("");
+    }// GEN-LAST:event_botonLimpiarSPNActionPerformed
+
+    private void claveSPNKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveSPNKeyTyped
+        char c = evt.getKeyChar();
+        if ((!Character.isLetter(c) && !Character.isWhitespace(c))
+                || ((int) c >= 113) || c == 'ñ' || c == 'Ñ'
+                || claveSPN.getText().length() == 8) {
+            evt.consume();
+        } else {
+            if (Character.isLowerCase(c)) {
+                c = Character.toUpperCase(c);
+                claveSPN.setText(claveSPN.getText().concat(String.valueOf(c)));
+                evt.consume();
+            }
+        }
+    }// GEN-LAST:event_claveSPNKeyTyped
+
+    private void permutacionSPNKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_permutacionSPNKeyTyped
+        char c = evt.getKeyChar();
+        c = String.valueOf(c).toUpperCase().charAt(0);
+
+        if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E'
+                && c != 'F' && !Character.isDigit(c)
+                || permutacionSPN.getText().length() == 16) {
+            evt.consume();
+        } else {
+            String clave = permutacionSPN.getText();
+            if (clave.contains(String.valueOf(c).toUpperCase())
+                    || clave.contains(String.valueOf(c).toLowerCase())) {
+                evt.consume();
+            } else {
+                if (Character.isLowerCase(c)) {
+                    c = Character.toUpperCase(c);
+                    permutacionSPN.setText(permutacionSPN.getText().concat(
+                            String.valueOf(c)));
+                    evt.consume();
+                }
+            }
+        }
+    }// GEN-LAST:event_permutacionSPNKeyTyped
+
+    private void sustitucionSPNKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_sustitucionSPNKeyTyped
+        char c = evt.getKeyChar();
+        c = String.valueOf(c).toUpperCase().charAt(0);
+        if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E'
+                && c != 'F' && !Character.isDigit(c)
+                || sustitucionSPN.getText().length() == 16) {
+            evt.consume();
+        } else {
+            String clave = sustitucionSPN.getText();
+            if (clave.contains(String.valueOf(c).toUpperCase())
+                    || clave.contains(String.valueOf(c).toLowerCase())) {
+                evt.consume();
+            } else {
+                if (Character.isLowerCase(c)) {
+                    c = Character.toUpperCase(c);
+                    sustitucionSPN.setText(sustitucionSPN.getText().concat(
+                            String.valueOf(c)));
+                    evt.consume();
+                }
+            }
+        }
+    }// GEN-LAST:event_sustitucionSPNKeyTyped
+
+    private void numeroRondasSPNKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_numeroRondasSPNKeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        } else {
+            if (Integer.parseInt(numeroRondasSPN.getText().concat(
+                    String.valueOf(c))) > 4
+                    || Integer.parseInt(numeroRondasSPN.getText().concat(
+                    String.valueOf(c))) < 1) {
+                evt.consume();
+            }
+        }
+    }// GEN-LAST:event_numeroRondasSPNKeyTyped
+
+    private void buscarParejasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buscarParejasActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.addChoosableFileFilter(new TxTFilter());
+        chooser.showOpenDialog(this);
+        File archivo = chooser.getSelectedFile();
+        try {
+            rutaParejas.setText(archivo.getPath());
+        } catch (Exception ex) {
+            System.out.println("Carga cancelada");
+        }
+    }// GEN-LAST:event_buscarParejasActionPerformed
+
+    private void calcularL1L3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_calcularL1L3ActionPerformed
+        File archivo = new File(rutaParejas.getText());
+        if (archivo.isFile()) {
+            try {
+                boolean format = true;
+                BufferedReader reader = new BufferedReader(new FileReader(
+                        archivo));
+                Vector<String> cadenas = new Vector<String>();
+                String linea;
+
+                while ((linea = reader.readLine()) != null) {
+                    if (linea.length() != 9
+                            || !linea.matches("[a-pA-P]{4} {1}[a-pA-P]{4}")) {
+                        format = false;
+                        break;
+                    }
+                    cadenas.add(linea);
+                }
+
+                if (format) {
+                    String[][] matrix = new String[cadenas.size()][2];
+                    for (int i = 0; i < cadenas.size(); i++) {
+                        matrix[i][0] = cadenas.get(i).substring(0, 4);
+                        matrix[i][1] = cadenas.get(i).substring(5, 9);
+                    }
+
+                    char[] sustitucionChar = sustitucionSPN.getText().toCharArray();
+                    int[] sustitucion = new int[16];
+                    for (int x = 0; x < 16; x++) {
+                        sustitucion[Integer.parseInt(
+                                String.valueOf(sustitucionChar[x]), 16)] = x;
+                    }
+
+                    int[] maxKey = SubstitutionPermutationNetworkCipher.linearAttack(matrix, sustitucion);
+                    String clave = Code.decodeMod26(maxKey).toUpperCase();
+                    L1L2.setText("( " + clave.substring(0, 1) + " , "
+                            + clave.substring(1, 2) + " )");
+                } else {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "El formato del archivo es inválido.\nAsegurese que cada pareja texto plano - texto cifrado del archivo esté separada por un espacio, \n y que cada texto tenga 4 caracteres entre a y p. ",
+                            "Error al realizar la aproximación lineal",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Ruta de archivo inválida.\nAsegurese de especificar un archivo existente. ",
+                    "Error al realizar la aproximación lineal",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }// GEN-LAST:event_calcularL1L3ActionPerformed
+
+    private void botonMuestrasSPNActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonMuestrasSPNActionPerformed
+        String clave = claveSPN.getText();
+        if (clave.length() != 8) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegurese que la clave es una palabra de 8 caracteres o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al generar parejas",
+                    JOptionPane.ERROR_MESSAGE);
+        } else {
+            try {
+                int nr = Integer.parseInt(numeroRondasSPN.getText());
+                if (nr < 1 || nr > 4) {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "El número de rondas es inválido\nAsegurese que el numero de rondas sea mayor a 0 y menor a 16 o pruebe pulsando el botón\n          Generar una clave",
+                            "Error al generar parejas",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    if (permutacionSPN.getText().length() != 16
+                            || sustitucionSPN.getText().length() != 16) {
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "Las funciones de permutación o sustitución son inválidas\nAsegurese que sean secuencias de 0 a F en cualquier orden sin repetir ningun valor o pruebe pulsando el botón\n          Generar una clave",
+                                "Error al generar parejas",
+                                JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        int n = Integer.parseInt(nParejas.getText());
+                        if (n > 65000 || n < 1) {
+                            JOptionPane.showMessageDialog(
+                                    this,
+                                    "El número de parejas es inválido. \nLa cantidad n de parejas debe ser igual o mayor que 1 y menor que 65000\n",
+                                    "Error al generar parejas",
+                                    JOptionPane.ERROR_MESSAGE);
+                        } else {
+                            char[] permutacionChar = permutacionSPN.getText().toCharArray();
+                            char[] sustitucionChar = sustitucionSPN.getText().toCharArray();
+                            int[] permutacion = new int[16];
+                            int[] sustitucion = new int[16];
+                            for (int x = 0; x < 16; x++) {
+                                permutacion[x] = (Integer.parseInt(
+                                        String.valueOf(permutacionChar[x]), 16)) + 1;
+                                sustitucion[x] = Integer.parseInt(
+                                        String.valueOf(sustitucionChar[x]), 16);
+                            }
+                            try {
+                                JFileChooser chooser = new JFileChooser();
+                                chooser.addChoosableFileFilter(new TxTFilter());
+                                chooser.showSaveDialog(this);
+                                File archivo = chooser.getSelectedFile();
+                                FileWriter fw = null;
+                                try {
+                                    fw = new FileWriter(archivo);
+                                    String matrix[][] = SubstitutionPermutationNetworkCipher.generateSamples(sustitucion,
+                                            permutacion, clave, nr, n);
+                                    for (int i = 0; i < n; i++) {
+                                        fw.write(matrix[i][0] + " "
+                                                + matrix[i][1] + "\n");
+                                    }
+
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                } finally {
+                                    if (fw != null) {
+                                        try {
+                                            fw.close();
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+                                        fw = null;
+                                    }
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Operación cancelada");
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "El número de rondas es inválido\nAsegurese que el numero de rondas sea mayor a 0 y menor a 25 o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al generar parejas",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }// GEN-LAST:event_botonMuestrasSPNActionPerformed
+
+    private void nParejasKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_nParejasKeyTyped
+        Character c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        } else {
+            if (Integer.parseInt(nParejas.getText().concat(String.valueOf(c))) < 1
+                    || Integer.parseInt(nParejas.getText().concat(
+                    String.valueOf(c))) > 65000) {
+                evt.consume();
+            }
+        }
+    }// GEN-LAST:event_nParejasKeyTyped
+
+    private void botonClaveDESSActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveDESSActionPerformed
+        Random rnd = new Random();
+        String clave = "";
+        while (clave.length() != 10) {
+            int claveBit = rnd.nextInt(2);
+            clave = clave.concat(String.valueOf(claveBit));
+        }
+        claveDESS.setText(clave);
+    }// GEN-LAST:event_botonClaveDESSActionPerformed
+
+    private void botonLimpiarDESSActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarDESSActionPerformed
+        claveDESS.setText("");
+    }// GEN-LAST:event_botonLimpiarDESSActionPerformed
+
+    private void claveDESSKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveDESSKeyTyped
+        char c = evt.getKeyChar();
+        if ((c != '1' && c != '0') || claveDESS.getText().length() == 10) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveDESSKeyTyped
+
+    private void botonClaveAESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveAESActionPerformed
+        Random rnd = new Random();
+        char[] hexa = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
+            'B', 'C', 'D', 'E', 'F'};
+        String clave = "";
+        clave = "";
+        while (clave.length() != 32) {
+            char claveChar = hexa[rnd.nextInt(16)];
+            clave = clave.concat(String.valueOf(claveChar));
+        }
+        claveAES.setText(clave);
+    }// GEN-LAST:event_botonClaveAESActionPerformed
+
+    private void botonLimpiarAESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarAESActionPerformed
+        claveAES.setText("");
+    }// GEN-LAST:event_botonLimpiarAESActionPerformed
+
+    private void claveAESKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveAESKeyTyped
+        char c = evt.getKeyChar();
+        c = String.valueOf(c).toUpperCase().charAt(0);
+
+        if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E'
+                && c != 'F' && !Character.isDigit(c)
+                || permutacionSPN.getText().length() == 32) {
+            evt.consume();
+        } else {
+            String clave = claveAES.getText();
+            if (clave.contains(String.valueOf(c).toUpperCase())
+                    || clave.contains(String.valueOf(c).toLowerCase())) {
+                evt.consume();
+            } else {
+                if (Character.isLowerCase(c)) {
+                    c = Character.toUpperCase(c);
+                    claveAES.setText(claveAES.getText().concat(
+                            String.valueOf(c)));
+                    evt.consume();
+                }
+            }
+        }
+    }// GEN-LAST:event_claveAESKeyTyped
+
+    private void botonClaveCBCMACActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveCBCMACActionPerformed
+        Random rnd = new Random();
+        char[] hexa = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
+            'B', 'C', 'D', 'E', 'F'};
+        String clave = "";
+        clave = "";
+        while (clave.length() != 32) {
+            char claveChar = hexa[rnd.nextInt(16)];
+            clave = clave.concat(String.valueOf(claveChar));
+        }
+        claveCBCMAC.setText(clave);
+    }// GEN-LAST:event_botonClaveCBCMACActionPerformed
+
+    private void botonLimpiarCBCMACActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarCBCMACActionPerformed
+        claveAES.setText("");
+    }// GEN-LAST:event_botonLimpiarCBCMACActionPerformed
+
+    private void claveCBCMACKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveCBCMACKeyTyped
+        // TODO add your handling code here:
+    }// GEN-LAST:event_claveCBCMACKeyTyped
+
+    private void tipoClaveRSAnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveRSAnActionPerformed
+        cajaClaveRSAp.setEnabled(false);
+        cajaClaveRSAq.setEnabled(false);
+        cajaClaveRSAn.setEnabled(true);
+        cajaClaveRSAn.setEnabled(true);
+    }// GEN-LAST:event_tipoClaveRSAnActionPerformed
+
+    private void tipoClaveRSApqActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveRSApqActionPerformed
+        cajaClaveRSAn.setEnabled(false);
+        cajaClaveRSAn.setEnabled(false);
+        cajaClaveRSAp.setEnabled(true);
+        cajaClaveRSAq.setEnabled(true);
+    }// GEN-LAST:event_tipoClaveRSApqActionPerformed
+
+    private void tipoClaveRSAdActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveRSAdActionPerformed
+        cajaClaveRSAe.setEnabled(false);
+        cajaClaveRSAd.setEnabled(true);
+        tipoClaveRSAd.setSelected(true);
+        tipoClaveRSAe.setSelected(false);
+    }// GEN-LAST:event_tipoClaveRSAdActionPerformed
+
+    private void tipoClaveRSAeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveRSAeActionPerformed
+        cajaClaveRSAd.setEnabled(false);
+        cajaClaveRSAe.setEnabled(true);
+        tipoClaveRSAe.setSelected(true);
+        tipoClaveRSAd.setSelected(false);
+    }// GEN-LAST:event_tipoClaveRSAeActionPerformed
+
+    private void botonLimpiarRSAActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarRSAActionPerformed
+        cajaClaveRSAp.setText("");
+        cajaClaveRSAq.setText("");
+        cajaClaveRSAn.setText("");
+        cajaClaveRSAe.setText("");
+        cajaClaveRSAd.setText("");
+    }// GEN-LAST:event_botonLimpiarRSAActionPerformed
+
+    private void botonClaveRSAActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveRSAActionPerformed
+        String result[] = RSACipher.generateKeys();
+        cajaClaveRSAp.setText(result[0]);
+        cajaClaveRSAq.setText(result[1]);
+        cajaClaveRSAn.setText(result[2]);
+        cajaClaveRSAe.setText(result[3]);
+        cajaClaveRSAd.setText(result[4]);
+    }// GEN-LAST:event_botonClaveRSAActionPerformed
+
+    private void panelMetodoRSAFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_panelMetodoRSAFocusGained
+        // TODO add your handling code here:
+    }// GEN-LAST:event_panelMetodoRSAFocusGained
+
+    private void tipoOptimizacionRSAActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoOptimizacionRSAActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_tipoOptimizacionRSAActionPerformed
+
+    private void cajaClaveRSApKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSApKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_cajaClaveRSApKeyTyped
+
+    private void cajaClaveRSAqKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSAqKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_cajaClaveRSAqKeyTyped
+
+    private void cajaClaveRSAdKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSAdKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_cajaClaveRSAdKeyTyped
+
+    private void cajaClaveRSAeKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSAeKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_cajaClaveRSAeKeyTyped
+
+    private void botonClaveDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveDESActionPerformed
+        // TODO add your handling code here:
+        Random rnd = new Random();
+        char[] hexa = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
+            'B', 'C', 'D', 'E', 'F'};
+        String clave = "";
+        clave = "";
+        while (clave.length() != 16) {
+            char claveChar = hexa[rnd.nextInt(16)];
+            clave = clave.concat(String.valueOf(claveChar));
+        }
+        claveDES.setText(clave);
+    }// GEN-LAST:event_botonClaveDESActionPerformed
+
+    private void botonLimpiarDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarDESActionPerformed
+        // TODO add your handling code here:
+        claveDES.setText("");
+    }// GEN-LAST:event_botonLimpiarDESActionPerformed
+
+    private void claveDESKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveDESKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        c = Character.toString(c).toUpperCase().charAt(0);
+
+        if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E'
+                && c != 'F' && !Character.isDigit(c)
+                || claveDES.getText().length() == 17) {
+            evt.consume();
+        } else {
+            claveDES.setText(claveDES.getText().concat(String.valueOf(c)));
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveDESKeyTyped
+
+    private void botonClaveTripleDESSActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveTripleDESSActionPerformed
+        // TODO add your handling code here:
+        Random rnd = new Random();
+        String clave = "";
+        while (clave.length() != 30) {
+            int claveBit = rnd.nextInt(2);
+            clave = clave.concat(String.valueOf(claveBit));
+        }
+        claveTripleDESS.setText(clave);
+    }// GEN-LAST:event_botonClaveTripleDESSActionPerformed
+
+    private void botonLimpiarTripleDESSActionPerformed(
+            java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarTripleDESSActionPerformed
+        // TODO add your handling code here:
+        claveTripleDESS.setText("");
+    }// GEN-LAST:event_botonLimpiarTripleDESSActionPerformed
+
+    private void claveTripleDESSKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveTripleDESSKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if ((c != '1' && c != '0') || claveTripleDESS.getText().length() == 30) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_claveTripleDESSKeyTyped
+
+    private void botonClaveTDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveTDESActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        Random rnd = new Random();
+        char[] hexa = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
+            'B', 'C', 'D', 'E', 'F'};
+        String clave = "";
+        clave = "";
+        while (clave.length() != 48) {
+            char claveChar = hexa[rnd.nextInt(16)];
+            clave = clave.concat(String.valueOf(claveChar));
+        }
+        claveTDES.setText(clave);
+    }// GEN-LAST:event_botonClaveTDESActionPerformed
+
+    private void botonLimpiarTDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarTDESActionPerformed
+        // TODO add your handling code here:
+        claveTDES.setText("");
+    }// GEN-LAST:event_botonLimpiarTDESActionPerformed
+
+    private void claveTDESKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveTDESKeyTyped
+        // TODO add your handling code here:
+    }// GEN-LAST:event_claveTDESKeyTyped
+
+    private void cajaClaveRSAnKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSAnKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_cajaClaveRSAnKeyTyped
+
+    private void cajaClaveRSAnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cajaClaveRSAnActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_cajaClaveRSAnActionPerformed
+
+    public int mcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return mcd(b, a % b);
+        }
+
+    }
+
+    /**
+     * @param args
+     *            the command line arguments
+     */
+    public static void main(String args[]) {
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            public void run() {
+                try {
+                    UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceBusinessBlackSteelLookAndFeel");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                new gui().setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField L1L2;
     private javax.swing.JButton botonAbrirCifrado;
@@ -6866,6 +7062,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JButton botonClaveSPN;
     private javax.swing.JButton botonClaveSustitucion;
     private javax.swing.JButton botonClaveTDES;
+    private javax.swing.JButton botonClaveTableta;
     private javax.swing.JButton botonClaveTripleDESS;
     private javax.swing.JButton botonClaveVigenere;
     private javax.swing.JButton botonCriptoanalisis;
@@ -6887,10 +7084,12 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JButton botonLimpiarSustitucion;
     private javax.swing.JButton botonLimpiarSustitucionManual;
     private javax.swing.JButton botonLimpiarTDES;
+    private javax.swing.JButton botonLimpiarTableta;
     private javax.swing.JButton botonLimpiarTripleDESS;
     private javax.swing.JButton botonLimpiarVigenere;
     private javax.swing.JButton botonMuestrasSPN;
     private javax.swing.JButton botonSalir;
+    private javax.swing.JButton botonTablaCifrado;
     private javax.swing.JButton buscarParejas;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -6911,6 +7110,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JTextArea cajaDescripcionSPN;
     private javax.swing.JTextArea cajaDescripcionSustitucion;
     private javax.swing.JTextArea cajaDescripcionTDES;
+    private javax.swing.JTextArea cajaDescripcionTableta;
     private javax.swing.JTextArea cajaDescripcionTripleDESS;
     private javax.swing.JTextArea cajaDescripcionVigenere;
     private javax.swing.JTextPane cajaTextoCifrado;
@@ -6964,6 +7164,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JTextField claveSustitucionY;
     private javax.swing.JTextField claveSustitucionZ;
     private javax.swing.JTextField claveTDES;
+    private javax.swing.JTextField claveTableta;
     private javax.swing.JTextField claveTripleDESS;
     private javax.swing.JTextField claveVigenere;
     private javax.swing.JScrollPane contenedorResultadoAffineLetras;
@@ -6990,6 +7191,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JLabel infoPermutacion;
     private javax.swing.JLabel infoSPN;
     private javax.swing.JLabel infoTDES;
+    private javax.swing.JLabel infoTableta;
     private javax.swing.JLabel infoTripleDESS;
     private javax.swing.JLabel labelClaveActualSust;
     private javax.swing.JLabel labelClaveSustitucion;
@@ -7044,6 +7246,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JPanel panelClaveRSAnpq;
     private javax.swing.JPanel panelClaveSPN;
     private javax.swing.JPanel panelClaveTDES;
+    private javax.swing.JPanel panelClaveTableta;
     private javax.swing.JPanel panelClaveTripleDESS;
     private javax.swing.JLayeredPane panelContenido;
     private javax.swing.JPanel panelCriptoanalisis;
@@ -7059,6 +7262,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JScrollPane panelDescripcionSPN;
     private javax.swing.JScrollPane panelDescripcionSustitucion;
     private javax.swing.JScrollPane panelDescripcionTDES;
+    private javax.swing.JScrollPane panelDescripcionTableta;
     private javax.swing.JScrollPane panelDescripcionTripleDESS;
     private javax.swing.JScrollPane panelDescripcionVigenere;
     private javax.swing.JScrollPane panelDetallesAES;
@@ -7067,6 +7271,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JScrollPane panelDetallesDESS;
     private javax.swing.JScrollPane panelDetallesSPN;
     private javax.swing.JScrollPane panelDetallesTDES;
+    private javax.swing.JScrollPane panelDetallesTableta;
     private javax.swing.JScrollPane panelDetallesTripleDESS;
     private javax.swing.JLayeredPane panelMetodoAES;
     private javax.swing.JLayeredPane panelMetodoAffine;
@@ -7079,6 +7284,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JLayeredPane panelMetodoRSA;
     private javax.swing.JLayeredPane panelMetodoSustitucion;
     private javax.swing.JLayeredPane panelMetodoTDES;
+    private javax.swing.JLayeredPane panelMetodoTableta;
     private javax.swing.JLayeredPane panelMetodoTripleDESS;
     private javax.swing.JLayeredPane panelMetodoVigenere;
     private javax.swing.JTabbedPane panelMetodosBloque;
@@ -7092,6 +7298,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JPanel panelResultadosDesplazamiento;
     private javax.swing.JPanel panelResultadosSustitucion;
     private javax.swing.JPanel panelResultadosVigenere;
+    private javax.swing.JPanel panelTablaCifrado;
     private javax.swing.JScrollPane panelTextoCifrado;
     private javax.swing.JScrollPane panelTextoPlano;
     private javax.swing.JPanel panelTipoClaveDesplazamiento;
@@ -7110,6 +7317,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JTable tablaResultadosSusBigramas;
     private javax.swing.JTable tablaResultadosSusLetras;
     private javax.swing.JTable tablaResultadosSusTrigramas;
+    private javax.swing.JTextField tablaSimboloSeparador;
     private javax.swing.JLabel textoAffine1;
     private javax.swing.JLabel textoAffine2;
     private javax.swing.JLabel textoAffine3;
@@ -7133,9 +7341,11 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JScrollPane textoDescripcionPermutacion1;
     private javax.swing.JTextArea textoDescripcionPermutacionT;
     private javax.swing.JTextArea textoDescripcionPermutacionT1;
+    private javax.swing.JLabel textoDescripcionSimboloTableta;
     private javax.swing.JScrollPane textoDescripcionSustitucion;
     private javax.swing.JTextArea textoDescripcionSustitucionT;
     private javax.swing.JLabel textoDescripcionTDES;
+    private javax.swing.JLabel textoDescripcionTableta1;
     private javax.swing.JLabel textoDescripcionTripleDESS;
     private javax.swing.JScrollPane textoDescripcionVigenere;
     private javax.swing.JTextArea textoDescripcionVigenereT;
@@ -7145,6 +7355,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JTextArea textoDetallesDESS;
     private javax.swing.JTextArea textoDetallesSPN1;
     private javax.swing.JTextArea textoDetallesTDES;
+    private javax.swing.JTextArea textoDetallesTableta;
     private javax.swing.JTextArea textoDetallesTripleDESS;
     private javax.swing.JLabel textoFuncionamientoAffine;
     private javax.swing.JLabel textoFuncionamientoDesplazamiento;
