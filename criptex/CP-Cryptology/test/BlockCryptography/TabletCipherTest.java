@@ -19,10 +19,20 @@ public class TabletCipherTest {
     @Test
     public void testKeyCypher() {
 
-        String keyString = "secret";
-        String keyStringExpected = "tgfvjz";
+        String keyString = "secret.a";
+        String keyStringExpected = "tgfvjzfi";
 
         assertEquals(keyStringExpected, TabletCipher.keyCipher(keyString));
+
+    }
+
+    @Test
+    public void testKeyUncypher() {
+
+        String keyString = "tgfvjzfi";
+        String keyStringExpected = "secret.a";
+
+        assertEquals(keyStringExpected, TabletCipher.keyUncipher(keyString));
 
     }
 
@@ -38,10 +48,10 @@ public class TabletCipherTest {
     @Test
     public void testCipherText() {
 
-        String plainText = "plaintextab:";
-        String keyString = "secret";
+        String plainText = "plaintext1:ñ236.";
+        String keyString = "secret.a";
 
-        String secret = "9rf4wgx4yvky";
+        String secret = "0qf4vhj6b7e0.p.g";
         assertEquals(secret, TabletCipher.encrypt(plainText, keyString));
     }
 
@@ -50,5 +60,15 @@ public class TabletCipherTest {
 
         String keyString = "tgfvjz";
         System.out.println(TabletCipher.getCipherTable(keyString, ';'));
+    }
+
+     @Test
+    public void testUncipherText() {
+
+        String plainText = "0qf4vhj6b7e0.p.g";
+        String keyString = "secret.a";
+
+        String secret = "plaintext1:ñ236.";
+        assertEquals(secret, TabletCipher.decrypt(plainText, keyString));
     }
 }

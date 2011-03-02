@@ -4440,7 +4440,7 @@ public class gui extends javax.swing.JFrame {
 
                 File archivo = chooser.getSelectedFile();
                 try {
-                    PrintWriter writer = new PrintWriter(archivo);
+                    PrintWriter writer = new PrintWriter(archivo + ".csv");
                     writer.print(TabletCipher.getCipherTable(claveCadena, separador));
                     writer.close();
                 } catch (Exception ex) {
@@ -5615,6 +5615,25 @@ public class gui extends javax.swing.JFrame {
         }
     }
 
+    private void descifrarTablet(String textoCifrado) {
+        String claveCadena = claveTableta.getText();
+        if (claveCadena.length() < 8 || claveCadena.length() > 15) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "La clave ingresada no es valida\nAsegúrese que la clave está compuesta por 8 a 15 letras y/o números o pruebe pulsando el botón\n          Generar una clave",
+                    "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+        } else {
+            try {
+                cajaTextoPlano.setText(TabletCipher.decrypt(textoCifrado, claveCadena));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "La clave ingresada no es valida\nAsegúrese que la clave está compuesta por 8 a 15 letras y/o números o pruebe pulsando el botón\n          Generar una clave",
+                        "Error al cifrar", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
     private void botonCriptoanalisisActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonCriptoanalisisActionPerformed
         if (!cajaTextoCifrado.getText().isEmpty()) {
@@ -5693,6 +5712,9 @@ public class gui extends javax.swing.JFrame {
             }
             if (metodo.equals("rsa")) {
                 descifrarRSA(textoCifradoDigitos);
+            }
+            if (metodo.equals("tablet")) {
+                descifrarTablet(textoCifrado.toLowerCase());
             }
 
             textoPlanoInicial = cajaTextoPlano.getText();
