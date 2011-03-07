@@ -12,6 +12,7 @@ package cpgui;
 
 import ClassicalCryptography.*;
 import BlockCryptography.*;
+import HashFunctions.SHA1;
 import Mac.*;
 import PublicKeyCryptography.BellareRogawayCipher;
 import PublicKeyCryptography.RSACipher;
@@ -619,11 +620,14 @@ public class gui extends javax.swing.JFrame {
         infoTableta = new javax.swing.JLabel();
         panelClaveTableta = new javax.swing.JPanel();
         claveTableta = new javax.swing.JTextField();
-        textoDescripcionTableta1 = new javax.swing.JLabel();
+        textoDescripcionTableta = new javax.swing.JLabel();
         panelDetallesTableta = new javax.swing.JScrollPane();
         textoDetallesTableta = new javax.swing.JTextArea();
         panelDescripcionTableta = new javax.swing.JScrollPane();
         cajaDescripcionTableta = new javax.swing.JTextArea();
+        panelSecuenciaOcultamiento = new javax.swing.JPanel();
+        botonSecuenciaOcultamiento = new javax.swing.JButton();
+        secuenciaOcultamiento = new javax.swing.JTextField();
         panelTablaCifrado = new javax.swing.JPanel();
         botonTablaCifrado = new javax.swing.JButton();
         textoDescripcionSimboloTableta = new javax.swing.JLabel();
@@ -4004,10 +4008,10 @@ public class gui extends javax.swing.JFrame {
             }
         });
 
-        textoDescripcionTableta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoDescripcionTableta1.setText("de 8 a 15 carácteres");
-        textoDescripcionTableta1.setFocusable(false);
-        textoDescripcionTableta1.setInheritsPopupMenu(false);
+        textoDescripcionTableta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textoDescripcionTableta.setText("de 8 a 15 carácteres");
+        textoDescripcionTableta.setFocusable(false);
+        textoDescripcionTableta.setInheritsPopupMenu(false);
 
         javax.swing.GroupLayout panelClaveTabletaLayout = new javax.swing.GroupLayout(panelClaveTableta);
         panelClaveTableta.setLayout(panelClaveTabletaLayout);
@@ -4017,14 +4021,14 @@ public class gui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelClaveTabletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(claveTableta, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
-                    .addComponent(textoDescripcionTableta1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
+                    .addComponent(textoDescripcionTableta, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelClaveTabletaLayout.setVerticalGroup(
             panelClaveTabletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelClaveTabletaLayout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(textoDescripcionTableta1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textoDescripcionTableta, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(claveTableta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4042,7 +4046,7 @@ public class gui extends javax.swing.JFrame {
         textoDetallesTableta.setBackground(new java.awt.Color(232, 232, 232));
         textoDetallesTableta.setColumns(20);
         textoDetallesTableta.setEditable(false);
-        textoDetallesTableta.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        textoDetallesTableta.setFont(new java.awt.Font("Tahoma", 0, 11));
         textoDetallesTableta.setLineWrap(true);
         textoDetallesTableta.setRows(5);
         textoDetallesTableta.setText("Se utilizan bloques del tamaño de la clave, los cuales son cifrados según la tabla secreta generada a partir de la clave ingresada");
@@ -4074,6 +4078,44 @@ public class gui extends javax.swing.JFrame {
 
         panelDescripcionTableta.setBounds(10, 10, 380, 110);
         panelMetodoTableta.add(panelDescripcionTableta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        panelSecuenciaOcultamiento.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Secuencia de ocultamiento", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
+        panelSecuenciaOcultamiento.setFocusable(false);
+
+        botonSecuenciaOcultamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clave.png"))); // NOI18N
+        botonSecuenciaOcultamiento.setActionCommand("Generar secuencia de ocultamiento");
+        botonSecuenciaOcultamiento.setLabel("Generar secuencia de ocultamiento");
+        botonSecuenciaOcultamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSecuenciaOcultamientoActionPerformed(evt);
+            }
+        });
+
+        secuenciaOcultamiento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        javax.swing.GroupLayout panelSecuenciaOcultamientoLayout = new javax.swing.GroupLayout(panelSecuenciaOcultamiento);
+        panelSecuenciaOcultamiento.setLayout(panelSecuenciaOcultamientoLayout);
+        panelSecuenciaOcultamientoLayout.setHorizontalGroup(
+            panelSecuenciaOcultamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSecuenciaOcultamientoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelSecuenciaOcultamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(secuenciaOcultamiento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                    .addComponent(botonSecuenciaOcultamiento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panelSecuenciaOcultamientoLayout.setVerticalGroup(
+            panelSecuenciaOcultamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSecuenciaOcultamientoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botonSecuenciaOcultamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(secuenciaOcultamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        panelSecuenciaOcultamiento.setBounds(400, 130, 365, 130);
+        panelMetodoTableta.add(panelSecuenciaOcultamiento, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         panelTablaCifrado.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Guardar tabla", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
         panelTablaCifrado.setFocusable(false);
@@ -4451,16 +4493,31 @@ public class gui extends javax.swing.JFrame {
 
         }//GEN-LAST:event_botonTablaCifradoActionPerformed
 
+        private void botonLimpiarTabletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarDesplazamiento1ActionPerformed
+            claveTableta.setText("");
+        }//GEN-LAST:event_botonLimpiarDesplazamiento1ActionPerformed
+
         private void tablaSimboloSeparadorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaSimboloSeparadorKeyTyped
             Character c = evt.getKeyChar();
             if (tablaSimboloSeparador.getText().length() == 1) {
                 evt.consume();
             }
-        }//GEN-LAST:event_tablaSimboloSeparadorKeyTyped
+}//GEN-LAST:event_tablaSimboloSeparadorKeyTyped
 
-        private void botonLimpiarTabletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarDesplazamiento1ActionPerformed
-            claveTableta.setText("");
-        }//GEN-LAST:event_botonLimpiarDesplazamiento1ActionPerformed
+        private void botonSecuenciaOcultamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSecuenciaOcultamientoActionPerformed
+
+            String textoCifrado = cajaTextoCifrado.getText().trim();
+            cajaTextoCifrado.setText(textoCifrado);
+
+            if (textoCifrado.isEmpty()) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Para generar la secuencia de ocultamiento debe haber cifrado previamente el texto plano",
+                        "Error al generar la secuencia", JOptionPane.ERROR_MESSAGE);
+            } else {
+                secuenciaOcultamiento.setText(TabletCipher.getHiddingSequence(textoCifrado));
+            }
+        }//GEN-LAST:event_botonSecuenciaOcultamientoActionPerformed
 
     private void botonAbrirCifradoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonAbrirCifradoActionPerformed
         JFileChooser chooser = new JFileChooser();
@@ -7111,6 +7168,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JButton botonLimpiarVigenere;
     private javax.swing.JButton botonMuestrasSPN;
     private javax.swing.JButton botonSalir;
+    private javax.swing.JButton botonSecuenciaOcultamiento;
     private javax.swing.JButton botonTablaCifrado;
     private javax.swing.JButton buscarParejas;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -7320,6 +7378,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JPanel panelResultadosDesplazamiento;
     private javax.swing.JPanel panelResultadosSustitucion;
     private javax.swing.JPanel panelResultadosVigenere;
+    private javax.swing.JPanel panelSecuenciaOcultamiento;
     private javax.swing.JPanel panelTablaCifrado;
     private javax.swing.JScrollPane panelTextoCifrado;
     private javax.swing.JScrollPane panelTextoPlano;
@@ -7329,6 +7388,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JPanel parejasPanel;
     private javax.swing.JTextField permutacionSPN;
     private javax.swing.JTextField rutaParejas;
+    private javax.swing.JTextField secuenciaOcultamiento;
     private javax.swing.JTextField sustitucionSPN;
     private javax.swing.JTable tablaResultadosAffineBigramas;
     private javax.swing.JTable tablaResultadosAffineLetras;
@@ -7367,7 +7427,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JScrollPane textoDescripcionSustitucion;
     private javax.swing.JTextArea textoDescripcionSustitucionT;
     private javax.swing.JLabel textoDescripcionTDES;
-    private javax.swing.JLabel textoDescripcionTableta1;
+    private javax.swing.JLabel textoDescripcionTableta;
     private javax.swing.JLabel textoDescripcionTripleDESS;
     private javax.swing.JScrollPane textoDescripcionVigenere;
     private javax.swing.JTextArea textoDescripcionVigenereT;

@@ -4,6 +4,7 @@
  */
 package BlockCryptography;
 
+import HashFunctions.SHA1;
 import java.util.Random;
 
 /**
@@ -45,7 +46,7 @@ public class TabletCipher {
 
         int keyLength = cipherKey.length();
 
-         if (cipherText.length() % keyLength != 0) {
+        if (cipherText.length() % keyLength != 0) {
             cipherText = completePlainText(cipherText, keyLength);
         }
 
@@ -174,5 +175,30 @@ public class TabletCipher {
             table = table.concat("\n");
         }
         return table;
+    }
+
+    public static String getHiddingSequence(String secret) {
+
+        String sha = SHA1.hash(secret);
+
+        int isComplete = 0;
+        String sequence = "";
+
+        do {
+
+            int current = Integer.parseInt(String.valueOf(sha.charAt(isComplete)), 16);
+            if (current < 9 && current > 0) {
+                sequence = sequence.concat(String.valueOf(sha.charAt(isComplete)));
+            }
+
+            if (sequence.length() == 8) {
+                isComplete = -1;
+            } else {
+                isComplete++;
+            }
+
+        } while (isComplete != -1);
+
+        return String.valueOf(sequence);
     }
 }
