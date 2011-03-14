@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author Christian
  */
-public class TabletCipher {
+public class D13Cipher {
 
     private static final String alphabet = "abcdefghijklmnñopqrstuvwxyz1234567890.:";
 
