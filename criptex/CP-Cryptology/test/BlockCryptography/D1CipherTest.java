@@ -11,9 +11,9 @@ import static org.junit.Assert.*;
  *
  * @author Christian
  */
-public class TabletCipherTest {
+public class D1CipherTest {
 
-    public TabletCipherTest() {
+    public D1CipherTest() {
     }
 
     @Test
@@ -22,7 +22,7 @@ public class TabletCipherTest {
         String keyString = "secret.a";
         String keyStringExpected = "tgfvjzfi";
 
-        assertEquals(keyStringExpected, D13Cipher.keyCipher(keyString));
+        assertEquals(keyStringExpected, D1Cipher.keyCipher(keyString));
 
     }
 
@@ -32,7 +32,7 @@ public class TabletCipherTest {
         String keyString = "tgfvjzfi";
         String keyStringExpected = "secret.a";
 
-        assertEquals(keyStringExpected, D13Cipher.keyUncipher(keyString));
+        assertEquals(keyStringExpected, D1Cipher.keyUncipher(keyString));
 
     }
 
@@ -42,7 +42,7 @@ public class TabletCipherTest {
         String plainText = "plaintext";
         int lengthToComplete = 12;
 
-        assertEquals(12, D13Cipher.completePlainText(plainText, lengthToComplete).length());
+        assertEquals(12, D1Cipher.completePlainText(plainText, lengthToComplete).length());
     }
 
     @Test
@@ -52,14 +52,14 @@ public class TabletCipherTest {
         String keyString = "secret.a";
 
         String secret = "0qf4vhj6b7e0.p.g";
-        assertEquals(secret, D13Cipher.encrypt(plainText, keyString));
+        assertEquals(secret, D1Cipher.encrypt(plainText, keyString));
     }
 
     @Test
     public void testGetCipherTable() {
 
         String keyString = "tgfvjz";
-        System.out.println(D13Cipher.getCipherTable(keyString, ';'));
+        System.out.println(D1Cipher.getCipherTable(keyString, ';'));
     }
 
      @Test
@@ -69,6 +69,6 @@ public class TabletCipherTest {
         String keyString = "secret.a";
 
         String secret = "plaintext1:ñ236.";
-        assertEquals(secret, D13Cipher.decrypt(plainText, keyString));
+        assertEquals(secret, D1Cipher.decrypt(plainText, keyString));
     }
 }

@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author Christian
  */
-public class D13Cipher {
+public class D1Cipher {
 
     private static final String alphabet = "abcdefghijklmnñopqrstuvwxyz1234567890.:";
 
