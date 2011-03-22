@@ -72,7 +72,7 @@ public class gui extends javax.swing.JFrame {
     private final boolean AESVisible = true;
     private final boolean SPNVisible = true;
     private final boolean CBCMACVisible = true;
-    private final boolean D1Visible = true;
+    private final boolean D1Visible = false;
     private final boolean RSAVisible = true;
     private final boolean optimizacionRSAVisible = true;
 
@@ -621,7 +621,7 @@ public class gui extends javax.swing.JFrame {
         cajaDescripcionCBCMAC = new javax.swing.JTextArea();
         panelMetodoD1 = new javax.swing.JLayeredPane();
         infoD1 = new javax.swing.JLabel();
-        panelclaveD1 = new javax.swing.JPanel();
+        panelClaveD1 = new javax.swing.JPanel();
         claveD1 = new javax.swing.JTextField();
         textoDescripcionD1 = new javax.swing.JLabel();
         panelDetallesD1 = new javax.swing.JScrollPane();
@@ -635,7 +635,7 @@ public class gui extends javax.swing.JFrame {
         botonTablaCifrado = new javax.swing.JButton();
         textoDescripcionSimboloD1 = new javax.swing.JLabel();
         tablaSimboloSeparador = new javax.swing.JTextField();
-        botonclaveD1 = new javax.swing.JButton();
+        botonClaveD1 = new javax.swing.JButton();
         botonLimpiarD1 = new javax.swing.JButton();
         panelCifradoresPublicos = new javax.swing.JLayeredPane();
         panelMetodosPublicos = new javax.swing.JTabbedPane();
@@ -861,7 +861,7 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionDesplazamientoT.setBackground(new java.awt.Color(232, 232, 232));
         textoDescripcionDesplazamientoT.setColumns(150);
         textoDescripcionDesplazamientoT.setEditable(false);
-        textoDescripcionDesplazamientoT.setFont(new java.awt.Font("Tahoma", 0, 11));
+        textoDescripcionDesplazamientoT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDescripcionDesplazamientoT.setLineWrap(true);
         textoDescripcionDesplazamientoT.setRows(4);
         textoDescripcionDesplazamientoT.setTabSize(6);
@@ -2993,10 +2993,10 @@ public class gui extends javax.swing.JFrame {
         panelDetallesDESS.setEnabled(false);
         panelDetallesDESS.setFocusable(false);
 
-        textoDetallesDESS.setBackground(new java.awt.Color(232, 232, 232));
+        textoDetallesDESS.setBackground(new java.awt.Color(245, 245, 245));
         textoDetallesDESS.setColumns(20);
         textoDetallesDESS.setEditable(false);
-        textoDetallesDESS.setFont(new java.awt.Font("Tahoma", 0, 11));
+        textoDetallesDESS.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDetallesDESS.setLineWrap(true);
         textoDetallesDESS.setRows(5);
         textoDetallesDESS.setText("\nEl paso de texto cifrado a plano se realiza por \nFUERZA BRUTA.");
@@ -3020,7 +3020,7 @@ public class gui extends javax.swing.JFrame {
         panelDescripcionDESS.setEnabled(false);
         panelDescripcionDESS.setPreferredSize(new java.awt.Dimension(370, 110));
 
-        cajaDescripcionDESS.setBackground(new java.awt.Color(232, 232, 232));
+        cajaDescripcionDESS.setBackground(new java.awt.Color(245, 245, 245));
         cajaDescripcionDESS.setColumns(20);
         cajaDescripcionDESS.setEditable(false);
         cajaDescripcionDESS.setRows(4);
@@ -3111,7 +3111,7 @@ public class gui extends javax.swing.JFrame {
         panelDetallesTripleDESS.setEnabled(false);
         panelDetallesTripleDESS.setFocusable(false);
 
-        textoDetallesTripleDESS.setBackground(new java.awt.Color(232, 232, 232));
+        textoDetallesTripleDESS.setBackground(new java.awt.Color(245, 245, 245));
         textoDetallesTripleDESS.setColumns(20);
         textoDetallesTripleDESS.setEditable(false);
         textoDetallesTripleDESS.setFont(new java.awt.Font("Tahoma", 0, 11));
@@ -3138,7 +3138,7 @@ public class gui extends javax.swing.JFrame {
         panelDescripcionTripleDESS.setEnabled(false);
         panelDescripcionTripleDESS.setPreferredSize(new java.awt.Dimension(370, 110));
 
-        cajaDescripcionTripleDESS.setBackground(new java.awt.Color(232, 232, 232));
+        cajaDescripcionTripleDESS.setBackground(new java.awt.Color(245, 245, 245));
         cajaDescripcionTripleDESS.setColumns(20);
         cajaDescripcionTripleDESS.setEditable(false);
         cajaDescripcionTripleDESS.setRows(4);
@@ -3229,10 +3229,10 @@ public class gui extends javax.swing.JFrame {
         panelDetallesDES.setEnabled(false);
         panelDetallesDES.setFocusable(false);
 
-        textoDetallesDES.setBackground(new java.awt.Color(232, 232, 232));
+        textoDetallesDES.setBackground(new java.awt.Color(245, 245, 245));
         textoDetallesDES.setColumns(20);
         textoDetallesDES.setEditable(false);
-        textoDetallesDES.setFont(new java.awt.Font("Tahoma", 0, 11));
+        textoDetallesDES.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDetallesDES.setLineWrap(true);
         textoDetallesDES.setRows(5);
         textoDetallesDES.setText("\nEl paso de texto cifrado a plano se realiza por \nDESCIFRADO.");
@@ -3256,7 +3256,7 @@ public class gui extends javax.swing.JFrame {
         panelDescripcionDES.setEnabled(false);
         panelDescripcionDES.setPreferredSize(new java.awt.Dimension(370, 110));
 
-        cajaDescripcionDES.setBackground(new java.awt.Color(232, 232, 232));
+        cajaDescripcionDES.setBackground(new java.awt.Color(245, 245, 245));
         cajaDescripcionDES.setColumns(20);
         cajaDescripcionDES.setEditable(false);
         cajaDescripcionDES.setRows(4);
@@ -3347,10 +3347,10 @@ public class gui extends javax.swing.JFrame {
         panelDetallesTDES.setEnabled(false);
         panelDetallesTDES.setFocusable(false);
 
-        textoDetallesTDES.setBackground(new java.awt.Color(232, 232, 232));
+        textoDetallesTDES.setBackground(new java.awt.Color(245, 245, 245));
         textoDetallesTDES.setColumns(20);
         textoDetallesTDES.setEditable(false);
-        textoDetallesTDES.setFont(new java.awt.Font("Tahoma", 0, 11));
+        textoDetallesTDES.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDetallesTDES.setLineWrap(true);
         textoDetallesTDES.setRows(5);
         textoDetallesTDES.setText("\nEl paso de texto cifrado a plano se realiza por \nDESCIFRADO.");
@@ -3374,7 +3374,7 @@ public class gui extends javax.swing.JFrame {
         panelDescripcionTDES.setEnabled(false);
         panelDescripcionTDES.setPreferredSize(new java.awt.Dimension(370, 110));
 
-        cajaDescripcionTDES.setBackground(new java.awt.Color(232, 232, 232));
+        cajaDescripcionTDES.setBackground(new java.awt.Color(245, 245, 245));
         cajaDescripcionTDES.setColumns(20);
         cajaDescripcionTDES.setEditable(false);
         cajaDescripcionTDES.setRows(4);
@@ -3462,7 +3462,7 @@ public class gui extends javax.swing.JFrame {
         panelDetallesAES.setEnabled(false);
         panelDetallesAES.setFocusable(false);
 
-        textoDetallesAES.setBackground(new java.awt.Color(232, 232, 232));
+        textoDetallesAES.setBackground(new java.awt.Color(245, 245, 245));
         textoDetallesAES.setColumns(20);
         textoDetallesAES.setEditable(false);
         textoDetallesAES.setFont(new java.awt.Font("Tahoma", 0, 11));
@@ -3489,7 +3489,7 @@ public class gui extends javax.swing.JFrame {
         panelDescripcionAES.setEnabled(false);
         panelDescripcionAES.setPreferredSize(new java.awt.Dimension(370, 110));
 
-        cajaDescripcionAES.setBackground(new java.awt.Color(232, 232, 232));
+        cajaDescripcionAES.setBackground(new java.awt.Color(245, 245, 245));
         cajaDescripcionAES.setColumns(20);
         cajaDescripcionAES.setEditable(false);
         cajaDescripcionAES.setRows(4);
@@ -3574,14 +3574,13 @@ public class gui extends javax.swing.JFrame {
 
         panelDetallesSPN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         panelDetallesSPN.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        panelDetallesSPN.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         panelDetallesSPN.setEnabled(false);
         panelDetallesSPN.setFocusable(false);
 
-        textoDetallesSPN1.setBackground(new java.awt.Color(232, 232, 232));
+        textoDetallesSPN1.setBackground(new java.awt.Color(245, 245, 245));
         textoDetallesSPN1.setColumns(20);
         textoDetallesSPN1.setEditable(false);
-        textoDetallesSPN1.setFont(new java.awt.Font("Tahoma", 0, 11));
+        textoDetallesSPN1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDetallesSPN1.setLineWrap(true);
         textoDetallesSPN1.setRows(5);
         textoDetallesSPN1.setText("Como se utilizan únicamente bloques de 4 bits para representar cada letra del alfabeto inglés, solo serán tomadas las letras de la A a la P. Los demás carácteres se eliminarán del texto y de la clave al ser procesados.\nEl CRIPTOANáLISIS solo se realiza para cadenas de 4 carácteres a través de una aproximación lineal.\n");
@@ -3592,7 +3591,7 @@ public class gui extends javax.swing.JFrame {
         textoDetallesSPN1.setRequestFocusEnabled(false);
         panelDetallesSPN.setViewportView(textoDetallesSPN1);
 
-        panelDetallesSPN.setBounds(80, 30, 300, 100);
+        panelDetallesSPN.setBounds(80, 30, 300, 90);
         panelMetodosSPN.add(panelDetallesSPN, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         infoSPN.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -3606,7 +3605,7 @@ public class gui extends javax.swing.JFrame {
         panelDescripcionSPN.setEnabled(false);
         panelDescripcionSPN.setPreferredSize(new java.awt.Dimension(370, 110));
 
-        cajaDescripcionSPN.setBackground(new java.awt.Color(232, 232, 232));
+        cajaDescripcionSPN.setBackground(new java.awt.Color(245, 245, 245));
         cajaDescripcionSPN.setColumns(20);
         cajaDescripcionSPN.setEditable(false);
         cajaDescripcionSPN.setRows(5);
@@ -3957,10 +3956,10 @@ public class gui extends javax.swing.JFrame {
         panelDetallesCBCMAC.setEnabled(false);
         panelDetallesCBCMAC.setFocusable(false);
 
-        textoDetallesCBCMAC.setBackground(new java.awt.Color(232, 232, 232));
+        textoDetallesCBCMAC.setBackground(new java.awt.Color(245, 245, 245));
         textoDetallesCBCMAC.setColumns(20);
         textoDetallesCBCMAC.setEditable(false);
-        textoDetallesCBCMAC.setFont(new java.awt.Font("Tahoma", 0, 11));
+        textoDetallesCBCMAC.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         textoDetallesCBCMAC.setLineWrap(true);
         textoDetallesCBCMAC.setRows(5);
         textoDetallesCBCMAC.setText("Se utilizan bloques de 8 bits para representar cada letra del alfabeto inglés. Para este algoritmo se toma t=8 y n como la cantidad de letras del texto plano.");
@@ -3981,7 +3980,7 @@ public class gui extends javax.swing.JFrame {
         panelDescripcionCBCMAC.setEnabled(false);
         panelDescripcionCBCMAC.setPreferredSize(new java.awt.Dimension(370, 110));
 
-        cajaDescripcionCBCMAC.setBackground(new java.awt.Color(232, 232, 232));
+        cajaDescripcionCBCMAC.setBackground(new java.awt.Color(245, 245, 245));
         cajaDescripcionCBCMAC.setColumns(20);
         cajaDescripcionCBCMAC.setEditable(false);
         cajaDescripcionCBCMAC.setRows(4);
@@ -4001,8 +4000,8 @@ public class gui extends javax.swing.JFrame {
         infoD1.setBounds(30, 40, 40, 40);
         panelMetodoD1.add(infoD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        panelclaveD1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingrese una clave", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
-        panelclaveD1.setFocusable(false);
+        panelClaveD1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingrese una clave", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
+        panelClaveD1.setFocusable(false);
 
         claveD1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         claveD1.addActionListener(new java.awt.event.ActionListener() {
@@ -4021,20 +4020,20 @@ public class gui extends javax.swing.JFrame {
         textoDescripcionD1.setFocusable(false);
         textoDescripcionD1.setInheritsPopupMenu(false);
 
-        javax.swing.GroupLayout panelclaveD1Layout = new javax.swing.GroupLayout(panelclaveD1);
-        panelclaveD1.setLayout(panelclaveD1Layout);
-        panelclaveD1Layout.setHorizontalGroup(
-            panelclaveD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelclaveD1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelClaveD1Layout = new javax.swing.GroupLayout(panelClaveD1);
+        panelClaveD1.setLayout(panelClaveD1Layout);
+        panelClaveD1Layout.setHorizontalGroup(
+            panelClaveD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelClaveD1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelclaveD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelClaveD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(claveD1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
                     .addComponent(textoDescripcionD1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        panelclaveD1Layout.setVerticalGroup(
-            panelclaveD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelclaveD1Layout.createSequentialGroup()
+        panelClaveD1Layout.setVerticalGroup(
+            panelClaveD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelClaveD1Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addComponent(textoDescripcionD1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4042,8 +4041,8 @@ public class gui extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelclaveD1.setBounds(10, 168, 380, 90);
-        panelMetodoD1.add(panelclaveD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panelClaveD1.setBounds(10, 168, 380, 90);
+        panelMetodoD1.add(panelClaveD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         panelDetallesD1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
         panelDetallesD1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -4051,7 +4050,7 @@ public class gui extends javax.swing.JFrame {
         panelDetallesD1.setEnabled(false);
         panelDetallesD1.setFocusable(false);
 
-        textoDetallesD1.setBackground(new java.awt.Color(232, 232, 232));
+        textoDetallesD1.setBackground(new java.awt.Color(245, 245, 245));
         textoDetallesD1.setColumns(20);
         textoDetallesD1.setEditable(false);
         textoDetallesD1.setFont(new java.awt.Font("Tahoma", 0, 11));
@@ -4075,7 +4074,7 @@ public class gui extends javax.swing.JFrame {
         panelDescripcionD1.setEnabled(false);
         panelDescripcionD1.setPreferredSize(new java.awt.Dimension(370, 110));
 
-        cajaDescripcionD1.setBackground(new java.awt.Color(232, 232, 232));
+        cajaDescripcionD1.setBackground(new java.awt.Color(245, 245, 245));
         cajaDescripcionD1.setColumns(20);
         cajaDescripcionD1.setEditable(false);
         cajaDescripcionD1.setRows(4);
@@ -4178,15 +4177,15 @@ public class gui extends javax.swing.JFrame {
         panelMetodoD1.add(panelTablaCifrado, javax.swing.JLayeredPane.DEFAULT_LAYER);
         panelTablaCifrado.getAccessibleContext().setAccessibleName("Guardar tablas");
 
-        botonclaveD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clave.png"))); // NOI18N
-        botonclaveD1.setText("Generar una clave");
-        botonclaveD1.addActionListener(new java.awt.event.ActionListener() {
+        botonClaveD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clave.png"))); // NOI18N
+        botonClaveD1.setText("Generar una clave");
+        botonClaveD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonClaveD1ActionPerformed(evt);
             }
         });
-        botonclaveD1.setBounds(10, 130, 340, 30);
-        panelMetodoD1.add(botonclaveD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        botonClaveD1.setBounds(10, 130, 340, 30);
+        panelMetodoD1.add(botonClaveD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botonLimpiarD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reiniciar.png"))); // NOI18N
         botonLimpiarD1.setToolTipText("Limpiar o reiniciar clave");
@@ -4377,7 +4376,7 @@ public class gui extends javax.swing.JFrame {
 
         panelClaveRSAnpqLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cajaClaveRSAp, cajaClaveRSAq, tipoClaveRSApq});
 
-        panelClaveRSAnpq.setBounds(10, 35, 500, 115);
+        panelClaveRSAnpq.setBounds(10, 20, 500, 115);
         panelMetodoRSA.add(panelClaveRSAnpq, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tipoOptimizacionRSA.setText("  Optimización Bellare-Rogaway");
@@ -7144,7 +7143,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JButton botonClaveAES;
     private javax.swing.JButton botonClaveAffine;
     private javax.swing.JButton botonClaveCBCMAC;
-    private javax.swing.JButton botonclaveD1;
+    private javax.swing.JButton botonClaveD1;
     private javax.swing.JButton botonClaveDES;
     private javax.swing.JButton botonClaveDESS;
     private javax.swing.JButton botonClaveDesplazamiento;
@@ -7331,7 +7330,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JPanel panelClaveAES;
     private javax.swing.JPanel panelClaveAffine;
     private javax.swing.JPanel panelClaveCBCMAC;
-    private javax.swing.JPanel panelclaveD1;
+    private javax.swing.JPanel panelClaveD1;
     private javax.swing.JPanel panelClaveDES;
     private javax.swing.JPanel panelClaveDESS;
     private javax.swing.JPanel panelClaveHill;

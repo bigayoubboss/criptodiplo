@@ -4027,7 +4027,7 @@
                         <Component class="javax.swing.JTextArea" name="textoDetallesDESS">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -4090,7 +4090,7 @@
                         <Component class="javax.swing.JTextArea" name="cajaDescripcionDESS">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -4268,7 +4268,7 @@
                         <Component class="javax.swing.JTextArea" name="textoDetallesTripleDESS">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -4331,7 +4331,7 @@
                         <Component class="javax.swing.JTextArea" name="cajaDescripcionTripleDESS">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -4509,7 +4509,7 @@
                         <Component class="javax.swing.JTextArea" name="textoDetallesDES">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -4572,7 +4572,7 @@
                         <Component class="javax.swing.JTextArea" name="cajaDescripcionDES">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -4750,7 +4750,7 @@
                         <Component class="javax.swing.JTextArea" name="textoDetallesTDES">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -4813,7 +4813,7 @@
                         <Component class="javax.swing.JTextArea" name="cajaDescripcionTDES">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -4986,7 +4986,7 @@
                         <Component class="javax.swing.JTextArea" name="textoDetallesAES">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -5049,7 +5049,7 @@
                         <Component class="javax.swing.JTextArea" name="cajaDescripcionAES">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -5207,7 +5207,6 @@
                           </Border>
                         </Property>
                         <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
-                        <Property name="verticalScrollBarPolicy" type="int" value="21"/>
                         <Property name="enabled" type="boolean" value="false"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
@@ -5216,7 +5215,7 @@
                       </AuxValues>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-                          <JLayeredPaneConstraints x="80" y="30" width="300" height="100" layer="0" position="-1"/>
+                          <JLayeredPaneConstraints x="80" y="30" width="300" height="90" layer="0" position="-1"/>
                         </Constraint>
                       </Constraints>
 
@@ -5225,7 +5224,7 @@
                         <Component class="javax.swing.JTextArea" name="textoDetallesSPN1">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -5289,7 +5288,7 @@
                         <Component class="javax.swing.JTextArea" name="cajaDescripcionSPN">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -5859,7 +5858,7 @@
                         <Component class="javax.swing.JTextArea" name="textoDetallesCBCMAC">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -5911,7 +5910,7 @@
                         <Component class="javax.swing.JTextArea" name="cajaDescripcionCBCMAC">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -6050,7 +6049,7 @@
                         <Component class="javax.swing.JTextArea" name="textoDetallesD1">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -6102,7 +6101,7 @@
                         <Component class="javax.swing.JTextArea" name="cajaDescripcionD1">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="e8" green="e8" red="e8" type="rgb"/>
+                              <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="editable" type="boolean" value="false"/>
@@ -6452,7 +6451,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-                          <JLayeredPaneConstraints x="10" y="35" width="500" height="115" layer="0" position="-1"/>
+                          <JLayeredPaneConstraints x="10" y="20" width="500" height="115" layer="0" position="-1"/>
                         </Constraint>
                       </Constraints>
 
