@@ -72,6 +72,7 @@ public class gui extends javax.swing.JFrame {
     private final boolean AESVisible = true;
     private final boolean SPNVisible = true;
     private final boolean CBCMACVisible = true;
+    private final boolean D1Visible = true;
     private final boolean RSAVisible = true;
     private final boolean optimizacionRSAVisible = true;
 
@@ -132,6 +133,9 @@ public class gui extends javax.swing.JFrame {
             }
             if (!CBCMACVisible) {
                 panelMetodosBloque.remove(panelMetodoCBCMAC);
+            }
+            if (!D1Visible) {
+                panelMetodosBloque.remove(panelMetodoD1);
             }
         } else {
             panelClasesCifrados.remove(panelCifradoresBloque);
@@ -615,24 +619,24 @@ public class gui extends javax.swing.JFrame {
         textoDetallesCBCMAC = new javax.swing.JTextArea();
         panelDescripcionCBCMAC = new javax.swing.JScrollPane();
         cajaDescripcionCBCMAC = new javax.swing.JTextArea();
-        panelMetodoD13 = new javax.swing.JLayeredPane();
-        infoD13 = new javax.swing.JLabel();
+        panelMetodoD1 = new javax.swing.JLayeredPane();
+        infoD1 = new javax.swing.JLabel();
         panelclaveD1 = new javax.swing.JPanel();
         claveD1 = new javax.swing.JTextField();
-        textoDescripcionD13 = new javax.swing.JLabel();
-        panelDetallesD13 = new javax.swing.JScrollPane();
-        textoDetallesD13 = new javax.swing.JTextArea();
-        panelDescripcionD13 = new javax.swing.JScrollPane();
-        cajaDescripcionD13 = new javax.swing.JTextArea();
+        textoDescripcionD1 = new javax.swing.JLabel();
+        panelDetallesD1 = new javax.swing.JScrollPane();
+        textoDetallesD1 = new javax.swing.JTextArea();
+        panelDescripcionD1 = new javax.swing.JScrollPane();
+        cajaDescripcionD1 = new javax.swing.JTextArea();
         panelSecuenciaOcultamiento = new javax.swing.JPanel();
         botonSecuenciaOcultamiento = new javax.swing.JButton();
         secuenciaOcultamiento = new javax.swing.JTextField();
         panelTablaCifrado = new javax.swing.JPanel();
         botonTablaCifrado = new javax.swing.JButton();
-        textoDescripcionSimboloD13 = new javax.swing.JLabel();
+        textoDescripcionSimboloD1 = new javax.swing.JLabel();
         tablaSimboloSeparador = new javax.swing.JTextField();
         botonclaveD1 = new javax.swing.JButton();
-        botonLimpiarD13 = new javax.swing.JButton();
+        botonLimpiarD1 = new javax.swing.JButton();
         panelCifradoresPublicos = new javax.swing.JLayeredPane();
         panelMetodosPublicos = new javax.swing.JTabbedPane();
         panelMetodoRSA = new javax.swing.JLayeredPane();
@@ -3991,11 +3995,11 @@ public class gui extends javax.swing.JFrame {
 
         panelMetodosBloque.addTab("CBC-MAC", new javax.swing.ImageIcon(getClass().getResource("/images/bloque.png")), panelMetodoCBCMAC); // NOI18N
 
-        panelMetodoD13.setName("tablet"); // NOI18N
+        panelMetodoD1.setName("tablet"); // NOI18N
 
-        infoD13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/informacion.png"))); // NOI18N
-        infoD13.setBounds(30, 40, 40, 40);
-        panelMetodoD13.add(infoD13, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        infoD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/informacion.png"))); // NOI18N
+        infoD1.setBounds(30, 40, 40, 40);
+        panelMetodoD1.add(infoD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         panelclaveD1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingrese una clave", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
         panelclaveD1.setFocusable(false);
@@ -4012,10 +4016,10 @@ public class gui extends javax.swing.JFrame {
             }
         });
 
-        textoDescripcionD13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoDescripcionD13.setText("de 8 a 15 carácteres");
-        textoDescripcionD13.setFocusable(false);
-        textoDescripcionD13.setInheritsPopupMenu(false);
+        textoDescripcionD1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textoDescripcionD1.setText("de 8 a 15 carácteres");
+        textoDescripcionD1.setFocusable(false);
+        textoDescripcionD1.setInheritsPopupMenu(false);
 
         javax.swing.GroupLayout panelclaveD1Layout = new javax.swing.GroupLayout(panelclaveD1);
         panelclaveD1.setLayout(panelclaveD1Layout);
@@ -4025,63 +4029,63 @@ public class gui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelclaveD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(claveD1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
-                    .addComponent(textoDescripcionD13, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
+                    .addComponent(textoDescripcionD1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelclaveD1Layout.setVerticalGroup(
             panelclaveD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelclaveD1Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(textoDescripcionD13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textoDescripcionD1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(claveD1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelclaveD1.setBounds(10, 168, 380, 90);
-        panelMetodoD13.add(panelclaveD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panelMetodoD1.add(panelclaveD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        panelDetallesD13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
-        panelDetallesD13.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        panelDetallesD13.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-        panelDetallesD13.setEnabled(false);
-        panelDetallesD13.setFocusable(false);
+        panelDetallesD1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
+        panelDetallesD1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        panelDetallesD1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        panelDetallesD1.setEnabled(false);
+        panelDetallesD1.setFocusable(false);
 
-        textoDetallesD13.setBackground(new java.awt.Color(232, 232, 232));
-        textoDetallesD13.setColumns(20);
-        textoDetallesD13.setEditable(false);
-        textoDetallesD13.setFont(new java.awt.Font("Tahoma", 0, 11));
-        textoDetallesD13.setLineWrap(true);
-        textoDetallesD13.setRows(5);
-        textoDetallesD13.setText("Se utilizan bloques del tamaño de la clave, los cuales son cifrados según la tabla secreta generada a partir de la clave ingresada");
-        textoDetallesD13.setWrapStyleWord(true);
-        textoDetallesD13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
-        textoDetallesD13.setFocusable(false);
-        textoDetallesD13.setOpaque(false);
-        textoDetallesD13.setRequestFocusEnabled(false);
-        textoDetallesD13.setVerifyInputWhenFocusTarget(false);
-        panelDetallesD13.setViewportView(textoDetallesD13);
+        textoDetallesD1.setBackground(new java.awt.Color(232, 232, 232));
+        textoDetallesD1.setColumns(20);
+        textoDetallesD1.setEditable(false);
+        textoDetallesD1.setFont(new java.awt.Font("Tahoma", 0, 11));
+        textoDetallesD1.setLineWrap(true);
+        textoDetallesD1.setRows(5);
+        textoDetallesD1.setText("Se utilizan bloques del tamaño de la clave, los cuales son cifrados según la tabla secreta generada a partir de la clave ingresada");
+        textoDetallesD1.setWrapStyleWord(true);
+        textoDetallesD1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 232), 0));
+        textoDetallesD1.setFocusable(false);
+        textoDetallesD1.setOpaque(false);
+        textoDetallesD1.setRequestFocusEnabled(false);
+        textoDetallesD1.setVerifyInputWhenFocusTarget(false);
+        panelDetallesD1.setViewportView(textoDetallesD1);
 
-        panelDetallesD13.setBounds(80, 40, 300, 60);
-        panelMetodoD13.add(panelDetallesD13, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panelDetallesD1.setBounds(80, 40, 300, 60);
+        panelMetodoD1.add(panelDetallesD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        panelDescripcionD13.setBorder(null);
-        panelDescripcionD13.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        panelDescripcionD13.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-        panelDescripcionD13.setEnabled(false);
-        panelDescripcionD13.setPreferredSize(new java.awt.Dimension(370, 110));
+        panelDescripcionD1.setBorder(null);
+        panelDescripcionD1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        panelDescripcionD1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        panelDescripcionD1.setEnabled(false);
+        panelDescripcionD1.setPreferredSize(new java.awt.Dimension(370, 110));
 
-        cajaDescripcionD13.setBackground(new java.awt.Color(232, 232, 232));
-        cajaDescripcionD13.setColumns(20);
-        cajaDescripcionD13.setEditable(false);
-        cajaDescripcionD13.setRows(4);
-        cajaDescripcionD13.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descripción", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
-        cajaDescripcionD13.setEnabled(false);
-        cajaDescripcionD13.setFocusable(false);
-        panelDescripcionD13.setViewportView(cajaDescripcionD13);
+        cajaDescripcionD1.setBackground(new java.awt.Color(232, 232, 232));
+        cajaDescripcionD1.setColumns(20);
+        cajaDescripcionD1.setEditable(false);
+        cajaDescripcionD1.setRows(4);
+        cajaDescripcionD1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descripción", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
+        cajaDescripcionD1.setEnabled(false);
+        cajaDescripcionD1.setFocusable(false);
+        panelDescripcionD1.setViewportView(cajaDescripcionD1);
 
-        panelDescripcionD13.setBounds(10, 10, 380, 110);
-        panelMetodoD13.add(panelDescripcionD13, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panelDescripcionD1.setBounds(10, 10, 380, 110);
+        panelMetodoD1.add(panelDescripcionD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         panelSecuenciaOcultamiento.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Secuencia de ocultamiento", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
         panelSecuenciaOcultamiento.setFocusable(false);
@@ -4119,7 +4123,7 @@ public class gui extends javax.swing.JFrame {
         );
 
         panelSecuenciaOcultamiento.setBounds(400, 130, 365, 130);
-        panelMetodoD13.add(panelSecuenciaOcultamiento, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panelMetodoD1.add(panelSecuenciaOcultamiento, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         panelTablaCifrado.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Guardar tabla", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 11))); // NOI18N
         panelTablaCifrado.setFocusable(false);
@@ -4132,10 +4136,10 @@ public class gui extends javax.swing.JFrame {
             }
         });
 
-        textoDescripcionSimboloD13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        textoDescripcionSimboloD13.setText("Separar las columnas con el símbolo:");
-        textoDescripcionSimboloD13.setFocusable(false);
-        textoDescripcionSimboloD13.setInheritsPopupMenu(false);
+        textoDescripcionSimboloD1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        textoDescripcionSimboloD1.setText("Separar las columnas con el símbolo:");
+        textoDescripcionSimboloD1.setFocusable(false);
+        textoDescripcionSimboloD1.setInheritsPopupMenu(false);
 
         tablaSimboloSeparador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tablaSimboloSeparador.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -4153,7 +4157,7 @@ public class gui extends javax.swing.JFrame {
                 .addGroup(panelTablaCifradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonTablaCifrado, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
                     .addGroup(panelTablaCifradoLayout.createSequentialGroup()
-                        .addComponent(textoDescripcionSimboloD13, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                        .addComponent(textoDescripcionSimboloD1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tablaSimboloSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -4163,7 +4167,7 @@ public class gui extends javax.swing.JFrame {
             .addGroup(panelTablaCifradoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelTablaCifradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoDescripcionSimboloD13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoDescripcionSimboloD1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tablaSimboloSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonTablaCifrado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4171,7 +4175,7 @@ public class gui extends javax.swing.JFrame {
         );
 
         panelTablaCifrado.setBounds(402, 10, 365, 120);
-        panelMetodoD13.add(panelTablaCifrado, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panelMetodoD1.add(panelTablaCifrado, javax.swing.JLayeredPane.DEFAULT_LAYER);
         panelTablaCifrado.getAccessibleContext().setAccessibleName("Guardar tablas");
 
         botonclaveD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clave.png"))); // NOI18N
@@ -4182,20 +4186,20 @@ public class gui extends javax.swing.JFrame {
             }
         });
         botonclaveD1.setBounds(10, 130, 340, 30);
-        panelMetodoD13.add(botonclaveD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panelMetodoD1.add(botonclaveD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        botonLimpiarD13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reiniciar.png"))); // NOI18N
-        botonLimpiarD13.setToolTipText("Limpiar o reiniciar clave");
-        botonLimpiarD13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        botonLimpiarD13.addActionListener(new java.awt.event.ActionListener() {
+        botonLimpiarD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reiniciar.png"))); // NOI18N
+        botonLimpiarD1.setToolTipText("Limpiar o reiniciar clave");
+        botonLimpiarD1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        botonLimpiarD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonLimpiarD1ActionPerformed(evt);
             }
         });
-        botonLimpiarD13.setBounds(360, 130, 30, 30);
-        panelMetodoD13.add(botonLimpiarD13, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        botonLimpiarD1.setBounds(360, 130, 30, 30);
+        panelMetodoD1.add(botonLimpiarD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        panelMetodosBloque.addTab("D13", new javax.swing.ImageIcon(getClass().getResource("/images/bloque.png")), panelMetodoD13); // NOI18N
+        panelMetodosBloque.addTab("D1", new javax.swing.ImageIcon(getClass().getResource("/images/bloque.png")), panelMetodoD1); // NOI18N
 
         panelMetodosBloque.setBounds(0, 0, 780, 300);
         panelCifradoresBloque.add(panelMetodosBloque, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -7160,7 +7164,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JButton botonLimpiarAffine;
     private javax.swing.JButton botonLimpiarCBCMAC;
     private javax.swing.JButton botonLimpiarCifrado;
-    private javax.swing.JButton botonLimpiarD13;
+    private javax.swing.JButton botonLimpiarD1;
     private javax.swing.JButton botonLimpiarDES;
     private javax.swing.JButton botonLimpiarDESS;
     private javax.swing.JButton botonLimpiarDesplazamiento;
@@ -7189,7 +7193,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JTextArea cajaDescripcionAES;
     private javax.swing.JTextArea cajaDescripcionAffine;
     private javax.swing.JTextArea cajaDescripcionCBCMAC;
-    private javax.swing.JTextArea cajaDescripcionD13;
+    private javax.swing.JTextArea cajaDescripcionD1;
     private javax.swing.JTextArea cajaDescripcionDES;
     private javax.swing.JTextArea cajaDescripcionDESS;
     private javax.swing.JTextArea cajaDescripcionDesplazamiento;
@@ -7273,7 +7277,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JLabel fondoTitulo;
     private javax.swing.JLabel infoAES;
     private javax.swing.JLabel infoCBCMAC;
-    private javax.swing.JLabel infoD13;
+    private javax.swing.JLabel infoD1;
     private javax.swing.JLabel infoDES;
     private javax.swing.JLabel infoDESS;
     private javax.swing.JLabel infoHill;
@@ -7341,7 +7345,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JScrollPane panelDescripcionAES;
     private javax.swing.JScrollPane panelDescripcionAffine;
     private javax.swing.JScrollPane panelDescripcionCBCMAC;
-    private javax.swing.JScrollPane panelDescripcionD13;
+    private javax.swing.JScrollPane panelDescripcionD1;
     private javax.swing.JScrollPane panelDescripcionDES;
     private javax.swing.JScrollPane panelDescripcionDESS;
     private javax.swing.JScrollPane panelDescripcionDesplazamiento;
@@ -7355,7 +7359,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JScrollPane panelDescripcionVigenere;
     private javax.swing.JScrollPane panelDetallesAES;
     private javax.swing.JScrollPane panelDetallesCBCMAC;
-    private javax.swing.JScrollPane panelDetallesD13;
+    private javax.swing.JScrollPane panelDetallesD1;
     private javax.swing.JScrollPane panelDetallesDES;
     private javax.swing.JScrollPane panelDetallesDESS;
     private javax.swing.JScrollPane panelDetallesSPN;
@@ -7364,7 +7368,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JLayeredPane panelMetodoAES;
     private javax.swing.JLayeredPane panelMetodoAffine;
     private javax.swing.JLayeredPane panelMetodoCBCMAC;
-    private javax.swing.JLayeredPane panelMetodoD13;
+    private javax.swing.JLayeredPane panelMetodoD1;
     private javax.swing.JLayeredPane panelMetodoDES;
     private javax.swing.JLayeredPane panelMetodoDESS;
     private javax.swing.JLayeredPane panelMetodoDesplazamiento;
@@ -7419,7 +7423,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JScrollPane textoDescripcionAffine;
     private javax.swing.JTextArea textoDescripcionAffineT;
     private javax.swing.JLabel textoDescripcionCBCMAC;
-    private javax.swing.JLabel textoDescripcionD13;
+    private javax.swing.JLabel textoDescripcionD1;
     private javax.swing.JLabel textoDescripcionDES;
     private javax.swing.JLabel textoDescripcionDESS;
     private javax.swing.JScrollPane textoDescripcionDesplazamiento;
@@ -7432,7 +7436,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JScrollPane textoDescripcionPermutacion1;
     private javax.swing.JTextArea textoDescripcionPermutacionT;
     private javax.swing.JTextArea textoDescripcionPermutacionT1;
-    private javax.swing.JLabel textoDescripcionSimboloD13;
+    private javax.swing.JLabel textoDescripcionSimboloD1;
     private javax.swing.JScrollPane textoDescripcionSustitucion;
     private javax.swing.JTextArea textoDescripcionSustitucionT;
     private javax.swing.JLabel textoDescripcionTDES;
@@ -7441,7 +7445,7 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JTextArea textoDescripcionVigenereT;
     private javax.swing.JTextArea textoDetallesAES;
     private javax.swing.JTextArea textoDetallesCBCMAC;
-    private javax.swing.JTextArea textoDetallesD13;
+    private javax.swing.JTextArea textoDetallesD1;
     private javax.swing.JTextArea textoDetallesDES;
     private javax.swing.JTextArea textoDetallesDESS;
     private javax.swing.JTextArea textoDetallesSPN1;
