@@ -56,24 +56,24 @@ public class gui extends javax.swing.JFrame {
     public javax.swing.JTextField[] arregloSustitucion;
     public String textoPlanoInicial = "";
     // Estas variables habiltian o deshabilitan algun metodo de cifrado
-    private final boolean clasicosVisible = false;
+    private final boolean clasicosVisible = true;
     private final boolean bloquesVisible = true;
-    private final boolean publicosVisible = false;
+    private final boolean publicosVisible = true;
     private final boolean desplazamientoVisible = true;
     private final boolean sustitucionVisible = true;
     private final boolean affineVisible = true;
     private final boolean vigenereVisible = true;
     private final boolean hillVisible = true;
     private final boolean permutacionVisible = true;
-    private final boolean DESSVisible = false;
-    private final boolean TDESSVisible = false;
-    private final boolean DESVisible = false;
-    private final boolean TDESVisible = false;
-    private final boolean AESVisible = false;
-    private final boolean SPNVisible = false;
-    private final boolean CBCMACVisible = false;
-    private final boolean RSAVisible = false;
-    private final boolean optimizacionRSAVisible = false;
+    private final boolean DESSVisible = true;
+    private final boolean TDESSVisible = true;
+    private final boolean DESVisible = true;
+    private final boolean TDESVisible = true;
+    private final boolean AESVisible = true;
+    private final boolean SPNVisible = true;
+    private final boolean CBCMACVisible = true;
+    private final boolean RSAVisible = true;
+    private final boolean optimizacionRSAVisible = true;
 
     public void iniciarArregloSustitucion() {
         arregloSustitucion = new javax.swing.JTextField[]{claveSustitucionA,
