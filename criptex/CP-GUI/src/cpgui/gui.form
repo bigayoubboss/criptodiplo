@@ -5931,14 +5931,14 @@
                     </Container>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JLayeredPane" name="panelMetodoD13">
+                <Container class="javax.swing.JLayeredPane" name="panelMetodoD1">
                   <Properties>
                     <Property name="name" type="java.lang.String" value="tablet" noResource="true"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="D13">
-                        <Property name="tabTitle" type="java.lang.String" value="D13"/>
+                      <JTabbedPaneConstraints tabName="D1">
+                        <Property name="tabTitle" type="java.lang.String" value="D1"/>
                         <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/images/bloque.png"/>
                         </Property>
@@ -5948,7 +5948,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="infoD13">
+                    <Component class="javax.swing.JLabel" name="infoD1">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/images/informacion.png"/>
@@ -5960,7 +5960,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Container class="javax.swing.JPanel" name="panelClaveD13">
+                    <Container class="javax.swing.JPanel" name="panelClaveD1">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -5983,8 +5983,8 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="claveD13" alignment="0" pref="348" max="32767" attributes="0"/>
-                                      <Component id="textoDescripcionD13" alignment="0" pref="348" max="32767" attributes="0"/>
+                                      <Component id="claveD1" alignment="0" pref="348" max="32767" attributes="0"/>
+                                      <Component id="textoDescripcionD1" alignment="0" pref="348" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -5994,25 +5994,25 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                  <Component id="textoDescripcionD13" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="textoDescripcionD1" min="-2" pref="20" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="claveD13" min="-2" max="-2" attributes="0"/>
+                                  <Component id="claveD1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JTextField" name="claveD13">
+                        <Component class="javax.swing.JTextField" name="claveD1">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="claveD13ActionPerformed"/>
-                            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="claveD13KeyTyped"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="claveD1ActionPerformed"/>
+                            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="claveD1KeyTyped"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="textoDescripcionD13">
+                        <Component class="javax.swing.JLabel" name="textoDescripcionD1">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="de 8 a 15 car&#xe1;cteres"/>
@@ -6022,7 +6022,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JScrollPane" name="panelDetallesD13">
+                    <Container class="javax.swing.JScrollPane" name="panelDetallesD1">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -6047,7 +6047,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="textoDetallesD13">
+                        <Component class="javax.swing.JTextArea" name="textoDetallesD1">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="e8" green="e8" red="e8" type="rgb"/>
@@ -6076,7 +6076,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JScrollPane" name="panelDescripcionD13">
+                    <Container class="javax.swing.JScrollPane" name="panelDescripcionD1">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="null"/>
@@ -6099,7 +6099,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="cajaDescripcionD13">
+                        <Component class="javax.swing.JTextArea" name="cajaDescripcionD1">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="e8" green="e8" red="e8" type="rgb"/>
@@ -6210,7 +6210,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="botonTablaCifrado" alignment="0" pref="333" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="textoDescripcionSimboloD13" pref="288" max="32767" attributes="0"/>
+                                          <Component id="textoDescripcionSimboloD1" pref="288" max="32767" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="tablaSimboloSeparador" min="-2" pref="35" max="-2" attributes="1"/>
                                       </Group>
@@ -6224,7 +6224,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="textoDescripcionSimboloD13" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="textoDescripcionSimboloD1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                       <Component id="tablaSimboloSeparador" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -6246,7 +6246,7 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonTablaCifradoActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="textoDescripcionSimboloD13">
+                        <Component class="javax.swing.JLabel" name="textoDescripcionSimboloD1">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="2"/>
                             <Property name="text" type="java.lang.String" value="Separar las columnas con el s&#xed;mbolo:"/>
@@ -6264,7 +6264,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JButton" name="botonClaveD13">
+                    <Component class="javax.swing.JButton" name="botonClaveD1">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/images/clave.png"/>
@@ -6272,7 +6272,7 @@
                         <Property name="text" type="java.lang.String" value="Generar una clave"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonClaveD13ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonClaveD1ActionPerformed"/>
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
@@ -6280,7 +6280,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JButton" name="botonLimpiarD13">
+                    <Component class="javax.swing.JButton" name="botonLimpiarD1">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/images/reiniciar.png"/>
@@ -6289,7 +6289,7 @@
                         <Property name="horizontalTextPosition" type="int" value="0"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonLimpiarD13ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonLimpiarD1ActionPerformed"/>
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
