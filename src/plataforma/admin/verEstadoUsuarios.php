@@ -96,7 +96,7 @@ function obtenerNmobreUsuario($id_usuario) {
 
 	$db->desconectar();
 
-	return $usuario->nombres." ".$usuario->apellidos;
+	return ucwords(strtolower($usuario->nombres." ".$usuario->apellidos));
 }
 
 function obtenerEstadoUsuario($id_usuario) {

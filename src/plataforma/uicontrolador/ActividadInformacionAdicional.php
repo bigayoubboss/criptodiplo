@@ -32,7 +32,7 @@ function informacionSustitucion($texto) {
 }
 
 function informacionHill($texto) {
-	$longitudPista = 12;
+	$longitudPista = 24;
 	echo "<li>El texto plano <strong>".substr($texto->getTextoPlano(), 0, $longitudPista)."</strong> se cifra en <strong>".substr($texto->getTextoCifrado(), 0, $longitudPista)."</strong></li>";
 }
 
