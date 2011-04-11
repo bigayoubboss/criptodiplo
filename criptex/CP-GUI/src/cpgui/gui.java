@@ -7127,7 +7127,8 @@ public class gui extends javax.swing.JFrame {
 
             public void run() {
                 try {
-                    UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceBusinessBlackSteelLookAndFeel");
+                	UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//                    UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceBusinessBlackSteelLookAndFeel");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
