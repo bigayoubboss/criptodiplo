@@ -29,7 +29,7 @@ import java.util.Vector;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.cripto.image.ImageProcessing;
-import org.cripto.systems.image.HillMRIVCipher;
+import org.cripto.cipher.image.HillMRIVCipher;
 import org.cripto.utils.ArraysUtils;
 import org.cripto.utils.jama.Matrix;
 

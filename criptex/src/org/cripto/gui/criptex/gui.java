@@ -12,19 +12,19 @@ package org.cripto.gui.criptex;
 
 import javax.swing.UnsupportedLookAndFeelException;
 import org.cripto.authentication.CBCMac;
-import org.cripto.systems.classic.AffineCipher;
-import org.cripto.systems.classic.PermutationCipher;
-import org.cripto.systems.classic.ShiftCipher;
-import org.cripto.systems.classic.SubstitutionCipher;
-import org.cripto.systems.classic.HillCipher;
-import org.cripto.systems.classic.VigenereCipher;
-import org.cripto.systems.block.SimplifiedDESCipher;
-import org.cripto.systems.block.AESCipher;
-import org.cripto.systems.block.D1Cipher;
-import org.cripto.systems.block.SubstitutionPermutationNetworkCipher;
-import org.cripto.systems.block.DESCipher;
-import org.cripto.systems.publickey.BellareRogawayCipher;
-import org.cripto.systems.publickey.RSACipher;
+import org.cripto.cipher.classic.AffineCipher;
+import org.cripto.cipher.classic.PermutationCipher;
+import org.cripto.cipher.classic.ShiftCipher;
+import org.cripto.cipher.classic.SubstitutionCipher;
+import org.cripto.cipher.classic.HillCipher;
+import org.cripto.cipher.classic.VigenereCipher;
+import org.cripto.cipher.block.SimplifiedDESCipher;
+import org.cripto.cipher.block.AESCipher;
+import org.cripto.cipher.block.D1Cipher;
+import org.cripto.cipher.block.SubstitutionPermutationNetworkCipher;
+import org.cripto.cipher.block.DESCipher;
+import org.cripto.cipher.publickey.BellareRogawayCipher;
+import org.cripto.cipher.publickey.RSACipher;
 import org.cripto.utils.BigramsOcurrence;
 import org.cripto.utils.Code;
 import org.cripto.utils.LettersOcurrence;
@@ -50,7 +50,6 @@ import java.awt.FontFormatException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.crypto.Mac;
 
 /**
  * 
@@ -84,6 +83,7 @@ public class gui extends javax.swing.JFrame {
     private final boolean D1Visible = false;
     private final boolean RSAVisible = true;
     private final boolean optimizacionRSAVisible = true;
+    private ShiftCipher shiftChiper;
 
     public void iniciarArregloSustitucion() {
         arregloSustitucion = new javax.swing.JTextField[]{claveSustitucionA,
@@ -283,6 +283,8 @@ public class gui extends javax.swing.JFrame {
             tipoClaveRSApq.setFont(tahoma11);
             textoClaveRSAq.setFont(tahoma11);
             tipoOptimizacionRSA.setFont(tahoma11);
+            
+            shiftChiper = new ShiftCipher();
 
         } catch (FontFormatException ex) {
             Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
@@ -4598,7 +4600,7 @@ public class gui extends javax.swing.JFrame {
                 || (claveDesplazamientoCaracter.getText().isEmpty() && tipoClaveDesplazamientoCaracter.isSelected())) {
             botonClaveDesplazamientoActionPerformed(null);
             int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
-            String textoCifrado = ShiftCipher.encryptMod189(textoPlano, clave);
+            String textoCifrado = shiftChiper.encode(textoPlano, clave, null);
             cajaTextoCifrado.setText(textoCifrado);
             cajaTextoPlano.setText(textoPlano);
         } else {
@@ -4607,8 +4609,8 @@ public class gui extends javax.swing.JFrame {
                     if (Integer.parseInt(claveDesplazamientoNumero.getText()) <= 188
                             && Integer.parseInt(claveDesplazamientoNumero.getText()) >= 0) {
                         int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
-                        String textoCifrado = ShiftCipher.encryptMod189(
-                                textoPlano, clave);
+                        String textoCifrado = shiftChiper.encode(
+                                textoPlano, clave, null);
                         cajaTextoCifrado.setText(textoCifrado);
                         cajaTextoPlano.setText(textoPlano);
                     }
@@ -4622,8 +4624,8 @@ public class gui extends javax.swing.JFrame {
             } else {
                 if (claveDesplazamientoCaracter.getText().length() == 1) {
                     int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
-                    String textoCifrado = ShiftCipher.encryptMod189(textoPlano,
-                            clave);
+                    String textoCifrado = shiftChiper.encode(textoPlano,
+                            clave, null);
                     cajaTextoCifrado.setText(textoCifrado);
                     cajaTextoPlano.setText(textoPlano);
                 } else {
@@ -5266,7 +5268,7 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonEncriptarActionPerformed
 
     private void fuerzaBrutaDesplazamiento(String textoCifrado) {
-        String[] posibilidades = ShiftCipher.cryptoAnalysisMod189(textoCifrado);
+        String[] posibilidades = shiftChiper.cryptoAnalysis(textoCifrado);
         String textoPlano = "";
         for (int pos = 0; pos < posibilidades.length; pos++) {
             int[] decode = {pos};
@@ -6145,8 +6147,8 @@ public class gui extends javax.swing.JFrame {
             claveDesplazamientoNumero.setText(String.valueOf(encode[0]));
 
             int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
-            String textoCifrado = ShiftCipher.encryptMod189(
-                    muestraDesplazamientoDe.getText(), clave);
+            String textoCifrado = shiftChiper.encode(
+                    muestraDesplazamientoDe.getText(), clave, null);
             muestraDesplazamientoA.setText(textoCifrado);
         }
     }// GEN-LAST:event_claveDesplazamientoCaracterKeyTyped
@@ -6179,13 +6181,13 @@ public class gui extends javax.swing.JFrame {
                     c.toString()))};
                 decode = Code.decodeMod189(decodeNumber);
 
-                muestraDesplazamientoA.setText(ShiftCipher.encryptMod189(
-                        muestraDesplazamientoDe.getText(), clave));
+                muestraDesplazamientoA.setText(shiftChiper.encode(
+                        muestraDesplazamientoDe.getText(), clave, null));
             } else {
                 int decodeNumber[] = {Integer.parseInt(c.toString())};
                 decode = Code.decodeMod189(decodeNumber);
-                muestraDesplazamientoA.setText(ShiftCipher.encryptMod189(
-                        muestraDesplazamientoDe.getText(), decodeNumber[0]));
+                muestraDesplazamientoA.setText(shiftChiper.encode(
+                        muestraDesplazamientoDe.getText(), decodeNumber[0], null));
             }
 
             claveDesplazamientoCaracter.setText(decode);
@@ -6197,8 +6199,8 @@ public class gui extends javax.swing.JFrame {
         Random rnd = new Random();
         int clave = rnd.nextInt(188);
         claveDesplazamientoNumero.setText(String.valueOf(clave));
-        muestraDesplazamientoA.setText(ShiftCipher.encryptMod189(
-                muestraDesplazamientoDe.getText(), clave));
+        muestraDesplazamientoA.setText(shiftChiper.encode(
+                muestraDesplazamientoDe.getText(), clave, null));
 
         int decodeNumber[] = {clave};
         String decode = Code.decodeMod189(decodeNumber);

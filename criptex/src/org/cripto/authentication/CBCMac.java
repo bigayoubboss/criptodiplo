@@ -11,7 +11,7 @@
 
 package org.cripto.authentication;
 
-import org.cripto.systems.block.AESCipher;
+import org.cripto.cipher.block.AESCipher;
 
 /**
  *
