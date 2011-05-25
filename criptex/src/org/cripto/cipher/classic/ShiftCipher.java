@@ -19,10 +19,18 @@ import org.cripto.utils.Code;
  */
 public class ShiftCipher implements Cipher {
 
-    public String encode(Object objectPlainText, Object objectKey, Object[] params) {
+    /**
+     * Returns the encoded plain text shifted <i>n</i> positions 
+     * to the right according to the 189 alphabet
+     * @param oPlainText the plain Text string
+     * @param oKey the key represented by a value between 0 to 189 integer
+     * @param params  must be null
+     * @return the encode plain text
+     */
+    public String encode(Object oPlainText, Object oKey, Object[] params) {
 
-        int key = (int) objectKey;
-        String plainText = (String) objectPlainText;
+        int key = (int) oKey;
+        String plainText = (String) oPlainText;
 
         int[] encodedPlainText = Code.encodeMod189(plainText);
 
@@ -34,9 +42,16 @@ public class ShiftCipher implements Cipher {
         return Code.decodeMod189(encodedPlainText);
     }
 
-    public String decode(String cipherText, Object objectKey) {
+    /**
+     * Return the decoded cipher text previously shifted <i>n</i> positions 
+     * to the right according to the 189 alphabet using Shift Cipher
+     * @param cipherText the cipher text string
+     * @param oKey the key represented by a value between 0 to 189 integer
+     * @return the decoded cipher text
+     */
+    public String decode(String cipherText, Object oKey) {
 
-        int key = (int) objectKey;
+        int key = (int) oKey;
         int[] encodedCipherText = Code.encodeMod189(cipherText);
 
         for (int j = 0; j < encodedCipherText.length; j++) {
@@ -53,28 +68,19 @@ public class ShiftCipher implements Cipher {
     }
 
     /**
-     * Returns an array of possible plain texts by decrypting Shift Cipher module 189
-     *
-     * @param  cipherText the text to decrypt
-     * @return array of possible decrypted texts
+     * Return the 189 posibilities for a encoded text  previously ciphered using
+     * Shift Cipher the cipher text string
+     * @param cipherText
+     * @return the array with 189 decoded posibilities
      */
-    public  String[] cryptoAnalysis(String cipherText) {
-        //encodeMod26 cipherText
-        int[] encodedCipherText = Code.encodeMod189(cipherText);
-        //create the string array to store the possible decrypted texts
+    public String[] bruteForce(String cipherText) {
+
         String[] possibilities = new String[189];
 
-        //calculate the string for each possible shift
         for (int i = 0; i < 189; i++) {
-            int[] temporalEncodedCipherText = new int[encodedCipherText.length];
-            for (int j = 0; j < encodedCipherText.length; j++) {
-                temporalEncodedCipherText[j] = encodedCipherText[j] - i;
-                if (temporalEncodedCipherText[j] < 0) {
-                    temporalEncodedCipherText[j] += 189;
-                }
-            }
-            possibilities[i] = Code.decodeMod189(temporalEncodedCipherText);
+            possibilities[i] = this.decode(cipherText, i);
         }
+
         return possibilities;
     }
 }

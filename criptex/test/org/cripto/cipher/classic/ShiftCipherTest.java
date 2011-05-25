@@ -60,14 +60,14 @@ public class ShiftCipherTest {
     }
 
     @Test
-    public void testCryptoAnalysisMod189() {
+    public void testBruteForce() {
 
-        System.out.println("Shift Cipher Analysis");
+        System.out.println("Shift Brute Force");
 
         String cipherText = "bp¤twwxpp¡l¡xtoytrs¡,";
         String expResult = "Wewillmeetatmidnight!";
 
-        String[] result = cipher.cryptoAnalysis(cipherText);
+        String[] result = cipher.bruteForce(cipherText);
         
          assertEquals(expResult, result[11]);
 

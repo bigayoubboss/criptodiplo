@@ -5268,7 +5268,7 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonEncriptarActionPerformed
 
     private void fuerzaBrutaDesplazamiento(String textoCifrado) {
-        String[] posibilidades = shiftChiper.cryptoAnalysis(textoCifrado);
+        String[] posibilidades = shiftChiper.bruteForce(textoCifrado);
         String textoPlano = "";
         for (int pos = 0; pos < posibilidades.length; pos++) {
             int[] decode = {pos};
