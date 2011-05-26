@@ -10,45 +10,44 @@
  */
 package org.cripto.cipher.classic;
 
+import org.cripto.cipher.Cipher;
 import org.cripto.utils.Code;
 
 /**
  *
  * @author damontanofe,lvmorenoc,carodriguezb
  */
-public class SubstitutionCipher {
+public class SubstitutionCipher implements Cipher {
 
-    /**
-     * Returns an alphabetic ciphertext using Substitution Cipher.
-     *
-     * @param  plainText the text to encrypt
-     * @param  newAlphabet the traditional alphabet new values
-     * @return the cipher text string
-     */
-    public static String encrypt(String plainText, String newAlphabet) {
-        // System.out.println("SubstitutionCipher running...");
+    public String encode(Object plainText, Object key, Object[] params) {
 
-        // Algorithm
-        // encodeMod26 plainText
-        int[] encodedPlainText = Code.encodeMod26(plainText);
-        int[] encodedNewAlphabet = Code.encodeMod26(newAlphabet);
+        int[] encodedPlainText = Code.encodeMod26(String.valueOf(plainText));
+        int[] encodedNewAlphabet = Code.encodeMod26(String.valueOf(key));
+        int[] encodedCipherText = new int[encodedPlainText.length];
 
-        // find the value of each plainText letter on the newAlphabet
-        for (int i = 0; i < plainText.length(); i++) {
-            encodedPlainText[i] = encodedNewAlphabet[encodedPlainText[i]];
+        for (int i = 0; i < String.valueOf(plainText).length(); i++) {
+            encodedCipherText[i] = encodedNewAlphabet[encodedPlainText[i]];
         }
-        // decodeMod26 encodedPlainText
-        String secret = Code.decodeMod26(encodedPlainText);
+
+        String secret = Code.decodeMod26(encodedCipherText);
         secret = secret.toUpperCase();
-        // return secret
+
         return secret;
     }
 
-    /**
-     * 
-     */
-    public static void cryptoAnalysis(String cipherText) {
+    public String decode(String cipherText, Object key) {
+
+        int[] encodedCipherText = Code.encodeMod26(String.valueOf(cipherText));
+        String newAlphabet = String.valueOf(key);
+        int[] encodedPlainText = new int[encodedCipherText.length];
+
+        for (int i = 0; i < String.valueOf(cipherText).length(); i++) {
+            encodedPlainText[i] = newAlphabet.indexOf(cipherText.charAt(i));
+        }
+
+        String plainText = Code.decodeMod26(encodedPlainText);
+        plainText = plainText.toLowerCase();
+
+        return plainText;
     }
 }
-
-

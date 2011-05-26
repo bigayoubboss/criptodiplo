@@ -40,11 +40,11 @@ public class ShiftCipherTest {
         String expResult = "bp¤twwxpp¡l¡xtoytrs¡,";
 
         String result = cipher.encode(plainText, key, null);
-        
+
         assertEquals(expResult, result);
-        
+
     }
-    
+
     @Test
     public void testDecode() {
 
@@ -68,8 +68,8 @@ public class ShiftCipherTest {
         String expResult = "Wewillmeetatmidnight!";
 
         String[] result = cipher.bruteForce(cipherText);
-        
-         assertEquals(expResult, result[11]);
+
+        assertEquals(expResult, result[11]);
 
     }
 }

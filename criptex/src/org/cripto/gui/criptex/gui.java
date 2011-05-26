@@ -84,6 +84,7 @@ public class gui extends javax.swing.JFrame {
     private final boolean RSAVisible = true;
     private final boolean optimizacionRSAVisible = true;
     private ShiftCipher shiftChiper;
+    private SubstitutionCipher substitutionCipher;
 
     public void iniciarArregloSustitucion() {
         arregloSustitucion = new javax.swing.JTextField[]{claveSustitucionA,
@@ -283,8 +284,9 @@ public class gui extends javax.swing.JFrame {
             tipoClaveRSApq.setFont(tahoma11);
             textoClaveRSAq.setFont(tahoma11);
             tipoOptimizacionRSA.setFont(tahoma11);
-            
+
             shiftChiper = new ShiftCipher();
+            substitutionCipher = new SubstitutionCipher();
 
         } catch (FontFormatException ex) {
             Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
@@ -4643,14 +4645,14 @@ public class gui extends javax.swing.JFrame {
         if (claveSustitucion.getText().isEmpty()) {
             botonClaveSustitucionActionPerformed(null);
             String clave = claveSustitucion.getText();
-            String textoCifrado = SubstitutionCipher.encrypt(textoPlano, clave);
+            String textoCifrado = substitutionCipher.encode(textoPlano, clave, null);
             cajaTextoCifrado.setText(textoCifrado);
             cajaTextoPlano.setText(textoPlano);
         } else {
             if (claveSustitucion.getText().length() == 26) {
                 String clave = claveSustitucion.getText();
-                String textoCifrado = SubstitutionCipher.encrypt(textoPlano,
-                        clave);
+                String textoCifrado = substitutionCipher.encode(textoPlano,
+                        clave, null);
                 cajaTextoCifrado.setText(textoCifrado);
                 cajaTextoPlano.setText(textoPlano);
             } else {
