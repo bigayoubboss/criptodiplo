@@ -1,32 +1,32 @@
 #formLogin label {
-	width: 180px;
+    width: 180px;
 }
 
 #formLogin input[type="text"],#formLogin input[type="password"],#formNuevoUsuario input[type="text"],#formNuevoUsuario input[type="password"]
-	{
-	width: 30%;
+{
+    width: 30%;
 }
 
 #herramientasDisponibles label,#formNuevoUsuario label,#actividadFormularioCompletar label
-	{
-	width: 170px;
+{
+    width: 170px;
 }
 
 #agregarRecurso label {
-	width: 210px;
+    width: 210px;
 }
 
 #agregarTexto label {
-	width: 120px;
+    width: 120px;
 }
 
 #agregarTexto textarea {
-	height: 100px;
-	width: 370px;
-	word-wrap: break-word;
+    height: 100px;
+    width: 370px;
+    word-wrap: break-word;
 }
 
 #cambiarEstadoActividad label,#cambiarEstadoSeccion label,#verTexto label,#cambiarTexto label,#agregarTexto select,#cambiarEstadoActividad select,#cambiarEstadoSeccion select,#cambiarEstadoUsuario label,#cambiarRolUsuario label
-	{
-	width: 160px;
+{
+    width: 160px;
 }
