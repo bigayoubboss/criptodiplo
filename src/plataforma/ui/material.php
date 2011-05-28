@@ -70,7 +70,10 @@ function imprimirRecursos($id_metodo) {
     $db = new DB();
     $db->conectar();
 
-    $consulta = "SELECT * FROM recursos WHERE id_metodo = " . DB::limpiarSQL($id_metodo);
+    $consulta = "SELECT * 
+        FROM recursos 
+        WHERE id_metodo = " . DB::limpiarSQL($id_metodo) .
+            " AND habilitado = 1";
     $recursos = $db->consulta($consulta);
 
     if (!$recursos) {
