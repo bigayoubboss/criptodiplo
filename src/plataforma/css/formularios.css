@@ -2,12 +2,17 @@
     width: 180px;
 }
 
-#formLogin input[type="text"],#formLogin input[type="password"],#formNuevoUsuario input[type="text"],#formNuevoUsuario input[type="password"]
+#formLogin input[type="text"],
+#formLogin input[type="password"],
+#formNuevoUsuario input[type="text"],
+#formNuevoUsuario input[type="password"]
 {
     width: 30%;
 }
 
-#herramientasDisponibles label,#formNuevoUsuario label,#actividadFormularioCompletar label
+#herramientasDisponibles label,
+#formNuevoUsuario label,
+#actividadFormularioCompletar label
 {
     width: 170px;
 }
@@ -26,7 +31,16 @@
     word-wrap: break-word;
 }
 
-#cambiarEstadoActividad label,#cambiarEstadoSeccion label,#verTexto label,#cambiarTexto label,#agregarTexto select,#cambiarEstadoActividad select,#cambiarEstadoSeccion select,#cambiarEstadoUsuario label,#cambiarRolUsuario label
+#cambiarEstadoActividad label,
+#cambiarEstadoSeccion label,
+#verTexto label,
+#cambiarTexto label,
+#agregarTexto select,
+#cambiarEstadoActividad select,
+#cambiarEstadoSeccion select,
+#cambiarEstadoUsuario label,
+#cambiarRolUsuario label,
+#cambiarEstadoRecurso label
 {
     width: 160px;
 }

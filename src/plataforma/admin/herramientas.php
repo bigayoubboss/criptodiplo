@@ -52,6 +52,11 @@ function cargarHerramienta($herramienta) {
                 formularioAgregarRecurso();
                 break;
             }
+        case 'cambiarEstadoRecurso': {
+                require_once '../admin/cambiarEstadoRecurso.php';
+                formularioCambiarEstadoRecurso();
+                break;
+            }
         case 'cambiarEstadoUsuario': {
                 require_once '../admin/cambiarEstadoUsuario.php';
                 formularioCambiarEstadoUsuario();
