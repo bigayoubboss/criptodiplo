@@ -40,16 +40,16 @@ Login::redireccionarUsuarios(Login::existeUsuarioActivo(), 0);
                 <div class="caja">
 
                     <?php
-require_once '../uicontrolador/Descarga.php';
-$recurso = descargarArchivo();
-if ($recurso->id_recursos) {
-	redireccionarDescarga($recurso);
-} else {
-	echo '<h2 id="descargaNo">Recurso no disponible</h2>';
-	echo '<p>Informaci&oacute;n del recurso: no disponible</p><br />';
-	echo $recurso;
-}
-?>
+                    require_once '../uicontrolador/Descarga.php';
+                    $recurso = descargarArchivo();
+                    if ($recurso->id_recursos) {
+                        redireccionarDescarga($recurso);
+                    } else {
+                        echo '<h2 id="descargaNo">Recurso no disponible</h2>';
+                        echo '<p>Informaci&oacute;n del recurso: no disponible</p><br />';
+                        echo $recurso;
+                    }
+                    ?>
                 </div>
             </div>
         </div>

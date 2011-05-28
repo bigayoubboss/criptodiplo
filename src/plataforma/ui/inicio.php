@@ -4,16 +4,16 @@ require_once '../uicontrolador/Inicio.php';
 
 $usuarioActivo = Login::redireccionarUsuarios(Login::existeUsuarioActivo(), 0);
 if ($usuarioActivo) {
-	require_once '../clases/Perfil.php';
-	if (!isset($_SESSION)) {
-		session_start();
-	}
+    require_once '../clases/Perfil.php';
+    if (!isset($_SESSION)) {
+        session_start();
+    }
 
-	$perfil = new Perfil($_SESSION['idUsuario']);
-	$perfil->cargarPerfil();
+    $perfil = new Perfil($_SESSION['idUsuario']);
+    $perfil->cargarPerfil();
 
-	$actividades = $perfil->getActividades();
-	$usuario = $perfil->getUsuario();
+    $actividades = $perfil->getActividades();
+    $usuario = $perfil->getUsuario();
 }
 ?>
 
@@ -52,30 +52,30 @@ if ($usuarioActivo) {
 
                 <div id="listaActividades"  class="caja">
 
-                    <h2 id="actividades">Lista de actividades</h2>
+                    <h2 id="actividades">Mi lista de actividades</h2>
 
                     <table id="tablaActividades">
                         <thead>
-                        	<tr>
-	                            <th>#</th>
-	                            <th>Actividad</th>
-	                            <th>Estado</th>
-	                            <th>Fecha inicio</th>
-	                            <th>Fecha fin</th>
-	                            <th>Entrar</th>
+                            <tr>
+                                <th>#</th>
+                                <th>Actividad</th>
+                                <th>Estado</th>
+                                <th>Fecha inicio</th>
+                                <th>Fecha fin</th>
+                                <th>Entrar</th>
                             </tr>
                         </thead>
                         <tbody>
-<?php
-if ($usuarioActivo) {
-	imprimirListaActividades($actividades);
-}
-?>
+                            <?php
+                            if ($usuarioActivo) {
+                                imprimirListaActividades($actividades);
+                            }
+                            ?>
                         </tbody>
                         <tfoot>
-                        	<tr>
-	                            <td colspan="3"><strong>Terminadas: </strong><?php echo $perfil->getActividadesTerminadas()." de ".$perfil->getNumeroActividades(); ?>  </td>
-	                            <td colspan="3"><strong>Tiempo: </strong><?php echo $perfil->getTiempoTotal(); ?></td>
+                            <tr>
+                                <td colspan="3"><strong>Terminadas: </strong><?php echo $perfil->getActividadesTerminadas() . " de " . $perfil->getNumeroActividades(); ?>  </td>
+                                <td colspan="3"><strong>Tiempo: </strong><?php echo $perfil->getTiempoTotal(); ?></td>
                             </tr>
                         </tfoot>
                     </table>
@@ -89,9 +89,9 @@ if ($usuarioActivo) {
 
                 <div id="informacionDeUsuario"  class="caja">
 
-                    <h2 id="usuarioPerfil">Informaci&oacute;n de usuario</h2>
+                    <h2 id="usuarioPerfil">Mi informaci&oacute;n de usuario</h2>
                     <p>
-                        <img src="../css/imagenes/usuarioActivo.png" alt="usuario" /><strong>Nombres y apellidos: </strong><?php echo $usuario->getNombres()." ".$usuario->getApellidos(); ?>
+                        <img src="../css/imagenes/usuarioActivo.png" alt="usuario" /><strong>Nombres y apellidos: </strong><?php echo $usuario->getNombres() . " " . $usuario->getApellidos(); ?>
                     </p>
                     <p>
                         <img src="../css/imagenes/usuario.png" alt="usuario" /><strong>Nombre de usuario: </strong><?php echo $usuario->getUsuario(); ?>
@@ -105,9 +105,9 @@ if ($usuarioActivo) {
                 </div>
 
                 <div id="contactoDudas"  class="caja">
-                    <h2 id="ayuda">Ayuda</h2>
+                    <h2 id="ayuda">Dudas o ayuda</h2>
                     <ul>
-<?php imprimirListaAdministradores(); ?>
+                        <?php imprimirListaAdministradores(); ?>
                     </ul>
                     <br />
 

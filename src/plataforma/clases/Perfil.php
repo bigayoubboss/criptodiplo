@@ -36,7 +36,7 @@ class Perfil {
 		$db = new DB();
 		$db->conectar();
 
-		$consulta = "SELECT id_actividad FROM actividades ORDER BY id_actividad ASC";
+		$consulta = "SELECT id_actividad FROM actividades WHERE visible = true ORDER BY id_actividad ASC";
 		$actividadesDisponiblesSQL = $db->consulta($consulta);
 		$actividades = array();
 		while ($actividadDisponible = mysql_fetch_object($actividadesDisponiblesSQL)) {

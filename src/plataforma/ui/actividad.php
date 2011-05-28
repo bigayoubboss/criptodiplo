@@ -3,9 +3,9 @@ require_once '../clases/Login.php';
 
 $usuarioActivo = Login::redireccionarUsuarios(Login::existeUsuarioActivo(), 0);
 if ($usuarioActivo) {
-	require_once '../uicontrolador/Actividad.php';
-	$actividad->cargarRecursos();
-	$recursos = $actividad->getRecursos();
+    require_once '../uicontrolador/Actividad.php';
+    $actividad->cargarRecursos();
+    $recursos = $actividad->getRecursos();
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -69,29 +69,30 @@ if ($usuarioActivo) {
                     <div id="actividadInformacionAdicional" class="caja">
                         <h2 id="informacionAdicionalT">Informaci&oacute;n adicional</h2>
                         <ul>
-                        <?php imprimirInformacionAdicional($actividad, $texto); ?>
-                    </ul>
-                </div><?php } ?>
+                            <?php imprimirInformacionAdicional($actividad, $texto); ?>
+                        </ul>
+                    </div><?php } ?>
 
                 <?php if ($actividad->getEstado() == 2) { ?>
-                        <form action="#" method="post" id="actividadFormularioCompletar">
-                            <h2 id="completarActividadT">Completar actividad</h2>
+                    <form action="#" method="post" id="actividadFormularioCompletar">
+                        <h2 id="completarActividadT">Completar actividad</h2>
 
 
-                            <p>
-                                <label>Respuesta:</label>
-                                <input type="text" name="clave" id="clave" />
-                                <input type="hidden" name="idActividad" value="<?php echo $actividad->getIdActividad(); ?>" id="idActividad"/>
-                            </p>
-                            <p>
-                                <label></label>
-                                <input type="submit" value="Completar" />
-                            </p>
-                            <div id="respuestaCompletar"></div>
-                            <div>
-                            <span class="informacion"><?php if ($actividad->getFormaRespuesta() != '')
-		echo $actividad->getFormaRespuesta();
-?></span></div>
+                        <p>
+                            <label>Respuesta:</label>
+                            <input type="text" name="clave" id="clave" />
+                            <input type="hidden" name="idActividad" value="<?php echo $actividad->getIdActividad(); ?>" id="idActividad"/>
+                        </p>
+                        <p>
+                            <label></label>
+                            <input type="submit" value="Completar" />
+                        </p>
+                        <div id="respuestaCompletar"></div>
+                        <div>
+                            <span class="informacion"><?php
+                if ($actividad->getFormaRespuesta() != '')
+                    echo $actividad->getFormaRespuesta();
+                    ?></span></div>
                     <?php } ?>
                 </form>
 
@@ -111,11 +112,11 @@ if ($usuarioActivo) {
                         <li><strong>Fecha de inicio: </strong><?php echo $actividad->getFechaInicio(); ?></li>
                         <li><strong>Fecha de finalización: </strong>
                             <?php
-if ($actividad->getFechaFin() == '--')
-	echo 'Esta actividad se encuentra aún sin terminar';
-else
-	echo $actividad->getFechaFin();
-?>
+                            if ($actividad->getFechaFin() == '--')
+                                echo 'Esta actividad se encuentra aún sin terminar';
+                            else
+                                echo $actividad->getFechaFin();
+                            ?>
                         </li>
                         <li><strong>Intentos realizados: </strong><?php echo $actividad->getIntentos(); ?></li>
                     </ul>
@@ -136,16 +137,16 @@ else
 <?php
 
 function imprimirRecursos($recursos, $id_actividad) {
-	if (sizeof($recursos) == 0) {
-		echo "<li>No hay recursos asociados a esta actividad</li>";
-	} else {
-		foreach ($recursos as $recurso) {
-			echo "<li><a href='../ui/descarga.php?recurso=".$recurso->id_recursos."&actividad=".$id_actividad."'>".html_entity_decode($recurso->nombres_mostrar, ENT_COMPAT, 'UTF-8')."</a></li>";
-		}
-	}
+    if (sizeof($recursos) == 0) {
+        echo "<li>No hay recursos asociados a esta actividad</li>";
+    } else {
+        foreach ($recursos as $recurso) {
+            echo "<li><a href='../ui/descarga.php?recurso=" . $recurso->id_recursos . "&actividad=" . $id_actividad . "'>" . html_entity_decode($recurso->nombres_mostrar, ENT_COMPAT, 'UTF-8') . "</a></li>";
+        }
+    }
 }
 
 function imprimirInformacionAdicional($actividad, $texto) {
-	require_once '../uicontrolador/ActividadInformacionAdicional.php';
+    require_once '../uicontrolador/ActividadInformacionAdicional.php';
 }
 ?>
