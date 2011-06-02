@@ -44,6 +44,7 @@ function cargarActividades() {
 
     $consulta = "SELECT id_actividad,nombre,IF(habilitada = 1, '[H]','[D]') as habilitada
                 FROM actividades
+                WHERE visible = 1
                 ORDER BY id_actividad";
 
     $actividadSQL = $db->consulta($consulta);
