@@ -268,7 +268,10 @@ class Actividad {
 
         $recursos = Array();
 
-        $consulta = "SELECT nombres_mostrar,id_recursos FROM recursos WHERE id_metodo=" . DB::limpiarSQL($this->id_metodo);
+        $consulta = "SELECT nombres_mostrar,id_recursos 
+            FROM recursos 
+            WHERE id_metodo=" . DB::limpiarSQL($this->id_metodo) . "
+                    AND habilitado = 1";
         $recursosSQL = $db->consulta($consulta);
         $indice = 0;
         while ($recurso = mysql_fetch_object($recursosSQL)) {
