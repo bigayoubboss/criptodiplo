@@ -59,6 +59,8 @@ if (isset($_POST['op'])) {
                     }
 
                     $actividad->registrarIntentoActividad();
+                    
+                    $clave = DB::limpiarSQL($clave);
 
                     if ($clave == $claveValida) {
                         $actividad->terminarActividad();
