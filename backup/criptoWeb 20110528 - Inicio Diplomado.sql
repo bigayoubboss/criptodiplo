@@ -21,10 +21,6 @@
 CREATE DATABASE IF NOT EXISTS criptografia;
 USE criptografia;
 
---
--- Definition of table `criptografia`.`actividades`
---
-
 DROP TABLE IF EXISTS `criptografia`.`actividades`;
 CREATE TABLE  `criptografia`.`actividades` (
   `id_actividad` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -40,13 +36,6 @@ CREATE TABLE  `criptografia`.`actividades` (
   KEY `FK_actividades_metodo` (`id_metodo`),
   CONSTRAINT `FK_actividades_metodo` FOREIGN KEY (`id_metodo`) REFERENCES `metodos` (`id_metodo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `criptografia`.`actividades`
---
-
-/*!40000 ALTER TABLE `actividades` DISABLE KEYS */;
-LOCK TABLES `actividades` WRITE;
 INSERT INTO `criptografia`.`actividades` VALUES  (1,0,'Desplazamiento I',1,'Objetivo: Atacar &lt;br /&gt; &lt;br /&gt;  Ingrese la clave con la cual el alfabeto fue desplazado. ',3,1,0,0),
  (2,0,'Desplazamiento II',1,'Objetivo: Atacar &lt;br /&gt; &lt;br /&gt;  Ingrese la clave con la cual el alfabeto fue desplazado. ',3,1,0,0),
  (3,0,'Sustituci&oacute;n',2,'Objetivo: Atacar &lt;br /&gt; &lt;br /&gt;  Ingrese el alfabeto sin separadores entre caracteres y todo en may&amp;uacute;scula. Por ejemplo: ABCDEFGHIJKLMNOPQRSTUVWXYZ',3,1,0,0),
@@ -54,20 +43,13 @@ INSERT INTO `criptografia`.`actividades` VALUES  (1,0,'Desplazamiento I',1,'Obje
  (5,0,'Vigenere',4,'Objetivo: Atacar &lt;br /&gt; &lt;br /&gt;  Ingrese las 8 letras de la palabra clave en may&amp;uacute;scula. Por ejemplo: ABCDEFGH',3,1,0,0),
  (6,0,'Hill',5,'Objetivo: Atacar &lt;br /&gt; &lt;br /&gt;   S&iacute; la matriz clave es la matriz A (en rojo), ingr&eacute;sela como se muestra en el recuadro azul de la imagen. Separando las filas con punto y coma y los elementos de la fila con coma.&lt;br/&gt; &lt;p class=&quot;centrado&quot;&gt;&lt;img src=&quot;../css/imagenes/hillEjemplo.png&quot; alt=&quot;Ejemplo Clave Hill&quot;&gt;&lt;/p&gt;',3,1,0,0),
  (7,0,'Permutaci&oacute;n',6,'Objetivo: Descifrar &lt;br /&gt; &lt;br /&gt; Ingrese el texto plano en min&amp;uacute;scula y sin espacios y pulse el bot&amp;oacute;n Completar',2,1,1,0),
- (9,0,'DES-Simplificado',7,'Objetivo: Atacar-Descifrar &lt;br /&gt; &lt;br /&gt;  Ingrese los 10 bits de la clave y el texto plano separados una coma. Por ejemplo 1010101010,PlAnO',4,1,0,0),
- (10,0,'Triple DES-Simplificado',8,'Objetivo: Descifrar &lt;br /&gt; &lt;br /&gt; Ingrese el texto plano. Por ejemplo: CrYpT',2,1,1,0),
- (11,0,'DES',9,'Objetivo: Descifrar &lt;br /&gt; &lt;br /&gt; Ingrese el texto plano. Por ejemplo: CrYpToS1',2,1,1,0),
- (12,0,'Triple DES',10,'Objetivo: Descifrar &lt;br /&gt; &lt;br /&gt; Ingrese el texto plano. Por ejemplo: CrYpToS1',2,1,1,0),
- (13,0,'AES',11,'Objetivo: Cifrar &lt;br /&gt; &lt;br /&gt; Ingrese el texto cifrado, tambi&eacute;n <strong>debe diligenciar el formato AES  y enviarlo por correo\r\n            electr&oacute;nico </strong>a los monitores del curso.',1,0,1,0),
+ (9,1,'DES-Simplificado',7,'Objetivo: Atacar-Descifrar &lt;br /&gt; &lt;br /&gt;  Ingrese los 10 bits de la clave y el texto plano separados una coma. Por ejemplo 1010101010,PlAnO',4,1,0,1),
+ (10,1,'Triple DES-Simplificado',8,'Objetivo: Descifrar &lt;br /&gt; &lt;br /&gt; Ingrese el texto plano. Por ejemplo: CrYpT',2,1,1,1),
+ (11,1,'DES',9,'Objetivo: Descifrar &lt;br /&gt; &lt;br /&gt; Ingrese el texto plano. Por ejemplo: CrYpToS1',2,1,1,1),
+ (12,1,'Triple DES',10,'Objetivo: Descifrar &lt;br /&gt; &lt;br /&gt; Ingrese el texto plano. Por ejemplo: CrYpToS1',2,1,1,1),
+ (13,1,'AES',11,'Objetivo: Cifrar &lt;br /&gt; &lt;br /&gt; Ingrese el texto cifrado, tambi&eacute;n <strong>debe diligenciar el formato AES  y enviarlo por correo\r\n            electr&oacute;nico </strong>a los monitores del curso.',1,0,1,1),
  (14,1,'RSA',12,'Objetivo: Atacar-Descifrar &lt;br /&gt; &lt;br /&gt; Ingrese el texto plano. Por ejemplo: ThisIsCryptography',2,1,0,1),
  (15,1,'El Gamal',13,'Objetivo: Descifrar &lt;br /&gt; &lt;br /&gt; Ingrese el texto plano. Por ejemplo: ThisIsCryptography',2,1,0,1);
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `actividades` ENABLE KEYS */;
-
-
---
--- Definition of table `criptografia`.`actividades_por_usuario`
---
 
 DROP TABLE IF EXISTS `criptografia`.`actividades_por_usuario`;
 CREATE TABLE  `criptografia`.`actividades_por_usuario` (
@@ -89,20 +71,6 @@ CREATE TABLE  `criptografia`.`actividades_por_usuario` (
   CONSTRAINT `fk_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `criptografia`.`actividades_por_usuario`
---
-
-/*!40000 ALTER TABLE `actividades_por_usuario` DISABLE KEYS */;
-LOCK TABLES `actividades_por_usuario` WRITE;
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `actividades_por_usuario` ENABLE KEYS */;
-
-
---
--- Definition of table `criptografia`.`idiomas`
---
-
 DROP TABLE IF EXISTS `criptografia`.`idiomas`;
 CREATE TABLE  `criptografia`.`idiomas` (
   `id_idioma` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -110,25 +78,11 @@ CREATE TABLE  `criptografia`.`idiomas` (
   PRIMARY KEY (`id_idioma`),
   UNIQUE KEY `UNIQUE_idioma` (`idioma`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `criptografia`.`idiomas`
---
-
-/*!40000 ALTER TABLE `idiomas` DISABLE KEYS */;
-LOCK TABLES `idiomas` WRITE;
 INSERT INTO `criptografia`.`idiomas` VALUES  (3,'Alem&aacute;n'),
  (1,'Espa&ntilde;ol'),
  (5,'Franc&eacute;s'),
  (2,'Ingl&eacute;s'),
  (4,'Portugu&eacute;s');
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `idiomas` ENABLE KEYS */;
-
-
---
--- Definition of table `criptografia`.`login`
---
 
 DROP TABLE IF EXISTS `criptografia`.`login`;
 CREATE TABLE  `criptografia`.`login` (
@@ -143,20 +97,6 @@ CREATE TABLE  `criptografia`.`login` (
   CONSTRAINT `FK_login_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `criptografia`.`login`
---
-
-/*!40000 ALTER TABLE `login` DISABLE KEYS */;
-LOCK TABLES `login` WRITE;
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `login` ENABLE KEYS */;
-
-
---
--- Definition of table `criptografia`.`metodos`
---
-
 DROP TABLE IF EXISTS `criptografia`.`metodos`;
 CREATE TABLE  `criptografia`.`metodos` (
   `id_metodo` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -165,13 +105,6 @@ CREATE TABLE  `criptografia`.`metodos` (
   PRIMARY KEY (`id_metodo`),
   UNIQUE KEY `UNIQUE_metodo` (`metodo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `criptografia`.`metodos`
---
-
-/*!40000 ALTER TABLE `metodos` DISABLE KEYS */;
-LOCK TABLES `metodos` WRITE;
 INSERT INTO `criptografia`.`metodos` VALUES  (1,'Desplazamiento',0),
  (2,'Sustituci&oacute;n',1),
  (3,'Affine',0),
@@ -185,13 +118,6 @@ INSERT INTO `criptografia`.`metodos` VALUES  (1,'Desplazamiento',0),
  (11,'AES',0),
  (12,'RSA',1),
  (13,'El Gamal',1);
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `metodos` ENABLE KEYS */;
-
-
---
--- Definition of table `criptografia`.`recursos`
---
 
 DROP TABLE IF EXISTS `criptografia`.`recursos`;
 CREATE TABLE  `criptografia`.`recursos` (
@@ -203,20 +129,13 @@ CREATE TABLE  `criptografia`.`recursos` (
   `habilitado` tinyint(1) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_recursos`),
   KEY `FK_actividades_recursos_1` (`id_metodo`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `criptografia`.`recursos`
---
-
-/*!40000 ALTER TABLE `recursos` DISABLE KEYS */;
-LOCK TABLES `recursos` WRITE;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 INSERT INTO `criptografia`.`recursos` VALUES  (1,'Cifrado C&eacute;sar (Wikipedia)','http://es.wikipedia.org/wiki/Cifrado_C%C3%A9sar',1,0,0),
  (2,'ROT13  (Wikipedia)','http://en.wikipedia.org/wiki/ROT13',1,0,0),
  (3,'Cifrado por sustituci&oacute;n  (Wikipedia)','http://en.wikipedia.org/wiki/Substitution_cipher',2,0,0),
  (4,'Alfabeto 189 car&aacute;cteres','../recursos/alfabeto189.pdf',1,0,0),
  (5,'Criptex - M&oacute;dulo sustituci&oacute;n','../recursos/criptex/CriptexM1.exe',2,1,0),
- (6,'Cifradores Cl&aacute;sicos','../recursos/slides/diplomado_01.ppt',1000,0,0),
+ (6,'Cifradores Cl&aacute;sicos','../recursos/slides/diplomado_01.ppt',1000,0,1),
  (7,'Script para ejecutar Criptex sobre Linux','../recursos/ejecutar.sh',2000,0,1),
  (8,'Manual para la ejecuci&oacute;n de Criptex sobre Linux','../recursos/manual_ejecutar.pdf',2000,0,1),
  (9,'D. Stinson, <i>Cryptography: Theory and Practice, (Discrete Mathematics and Its Applications)</i>, Chapman & Hall/CRC, 2005','http://www.amazon.com/Cryptography-Practice-Discrete-Mathematics-Applications/dp/0849385210',3000,0,1),
@@ -228,46 +147,40 @@ INSERT INTO `criptografia`.`recursos` VALUES  (1,'Cifrado C&eacute;sar (Wikipedi
  (15,'Frecuencia caracteres - Franc&eacute;s','../recursos/lista_de_frecuencia_frances.pdf',2,0,0),
  (16,'Frecuencia caracteres - Alem&aacute;n','../recursos/lista_de_frecuencia_aleman.pdf',2,0,0),
  (17,'Frecuencia caracteres - Portugu&eacute;s','../recursos/lista_de_frecuencia_portugues.pdf',2,0,0),
- (18,'El alfabeto de definici&oacute;n - Los conjuntos Zn - Sistema de desplazamiento con MatLab','../recursos/slides/diplomado_02.pdf',1000,0,0),
- (19,'Otros cifradores cl&aacute;sicos - El sistema af&iacute;n en MatLab','../recursos/slides/diplomado_03.pdf',1000,0,0),
+ (18,'El alfabeto de definici&oacute;n - Los conjuntos Zn - Sistema de desplazamiento con MatLab','../recursos/slides/diplomado_02.pdf',1000,0,1),
+ (19,'Otros cifradores cl&aacute;sicos - El sistema af&iacute;n en MatLab','../recursos/slides/diplomado_03.pdf',1000,0,1),
  (20,'Alfabeto 189 caracteres','../recursos/alfabeto189.pdf',2000,0,0),
- (21,'Otros cifradores polialfab&eacute;ticos - El sistema de Hill con MatLab - Ataque al sistema de Hill con MatLab','../recursos/slides/diplomado_04.pdf',1000,0,0),
+ (21,'Otros cifradores polialfab&eacute;ticos - El sistema de Hill con MatLab - Ataque al sistema de Hill con MatLab','../recursos/slides/diplomado_04.pdf',1000,0,1),
  (22,'Actividad de investigaci&oacute;n','../recursos/actividad_investigacion.txt',2000,0,0),
  (23,'Cifrador Affine (Wikipedia)','http://en.wikipedia.org/wiki/Affine_cipher',3,0,0),
  (24,'Breaking an affine cipher ','http://www.math.sunysb.edu/~scott/Book331/Affine_enciphering.html',3,0,0),
  (25,'Breaking a Vigenere Cipher','http://nob.cs.ucdavis.edu/classes/ecs155-2005-04/handouts/vig-sample.pdf',4,0,0),
  (26,'Vigenere Cipher (Wikipedia)','http://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher',4,0,0),
- (28,'Criptoan&aacute;lisis del sistema criptogr&aacute;fio de Vigenere','../recursos/slides/diplomado_05.pdf',1000,0,0),
+ (28,'Criptoan&aacute;lisis del sistema criptogr&aacute;fio de Vigenere','../recursos/slides/diplomado_05.pdf',1000,0,1),
  (29,'Hill Cipher Cryptanalysis','http://practicalcryptography.com/ciphers/hill-cipher/',5,0,0),
  (30,'Hill Cipher','http://www.eg.bucknell.edu/~clg017/Cryptography.html',5,0,0),
  (31,'Hill Cipher (Wikipedia)','http://en.wikipedia.org/wiki/Hill_cipher',5,0,0),
  (32,'Criptex - M&oacute;dulo Hill','../recursos/criptex/CriptexM2.exe',5,1,0),
  (33,'Criptex - M&oacute;dulo Permutaci&oacute;n','../recursos/criptex/CriptexM3.exe',6,1,0),
- (36,'DES Simplificado o S-DES','../recursos/slides/diplomado_07.pdf',1000,0,0),
- (38,'El criptosistema Gamma - Pentagonal - Evaluaci&oacute;n de la seguridad de un Criptosistema y Teor&iacute;a de Shannon - Cifradores en bloque','../recursos/slides/diplomado_06.pdf',1000,0,0),
+ (36,'DES Simplificado o S-DES','../recursos/slides/diplomado_07.pdf',1000,0,1),
+ (38,'El criptosistema Gamma - Pentagonal - Evaluaci&oacute;n de la seguridad de un Criptosistema y Teor&iacute;a de Shannon - Cifradores en bloque','../recursos/slides/diplomado_06.pdf',1000,0,1),
  (39,'Funciones de ayuda para Maple','../recursos/begin_proof.mw',2000,0,1),
- (40,'AES Demo','http://www.cs.bc.edu/~straubin/cs381-05/blockciphers/rijndael_ingles2004.swf',11,0,0),
- (42,'DES (Data Encryption Standard) Itinerario de la clave DES Ejemplo DES Triple DES Modos de operaci&oacute;n DES Crack','../recursos/slides/diplomado_08.pdf',1000,0,0),
+ (40,'AES Demo','http://www.cs.bc.edu/~straubin/cs381-05/blockciphers/rijndael_ingles2004.swf',11,0,1),
+ (42,'DES (Data Encryption Standard) Itinerario de la clave DES Ejemplo DES Triple DES Modos de operaci&oacute;n DES Crack','../recursos/slides/diplomado_08.pdf',1000,0,1),
  (43,'Logo McGraw Hill','../recursos/mgh.ico',2000,0,1),
- (44,'Subkey Generation in SDES','http://nsfsecurity.pr.erau.edu/crypto/keygen.html',7,0,0),
- (45,'SDES Encryption Sample','http://homepage.smc.edu/morgan_david/vpn/assignments/assgt-sdes-encrypt-sample.htm',7,0,0),
- (46,'DES Simplificado','http://tlapixqui.izt.uam.mx/seminario/pdfs/S-DES.pdf',7,0,0),
- (47,'Algoritmo Triple SDES','../recursos/3sdes.png',8,0,0),
- (48,'Algoritmo Triple DES','../recursos/3des.png',10,0,0),
- (49,'Algoritmo DES','../recursos/des.png',9,0,0),
- (50,'DES S Boxes','http://www.gymnase-yverdon.vd.ch/branches/mathematique/cryptographie/textes/s_boxes.htm',9,0,0),
- (51,'Material suplementario DES','http://en.wikipedia.org/wiki/DES_supplementary_material',9,0,0),
- (52,'DES Example','http://www.itl.nist.gov/fipspubs/fip46-2.htm',9,0,0),
- (53,'AES (Advanced Encryption Standard)','../recursos/slides/diplomado_09.pdf',1000,0,0),
+ (44,'Subkey Generation in SDES','http://nsfsecurity.pr.erau.edu/crypto/keygen.html',7,0,1),
+ (45,'SDES Encryption Sample','http://homepage.smc.edu/morgan_david/vpn/assignments/assgt-sdes-encrypt-sample.htm',7,0,1),
+ (46,'DES Simplificado','http://tlapixqui.izt.uam.mx/seminario/pdfs/S-DES.pdf',7,1,1),
+ (47,'Algoritmo Triple SDES','../recursos/3sdes.png',8,0,1),
+ (48,'Algoritmo Triple DES','../recursos/3des.png',10,0,1),
+ (49,'Algoritmo DES','../recursos/des.png',9,0,1),
+ (50,'DES S Boxes','http://www.gymnase-yverdon.vd.ch/branches/mathematique/cryptographie/textes/s_boxes.htm',9,0,1),
+ (51,'Material suplementario DES','http://en.wikipedia.org/wiki/DES_supplementary_material',9,0,1),
+ (52,'DES Example','http://www.itl.nist.gov/fipspubs/fip46-2.htm',9,0,1),
+ (53,'AES (Advanced Encryption Standard)','../recursos/slides/diplomado_09.pdf',1000,0,1),
  (54,'Criptograf&iacute;a de clave p&uacute;blica - Herrramientas matem&aacute;ticas en la Criptograf&iacute;a de clave p&uacute;blica','../recursos/slides/diplomado_10.pdf',1000,0,1),
- (55,'El problema de factorizaci&oacute;n entera - El algoritmo de Solovay-Strassen - El problema RSAP - El criptosistema de Rabin','../recursos/slides/diplomado_11.pdf',1000,0,1);
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `recursos` ENABLE KEYS */;
-
-
---
--- Definition of table `criptografia`.`secciones_habilitadas`
---
+ (55,'El problema de factorizaci&oacute;n entera - El algoritmo de Solovay-Strassen - El problema RSAP - El criptosistema de Rabin','../recursos/slides/diplomado_11.pdf',1000,0,1),
+ (56,'Formato AES','../recursos/FormatoAES.xls',11,0,1);
 
 DROP TABLE IF EXISTS `criptografia`.`secciones_habilitadas`;
 CREATE TABLE  `criptografia`.`secciones_habilitadas` (
@@ -276,22 +189,8 @@ CREATE TABLE  `criptografia`.`secciones_habilitadas` (
   `habilitada` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_seccion_habilitadas`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `criptografia`.`secciones_habilitadas`
---
-
-/*!40000 ALTER TABLE `secciones_habilitadas` DISABLE KEYS */;
-LOCK TABLES `secciones_habilitadas` WRITE;
 INSERT INTO `criptografia`.`secciones_habilitadas` VALUES  (1,'login',0),
  (2,'registro',0);
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `secciones_habilitadas` ENABLE KEYS */;
-
-
---
--- Definition of table `criptografia`.`textos`
---
 
 DROP TABLE IF EXISTS `criptografia`.`textos`;
 CREATE TABLE  `criptografia`.`textos` (
@@ -306,13 +205,6 @@ CREATE TABLE  `criptografia`.`textos` (
   KEY `FK_textos_idioma` (`id_idioma`),
   KEY `FK_textos_metodo` (`id_metodo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=400 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `criptografia`.`textos`
---
-
-/*!40000 ALTER TABLE `textos` DISABLE KEYS */;
-LOCK TABLES `textos` WRITE;
 INSERT INTO `criptografia`.`textos` VALUES  (1,'MANYyearsago,IcontractedanintimacywithaMr.WilliamLegrand.HewasofanancientHuguenotfamily,andhadoncebeenwealthy;butaseriesofmisfortuneshadreducedhimtowant.Toavoidthemortificationconsequentuponhisdisasters,heleftNewOrleans,thecityofhisforefathers,andtookuphisresidenceatSullivan\\\'sIsland,nearCharleston,SouthCarolina.ThisIslandisaverysingularone.Itconsistsoflittleelsethantheseasand,andisaboutthreemileslong.Itsbreadthatnopointexceedsaquarterofamile.Itisseparatedfromthemainlandbyascarcelyperceptiblecreek,oozingitswaythroughawildernessofreedsandslime,afavoriteresortofthemarshhen.','&amp;times;&amp;Euml;&amp;Oslash;&amp;atilde;#&amp;iuml;&amp;euml;&amp;uuml;&amp;yacute;&amp;euml;&amp;ntilde;&amp;ugrave;&amp;para;&amp;Oacute;&amp;iacute;&amp;ugrave;&amp;oslash;&amp;thorn;&amp;uuml;&amp;euml;&amp;iacute;&amp;thorn;&amp;iuml;&amp;icirc;&amp;euml;&amp;oslash;&amp;oacute;&amp;oslash;&amp;thorn;&amp;oacute;&amp;divide;&amp;euml;&amp;iacute;#!&amp;oacute;&amp;thorn;&amp;ograve;&amp;euml;&amp;times;&amp;uuml;&amp;cedil;&amp;aacute;&amp;oacute;&amp;ouml;&amp;ouml;&amp;oacute;&amp;euml;&amp;divide;&amp;Ouml;&amp;iuml;&amp;ntilde;&amp;uuml;&amp;euml;&amp;oslash;&amp;icirc;&amp;cedil;&amp;Ograve;&amp;iuml;!&amp;euml;&amp;yacute;&amp;ugrave;&amp;eth;&amp;euml;&amp;oslash;&amp;euml;&amp;oslash;&amp;iacute;&amp;oacute;&amp;iuml;&amp;oslash;&amp;thorn;&amp;Ograve;&amp;yuml;&amp;ntilde;&amp;yuml;&amp;iuml;&amp;oslash;&amp;ugrave;&amp;thorn;&amp;eth;&amp;euml;&amp;divide;&amp;oacute;&amp;ouml;#&amp;para;&amp;euml;&amp;oslash;&amp;icirc;&amp;ograve;&amp;euml;&amp;icirc;&amp;ugrave;&amp;oslash;&amp;iacute;&amp;iuml;&amp;igrave;&amp;iuml;&amp;iuml;&amp;oslash;!&amp;iuml;&amp;euml;&amp;ouml;&amp;thorn;&amp;ograve;#&amp;Aring;&amp;igrave;&amp;yuml;&amp;thorn;&amp;euml;&amp;yacute;&amp;iuml;&amp;uuml;&amp;oacute;&amp;iuml;&amp;yacute;&amp;ugrave;&amp;eth;&amp;divide;&amp;oacute;&amp;yacute;&amp;eth;&amp;ugrave;&amp;uuml;&amp;thorn;&amp;yuml;&amp;oslash;&amp;iuml;&amp;yacute;&amp;ograve;&amp;euml;&amp;icirc;&amp;uuml;&amp;iuml;&amp;icirc;&amp;yuml;&amp;iacute;&amp;iuml;&amp;icirc;&amp;ograve;&amp;oacute;&amp;divide;&amp;thorn;&amp;ugrave;!&amp;euml;&amp;oslash;&amp;thorn;&amp;cedil;&amp;THORN;&amp;ugrave;&amp;euml; &amp;ugrave;&amp;oacute;&amp;icirc;&amp;thorn;&amp;ograve;&amp;iuml;&amp;divide;&amp;ugrave;&amp;uuml;&amp;thorn;&amp;oacute;&amp;eth;&amp;oacute;&amp;iacute;&amp;euml;&amp;thorn;&amp;oacute;&amp;ugrave;&amp;oslash;&amp;iacute;&amp;ugrave;&amp;oslash;&amp;yacute;&amp;iuml;&amp;ucirc;&amp;yuml;&amp;iuml;&amp;oslash;&amp;thorn;&amp;yuml;&amp;uacute;&amp;ugrave;&amp;oslash;&amp;ograve;&amp;oacute;&amp;yacute;&amp;icirc;&amp;oacute;&amp;yacute;&amp;euml;&amp;yacute;&amp;thorn;&amp;iuml;&amp;uuml;&amp;yacute;&amp;para;&amp;ograve;&amp;iuml;&amp;ouml;&amp;iuml;&amp;eth;&amp;thorn;&amp;Oslash;&amp;iuml;!&amp;Ugrave;&amp;uuml;&amp;ouml;&amp;iuml;&amp;euml;&amp;oslash;&amp;yacute;&amp;para;&amp;thorn;&amp;ograve;&amp;iuml;&amp;iacute;&amp;oacute;&amp;thorn;#&amp;ugrave;&amp;eth;&amp;ograve;&amp;oacute;&amp;yacute;&amp;eth;&amp;ugrave;&amp;uuml;&amp;iuml;&amp;eth;&amp;euml;&amp;thorn;&amp;ograve;&amp;iuml;&amp;uuml;&amp;yacute;&amp;para;&amp;euml;&amp;oslash;&amp;icirc;&amp;thorn;&amp;ugrave;&amp;ugrave;&amp;otilde;&amp;yuml;&amp;uacute;&amp;ograve;&amp;oacute;&amp;yacute;&amp;uuml;&amp;iuml;&amp;yacute;&amp;oacute;&amp;icirc;&amp;iuml;&amp;oslash;&amp;iacute;&amp;iuml;&amp;euml;&amp;thorn;&amp;Yacute;&amp;yuml;&amp;ouml;&amp;ouml;&amp;oacute; &amp;euml;&amp;oslash;&amp;plusmn;&amp;yacute;&amp;Oacute;&amp;yacute;&amp;ouml;&amp;euml;&amp;oslash;&amp;icirc;&amp;para;&amp;oslash;&amp;iuml;&amp;euml;&amp;uuml;&amp;Iacute;&amp;ograve;&amp;euml;&amp;uuml;&amp;ouml;&amp;iuml;&amp;yacute;&amp;thorn;&amp;ugrave;&amp;oslash;&amp;para;&amp;Yacute;&amp;ugrave;&amp;yuml;&amp;thorn;&amp;ograve;&amp;Iacute;&amp;euml;&amp;uuml;&amp;ugrave;&amp;ouml;&amp;oacute;&amp;oslash;&amp;euml;&amp;cedil;&amp;THORN;&amp;ograve;&amp;oacute;&amp;yacute;&amp;Oacute;&amp;yacute;&amp;ouml;&amp;euml;&amp;oslash;&amp;icirc;&amp;oacute;&amp;yacute;&amp;euml; &amp;iuml;&amp;uuml;#&amp;yacute;&amp;oacute;&amp;oslash;&amp;ntilde;&amp;yuml;&amp;ouml;&amp;euml;&amp;uuml;&amp;ugrave;&amp;oslash;&amp;iuml;&amp;cedil;&amp;Oacute;&amp;thorn;&amp;iacute;&amp;ugrave;&amp;oslash;&amp;yacute;&amp;oacute;&amp;yacute;&amp;thorn;&amp;yacute;&amp;ugrave;&amp;eth;&amp;ouml;&amp;oacute;&amp;thorn;&amp;thorn;&amp;ouml;&amp;iuml;&amp;iuml;&amp;ouml;&amp;yacute;&amp;iuml;&amp;thorn;&amp;ograve;&amp;euml;&amp;oslash;&amp;thorn;&amp;ograve;&amp;iuml;&amp;yacute;&amp;iuml;&amp;euml;&amp;yacute;&amp;euml;&amp;oslash;&amp;icirc;&amp;para;&amp;euml;&amp;oslash;&amp;icirc;&amp;oacute;&amp;yacute;&amp;euml;&amp;igrave;&amp;ugrave;&amp;yuml;&amp;thorn;&amp;thorn;&amp;ograve;&amp;uuml;&amp;iuml;&amp;iuml;&amp;divide;&amp;oacute;&amp;ouml;&amp;iuml;&amp;yacute;&amp;ouml;&amp;ugrave;&amp;oslash;&amp;ntilde;&amp;cedil;&amp;Oacute;&amp;thorn;&amp;yacute;&amp;igrave;&amp;uuml;&amp;iuml;&amp;euml;&amp;icirc;&amp;thorn;&amp;ograve;&amp;euml;&amp;thorn;&amp;oslash;&amp;ugrave;&amp;uacute;&amp;ugrave;&amp;oacute;&amp;oslash;&amp;thorn;&amp;iuml;&amp;quot;&amp;iacute;&amp;iuml;&amp;iuml;&amp;icirc;&amp;yacute;&amp;euml;&amp;ucirc;&amp;yuml;&amp;euml;&amp;uuml;&amp;thorn;&amp;iuml;&amp;uuml;&amp;ugrave;&amp;eth;&amp;euml;&amp;divide;&amp;oacute;&amp;ouml;&amp;iuml;&amp;cedil;&amp;Oacute;&amp;thorn;&amp;oacute;&amp;yacute;&amp;yacute;&amp;iuml;&amp;uacute;&amp;euml;&amp;uuml;&amp;euml;&amp;thorn;&amp;iuml;&amp;icirc;&amp;eth;&amp;uuml;&amp;ugrave;&amp;divide;&amp;thorn;&amp;ograve;&amp;iuml;&amp;divide;&amp;euml;&amp;oacute;&amp;oslash;&amp;ouml;&amp;euml;&amp;oslash;&amp;icirc;&amp;igrave;#&amp;euml;&amp;yacute;&amp;iacute;&amp;euml;&amp;uuml;&amp;iacute;&amp;iuml;&amp;ouml;#&amp;uacute;&amp;iuml;&amp;uuml;&amp;iacute;&amp;iuml;&amp;uacute;&amp;thorn;&amp;oacute;&amp;igrave;&amp;ouml;&amp;iuml;&amp;iacute;&amp;uuml;&amp;iuml;&amp;iuml;&amp;otilde;&amp;para;&amp;ugrave;&amp;ugrave;$&amp;oacute;&amp;oslash;&amp;ntilde;&amp;oacute;&amp;thorn;&amp;yacute;!&amp;euml;#&amp;thorn;&amp;ograve;&amp;uuml;&amp;ugrave;&amp;yuml;&amp;ntilde;&amp;ograve;&amp;euml;!&amp;oacute;&amp;ouml;&amp;icirc;&amp;iuml;&amp;uuml;&amp;oslash;&amp;iuml;&amp;yacute;&amp;yacute;&amp;ugrave;&amp;eth;&amp;uuml;&amp;iuml;&amp;iuml;&amp;icirc;&amp;yacute;&amp;euml;&amp;oslash;&amp;icirc;&amp;yacute;&amp;ouml;&amp;oacute;&amp;divide;&amp;iuml;&amp;para;&amp;euml;&amp;eth;&amp;euml; &amp;ugrave;&amp;uuml;&amp;oacute;&amp;thorn;&amp;iuml;&amp;uuml;&amp;iuml;&amp;yacute;&amp;ugrave;&amp;uuml;&amp;thorn;&amp;ugrave;&amp;eth;&amp;thorn;&amp;ograve;&amp;iuml;&amp;divide;&amp;euml;&amp;uuml;&amp;yacute;&amp;ograve;&amp;ograve;&amp;iuml;&amp;oslash;&amp;cedil;',2,1,0,'103'),
  (2,'Thevegetation,asmightbesupposed,isscant,oratleastdwarfish.Notreesofanymagnitudearetobeseen.Nearthewesternextremity,whereFortMoultriestands,andwherearesomemiserableframebuildings,tenanted,duringsummer,bythefugitivesfromCharlestondustandfever,maybefound,indeed,thebristlypalmetto;butthewholeisland,withtheexceptionofthiswesternpoint,andalineofhard,whitebeachontheseacoast,iscoveredwithadenseundergrowthofthesweetmyrtle,somuchprizedbythehorticulturistsofEngland.','CWTeTVTcPcX^]&amp;ucirc;Pb\\\\XVWcQTbd__^bTS&amp;ucirc;XbbRP]c&amp;ucirc;^aPc[TPbcSfPaUXbW&amp;yacute;=^caTTb^UP]h\\\\PV]XcdSTPaTc^QTbTT]&amp;yacute;=TPacWTfTbcTa]TgcaT\\\\Xch&amp;ucirc;fWTaT5^ac&amp;lt;^d[caXTbcP]Sb&amp;ucirc;P]SfWTaTPaTb^\\\\T\\\\XbTaPQ[TUaP\\\\TQdX[SX]Vb&amp;ucirc;cT]P]cTS&amp;ucirc;SdaX]Vbd\\\\\\\\Ta&amp;ucirc;QhcWTUdVXcXeTbUa^\\\\2WPa[Tbc^]SdbcP]SUTeTa&amp;ucirc;\\\\PhQTU^d]S&amp;ucirc;X]STTS&amp;ucirc;cWTQaXbc[h_P[\\\\Tcc^*QdccWTfW^[TXb[P]S&amp;ucirc;fXcWcWTTgRT_cX^]^UcWXbfTbcTa]_^X]c&amp;ucirc;P]SP[X]T^UWPaS&amp;ucirc;fWXcTQTPRW^]cWTbTPR^Pbc&amp;ucirc;XbR^eTaTSfXcWPST]bTd]STaVa^fcW^UcWTbfTTc\\\\hac[T&amp;ucirc;b^\\\\dRW_aXiTSQhcWTW^acXRd[cdaXbcb^U4]V[P]S&amp;yacute;',2,1,0,'172'),
  (3,'Theshrubhereoftenattainstheheightoffifteenortwentyfeet,andformsanalmostimpenetrablecoppice,burtheningtheairwithitsfragrance.Intheinmostrecessesofthiscoppice,notfarfromtheeasternormoreremoteendoftheisland,Legrandhadbuilthimselfasmallhut,whichheoccupiedwhenIfirst,bymereaccident,madehisacquaintance.Thissoonripenedintofriendship-fortherewasmuchinthereclusetoexciteinterestandesteem.Ifoundhimwelleducated,withunusualpowersofmind,butinfectedwithmisanthropy,andsubjecttoperversemoodsofalternateenthusiasmandmelancholy.','.B?MBLO&amp;lt;B?L?I@N?H;NN;CHMNB?B?CABNI@@C@N??HILNQ?HNS@??N&amp;aelig;;H&amp;gt;@ILGM;H;FGIMNCGJ?H?NL;&amp;lt;F?=IJJC=?&amp;aelig;&amp;lt;OLNB?HCHANB?;CLQCNBCNM@L;AL;H=?&amp;egrave;#HNB?CHGIMNL?=?MM?MI@NBCM=IJJC=?&amp;aelig;HIN@;L@LIGNB??;MN?LHILGIL?L?GIN??H&amp;gt;I@NB?CMF;H&amp;gt;&amp;aelig;&amp;amp;?AL;H&amp;gt;B;&amp;gt;&amp;lt;OCFNBCGM?F@;MG;FFBON&amp;aelig;QBC=BB?I==OJC?&amp;gt;QB?H#@CLMN&amp;aelig;&amp;lt;SG?L?;==C&amp;gt;?HN&amp;aelig;G;&amp;gt;?BCM;=KO;CHN;H=?&amp;egrave;.BCMMIIHLCJ?H?&amp;gt;CHNI@LC?H&amp;gt;MBCJ&amp;ccedil;@ILNB?L?Q;MGO=BCHNB?L?=FOM?NI?R=CN?CHN?L?MN;H&amp;gt;?MN??G&amp;egrave;#@IOH&amp;gt;BCGQ?FF?&amp;gt;O=;N?&amp;gt;&amp;aelig;QCNBOHOMO;FJIQ?LMI@GCH&amp;gt;&amp;aelig;&amp;lt;ONCH@?=N?&amp;gt;QCNBGCM;HNBLIJS&amp;aelig;;H&amp;gt;MO&amp;lt;D?=NNIJ?LP?LM?GII&amp;gt;MI@;FN?LH;N??HNBOMC;MG;H&amp;gt;G?F;H=BIFS&amp;egrave;',2,1,0,'151'),
@@ -712,13 +604,6 @@ INSERT INTO `criptografia`.`textos` VALUES  (161,'andthedrinkingwasaccordingtoth
  (397,'findingthatnosatisfactionwastobeobtainedofjupiter','WAARIITITOAITTJDIEAENTFASNGDFAPEBBSFACAATOHNISTNAOUONO',2,6,0,'625314'),
  (398,'thatwilldomusttryitagain','TGSHTILYWOUTATTANRMIDIAL',2,6,0,'421365'),
  (399,'atthisstageofmyreflectionsiendeavoredtoremember','NTNERSFFAROTIMAEAECOEORTBIEHTEDEVEOYDTSMASMLGERI',2,6,0,'421365');
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `textos` ENABLE KEYS */;
-
-
---
--- Definition of table `criptografia`.`usuarios`
---
 
 DROP TABLE IF EXISTS `criptografia`.`usuarios`;
 CREATE TABLE  `criptografia`.`usuarios` (
@@ -734,21 +619,11 @@ CREATE TABLE  `criptografia`.`usuarios` (
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `UNIQUE_User` (`usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `criptografia`.`usuarios`
---
-
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-LOCK TABLES `usuarios` WRITE;
 INSERT INTO `criptografia`.`usuarios` VALUES  (1,'Christian','Rodriguez Bustos','carodriguezb','6542e0cd76fa2569c5d7842cd432b20b058ab34aa231547c4b03d57de241b57f','carodriguezb@unal.edu.co',1,'1291039329',1),
  (2,'Laura','Moreno Cubillos','lvmorenoc','16c96698b4a6c734caddcf546c67ea9021b06d5c6b5724637204c6ba74deded3','lvmorenoc@unal.edu.co',1,'1291039329',0),
  (3,'David Alberto','Monta&ntilde; Fetecua','damontanofe','c88f58200bfe07ae5d40513223d539e9cd9329777b9fcb64952024b908e6dd09','damontanofe@unal.edu.co',1,'1291039329',0),
  (4,'Agust&iacute;n','Moreno Ca&ntilde;adas','amorenoc','e7585e18e20f86a65b344c4d23e70ea187d210e5345ad32d379578a1074f3636','amorenoca@unal.edu.co',1,'1291039329',0),
  (5,'Paola','Palma','nppalmav','65f3c7f28dd38f07eee4c0357d589c5c354112546962b7a7f06aac48d3948dbf','nppalmav@unal.edu.co',1,'1291039329',0);
-UNLOCK TABLES;
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
-
 
 
 
