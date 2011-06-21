@@ -6,9 +6,9 @@ package org.cripto.cipher;
  */
 public interface Cipher {
 
-    String encode(Object plainText, Object key, Object[] params);
+    String encode(Object oPlainText, Object oKey, Object[] params);
 
-    String decode(String cipherText, Object key);
+    String decode(String cipherText, Object oKey);
     
     Object cryptoAnalysis(String cipherText);
 }

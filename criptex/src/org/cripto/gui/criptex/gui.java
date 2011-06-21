@@ -85,6 +85,7 @@ public class gui extends javax.swing.JFrame {
     private final boolean optimizacionRSAVisible = true;
     private ShiftCipher shiftChiper;
     private SubstitutionCipher substitutionCipher;
+    private HillCipher hillCipher;
 
     public void iniciarArregloSustitucion() {
         arregloSustitucion = new javax.swing.JTextField[]{claveSustitucionA,
@@ -172,11 +173,10 @@ public class gui extends javax.swing.JFrame {
                 "/org/cripto/gui/criptex/images/icon.png")).getImage());
         this.iniciarArregloSustitucion();
         ocultarMetodos();
-        String fontFileName = "/org/criptex/resources/fonts/tahoma.ttf";
+        String fontFileName = "/org/cripto/gui/criptex//fonts/tahoma.ttf";
         InputStream is = this.getClass().getResourceAsStream(fontFileName);
         try {
-            Font ttfBase;
-            ttfBase = Font.createFont(Font.TRUETYPE_FONT, is);
+            Font ttfBase = Font.createFont(Font.TRUETYPE_FONT, is);
             Font tahoma10 = ttfBase.deriveFont(Font.PLAIN, 10);
             Font tahoma11 = ttfBase.deriveFont(Font.PLAIN, 11);
             Font tahoma12 = ttfBase.deriveFont(Font.PLAIN, 12);
@@ -287,6 +287,7 @@ public class gui extends javax.swing.JFrame {
 
             shiftChiper = new ShiftCipher();
             substitutionCipher = new SubstitutionCipher();
+            hillCipher = new HillCipher();
 
         } catch (FontFormatException ex) {
             Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
@@ -4821,7 +4822,7 @@ public class gui extends javax.swing.JFrame {
         }
         int det = (int) Math.round(clave.det());
         if (mcd(det, 26) == 1) {
-            String textoCifrado = HillCipher.encrypt(textoPlano, clave);
+            String textoCifrado = hillCipher.encode(textoPlano, clave, null);
             cajaTextoCifrado.setText(textoCifrado);
             cajaTextoPlano.setText(textoPlano);
         } else {
@@ -5270,7 +5271,7 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonEncriptarActionPerformed
 
     private void fuerzaBrutaDesplazamiento(String textoCifrado) {
-        String[] posibilidades = shiftChiper.bruteForce(textoCifrado);
+        String[] posibilidades = shiftChiper.cryptoAnalysis(textoCifrado);
         String textoPlano = "";
         for (int pos = 0; pos < posibilidades.length; pos++) {
             int[] decode = {pos};

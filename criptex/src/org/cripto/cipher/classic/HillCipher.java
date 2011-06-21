@@ -7,10 +7,10 @@
  *
  * Código liberado bajo licencia Creative Commons 3.0
  * http://creativecommons.org/licenses/by-nc-sa/3.0/
-*/
-
+ */
 package org.cripto.cipher.classic;
 
+import org.cripto.cipher.Cipher;
 import org.cripto.utils.Code;
 import org.cripto.utils.jama.Matrix;
 
@@ -18,96 +18,75 @@ import org.cripto.utils.jama.Matrix;
  *
  * @author damontanofe,lvmorenoc,carodriguezb
  */
-public class HillCipher {
+public class HillCipher implements Cipher {
 
-    /**
-     * Returns an alphabetic ciphertext using Hill Cipher.
-     *
-     * @param  plainText the text to encrypt
-     * @param  key the text to encrypt using Vigenere Cipher
-     * @return the cipher text string
-     */
-    public static String encrypt(String plainText, Matrix key){
-        // System.out.println("hillCipher running...");
+    @Override
+    public String[] cryptoAnalysis(String cipherText) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-        // Algorithm
-        // encodeMod26 plainText
-        int[] encodedPlainText = Code.encodeMod26(plainText);
+    @Override
+    public String decode(String cipherText, Object key) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-        // creates plain text number Matrixes
-        // m es la dimensión de la matriz cuadrada, también pudimos usar row
-        int m = key.getColumnDimension();
-        // plainTextDivisionQuantity nos da la cantidad de divisiones en las cuales dividiremos el
-        // plainText
-        int plainTextDivisionQuantity = (int) Math.ceil((double)plainText.length()/m);
-        // actualPosition guarda la posición que se lleva mientras recorremos el plainText
+    @Override
+    public String encode(Object oPlainText, Object oKey, Object[] params) {
+
+        String plainText = oPlainText.toString();
+        Matrix key = (Matrix) oKey;
+
+        int[] mod26Text = Code.encodeMod26(plainText);
+
+        int keySize = key.getRowDimension();
+        int numPlainTextBlocks = (int) Math.ceil((double) plainText.length() / keySize);
+
+        Matrix[] mod26PlainText = mod26ArrayToMatrixArray(keySize, numPlainTextBlocks, mod26Text);
+
+        Matrix[] mod26CipherText = new Matrix[numPlainTextBlocks];
+        for (int block = 0; block < numPlainTextBlocks; block++) {
+            mod26CipherText[block] = mod26PlainText[block].times(key);
+        }
+
+        int[] cipherTextArray = matrixArrayToMod26array(plainText.length(), keySize, mod26CipherText);
+
+        String cipherText = Code.decodeMod26(cipherTextArray);
+        cipherText = cipherText.toUpperCase();
+
+        return cipherText;
+    }
+
+    private Matrix[] mod26ArrayToMatrixArray(int keySize, int numPlainTextBlocks, int[] mod26Text) {
+
         int actualPosition = 0;
-        // el algoritmo va creando las matrices (filas) en las cuales se divide el plainText
-        Matrix[] encodedPlainTextMatrixes = new Matrix[plainTextDivisionQuantity];
-        for(int i = 0; i < plainTextDivisionQuantity; i++){
-            encodedPlainTextMatrixes[i] = new Matrix(1,m);
-            for(int y = 0; y < m; y++){
-                if(actualPosition < encodedPlainText.length){
-                    encodedPlainTextMatrixes[i].set(0, y, encodedPlainText[actualPosition]);
-                }else{
-                    encodedPlainTextMatrixes[i].set(0, y, 0);
+        Matrix[] mod26Plain = new Matrix[numPlainTextBlocks];
+
+        for (int i = 0; i < numPlainTextBlocks; i++) {
+            mod26Plain[i] = new Matrix(1, keySize);
+            for (int y = 0; y < keySize; y++) {
+                if (actualPosition < mod26Text.length) {
+                    mod26Plain[i].set(0, y, mod26Text[actualPosition]);
+                } else {
+                    mod26Plain[i].set(0, y, 0);
                 }
                 actualPosition++;
             }
         }
-        // System.out.println("Print coded name");
-        printMatrixes(encodedPlainTextMatrixes);
+        return mod26Plain;
+    }
 
-        // e(x) = xK
-        // se calculan las matrices resultado usando la función times() de la clase Matrix
-        // multiplicamos las matrices creadas en el ciclo anterior y la matriz key
-        Matrix[] Results = new Matrix[plainTextDivisionQuantity];
-        for(int i = 0; i < plainTextDivisionQuantity; i++){
-            Results[i] = encodedPlainTextMatrixes[i].times(key);
-        }
-        // System.out.println("Print coded results");
-        printMatrixes(Results);
+    private int[] matrixArrayToMod26array(int plainTextSize, int keySize, Matrix[] mod26CipherText) {
 
-        // export Results a to number array
-        // en secretNumberArray se guarda el arreglo de enteros que vamos a retornar es decir el
-        // texto cifrado
-        int[] secretNumberArray = new int[plainText.length()];
-        // actualPosition guarda la posición que se lleva mientras recorremos el arreglo de
-        // Results
-        // dependiendo de m(dimensión de matriz key) actualizamos la actual position o no
-        actualPosition = 0;
-        for(int i = 0; i < plainText.length(); i++){
-            secretNumberArray[i] = ((int) Results[actualPosition].get(0, i%m)) % 26;
-            if(i > 0 && i%m == (m-1)) actualPosition++;
-        }
+        int[] cipherTextArray = new int[plainTextSize];
+        int actualPosition = 0;
         
-        // decodeMod26 obtained encoded Text
-        String secret = Code.decodeMod26(secretNumberArray);
-        secret = secret.toUpperCase();
-        // return secret
-        return secret;
-    }
-
-    /**
-     * Prints an array of Matrixes.
-     *
-     * @param  array Array of Matrixes to print
-     */
-    public static void printMatrixes(Matrix[] array){
-        for(int i = 0; i < array.length; i++){
-            array[i].print(2,2);
+        for (int i = 0; i < plainTextSize; i++) {
+            cipherTextArray[i] = ((int) mod26CipherText[actualPosition].get(0, i % keySize)) % 26;
+            if (i > 0 && i % keySize == (keySize - 1)) {
+                actualPosition++;
+            }
         }
-    }
 
-    /**
-     * Returns an array of possible plain texts by decrypting Hill Cipher
-     *
-     * @param  cipherText the text to decrypt
-     * @return array of possible decrypted texts
-     */
-    public static String[] cryptoAnalysis(String cipherText) {
-        String[] resultados = null;
-        return resultados;
+        return cipherTextArray;
     }
-
 }

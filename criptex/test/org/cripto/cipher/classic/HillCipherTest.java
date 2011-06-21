@@ -29,9 +29,6 @@ public class HillCipherTest {
         cipher = new HillCipher();
     }
 
-    /**
-     * Test of encrypt method, of class HillCipher.
-     */
     @Test
     public void testValidEncodeKey2x2() {
 
@@ -103,7 +100,7 @@ public class HillCipherTest {
         key.set(3, 3, 1);
         key.print(2, 2);
 
-        String result = cipher.encrypt(plainText, key);
+        String result = cipher.encode(plainText, key, null);
         assertEquals(expResult, result);
     }
 }
