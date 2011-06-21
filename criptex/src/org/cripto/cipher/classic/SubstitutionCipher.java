@@ -19,6 +19,7 @@ import org.cripto.utils.Code;
  */
 public class SubstitutionCipher implements Cipher {
 
+    @Override
     public String encode(Object plainText, Object key, Object[] params) {
 
         int[] encodedPlainText = Code.encodeMod26(String.valueOf(plainText));
@@ -35,6 +36,7 @@ public class SubstitutionCipher implements Cipher {
         return secret;
     }
 
+    @Override
     public String decode(String cipherText, Object key) {
 
         int[] encodedCipherText = Code.encodeMod26(String.valueOf(cipherText));
@@ -50,4 +52,10 @@ public class SubstitutionCipher implements Cipher {
 
         return plainText;
     }
+
+    @Override
+    public Object cryptoAnalysis(String cipherText) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }    
+    
 }

@@ -27,9 +27,10 @@ public class ShiftCipher implements Cipher {
      * @param params  must be null
      * @return the encode plain text
      */
+    @Override
     public String encode(Object oPlainText, Object oKey, Object[] params) {
 
-        int key = (int) oKey;
+        int key = Integer.parseInt(oKey.toString());
         String plainText = (String) oPlainText;
 
         int[] encodedPlainText = Code.encodeMod189(plainText);
@@ -49,9 +50,10 @@ public class ShiftCipher implements Cipher {
      * @param oKey the key represented by a value between 0 to 189 integer
      * @return the decoded cipher text
      */
+    @Override
     public String decode(String cipherText, Object oKey) {
 
-        int key = (int) oKey;
+        int key = Integer.parseInt(oKey.toString());
         int[] encodedCipherText = Code.encodeMod189(cipherText);
 
         for (int j = 0; j < encodedCipherText.length; j++) {
@@ -73,7 +75,8 @@ public class ShiftCipher implements Cipher {
      * @param cipherText
      * @return the array with 189 decoded posibilities
      */
-    public String[] bruteForce(String cipherText) {
+    @Override
+    public String[] cryptoAnalysis(String cipherText) {
 
         String[] possibilities = new String[189];
 
