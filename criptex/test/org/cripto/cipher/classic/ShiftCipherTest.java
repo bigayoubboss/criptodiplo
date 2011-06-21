@@ -11,8 +11,6 @@
  */
 package org.cripto.cipher.classic;
 
-import javax.crypto.Cipher;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -31,9 +29,9 @@ public class ShiftCipherTest {
     }
 
     @Test
-    public void testEncode() {
+    public void testValidEncode() {
 
-        System.out.println("Shift Cipher Encode");
+        System.out.println("Shift Cipher Valid Encode");
 
         int key = 11;
         String plainText = "Wewillmeetatmidnight!";
@@ -44,11 +42,11 @@ public class ShiftCipherTest {
         assertEquals(expResult, result);
 
     }
-
+    
     @Test
-    public void testDecode() {
+    public void testValidDecode() {
 
-        System.out.println("Shift Cipher Decode");
+        System.out.println("Shift Cipher Valid Decode");
 
         int key = 11;
         String cipherText = "bp¤twwxpp¡l¡xtoytrs¡,";

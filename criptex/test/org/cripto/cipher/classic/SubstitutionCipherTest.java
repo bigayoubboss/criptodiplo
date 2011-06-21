@@ -11,9 +11,6 @@
  */
 package org.cripto.cipher.classic;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -32,9 +29,9 @@ public class SubstitutionCipherTest {
     }
 
     @Test
-    public void testEncode() {
+    public void testValidEncode() {
 
-        System.out.println("Substitution Cipher Encode");
+        System.out.println("Substitution Cipher Valid Encode");
 
         String plainText = "thisciphertextcannotbedecrypted";
         String newAlphabet = "XNYAHPOGZQWBTSFLRCVMUEKJDI";
@@ -46,9 +43,9 @@ public class SubstitutionCipherTest {
     }
     
     @Test
-    public void testDecode() {
+    public void testValidDecode() {
 
-        System.out.println("Substitution Cipher Decode");
+        System.out.println("Substitution Cipher Valid Decode");
 
         String cipherText = "MGZVYZLGHCMHJMYXSSFMNHAHYCDLMHA";
         String newAlphabet = "XNYAHPOGZQWBTSFLRCVMUEKJDI";
