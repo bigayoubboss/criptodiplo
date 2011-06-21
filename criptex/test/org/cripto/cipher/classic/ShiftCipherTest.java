@@ -67,7 +67,7 @@ public class ShiftCipherTest {
         String cipherText = "bp¤twwxpp¡l¡xtoytrs¡,";
         String expResult = "Wewillmeetatmidnight!";
 
-        String[] result = cipher.bruteForce(cipherText);
+        String[] result = cipher.cryptoAnalysis(cipherText);
 
         assertEquals(expResult, result[11]);
 
