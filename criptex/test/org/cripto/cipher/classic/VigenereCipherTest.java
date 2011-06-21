@@ -57,7 +57,6 @@ public class VigenereCipherTest {
         String keyWord = "CIPHER";
         String obtainedResult = VigenereCipher.encrypt(plainText, keyWord);
         String expectedResult = "VPXZGIAXIVWPUBTTMJPWIZITWZT";
-        // TODO review the generated test code and remove the default call to fail.
         if( !obtainedResult.equals(expectedResult)){
             fail("The Obtained Result " + obtainedResult + " doesn´t match the Expected Result " +
                     expectedResult);
@@ -77,7 +76,6 @@ public class VigenereCipherTest {
         //String[] obtainedResults = {"otrarespuesta","uy","nadaporaca"};
         //String[] obtainedResults = {"otrarespuesta","thiscryptosystemisnotsecure","nadaporaca"};
         String expectedResult = "thiscryptosystemisnotsecure";
-        // TODO review the generated test code and remove the default call to fail.
         boolean found = false;
         int position = 0;
         for(int i = 0; i < obtainedResults.size(); i++){
@@ -122,7 +120,6 @@ public class VigenereCipherTest {
                                 "awayforsixmonthsthevineyardswerebusyagainasthewellorganizedfarm" +
                                 "erstreatedtheirvinesandthemorelackadaisicalneighborshurriedto" +
                                 "dothepruningtheyshouldhavedoneinnovember";
-        // TODO review the generated test code and remove the default call to fail.
         boolean found = false;
         int position = 0;
         for(int i = 0; i < obtainedResults.size(); i++){
@@ -147,7 +144,6 @@ public class VigenereCipherTest {
         //String[] obtainedResults = {"otrarespuesta","uy","nadaporaca"};
         //String[] obtainedResults = {"otrarespuesta","thiscryptosystemisnotsecure","nadaporaca"};
         expectedResult = "kingahasuerusalsoknownasxerxesheldaonehundredandeightydayfeastinsusashushantodisplaythevastwealthofhiskingdomandthesplendorandgloryofhismajestykingahasuerusorderedhisqueenvashtitoappearbeforehimandhisguestswearinghercrowntodisplayherbeauty";
-        // TODO review the generated test code and remove the default call to fail.
         found = false;
         position = 0;
         for(int i = 0; i < obtainedResults.size(); i++){

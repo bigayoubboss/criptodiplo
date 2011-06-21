@@ -59,7 +59,6 @@ public class BigramsOcurrenceTest {
         boolean expResult = true;
         boolean result = instance.equals(o);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         if (result != expResult) {
             fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
                     expResult);

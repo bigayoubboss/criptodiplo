@@ -81,7 +81,6 @@ public class ElGamalCipherTest {
     public void testKeyGeneration_0args() {
         System.out.println("keyGeneration");
         ElGamalCipher.keyGeneration();
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -95,7 +94,6 @@ public class ElGamalCipherTest {
         String gen = "";
         String random = "";
         //ElGamalCipher.keyGeneration(p, gen, random);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 

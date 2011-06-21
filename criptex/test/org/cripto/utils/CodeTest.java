@@ -54,7 +54,6 @@ public class CodeTest {
         String text = "aBcDefGhIJklmNopqRSTUVwxyZ";
         int[] expResult = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
         int[] result = Code.encodeMod26(text);
-        // TODO review the generated test code and remove the default call to fail.
         if (!Arrays.equals(expResult, result)) {
             fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
                     expResult);
@@ -70,7 +69,6 @@ public class CodeTest {
         int[] numberArray = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
         String expResult = "abcdefghijklmnopqrstuvwxyz";
         String result = Code.decodeMod26(numberArray);
-        // TODO review the generated test code and remove the default call to fail.
         if (!result.equals(expResult)) {
             fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
                     expResult);

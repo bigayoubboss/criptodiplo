@@ -59,7 +59,6 @@ public class AffineCipherTest {
         String expResult = "AXG";
         String result = AffineCipher.encrypt(plainText, keyA, keyB);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         if (!result.equals(expResult)) {
             fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
                     expResult);
@@ -75,7 +74,6 @@ public class AffineCipherTest {
         String cipherText = "FMXVEDKAPHFERBNDKRXRSREFMORUDSDKDVSHVUFEDKAPRKDLYEVLRHHRH";
         AffineCipher expResult = new AffineCipher("algorithmsarequitegeneraldefinitionsofarithmeticprocesses", 3, 5, 4);
         ArrayList<AffineCipher> result = AffineCipher.cryptoAnalysis(cipherText);
-        // TODO review the generated test code and remove the default call to fail.
         if (!result.contains(expResult)) {
             fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
                     expResult);
@@ -97,7 +95,6 @@ public class AffineCipherTest {
         double n = 26.0;
         int[] expResult = {3, 5};
         int[] result = AffineCipher.solveCongruenceSystem(a, b, u, c, d, v, n);
-        // TODO review the generated test code and remove the default call to fail.
         if (!Arrays.equals(result, expResult)) {
             fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
                     expResult);

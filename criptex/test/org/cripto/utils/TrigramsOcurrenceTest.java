@@ -57,7 +57,6 @@ public class TrigramsOcurrenceTest {
         boolean expResult = true;
         boolean result = instance.equals(o);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         if (result != expResult) {
             fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
                     expResult);
@@ -76,7 +75,6 @@ public class TrigramsOcurrenceTest {
         int expResult = 2;
         int result = instance.compare(o1, o2);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         if (result != expResult) {
             fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
                     expResult);

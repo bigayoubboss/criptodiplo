@@ -289,13 +289,13 @@ public class guiSHA extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarActionPerformed
-        // TODO add your handling code here:
+        
         cajaTexto.setText("");
 }//GEN-LAST:event_botonLimpiarActionPerformed
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+        
+        
         JFileChooser chooser = new JFileChooser();
         chooser.addChoosableFileFilter(new TxTFilter());
         chooser.showSaveDialog(this);
@@ -310,7 +310,7 @@ public class guiSHA extends javax.swing.JFrame {
 }//GEN-LAST:event_botonGuardarActionPerformed
 
     private void botonAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAbrirActionPerformed
-        // TODO add your handling code here:
+        
         JFileChooser chooser = new JFileChooser();
         chooser.addChoosableFileFilter(new TxTFilter());
         chooser.showOpenDialog(this);
@@ -361,7 +361,7 @@ public class guiSHA extends javax.swing.JFrame {
         return true;
     }
     private void compararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compararActionPerformed
-        // TODO add your handling code here:
+        
         if (cajaTexto.getText().length() != 0) {
             if (validarHASH(hash2.getText())) {
                 if (hash1.getText().equals(hash2.getText().toLowerCase())) {
@@ -376,12 +376,12 @@ public class guiSHA extends javax.swing.JFrame {
     }//GEN-LAST:event_compararActionPerformed
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
-        // TODO add your handling code here:
+        
         System.exit(0);
 }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAcercaDeActionPerformed
-        // TODO add your handling code here:
+        
         JOptionPane.showMessageDialog(this,
                 "Realizado por:\n"
                 + "\nDavid Montaño Fetecua - damontanofe@unal.edu.co"
@@ -392,7 +392,7 @@ public class guiSHA extends javax.swing.JFrame {
 }//GEN-LAST:event_botonAcercaDeActionPerformed
 
     private void hash2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hash2KeyTyped
-        // TODO add your handling code here:
+        
         char c = evt.getKeyChar();
         c = String.valueOf(c).toUpperCase().charAt(0);
         if (c != 'A' && c != 'B' && c != 'C' && c != 'D' && c != 'E' && c != 'F' && !Character.isDigit(c) || hash2.getText().length() == 40) {
@@ -408,7 +408,6 @@ public class guiSHA extends javax.swing.JFrame {
 }//GEN-LAST:event_hash2KeyTyped
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
-        // TODO add your handling code here:
         String hash = SHA1.hash(cajaTexto.getText());
 
         hash1.setText(hash);
@@ -416,7 +415,6 @@ public class guiSHA extends javax.swing.JFrame {
     }//GEN-LAST:event_calcularActionPerformed
 
     private void calcMACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcMACActionPerformed
-        // TODO add your handling code here:
         try {
             String MAC = HMacSHA1.hash(cajaTexto.getText(), KeyMAC.getText());
             hash3.setText(MAC);
@@ -429,7 +427,7 @@ public class guiSHA extends javax.swing.JFrame {
 }//GEN-LAST:event_calcMACActionPerformed
 
     private void hash2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hash2ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_hash2ActionPerformed
 
     private void KeyMACKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeyMACKeyTyped
@@ -461,7 +459,7 @@ public class guiSHA extends javax.swing.JFrame {
 }//GEN-LAST:event_BotonGenerarClaveActionPerformed
 
     private void hash3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hash3ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_hash3ActionPerformed
     public class TxTFilter extends javax.swing.filechooser.FileFilter {
 

@@ -56,7 +56,6 @@ public class MathUtilFunctionsTest {
         int b = 9;
         int expResult = 3;
         int result = MathUtilFunctions.GCD(a, b);
-        // TODO review the generated test code and remove the default call to fail.
         if (expResult != result) {
             fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
                     expResult);
@@ -73,7 +72,6 @@ public class MathUtilFunctionsTest {
         int[] b = {235, 275, 285};
         int expResult = 5;
         int result = MathUtilFunctions.greatestCommonDivisor(a, b);
-        // TODO review the generated test code and remove the default call to fail.
         if (expResult != result) {
             fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
                     expResult);
@@ -90,7 +88,6 @@ public class MathUtilFunctionsTest {
         int b = 26;
         double expResult = 7;
         double result = MathUtilFunctions.multiplicativeInverse(a, b);
-        // TODO review the generated test code and remove the default call to fail.
         if (expResult != result) {
             fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
                     expResult);

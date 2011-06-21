@@ -351,7 +351,7 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }
 
     private void cargarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarImagenActionPerformed
-        // TODO add your handling code here:
+        
         JFileChooser chooser = new JFileChooser();
         chooser.setAcceptAllFileFilterUsed(false);
         chooser.addChoosableFileFilter(new FileNameExtensionFilter("Mapa de bits(*.bmp, *.dib)", "bmp", "dib"));
@@ -385,12 +385,12 @@ public class guiHillMRIV extends javax.swing.JFrame {
 }//GEN-LAST:event_cargarImagenActionPerformed
 
     private void botonAbrirImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAbrirImagenActionPerformed
-        // TODO add your handling code here:
+        
         cargarImagenActionPerformed(evt);
     }//GEN-LAST:event_botonAbrirImagenActionPerformed
 
     private void botonCifrarHillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCifrarHillActionPerformed
-        // TODO add your handling code here:
+        
         File p = new File("Images\\Original.jpg");
         if (p.exists()) {
             int[][][] image = ImageProcessing.loadImageToRGB("Images\\Original.jpg");
@@ -419,7 +419,7 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCifrarHillActionPerformed
 
     private void botonCifrarHillMRIVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCifrarHillMRIVActionPerformed
-        // TODO add your handling code here:
+        
         File p = new File("Images\\Original.jpg");
         if (p.exists()) {
             int[][][] image = ImageProcessing.loadImageToRGB("Images\\Original.jpg");
@@ -453,7 +453,7 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCifrarHillMRIVActionPerformed
 
     private void botonLimpiarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarImagenActionPerformed
-        // TODO add your handling code here:
+        
         cargarImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/cripto/gui/hmriv/images/stepI.png")));
         File p = new File("Images\\Original.jpg");
         if (p.exists()) {
@@ -467,7 +467,7 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }//GEN-LAST:event_botonLimpiarImagenActionPerformed
 
     private void botonLimpiarImagenHillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarImagenHillActionPerformed
-        // TODO add your handling code here:
+        
         cargarImagenHill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/cripto/gui/hmriv/images/stepII.png")));
         File p = new File("Images\\Hill.jpg");
         if (p.exists()) {
@@ -480,7 +480,7 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }//GEN-LAST:event_botonLimpiarImagenHillActionPerformed
 
     private void botonLimpiarImagenHillMRIVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarImagenHillMRIVActionPerformed
-        // TODO add your handling code here:
+        
         cargarImagenHillMRIV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/cripto/gui/hmriv/images/stepIII.png")));
         File p = new File("Images\\HillMRIV.jpg");
         if (p.exists()) {
@@ -493,7 +493,7 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }//GEN-LAST:event_botonLimpiarImagenHillMRIVActionPerformed
 
     private void botonGenerarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGenerarClaveActionPerformed
-        // TODO add your handling code here:
+        
         File imagenPrueba = new File("Images\\Original.jpg");
         if (imagenPrueba.exists()) {
             int[][][] image = ImageProcessing.loadImageToRGB("Images\\Original.jpg");
@@ -514,7 +514,7 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }//GEN-LAST:event_botonGenerarClaveActionPerformed
 
     private void botonVisualizarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVisualizarClaveActionPerformed
-        // TODO add your handling code here:
+        
         Runtime load = Runtime.getRuntime();
 
         try {
@@ -534,8 +534,8 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVisualizarClaveActionPerformed
 
     private void botonCargarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarClaveActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+        
+        
         JFileChooser chooser = new JFileChooser();
         chooser.addChoosableFileFilter(new TxTFilter());
         chooser.showOpenDialog(this);
@@ -548,7 +548,7 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCargarClaveActionPerformed
 
     private void botonGuardarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarImagenActionPerformed
-        // TODO add your handling code here:
+        
         File p = new File("Images\\Original.jpg");
         if (p.exists()) {
             JFileChooser chooser = new JFileChooser();
@@ -572,7 +572,7 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }//GEN-LAST:event_botonGuardarImagenActionPerformed
 
     private void botonGuardarImagenHillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarImagenHillActionPerformed
-        // TODO add your handling code here:
+        
         File p = new File("Images\\Hill.jpg");
         if (p.exists()) {
             JFileChooser chooser = new JFileChooser();
@@ -596,7 +596,6 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }//GEN-LAST:event_botonGuardarImagenHillActionPerformed
 
     private void botonGuardarImagenHillMRIVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarImagenHillMRIVActionPerformed
-        // TODO add your handling code here
         File p = new File("Images\\HillMRIV.jpg");
         if (p.exists()) {
             JFileChooser chooser = new JFileChooser();
@@ -620,12 +619,12 @@ public class guiHillMRIV extends javax.swing.JFrame {
     }//GEN-LAST:event_botonGuardarImagenHillMRIVActionPerformed
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
-        // TODO add your handling code here:
+        
         System.exit(0);
 }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAcercaDeActionPerformed
-        // TODO add your handling code here:
+        
         JOptionPane.showMessageDialog(this,
                 "Realizado por:\n"
                 + "\nAgustín Moreno Cañadas - amorenoca@unal.edu.co"

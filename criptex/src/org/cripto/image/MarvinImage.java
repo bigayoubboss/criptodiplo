@@ -129,7 +129,6 @@ public class MarvinImage implements Cloneable {
 		return image.getType();
 	}
 	
-	//@todo remove ambiguity between Type and FormatName
 	/*
 	 * @return image format name
 	 */

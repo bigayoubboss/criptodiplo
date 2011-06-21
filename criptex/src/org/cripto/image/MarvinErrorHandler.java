@@ -109,7 +109,6 @@ public class MarvinErrorHandler {
 		//Prints the StackTrace
 		if (a_err != null) a_err.printStackTrace();
 		
-		//TODO Implements file logger
 	}	
 	
 	/**

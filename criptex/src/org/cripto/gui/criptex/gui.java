@@ -4541,7 +4541,7 @@ public class gui extends javax.swing.JFrame {
         }//GEN-LAST:event_botonSecuenciaOcultamientoActionPerformed
 
         private void claveD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claveD1ActionPerformed
-            // TODO add your handling code here:
+            
         }//GEN-LAST:event_claveD1ActionPerformed
 
     private void botonAbrirCifradoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonAbrirCifradoActionPerformed
@@ -6212,7 +6212,7 @@ public class gui extends javax.swing.JFrame {
 
     private void clavePermutacionAlternativaActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clavePermutacionAlternativaActionPerformed
-        // TODO add your handling code here:
+        
     }// GEN-LAST:event_clavePermutacionAlternativaActionPerformed
 
     private void panelMetodoPermutacionFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_panelMetodoPermutacionFocusGained
@@ -6568,7 +6568,7 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonLimpiarSustitucionManualActionPerformed
 
     private void clavePermutacionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clavePermutacionActionPerformed
-        // TODO add your handling code here:
+        
     }// GEN-LAST:event_clavePermutacionActionPerformed
 
     private void botonClaveSPNActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveSPNActionPerformed
@@ -6942,7 +6942,7 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonLimpiarCBCMACActionPerformed
 
     private void claveCBCMACKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveCBCMACKeyTyped
-        // TODO add your handling code here:
+        
     }// GEN-LAST:event_claveCBCMACKeyTyped
 
     private void tipoClaveRSAnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveRSAnActionPerformed
@@ -6991,12 +6991,12 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonClaveRSAActionPerformed
 
     private void panelMetodoRSAFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_panelMetodoRSAFocusGained
-        // TODO add your handling code here:
+        
     }// GEN-LAST:event_panelMetodoRSAFocusGained
 
     private void tipoOptimizacionRSAActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoOptimizacionRSAActionPerformed
-        // TODO add your handling code here:
+        
     }// GEN-LAST:event_tipoOptimizacionRSAActionPerformed
 
     private void cajaClaveRSApKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSApKeyTyped
@@ -7028,7 +7028,7 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_cajaClaveRSAeKeyTyped
 
     private void botonClaveDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveDESActionPerformed
-        // TODO add your handling code here:
+        
         Random rnd = new Random();
         char[] hexa = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
             'B', 'C', 'D', 'E', 'F'};
@@ -7042,12 +7042,12 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonClaveDESActionPerformed
 
     private void botonLimpiarDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarDESActionPerformed
-        // TODO add your handling code here:
+        
         claveDES.setText("");
     }// GEN-LAST:event_botonLimpiarDESActionPerformed
 
     private void claveDESKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveDESKeyTyped
-        // TODO add your handling code here:
+        
         char c = evt.getKeyChar();
         c = Character.toString(c).toUpperCase().charAt(0);
 
@@ -7063,7 +7063,7 @@ public class gui extends javax.swing.JFrame {
 
     private void botonClaveTripleDESSActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveTripleDESSActionPerformed
-        // TODO add your handling code here:
+        
         Random rnd = new Random();
         String clave = "";
         while (clave.length() != 30) {
@@ -7075,12 +7075,12 @@ public class gui extends javax.swing.JFrame {
 
     private void botonLimpiarTripleDESSActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarTripleDESSActionPerformed
-        // TODO add your handling code here:
+        
         claveTripleDESS.setText("");
     }// GEN-LAST:event_botonLimpiarTripleDESSActionPerformed
 
     private void claveTripleDESSKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveTripleDESSKeyTyped
-        // TODO add your handling code here:
+        
         char c = evt.getKeyChar();
         if ((c != '1' && c != '0') || claveTripleDESS.getText().length() == 30) {
             evt.consume();
@@ -7088,8 +7088,8 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_claveTripleDESSKeyTyped
 
     private void botonClaveTDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveTDESActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+        
+        
         Random rnd = new Random();
         char[] hexa = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
             'B', 'C', 'D', 'E', 'F'};
@@ -7103,12 +7103,12 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonClaveTDESActionPerformed
 
     private void botonLimpiarTDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarTDESActionPerformed
-        // TODO add your handling code here:
+        
         claveTDES.setText("");
     }// GEN-LAST:event_botonLimpiarTDESActionPerformed
 
     private void claveTDESKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveTDESKeyTyped
-        // TODO add your handling code here:
+        
     }// GEN-LAST:event_claveTDESKeyTyped
 
     private void cajaClaveRSAnKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSAnKeyTyped
@@ -7119,7 +7119,7 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_cajaClaveRSAnKeyTyped
 
     private void cajaClaveRSAnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cajaClaveRSAnActionPerformed
-        // TODO add your handling code here:
+        
     }// GEN-LAST:event_cajaClaveRSAnActionPerformed
 
     public int mcd(int a, int b) {
