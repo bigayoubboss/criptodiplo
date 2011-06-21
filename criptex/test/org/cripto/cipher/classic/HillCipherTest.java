@@ -8,15 +8,10 @@
  *
  * Código liberado bajo licencia Creative Commons 3.0
  * http://creativecommons.org/licenses/by-nc-sa/3.0/
-*/
-
+ */
 package org.cripto.cipher.classic;
 
-import org.cripto.cipher.classic.HillCipher;
 import org.cripto.utils.jama.Matrix;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -27,70 +22,45 @@ import static org.junit.Assert.*;
  */
 public class HillCipherTest {
 
-    public HillCipherTest() {
-    }
+    private static HillCipher cipher;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
+        cipher = new HillCipher();
     }
 
     /**
      * Test of encrypt method, of class HillCipher.
      */
     @Test
-    public void testHillCipher() {
-        System.out.println("hillCipher");
-        System.out.println("test 1:");
-        System.out.println("plainText = 'july'");
+    public void testValidEncodeKey2x2() {
+
+        System.out.println("Hill Cipher Valid Encode Key 2x2");
+
         String plainText = "july";
-        System.out.println("key =");
-        Matrix key = new Matrix(2,2);
-        key.set(0, 0, 11);
-        key.set(0, 1, 8);
-        key.set(1, 0, 3);
-        key.set(1, 1, 7);
-        key.print(2, 2);
         String expResult = "DELW";
-        String result = HillCipher.encrypt(plainText, key);
-        if( !result.equals(expResult)){
-            fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
-                    expResult + " in test 1");
-        }
 
-        System.out.println("test 2:");
-        System.out.println("plainText = 'david'");
-        plainText = "david";
-        System.out.println("key =");
-        key = new Matrix(2,2);
+        Matrix key = new Matrix(2, 2);
         key.set(0, 0, 11);
         key.set(0, 1, 8);
         key.set(1, 0, 3);
         key.set(1, 1, 7);
         key.print(2, 2);
-        expResult = "HYVQH";
-        result = HillCipher.encrypt(plainText, key);
-        if( !result.equals(expResult)){
-            fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
-                    expResult + " in test 2");
-        }
 
-        System.out.println("test 3:");
-        System.out.println("plainText = 'cristian'");
-        plainText = "cristian";
-        System.out.println("key =");
-        key = new Matrix(3,3);
+        String result = cipher.encode(plainText, key, null);
+        assertEquals(expResult, result);
+
+    }
+
+    @Test
+    public void testValidEncodeKey3x3() {
+
+        System.out.println("Hill Cipher Valid Encode Key 3x3");
+
+        String plainText = "cristian";
+        String expResult = "HTMHFINN";
+
+        Matrix key = new Matrix(3, 3);
         key.set(0, 0, 11);
         key.set(0, 1, 8);
         key.set(0, 2, 12);
@@ -101,18 +71,20 @@ public class HillCipherTest {
         key.set(2, 1, 5);
         key.set(2, 2, 28);
         key.print(2, 2);
-        expResult = "HTMHFINN";
-        result = HillCipher.encrypt(plainText, key);
-        if( !result.equals(expResult)){
-            fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
-                    expResult + " in test 3");
-        }
 
-        System.out.println("test 4:");
-        System.out.println("plainText = 'abcdefghijklmnopqrstuvwxyz'");
-        plainText = "abcdefghijklmnopqrstuvwxyz";
-        System.out.println("key =");
-        key = new Matrix(4,4);
+        String result = cipher.encode(plainText, key, null);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testValidEncodeKey4x4() {
+
+        System.out.println("Hill Cipher Valid Encode Key 4x4");
+
+        String plainText = "abcdefghijklmnopqrstuvwxyz";
+        String expResult = "LYMURWYOXUKIDSWCJQIWPOUQRJ";
+
+        Matrix key = new Matrix(4, 4);
         key.set(0, 0, 82);
         key.set(0, 1, 20);
         key.set(0, 2, 40);
@@ -130,12 +102,8 @@ public class HillCipherTest {
         key.set(3, 2, 2);
         key.set(3, 3, 1);
         key.print(2, 2);
-        expResult = "LYMURWYOXUKIDSWCJQIWPOUQRJ";
-        result = HillCipher.encrypt(plainText, key);
-        if( !result.equals(expResult)){
-            fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
-                    expResult + " in test 4");
-        }
-    }
 
+        String result = cipher.encrypt(plainText, key);
+        assertEquals(expResult, result);
+    }
 }
