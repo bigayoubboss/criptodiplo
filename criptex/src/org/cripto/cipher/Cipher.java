@@ -9,4 +9,6 @@ public interface Cipher {
     String encode(Object plainText, Object key, Object[] params);
 
     String decode(String cipherText, Object key);
+    
+    Object cryptoAnalysis(String cipherText);
 }
