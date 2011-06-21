@@ -27,6 +27,7 @@ public class HillCipher implements Cipher {
 
     @Override
     public String decode(String cipherText, Object key) {
+        // TODO Implement Hill cipher decode        
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
