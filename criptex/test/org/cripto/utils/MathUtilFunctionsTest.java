@@ -8,11 +8,10 @@
  *
  * Código liberado bajo licencia Creative Commons 3.0
  * http://creativecommons.org/licenses/by-nc-sa/3.0/
-*/
-
+ */
 package org.cripto.utils;
 
-import org.cripto.utils.MathUtilFunctions;
+import java.util.Arrays;
 import java.math.BigInteger;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -57,8 +56,8 @@ public class MathUtilFunctionsTest {
         int expResult = 3;
         int result = MathUtilFunctions.GCD(a, b);
         if (expResult != result) {
-            fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
-                    expResult);
+            fail("The Obtained Result " + result + " doesn´t match the Expected Result "
+                    + expResult);
         }
     }
 
@@ -73,8 +72,8 @@ public class MathUtilFunctionsTest {
         int expResult = 5;
         int result = MathUtilFunctions.greatestCommonDivisor(a, b);
         if (expResult != result) {
-            fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
-                    expResult);
+            fail("The Obtained Result " + result + " doesn´t match the Expected Result "
+                    + expResult);
         }
     }
 
@@ -89,8 +88,8 @@ public class MathUtilFunctionsTest {
         double expResult = 7;
         double result = MathUtilFunctions.multiplicativeInverse(a, b);
         if (expResult != result) {
-            fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
-                    expResult);
+            fail("The Obtained Result " + result + " doesn´t match the Expected Result "
+                    + expResult);
         }
     }
 
@@ -105,12 +104,30 @@ public class MathUtilFunctionsTest {
         BigInteger[] expResult = {new BigInteger("35"), new BigInteger("1260")};
         BigInteger[] result = MathUtilFunctions.solveCRT(residue, modulus);
 
-        for(int i = 0; i < 2; i++){
+        for (int i = 0; i < 2; i++) {
             System.out.println("Result: " + result[i]);
         }
 
-        for(int i = 0; i < 2; i++){
+        for (int i = 0; i < 2; i++) {
             System.out.println("ExpResult: " + expResult[i]);
+        }
+    }
+
+    @Test
+    public void testSolveCongruenceSystem() {
+        System.out.println("solveCongruenceSystem");
+        double a = 4.0;
+        double b = 1.0;
+        double u = 17.0;
+        double c = 19.0;
+        double d = 1.0;
+        double v = 10.0;
+        double n = 26.0;
+        int[] expResult = {3, 5};
+        int[] result = MathUtilFunctions.solveCongruenceSystem(a, b, u, c, d, v, n);
+        if (!Arrays.equals(result, expResult)) {
+            fail("The Obtained Result " + result + " doesn´t match the Expected Result "
+                    + expResult);
         }
     }
 }

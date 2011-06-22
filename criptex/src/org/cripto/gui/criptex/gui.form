@@ -19,7 +19,7 @@
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Criptex"/>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-      <Color id="Cursor predeterminado"/>
+      <Color id="Default Cursor"/>
     </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
@@ -398,7 +398,7 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Funcionamiento:"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor predeterminado"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                         <Property name="focusable" type="boolean" value="false"/>
                         <Property name="inheritsPopupMenu" type="boolean" value="false"/>
@@ -414,7 +414,7 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Tipo de cifrado:"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor predeterminado"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                         <Property name="focusable" type="boolean" value="false"/>
                         <Property name="inheritsPopupMenu" type="boolean" value="false"/>
@@ -430,7 +430,7 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Monoalfab&#xe9;tico por desplazamiento (z189)"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor predeterminado"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                         <Property name="focusable" type="boolean" value="false"/>
                         <Property name="inheritsPopupMenu" type="boolean" value="false"/>
@@ -453,7 +453,7 @@
                         </Property>
                         <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor predeterminado"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                         <Property name="enabled" type="boolean" value="false"/>
                         <Property name="focusable" type="boolean" value="false"/>
@@ -489,7 +489,6 @@
                             <Property name="tabSize" type="int" value="6"/>
                             <Property name="text" type="java.lang.String" value="Al cifrar, cada letra del alfabeto es reemplazada por la k-&#xe9;sima que le sigue en orden, siendo k la clave utilizada. El paso a texto plano es realizado por FUERZA BRUTA."/>
                             <Property name="wrapStyleWord" type="boolean" value="true"/>
-                            <Property name="autoscrolls" type="boolean" value="false"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="null"/>
                             </Property>
@@ -1336,7 +1335,7 @@
                                   <Component id="contenedorResultadosSusBigramas" min="-2" pref="106" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="contenedorResultadosSusTrigramas" min="-2" pref="106" max="-2" attributes="0"/>
-                                  <EmptySpace pref="11" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1590,7 +1589,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="10" pref="10" max="10" attributes="0"/>
-                                  <Component id="labelClaveActualSust" pref="74" max="32767" attributes="1"/>
+                                  <Component id="labelClaveActualSust" pref="79" max="32767" attributes="1"/>
                                   <EmptySpace min="276" pref="276" max="276" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -1955,9 +1954,6 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="labelSusManualM">
                           <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="DejaVu Sans" size="11" style="0"/>
-                            </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="m:"/>
                             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -2420,7 +2416,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="textoAffineClave" pref="348" max="32767" attributes="0"/>
+                                          <Component id="textoAffineClave" pref="344" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
@@ -2583,11 +2579,11 @@
                                           <Component id="contenedorResultadosAffineBigramas" min="-2" pref="106" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                           <Component id="contenedorResultadosAffineTrigramas" min="-2" pref="106" max="-2" attributes="0"/>
-                                          <EmptySpace pref="11" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="textoMasProbablesClavesAffine" alignment="0" pref="344" max="32767" attributes="1"/>
+                                              <Component id="textoMasProbablesClavesAffine" alignment="0" pref="345" max="32767" attributes="1"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="textoMasProbablesClavesAffineR" min="-2" pref="334" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -2836,7 +2832,6 @@
                             <Property name="rows" type="int" value="4"/>
                             <Property name="text" type="java.lang.String" value="Al cifrar, se sit&#xfa;a la clave debajo del texto plano de manera repetitiva hasta cubrir su longitud, luego se suma cada columna. El paso de texto cifrado a plano se realiza por CRIPTOAN&#xe1;LISIS."/>
                             <Property name="wrapStyleWord" type="boolean" value="true"/>
-                            <Property name="autoscrolls" type="boolean" value="false"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                 <LineBorder thickness="0">
@@ -2876,7 +2871,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="textoDescripcion10" pref="358" max="32767" attributes="0"/>
+                                          <Component id="textoDescripcion10" pref="354" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
@@ -3009,7 +3004,7 @@
                                   <Component id="textoResultadoVigenere" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                   <Component id="textoResultadoVigenereClave" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <EmptySpace pref="88" max="32767" attributes="0"/>
+                                  <EmptySpace pref="89" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -3208,7 +3203,7 @@
                               </Border>
                             </Property>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Cursor predeterminado"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                             <Property name="focusable" type="boolean" value="false"/>
                             <Property name="opaque" type="boolean" value="false"/>
@@ -3341,7 +3336,7 @@
                                       <Component id="tipoClaveHill3" min="-2" max="-2" attributes="0"/>
                                       <Component id="tipoClaveHill2" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                                  <EmptySpace pref="52" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="claveHill7" min="-2" pref="43" max="-2" attributes="0"/>
@@ -3402,7 +3397,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="48" max="32767" attributes="0"/>
+                                  <EmptySpace pref="49" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -4165,7 +4160,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="textoDescripcionDESS" pref="348" max="32767" attributes="0"/>
+                                          <Component id="textoDescripcionDESS" pref="344" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
@@ -4406,7 +4401,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="textoDescripcionTripleDESS" pref="348" max="32767" attributes="0"/>
+                                          <Component id="textoDescripcionTripleDESS" pref="344" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
@@ -4647,7 +4642,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="textoDescripcionDES" pref="348" max="32767" attributes="0"/>
+                                          <Component id="textoDescripcionDES" pref="344" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
@@ -4887,8 +4882,8 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="claveTDES" alignment="0" pref="348" max="32767" attributes="0"/>
-                                      <Component id="textoDescripcionTDES" alignment="0" pref="348" max="32767" attributes="0"/>
+                                      <Component id="claveTDES" alignment="0" pref="344" max="32767" attributes="0"/>
+                                      <Component id="textoDescripcionTDES" alignment="0" pref="344" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -5124,7 +5119,7 @@
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="2" attributes="0">
                                       <Component id="claveAES" alignment="2" min="-2" pref="257" max="-2" attributes="0"/>
-                                      <Component id="textoDescripcionAES" alignment="2" pref="348" max="32767" attributes="0"/>
+                                      <Component id="textoDescripcionAES" alignment="2" pref="344" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -5551,7 +5546,7 @@
                                       <Component id="textoL1L3" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="L1L2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                                  <EmptySpace pref="14" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -5627,7 +5622,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="nTexto" pref="18" max="32767" attributes="0"/>
+                                  <Component id="nTexto" pref="8" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                   <Component id="nParejas" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -5652,9 +5647,6 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="botonMuestrasSPN">
                           <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="DejaVu Sans" size="11" style="0"/>
-                            </Property>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/org/cripto/gui/criptex/images/bloc.png"/>
                             </Property>
@@ -5792,7 +5784,7 @@
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="2" attributes="0">
                                       <Component id="claveCBCMAC" alignment="2" min="-2" pref="257" max="-2" attributes="0"/>
-                                      <Component id="textoDescripcionCBCMAC" alignment="2" pref="348" max="32767" attributes="0"/>
+                                      <Component id="textoDescripcionCBCMAC" alignment="2" pref="344" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -5982,8 +5974,8 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="claveD1" alignment="0" pref="348" max="32767" attributes="0"/>
-                                      <Component id="textoDescripcionD1" alignment="0" pref="348" max="32767" attributes="0"/>
+                                      <Component id="claveD1" alignment="0" pref="344" max="32767" attributes="0"/>
+                                      <Component id="textoDescripcionD1" alignment="0" pref="344" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -6142,8 +6134,8 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="secuenciaOcultamiento" alignment="0" pref="333" max="32767" attributes="0"/>
-                                      <Component id="botonSecuenciaOcultamiento" alignment="0" pref="333" max="32767" attributes="0"/>
+                                      <Component id="secuenciaOcultamiento" alignment="0" pref="329" max="32767" attributes="0"/>
+                                      <Component id="botonSecuenciaOcultamiento" alignment="0" pref="329" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -6156,7 +6148,7 @@
                                   <Component id="botonSecuenciaOcultamiento" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="secuenciaOcultamiento" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                                  <EmptySpace pref="20" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -6207,9 +6199,9 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="botonTablaCifrado" alignment="0" pref="333" max="32767" attributes="0"/>
+                                      <Component id="botonTablaCifrado" alignment="0" pref="329" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="textoDescripcionSimboloD1" pref="288" max="32767" attributes="0"/>
+                                          <Component id="textoDescripcionSimboloD1" pref="282" max="32767" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="tablaSimboloSeparador" min="-2" pref="35" max="-2" attributes="1"/>
                                       </Group>
@@ -6228,7 +6220,7 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="botonTablaCifrado" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                                  <EmptySpace pref="16" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -6478,7 +6470,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="tipoClaveRSAn" linkSize="27" min="-2" pref="45" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="cajaClaveRSAn" pref="425" max="32767" attributes="1"/>
+                                          <Component id="cajaClaveRSAn" pref="413" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -6500,7 +6492,7 @@
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="cajaClaveRSAq" linkSize="19" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textoClaveRSAq" pref="22" max="32767" attributes="0"/>
+                                      <Component id="textoClaveRSAq" pref="24" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               </Group>

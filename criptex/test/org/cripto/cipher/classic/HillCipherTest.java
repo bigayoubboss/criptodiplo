@@ -42,7 +42,6 @@ public class HillCipherTest {
         key.set(0, 1, 8);
         key.set(1, 0, 3);
         key.set(1, 1, 7);
-        key.print(2, 2);
 
         String result = cipher.encode(plainText, key, null);
         assertEquals(expResult, result);
@@ -67,7 +66,6 @@ public class HillCipherTest {
         key.set(2, 0, 34);
         key.set(2, 1, 5);
         key.set(2, 2, 28);
-        key.print(2, 2);
 
         String result = cipher.encode(plainText, key, null);
         assertEquals(expResult, result);
@@ -98,7 +96,6 @@ public class HillCipherTest {
         key.set(3, 1, 3);
         key.set(3, 2, 2);
         key.set(3, 3, 1);
-        key.print(2, 2);
 
         String result = cipher.encode(plainText, key, null);
         assertEquals(expResult, result);

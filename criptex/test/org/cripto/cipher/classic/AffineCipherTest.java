@@ -8,16 +8,10 @@
  *
  * Código liberado bajo licencia Creative Commons 3.0
  * http://creativecommons.org/licenses/by-nc-sa/3.0/
-*/
-
+ */
 package org.cripto.cipher.classic;
 
-import org.cripto.cipher.classic.AffineCipher;
 import java.util.ArrayList;
-import java.util.Arrays;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -28,76 +22,41 @@ import static org.junit.Assert.*;
  */
 public class AffineCipherTest {
 
-    public AffineCipherTest() {
-    }
+    private static AffineCipher cipher;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
+        cipher = new AffineCipher();
     }
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of encrypt method, of class AffineCipher.
-     */
     @Test
-    public void testEncrypt() {
-        System.out.println("affineCipher");
+    public void testValidEncode() {
+
+        System.out.println("Affine Cipher Valid Encode");
+
+
         String plainText = "hot";
+        String expResult = "AXG";
+
         int keyA = 7;
         int keyB = 3;
-        String expResult = "AXG";
-        String result = AffineCipher.encrypt(plainText, keyA, keyB);
+
+        String result = cipher.encode(plainText, null, new Object[]{keyA, keyB});
+
         assertEquals(expResult, result);
-        if (!result.equals(expResult)) {
-            fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
-                    expResult);
-        }
     }
 
-    /**
-     * Test of cryptoAnalysis method, of class AffineCipher.
-     */
     @Test
-    public void testCryptoAnalysis() {
-        System.out.println("cryptoAnalysis");
+    public void testValidCryptoAnalysis() {
+
+        System.out.println("Affine Cipher Valid CryptoAnalysis");
+
         String cipherText = "FMXVEDKAPHFERBNDKRXRSREFMORUDSDKDVSHVUFEDKAPRKDLYEVLRHHRH";
         AffineCipher expResult = new AffineCipher("algorithmsarequitegeneraldefinitionsofarithmeticprocesses", 3, 5, 4);
-        ArrayList<AffineCipher> result = AffineCipher.cryptoAnalysis(cipherText);
-        if (!result.contains(expResult)) {
-            fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
-                    expResult);
-        }
-    }
 
-    /**
-     * Test of solveCongruenceSystem method, of class AffineCipher.
-     */
-    @Test
-    public void testSolveCongruenceSystem() {
-        System.out.println("solveCongruenceSystem");
-        double a = 4.0;
-        double b = 1.0;
-        double u = 17.0;
-        double c = 19.0;
-        double d = 1.0;
-        double v = 10.0;
-        double n = 26.0;
-        int[] expResult = {3, 5};
-        int[] result = AffineCipher.solveCongruenceSystem(a, b, u, c, d, v, n);
-        if (!Arrays.equals(result, expResult)) {
-            fail("The Obtained Result " + result + " doesn´t match the Expected Result " +
-                    expResult);
-        }
+        ArrayList<AffineCipher> result = cipher.cryptoAnalysis(cipherText);
+
+        assertTrue(result.contains(expResult));
+
     }
 }

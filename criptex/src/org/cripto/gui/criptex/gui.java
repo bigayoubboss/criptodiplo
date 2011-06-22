@@ -11,24 +11,14 @@
 package org.cripto.gui.criptex;
 
 import javax.swing.UnsupportedLookAndFeelException;
-import org.cripto.authentication.CBCMac;
 import org.cripto.cipher.classic.AffineCipher;
-import org.cripto.cipher.classic.PermutationCipher;
 import org.cripto.cipher.classic.ShiftCipher;
 import org.cripto.cipher.classic.SubstitutionCipher;
 import org.cripto.cipher.classic.HillCipher;
-import org.cripto.cipher.classic.VigenereCipher;
-import org.cripto.cipher.block.SimplifiedDESCipher;
-import org.cripto.cipher.block.AESCipher;
 import org.cripto.cipher.block.D1Cipher;
 import org.cripto.cipher.block.SubstitutionPermutationNetworkCipher;
-import org.cripto.cipher.block.DESCipher;
-import org.cripto.cipher.publickey.BellareRogawayCipher;
 import org.cripto.cipher.publickey.RSACipher;
-import org.cripto.utils.BigramsOcurrence;
 import org.cripto.utils.Code;
-import org.cripto.utils.LettersOcurrence;
-import org.cripto.utils.TrigramsOcurrence;
 import org.cripto.utils.jama.Matrix;
 import javax.swing.UIManager;
 import javax.swing.table.*;
@@ -43,13 +33,23 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.swing.ImageIcon;
-import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.cripto.authentication.CBCMac;
+import org.cripto.cipher.block.AESCipher;
+import org.cripto.cipher.block.DESCipher;
+import org.cripto.cipher.block.SimplifiedDESCipher;
+import org.cripto.cipher.classic.PermutationCipher;
+import org.cripto.cipher.classic.VigenereCipher;
+import org.cripto.cipher.publickey.BellareRogawayCipher;
+import org.cripto.utils.BigramsOcurrence;
+import org.cripto.utils.LettersOcurrence;
+import org.cripto.utils.TrigramsOcurrence;
 
 /**
  * 
@@ -86,6 +86,7 @@ public class gui extends javax.swing.JFrame {
     private ShiftCipher shiftChiper;
     private SubstitutionCipher substitutionCipher;
     private HillCipher hillCipher;
+    private AffineCipher affineCipher;
 
     public void iniciarArregloSustitucion() {
         arregloSustitucion = new javax.swing.JTextField[]{claveSustitucionA,
@@ -288,6 +289,8 @@ public class gui extends javax.swing.JFrame {
             shiftChiper = new ShiftCipher();
             substitutionCipher = new SubstitutionCipher();
             hillCipher = new HillCipher();
+            affineCipher = new AffineCipher();
+
 
         } catch (FontFormatException ex) {
             Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
@@ -4541,7 +4544,6 @@ public class gui extends javax.swing.JFrame {
         }//GEN-LAST:event_botonSecuenciaOcultamientoActionPerformed
 
         private void claveD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claveD1ActionPerformed
-            
         }//GEN-LAST:event_claveD1ActionPerformed
 
     private void botonAbrirCifradoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonAbrirCifradoActionPerformed
@@ -4671,8 +4673,7 @@ public class gui extends javax.swing.JFrame {
             botonClaveAffineActionPerformed(null);
             int claveA = Integer.parseInt(claveAffineA.getText());
             int claveB = Integer.parseInt(claveAffineB.getText());
-            String textoCifrado = AffineCipher.encrypt(textoPlano, claveA,
-                    claveB);
+            String textoCifrado = affineCipher.encode(textoPlano, null, new Object[]{claveA, claveB});
             cajaTextoCifrado.setText(textoCifrado);
             cajaTextoPlano.setText(textoPlano);
         } else {
@@ -4686,8 +4687,8 @@ public class gui extends javax.swing.JFrame {
                     if (mcd(Integer.parseInt(claveAffineA.getText()), 26) == 1) {
                         int claveA = Integer.parseInt(claveAffineA.getText());
                         int claveB = Integer.parseInt(claveAffineB.getText());
-                        String textoCifrado = AffineCipher.encrypt(textoPlano,
-                                claveA, claveB);
+                        String textoCifrado = affineCipher.encode(textoPlano,
+                                null, new Object[]{claveA, claveB});
                         cajaTextoCifrado.setText(textoCifrado);
                         cajaTextoPlano.setText(textoPlano);
                     } else {
@@ -5424,7 +5425,7 @@ public class gui extends javax.swing.JFrame {
             i++;
         }
         pintarFrecuencias(tablaResultadosAffineTrigramas, 6, datos, etiquetas3);
-        ArrayList<AffineCipher> textosPlanos = AffineCipher.cryptoAnalysis(textoCifrado);
+        ArrayList<AffineCipher> textosPlanos = affineCipher.cryptoAnalysis(textoCifrado);
         String claves = "";
         int contador = 0;
         for (AffineCipher affine : textosPlanos.subList(0, 25)) {
@@ -5862,9 +5863,14 @@ public class gui extends javax.swing.JFrame {
         }
 
         centrarCeldas(tabla);
+
+
+
+
     }
     Class[] types2 = new Class[]{java.lang.String.class,
-        java.lang.Integer.class};
+        java.lang.Integer.class
+    };
     Class[] types4 = new Class[]{java.lang.String.class,
         java.lang.Integer.class, java.lang.String.class,
         java.lang.Integer.class};
@@ -6212,7 +6218,6 @@ public class gui extends javax.swing.JFrame {
 
     private void clavePermutacionAlternativaActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clavePermutacionAlternativaActionPerformed
-        
     }// GEN-LAST:event_clavePermutacionAlternativaActionPerformed
 
     private void panelMetodoPermutacionFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_panelMetodoPermutacionFocusGained
@@ -6568,7 +6573,6 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonLimpiarSustitucionManualActionPerformed
 
     private void clavePermutacionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clavePermutacionActionPerformed
-        
     }// GEN-LAST:event_clavePermutacionActionPerformed
 
     private void botonClaveSPNActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveSPNActionPerformed
@@ -6942,7 +6946,6 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonLimpiarCBCMACActionPerformed
 
     private void claveCBCMACKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveCBCMACKeyTyped
-        
     }// GEN-LAST:event_claveCBCMACKeyTyped
 
     private void tipoClaveRSAnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoClaveRSAnActionPerformed
@@ -6991,12 +6994,10 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonClaveRSAActionPerformed
 
     private void panelMetodoRSAFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_panelMetodoRSAFocusGained
-        
     }// GEN-LAST:event_panelMetodoRSAFocusGained
 
     private void tipoOptimizacionRSAActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tipoOptimizacionRSAActionPerformed
-        
     }// GEN-LAST:event_tipoOptimizacionRSAActionPerformed
 
     private void cajaClaveRSApKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSApKeyTyped
@@ -7028,7 +7029,7 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_cajaClaveRSAeKeyTyped
 
     private void botonClaveDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveDESActionPerformed
-        
+
         Random rnd = new Random();
         char[] hexa = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
             'B', 'C', 'D', 'E', 'F'};
@@ -7042,12 +7043,12 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonClaveDESActionPerformed
 
     private void botonLimpiarDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarDESActionPerformed
-        
+
         claveDES.setText("");
     }// GEN-LAST:event_botonLimpiarDESActionPerformed
 
     private void claveDESKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveDESKeyTyped
-        
+
         char c = evt.getKeyChar();
         c = Character.toString(c).toUpperCase().charAt(0);
 
@@ -7063,7 +7064,7 @@ public class gui extends javax.swing.JFrame {
 
     private void botonClaveTripleDESSActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveTripleDESSActionPerformed
-        
+
         Random rnd = new Random();
         String clave = "";
         while (clave.length() != 30) {
@@ -7075,12 +7076,12 @@ public class gui extends javax.swing.JFrame {
 
     private void botonLimpiarTripleDESSActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarTripleDESSActionPerformed
-        
+
         claveTripleDESS.setText("");
     }// GEN-LAST:event_botonLimpiarTripleDESSActionPerformed
 
     private void claveTripleDESSKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveTripleDESSKeyTyped
-        
+
         char c = evt.getKeyChar();
         if ((c != '1' && c != '0') || claveTripleDESS.getText().length() == 30) {
             evt.consume();
@@ -7088,8 +7089,8 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_claveTripleDESSKeyTyped
 
     private void botonClaveTDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveTDESActionPerformed
-        
-        
+
+
         Random rnd = new Random();
         char[] hexa = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
             'B', 'C', 'D', 'E', 'F'};
@@ -7103,12 +7104,11 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonClaveTDESActionPerformed
 
     private void botonLimpiarTDESActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonLimpiarTDESActionPerformed
-        
+
         claveTDES.setText("");
     }// GEN-LAST:event_botonLimpiarTDESActionPerformed
 
     private void claveTDESKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveTDESKeyTyped
-        
     }// GEN-LAST:event_claveTDESKeyTyped
 
     private void cajaClaveRSAnKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_cajaClaveRSAnKeyTyped
@@ -7119,7 +7119,6 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_cajaClaveRSAnKeyTyped
 
     private void cajaClaveRSAnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cajaClaveRSAnActionPerformed
-        
     }// GEN-LAST:event_cajaClaveRSAnActionPerformed
 
     public int mcd(int a, int b) {
