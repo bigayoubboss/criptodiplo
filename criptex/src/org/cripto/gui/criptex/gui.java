@@ -40,6 +40,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.cripto.cipher.Cipher;
 import org.cripto.authentication.CBCMac;
 import org.cripto.cipher.block.AESCipher;
 import org.cripto.cipher.block.DESCipher;
@@ -83,10 +84,7 @@ public class gui extends javax.swing.JFrame {
     private final boolean D1Visible = false;
     private final boolean RSAVisible = true;
     private final boolean optimizacionRSAVisible = true;
-    private ShiftCipher shiftChiper;
-    private SubstitutionCipher substitutionCipher;
-    private HillCipher hillCipher;
-    private AffineCipher affineCipher;
+    private Cipher cipherMachine;
 
     public void iniciarArregloSustitucion() {
         arregloSustitucion = new javax.swing.JTextField[]{claveSustitucionA,
@@ -285,12 +283,6 @@ public class gui extends javax.swing.JFrame {
             tipoClaveRSApq.setFont(tahoma11);
             textoClaveRSAq.setFont(tahoma11);
             tipoOptimizacionRSA.setFont(tahoma11);
-
-            shiftChiper = new ShiftCipher();
-            substitutionCipher = new SubstitutionCipher();
-            hillCipher = new HillCipher();
-            affineCipher = new AffineCipher();
-
 
         } catch (FontFormatException ex) {
             Logger.getLogger(gui.class.getName()).log(Level.SEVERE, null, ex);
@@ -4601,11 +4593,14 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_cajaTextoCifradoKeyTyped
 
     private void encriptarDesplazamiento(String textoPlano) {
+
+        cipherMachine = new ShiftCipher();
+
         if ((tipoClaveDesplazamientoNumero.isSelected() && claveDesplazamientoNumero.getText().isEmpty())
                 || (claveDesplazamientoCaracter.getText().isEmpty() && tipoClaveDesplazamientoCaracter.isSelected())) {
             botonClaveDesplazamientoActionPerformed(null);
             int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
-            String textoCifrado = shiftChiper.encode(textoPlano, clave, null);
+            String textoCifrado = cipherMachine.encode(textoPlano, clave, null);
             cajaTextoCifrado.setText(textoCifrado);
             cajaTextoPlano.setText(textoPlano);
         } else {
@@ -4614,7 +4609,7 @@ public class gui extends javax.swing.JFrame {
                     if (Integer.parseInt(claveDesplazamientoNumero.getText()) <= 188
                             && Integer.parseInt(claveDesplazamientoNumero.getText()) >= 0) {
                         int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
-                        String textoCifrado = shiftChiper.encode(
+                        String textoCifrado = cipherMachine.encode(
                                 textoPlano, clave, null);
                         cajaTextoCifrado.setText(textoCifrado);
                         cajaTextoPlano.setText(textoPlano);
@@ -4629,7 +4624,7 @@ public class gui extends javax.swing.JFrame {
             } else {
                 if (claveDesplazamientoCaracter.getText().length() == 1) {
                     int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
-                    String textoCifrado = shiftChiper.encode(textoPlano,
+                    String textoCifrado = cipherMachine.encode(textoPlano,
                             clave, null);
                     cajaTextoCifrado.setText(textoCifrado);
                     cajaTextoPlano.setText(textoPlano);
@@ -4645,16 +4640,19 @@ public class gui extends javax.swing.JFrame {
     }
 
     private void encriptarSustitucion(String textoPlano) {
+
+        cipherMachine = new SubstitutionCipher();
+
         if (claveSustitucion.getText().isEmpty()) {
             botonClaveSustitucionActionPerformed(null);
             String clave = claveSustitucion.getText();
-            String textoCifrado = substitutionCipher.encode(textoPlano, clave, null);
+            String textoCifrado = cipherMachine.encode(textoPlano, clave, null);
             cajaTextoCifrado.setText(textoCifrado);
             cajaTextoPlano.setText(textoPlano);
         } else {
             if (claveSustitucion.getText().length() == 26) {
                 String clave = claveSustitucion.getText();
-                String textoCifrado = substitutionCipher.encode(textoPlano,
+                String textoCifrado = cipherMachine.encode(textoPlano,
                         clave, null);
                 cajaTextoCifrado.setText(textoCifrado);
                 cajaTextoPlano.setText(textoPlano);
@@ -4668,12 +4666,15 @@ public class gui extends javax.swing.JFrame {
     }
 
     private void encriptarAffine(String textoPlano) {
+
+        cipherMachine = new AffineCipher();
+
         if (claveAffineA.getText().isEmpty()
                 && claveAffineB.getText().isEmpty()) {
             botonClaveAffineActionPerformed(null);
             int claveA = Integer.parseInt(claveAffineA.getText());
             int claveB = Integer.parseInt(claveAffineB.getText());
-            String textoCifrado = affineCipher.encode(textoPlano, null, new Object[]{claveA, claveB});
+            String textoCifrado = cipherMachine.encode(textoPlano, null, new Object[]{claveA, claveB});
             cajaTextoCifrado.setText(textoCifrado);
             cajaTextoPlano.setText(textoPlano);
         } else {
@@ -4687,7 +4688,7 @@ public class gui extends javax.swing.JFrame {
                     if (mcd(Integer.parseInt(claveAffineA.getText()), 26) == 1) {
                         int claveA = Integer.parseInt(claveAffineA.getText());
                         int claveB = Integer.parseInt(claveAffineB.getText());
-                        String textoCifrado = affineCipher.encode(textoPlano,
+                        String textoCifrado = cipherMachine.encode(textoPlano,
                                 null, new Object[]{claveA, claveB});
                         cajaTextoCifrado.setText(textoCifrado);
                         cajaTextoPlano.setText(textoPlano);
@@ -4710,18 +4711,21 @@ public class gui extends javax.swing.JFrame {
     }
 
     private void encriptarVigenere(String textoPlano) {
+
+        cipherMachine = new VigenereCipher();
+
         if (claveVigenere.getText().isEmpty()) {
             botonClaveVigenereActionPerformed(null);
             String clave = claveVigenere.getText();
-            String textoCifrado = VigenereCipher.encrypt(textoPlano, clave);
+            String textoCifrado = cipherMachine.encode(textoPlano, clave, null);
             cajaTextoCifrado.setText(textoCifrado);
             cajaTextoPlano.setText(textoPlano);
         } else {
             if (claveVigenere.getText().length() < 9) {
                 try {
                     String clave = claveVigenere.getText();
-                    String textoCifrado = VigenereCipher.encrypt(textoPlano,
-                            clave);
+                    String textoCifrado = cipherMachine.encode(textoPlano,
+                            clave, null);
                     cajaTextoCifrado.setText(textoCifrado);
                     cajaTextoPlano.setText(textoPlano);
                 } catch (Exception e) {
@@ -4741,6 +4745,9 @@ public class gui extends javax.swing.JFrame {
     }
 
     private void encriptarHill(String textoPlano) {
+
+        cipherMachine = new HillCipher();
+
         Matrix clave = null;
         if (tipoClaveHill2.isSelected()) {
             if (claveHill1.getText().isEmpty()
@@ -4823,7 +4830,7 @@ public class gui extends javax.swing.JFrame {
         }
         int det = (int) Math.round(clave.det());
         if (mcd(det, 26) == 1) {
-            String textoCifrado = hillCipher.encode(textoPlano, clave, null);
+            String textoCifrado = cipherMachine.encode(textoPlano, clave, null);
             cajaTextoCifrado.setText(textoCifrado);
             cajaTextoPlano.setText(textoPlano);
         } else {
@@ -5272,7 +5279,10 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_botonEncriptarActionPerformed
 
     private void fuerzaBrutaDesplazamiento(String textoCifrado) {
-        String[] posibilidades = shiftChiper.cryptoAnalysis(textoCifrado);
+
+        cipherMachine = new ShiftCipher();
+
+        String[] posibilidades = (String[]) cipherMachine.cryptoAnalysis(textoCifrado);
         String textoPlano = "";
         for (int pos = 0; pos < posibilidades.length; pos++) {
             int[] decode = {pos};
@@ -5383,6 +5393,9 @@ public class gui extends javax.swing.JFrame {
     }
 
     private void criptoAnalisisAffine(String textoCifrado) {
+
+        cipherMachine = new AffineCipher();
+
         String textoPlano = "";
         // Frecuencias letras
         ArrayList<LettersOcurrence> frecLetras = LettersOcurrence.frequencies(Code.encodeMod26(textoCifrado));
@@ -5425,7 +5438,7 @@ public class gui extends javax.swing.JFrame {
             i++;
         }
         pintarFrecuencias(tablaResultadosAffineTrigramas, 6, datos, etiquetas3);
-        ArrayList<AffineCipher> textosPlanos = affineCipher.cryptoAnalysis(textoCifrado);
+        ArrayList<AffineCipher> textosPlanos = (ArrayList<AffineCipher>) cipherMachine.cryptoAnalysis(textoCifrado);
         String claves = "";
         int contador = 0;
         for (AffineCipher affine : textosPlanos.subList(0, 25)) {
@@ -5450,7 +5463,7 @@ public class gui extends javax.swing.JFrame {
     private void criptoAnalisisVigenere(String textoCifrado) {
         try {
             cajaTextoPlano.setText("");
-            ArrayList<VigenereCipher> textoPlanoArray = VigenereCipher.cryptoAnalysis(textoCifrado);
+            ArrayList<VigenereCipher> textoPlanoArray = (ArrayList<VigenereCipher>) cipherMachine.cryptoAnalysis(textoCifrado);
             VigenereCipher textoPlano = textoPlanoArray.get(0);
             cajaTextoPlano.setText(textoPlano.getText());
             cajaTextoCifrado.setText(textoCifrado);
@@ -6147,6 +6160,8 @@ public class gui extends javax.swing.JFrame {
     }// GEN-LAST:event_tipoClaveDesplazamientoCaracterActionPerformed
 
     private void claveDesplazamientoCaracterKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_claveDesplazamientoCaracterKeyTyped
+
+        cipherMachine = new ShiftCipher();
         Character c = evt.getKeyChar();
         if (c < 32 || (c > 126 && c < 161) || c > 255) {
             evt.consume();
@@ -6156,7 +6171,7 @@ public class gui extends javax.swing.JFrame {
             claveDesplazamientoNumero.setText(String.valueOf(encode[0]));
 
             int clave = Integer.parseInt(claveDesplazamientoNumero.getText());
-            String textoCifrado = shiftChiper.encode(
+            String textoCifrado = cipherMachine.encode(
                     muestraDesplazamientoDe.getText(), clave, null);
             muestraDesplazamientoA.setText(textoCifrado);
         }
@@ -6190,12 +6205,12 @@ public class gui extends javax.swing.JFrame {
                     c.toString()))};
                 decode = Code.decodeMod189(decodeNumber);
 
-                muestraDesplazamientoA.setText(shiftChiper.encode(
+                muestraDesplazamientoA.setText(cipherMachine.encode(
                         muestraDesplazamientoDe.getText(), clave, null));
             } else {
                 int decodeNumber[] = {Integer.parseInt(c.toString())};
                 decode = Code.decodeMod189(decodeNumber);
-                muestraDesplazamientoA.setText(shiftChiper.encode(
+                muestraDesplazamientoA.setText(cipherMachine.encode(
                         muestraDesplazamientoDe.getText(), decodeNumber[0], null));
             }
 
@@ -6205,10 +6220,13 @@ public class gui extends javax.swing.JFrame {
 
     private void botonClaveDesplazamientoActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonClaveDesplazamientoActionPerformed
+
+        cipherMachine = new ShiftCipher();
+
         Random rnd = new Random();
         int clave = rnd.nextInt(188);
         claveDesplazamientoNumero.setText(String.valueOf(clave));
-        muestraDesplazamientoA.setText(shiftChiper.encode(
+        muestraDesplazamientoA.setText(cipherMachine.encode(
                 muestraDesplazamientoDe.getText(), clave, null));
 
         int decodeNumber[] = {clave};
