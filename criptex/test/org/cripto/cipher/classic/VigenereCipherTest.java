@@ -8,9 +8,7 @@
  *
  * Código liberado bajo licencia Creative Commons 3.0
  * http://creativecommons.org/licenses/by-nc-sa/3.0/
-*/
-
-
+ */
 package org.cripto.cipher.classic;
 
 import org.cripto.cipher.classic.VigenereCipher;
@@ -28,39 +26,25 @@ import static org.junit.Assert.*;
  */
 public class VigenereCipherTest {
 
-    public VigenereCipherTest() {
-    }
+    private static VigenereCipher cipher;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
+        cipher = new VigenereCipher();
     }
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of VigenereCipher method, of class VigenereCipher.
-     */
     @Test
-    public void testVigenereCipher() {
-        System.out.println("vigenereCipher");
+    public void testValidVigenereEncode() {
+
+        System.out.println("Vigenere Cipher Valid Encode");
+
         String plainText = "thiscryptosystemisnotsecure";
-        String keyWord = "CIPHER";
-        String obtainedResult = VigenereCipher.encrypt(plainText, keyWord);
+        String key = "CIPHER";
         String expectedResult = "VPXZGIAXIVWPUBTTMJPWIZITWZT";
-        if( !obtainedResult.equals(expectedResult)){
-            fail("The Obtained Result " + obtainedResult + " doesn´t match the Expected Result " +
-                    expectedResult);
-        }
+
+        String obtainedResult = cipher.encode(plainText, key, new Object[]{});
+
+        assertEquals(expectedResult, obtainedResult);
     }
 
     /**
@@ -68,30 +52,6 @@ public class VigenereCipherTest {
      */
     @Test
     public void testCryptoanalysis() {
-        /*System.out.println("TEST 1:");
-        System.out.println("VigenereCipher: CryptoAnalysis");
-        System.out.println("VPXZGIAXIVWPUBTTMJPWIZITWZT");
-        String cipherText = "VPXZGIAXIVWPUBTTMJPWIZITWZT";
-        ArrayList<VigenereCipher> obtainedResults = VigenereCipher.cryptoAnalysis(cipherText);
-        //String[] obtainedResults = {"otrarespuesta","uy","nadaporaca"};
-        //String[] obtainedResults = {"otrarespuesta","thiscryptosystemisnotsecure","nadaporaca"};
-        String expectedResult = "thiscryptosystemisnotsecure";
-        boolean found = false;
-        int position = 0;
-        for(int i = 0; i < obtainedResults.size(); i++){
-            if( obtainedResults.get(i).getText().equals(expectedResult)){
-                found = true;
-                position = i;
-            }
-        }
-        if(!found){
-            fail("Any Result matches the Expected Result " + expectedResult);
-        }
-
-        if(found)
-            System.out.println("The Obtained Result " + obtainedResults.get(position).getText() + " at index "+ position +" matches the Expected Result " +
-                    expectedResult);*/
-         
 
         System.out.println("TEST 2:");
         System.out.println("VigenereCipher: CryptoAnalysis");
@@ -103,62 +63,63 @@ public class VigenereCipherTest {
         System.out.println("AMRVLCRREMNDGLXRRIMGNSNRWCHRQHAEYEVTAQEBBI");
         System.out.println("PEEWEVKAKOEWADREMXMTBHHCHRTKDNVRZCHRCLQOHP");
         System.out.println("WQAIIWXNRMGWOIIFKEE");
-        String cipherText = "CHREEVOAHMAERATBIAXXWTNXBEEOPHBSBQMQEQERBW" +
-                            "RVXUOAKXAOSXXWEAHBWGJMMQMNKGRFVGXWTRZXWIAK" +
-                            "LXFPSKAUTEMNDCMGTSXMXBTUIADNGMGPSRELXNJELX" +
-                            "VRVPRTULHDNQWTWDTYGBPHXTFALJHASVBFXNGLLCHR" +
-                            "ZBWELEKMSJIKNBHWRJGNMGJSGLXFEYPHAGNRBIEQJT" +
-                            "AMRVLCRREMNDGLXRRIMGNSNRWCHRQHAEYEVTAQEBBI" +
-                            "PEEWEVKAKOEWADREMXMTBHHCHRTKDNVRZCHRCLQOHP" +
-                            "WQAIIWXNRMGWOIIFKEE";
-        ArrayList<VigenereCipher> obtainedResults = VigenereCipher.cryptoAnalysis(cipherText);
+        String cipherText = "CHREEVOAHMAERATBIAXXWTNXBEEOPHBSBQMQEQERBW"
+                + "RVXUOAKXAOSXXWEAHBWGJMMQMNKGRFVGXWTRZXWIAK"
+                + "LXFPSKAUTEMNDCMGTSXMXBTUIADNGMGPSRELXNJELX"
+                + "VRVPRTULHDNQWTWDTYGBPHXTFALJHASVBFXNGLLCHR"
+                + "ZBWELEKMSJIKNBHWRJGNMGJSGLXFEYPHAGNRBIEQJT"
+                + "AMRVLCRREMNDGLXRRIMGNSNRWCHRQHAEYEVTAQEBBI"
+                + "PEEWEVKAKOEWADREMXMTBHHCHRTKDNVRZCHRCLQOHP"
+                + "WQAIIWXNRMGWOIIFKEE";
+        ArrayList<VigenereCipher> obtainedResults = cipher.cryptoAnalysis(cipherText);
         //String[] obtainedResults = {"otrarespuesta","uy","nadaporaca"};
         //String[] obtainedResults = {"otrarespuesta","thiscryptosystemisnotsecure","nadaporaca"};
-        String expectedResult = "thealmondtreewasintentativeblossomthedayswere" +
-                                "longeroftenendingwithmagnificenteveningsofcorrugated" +
-                                "pinkskiesthehuntingseasonwasoverwithhoundsandgunsput" +
-                                "awayforsixmonthsthevineyardswerebusyagainasthewellorganizedfarm" +
-                                "erstreatedtheirvinesandthemorelackadaisicalneighborshurriedto" +
-                                "dothepruningtheyshouldhavedoneinnovember";
+        String expectedResult = "thealmondtreewasintentativeblossomthedayswere"
+                + "longeroftenendingwithmagnificenteveningsofcorrugated"
+                + "pinkskiesthehuntingseasonwasoverwithhoundsandgunsput"
+                + "awayforsixmonthsthevineyardswerebusyagainasthewellorganizedfarm"
+                + "erstreatedtheirvinesandthemorelackadaisicalneighborshurriedto"
+                + "dothepruningtheyshouldhavedoneinnovember";
         boolean found = false;
         int position = 0;
-        for(int i = 0; i < obtainedResults.size(); i++){
-            if( obtainedResults.get(i).getText().equals(expectedResult)){
+        for (int i = 0; i < obtainedResults.size(); i++) {
+            if (obtainedResults.get(i).getText().equals(expectedResult)) {
                 found = true;
                 position = i;
             }
         }
-        if(!found){
+        if (!found) {
             fail("Any Result matches the Expected Result " + expectedResult);
         }
 
-        if(found)
-            System.out.println("The Obtained Result " + obtainedResults.get(position).getText() + " at index "+ position +" matches the Expected Result " +
-                    expectedResult);
+        if (found) {
+            System.out.println("The Obtained Result " + obtainedResults.get(position).getText() + " at index " + position + " matches the Expected Result "
+                    + expectedResult);
+        }
 
         System.out.println("TEST 3:");
         System.out.println("VigenereCipher: CryptoAnalysis");
         System.out.println("OAGNEYEKNLVLWSEZSBRGPUEJBWKEIJLWEKEFRWABRUVWWHRUIAZOXPHSRMIRWLBUWLWSLOYJLSGASUMKISEPXZXCEJXOXHPKLGYOMJOAGNHFQSGKXYIKISIEHGKHRUKDHYCFJZBZQRNWLACBMFZHLRWMXYYJSJWLVVHZBZULIWGCEJLLBASRTHXHVSIXHYIYMETUHYMKZBIJXKPLEIMFZOIIGJHDRKSVBZTCEQALVSISNAC");
         cipherText = "OAGNEYEKNLVLWSEZSBRGPUEJBWKEIJLWEKEFRWABRUVWWHRUIAZOXPHSRMIRWLBUWLWSLOYJLSGASUMKISEPXZXCEJXOXHPKLGYOMJOAGNHFQSGKXYIKISIEHGKHRUKDHYCFJZBZQRNWLACBMFZHLRWMXYYJSJWLVVHZBZULIWGCEJLLBASRTHXHVSIXHYIYMETUHYMKZBIJXKPLEIMFZOIIGJHDRKSVBZTCEQALVSISNAC";
-        obtainedResults = VigenereCipher.cryptoAnalysis(cipherText);
+        obtainedResults = cipher.cryptoAnalysis(cipherText);
         //String[] obtainedResults = {"otrarespuesta","uy","nadaporaca"};
         //String[] obtainedResults = {"otrarespuesta","thiscryptosystemisnotsecure","nadaporaca"};
         expectedResult = "kingahasuerusalsoknownasxerxesheldaonehundredandeightydayfeastinsusashushantodisplaythevastwealthofhiskingdomandthesplendorandgloryofhismajestykingahasuerusorderedhisqueenvashtitoappearbeforehimandhisguestswearinghercrowntodisplayherbeauty";
         found = false;
         position = 0;
-        for(int i = 0; i < obtainedResults.size(); i++){
-            if( obtainedResults.get(i).getText().equals(expectedResult)){
+        for (int i = 0; i < obtainedResults.size(); i++) {
+            if (obtainedResults.get(i).getText().equals(expectedResult)) {
                 found = true;
                 position = i;
             }
         }
-        if(!found){
+        if (!found) {
             fail("Any Result matches the Expected Result " + expectedResult);
         }
 
-        if(found)
-            System.out.println("The Obtained Result " + obtainedResults.get(position).getText() + " at index "+ position +" matches the Expected Result " +
-                    expectedResult);
+        if (found) {
+            System.out.println("The Obtained Result " + obtainedResults.get(position).getText() + " at index " + position + " matches the Expected Result "
+                    + expectedResult);
+        }
     }
-
 }
