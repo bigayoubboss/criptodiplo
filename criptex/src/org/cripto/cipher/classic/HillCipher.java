@@ -22,6 +22,7 @@ public class HillCipher implements Cipher {
 
     @Override
     public String[] cryptoAnalysis(String cipherText) {
+        // TODO Implement Hill cipher cryptoanalysis     
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -80,7 +81,7 @@ public class HillCipher implements Cipher {
 
         int[] cipherTextArray = new int[plainTextSize];
         int actualPosition = 0;
-        
+
         for (int i = 0; i < plainTextSize; i++) {
             cipherTextArray[i] = ((int) mod26CipherText[actualPosition].get(0, i % keySize)) % 26;
             if (i > 0 && i % keySize == (keySize - 1)) {
