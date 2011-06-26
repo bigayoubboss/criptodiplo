@@ -33,14 +33,16 @@ public class ShiftCipher implements Cipher {
         int key = Integer.parseInt(oKey.toString());
         String plainText = (String) oPlainText;
 
-        int[] encodedPlainText = Code.encodeMod189(plainText);
+        int[] mod189PlainText = Code.encodeMod189(plainText);
 
         for (int i = 0; i < plainText.length(); i++) {
-            encodedPlainText[i] += key;
-            encodedPlainText[i] %= 189;
+            mod189PlainText[i] += key;
+            mod189PlainText[i] %= 189;
         }
+        
+        String cipherText = Code.decodeMod189(mod189PlainText);
 
-        return Code.decodeMod189(encodedPlainText);
+        return cipherText;
     }
 
     /**
@@ -54,19 +56,20 @@ public class ShiftCipher implements Cipher {
     public String decode(String cipherText, Object oKey) {
 
         int key = Integer.parseInt(oKey.toString());
-        int[] encodedCipherText = Code.encodeMod189(cipherText);
+        int[] mod189CipherText = Code.encodeMod189(cipherText);
 
-        for (int j = 0; j < encodedCipherText.length; j++) {
+        for (int j = 0; j < mod189CipherText.length; j++) {
 
-            encodedCipherText[j] = encodedCipherText[j] - key;
+            mod189CipherText[j] = mod189CipherText[j] - key;
 
-            if (encodedCipherText[j] < 0) {
-                encodedCipherText[j] += 189;
+            if (mod189CipherText[j] < 0) {
+                mod189CipherText[j] += 189;
             }
         }
-
-        return Code.decodeMod189(encodedCipherText);
-
+        
+        String plainText = Code.decodeMod189(mod189CipherText);
+        
+        return plainText;
     }
 
     /**
@@ -78,12 +81,12 @@ public class ShiftCipher implements Cipher {
     @Override
     public String[] cryptoAnalysis(String cipherText) {
 
-        String[] possibilities = new String[189];
+        String[] possibility = new String[189];
 
         for (int i = 0; i < 189; i++) {
-            possibilities[i] = this.decode(cipherText, i);
+            possibility[i] = this.decode(cipherText, i);
         }
 
-        return possibilities;
+        return possibility;
     }
 }

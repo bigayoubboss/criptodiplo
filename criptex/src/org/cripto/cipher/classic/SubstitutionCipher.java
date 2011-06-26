@@ -22,32 +22,32 @@ public class SubstitutionCipher implements Cipher {
     @Override
     public String encode(Object plainText, Object key, Object[] params) {
 
-        int[] encodedPlainText = Code.encodeMod26(String.valueOf(plainText));
-        int[] encodedNewAlphabet = Code.encodeMod26(String.valueOf(key));
-        int[] encodedCipherText = new int[encodedPlainText.length];
+        int[] mod26PlainText = Code.encodeMod26(String.valueOf(plainText));
+        int[] mod26Key = Code.encodeMod26(String.valueOf(key));
+        int[] mod26CipherText = new int[mod26PlainText.length];
 
         for (int i = 0; i < String.valueOf(plainText).length(); i++) {
-            encodedCipherText[i] = encodedNewAlphabet[encodedPlainText[i]];
+            mod26CipherText[i] = mod26Key[mod26PlainText[i]];
         }
 
-        String secret = Code.decodeMod26(encodedCipherText);
-        secret = secret.toUpperCase();
+        String cipherText = Code.decodeMod26(mod26CipherText);
+        cipherText = cipherText.toUpperCase();
 
-        return secret;
+        return cipherText;
     }
 
     @Override
-    public String decode(String cipherText, Object key) {
+    public String decode(String cipherText, Object oKey) {
 
-        int[] encodedCipherText = Code.encodeMod26(String.valueOf(cipherText));
-        String newAlphabet = String.valueOf(key);
-        int[] encodedPlainText = new int[encodedCipherText.length];
+        int[] mod26CipherText = Code.encodeMod26(String.valueOf(cipherText));
+        String key = String.valueOf(oKey);
+        int[] mod26PlainText = new int[mod26CipherText.length];
 
         for (int i = 0; i < String.valueOf(cipherText).length(); i++) {
-            encodedPlainText[i] = newAlphabet.indexOf(cipherText.charAt(i));
+            mod26PlainText[i] = key.indexOf(cipherText.charAt(i));
         }
 
-        String plainText = Code.decodeMod26(encodedPlainText);
+        String plainText = Code.decodeMod26(mod26PlainText);
         plainText = plainText.toLowerCase();
 
         return plainText;
