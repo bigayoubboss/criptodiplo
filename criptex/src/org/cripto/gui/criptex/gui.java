@@ -4842,16 +4842,19 @@ public class gui extends javax.swing.JFrame {
     }
 
     private void encriptarPermutacion(String textoPlano) {
+
+        cipherMachine = new PermutationCipher();
+
         String clave = clavePermutacion.getText();
         try {
             String textoCifrado = "";
             if (clavePermutacionAlternativa.isSelected()) {
-                textoCifrado = PermutationCipher.encryptAlternate(textoPlano,
-                        clave);
-                textoCifrado = PermutationCipher.encryptAlternate(
-                        textoCifrado.toUpperCase(), clave);
+                textoCifrado = cipherMachine.encode(textoPlano,
+                        clave, new Boolean[]{false});
+                textoCifrado = cipherMachine.encode(
+                        textoCifrado.toUpperCase(), clave, new Boolean[]{false});
             } else {
-                textoCifrado = PermutationCipher.encrypt(textoPlano, clave);
+                textoCifrado = cipherMachine.encode(textoPlano, clave, new Boolean[]{true});
             }
             cajaTextoCifrado.setText(textoCifrado);
             cajaTextoPlano.setText(textoPlano);

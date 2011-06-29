@@ -8,83 +8,105 @@
  * Código liberado bajo licencia Creative Commons 3.0
  * http://creativecommons.org/licenses/by-nc-sa/3.0/
  */
-
 package org.cripto.cipher.classic;
 
-import org.cripto.utils.Code;
-import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.cripto.cipher.Cipher;
 
 /**
  * 
  * @author damontanofe,lvmorenoc,carodriguezb
  */
-public class PermutationCipher {
+public class PermutationCipher implements Cipher {
 
-	public static String encrypt(String plainText, String keyNumberString)
-			throws IOException {
+    @Override
+    public String encode(Object oPlainText, Object oKey, Object[] params) {
 
-		int keySize = keyNumberString.length();
-		String secret = "";
+        String key = oKey.toString();
+        String plainText = oPlainText.toString();
 
-		plainText = completeString(plainText, keySize);
+        int keySize = key.length();
+        String secret = "";
 
-		int blocks = plainText.length() / keySize;
-		for (int i = 0; i < blocks; i++) {
-			String block = plainText.substring(i * keySize, i * keySize
-					+ keySize);
-			secret = secret.concat(permutateBlock(block, keyNumberString));
-		}
+        plainText = completeString(plainText, keySize);
 
-		return secret.toUpperCase();
-	}
+        int blocks = plainText.length() / keySize;
 
-	public static String encryptAlternate(String plainText,
-			String keyNumberString) {
+        boolean isSimpleEncode = Boolean.parseBoolean(params[0].toString());
 
-		int keySize = keyNumberString.length();
-		String secret = "";
+        if (isSimpleEncode) {
+            secret = encodeSimple(plainText, key, blocks, keySize);
+        } else {
+            secret = encodeAlternate(plainText, key, blocks, keySize);
+        }
 
-		plainText = completeString(plainText, keySize);
+        return secret.toUpperCase();
+    }
 
-		int blocks = plainText.length() / keySize;
-		for (int i = 0; i < blocks; i++) {
+    @Override
+    public String decode(String cipherText, Object oKey) {
+        // TODO Implement Permutation Cipher decode
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-			String matrixRow = "";
+    @Override
+    public Object cryptoAnalysis(String cipherText) {
+        // TODO Implement Permutation Cipher Cryptoanalysis
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-			for (int j = 0; j < (keySize * blocks); j = j + blocks) {
-				matrixRow = matrixRow.concat(String.valueOf(plainText.charAt(i
-						+ j)));
-			}
-			secret = secret.concat(permutateBlock(matrixRow, keyNumberString));
-		}
+    public String encodeSimple(String plainText, String keyNumberString, int blocks, int keySize) {
 
-		return secret.toUpperCase();
-	}
+        String secret = "";
 
-	private static String permutateBlock(String blockToPermutate,
-			String numberKey) {
+        for (int i = 0; i < blocks; i++) {
+            String block = plainText.substring(i * keySize, i * keySize
+                    + keySize);
+            secret = secret.concat(permutateBlock(block, keyNumberString));
+        }
 
-		int key[] = new int[numberKey.length()];
-		char block[] = blockToPermutate.toCharArray();
-		String permutation = "";
+        return secret.toUpperCase();
 
-		for (int i = 0; i < numberKey.length(); i++) {
-			key[i] = Character.getNumericValue(numberKey.charAt(i));
-		}
+    }
 
-		for (int i = 0; i < key.length; i++) {
-			permutation = permutation.concat(String.valueOf(block[key[i] - 1]));
-		}
+    public String encodeAlternate(String plainText, String keyNumberString, int blocks, int keySize) {
 
-		return permutation;
-	}
+        String secret = "";
 
-	private static String completeString(String string, int size) {
-		while (string.length() % size != 0) {
-			string = string.concat("A");
-		}
-		return string;
-	}
+        for (int i = 0; i < blocks; i++) {
+
+            String matrixRow = "";
+            for (int j = 0; j < (keySize * blocks); j = j + blocks) {
+                matrixRow = matrixRow.concat(String.valueOf(plainText.charAt(i
+                        + j)));
+            }
+            secret = secret.concat(permutateBlock(matrixRow, keyNumberString));
+        }
+
+        return secret.toUpperCase();
+    }
+
+    private static String permutateBlock(String blockToPermutate,
+            String numberKey) {
+
+        int key[] = new int[numberKey.length()];
+        char block[] = blockToPermutate.toCharArray();
+        String permutation = "";
+
+        for (int i = 0; i < numberKey.length(); i++) {
+            key[i] = Character.getNumericValue(numberKey.charAt(i));
+        }
+
+        for (int i = 0; i < key.length; i++) {
+            permutation = permutation.concat(String.valueOf(block[key[i] - 1]));
+        }
+
+        return permutation;
+    }
+
+    private static String completeString(String string, int size) {
+        while (string.length() % size != 0) {
+            string = string.concat("A");
+        }
+        return string;
+    }
 }
