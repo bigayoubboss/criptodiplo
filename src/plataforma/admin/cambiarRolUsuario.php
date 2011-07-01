@@ -59,8 +59,8 @@ if (isset($_POST['usuario']) && isset($_POST['rolUsuario'])) {
 
     require_once '../clases/DB.php';
 
-    $id_usuario = DB::limpiarSQL($_POST['usuario']);
-    $administrador = DB::limpiarSQL($_POST['rolUsuario']);
+    $id_usuario = $_POST['usuario'];
+    $administrador = $_POST['rolUsuario'];
 
     $rolUsuario = array(
         "administrador" => $administrador

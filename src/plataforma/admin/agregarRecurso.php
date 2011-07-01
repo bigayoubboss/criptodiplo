@@ -31,7 +31,7 @@ function formularioAgregarRecurso() {
         </p>
         <p>
             <label></label>
-            <input type="button" value="Agregar texto" id="agregarRecursoBoton" />
+            <input type="button" value="Agregar recurso" id="agregarRecursoBoton" />
         </p>
 
 
@@ -61,10 +61,10 @@ if (isset($_POST['nombre']) && isset($_POST['enlace']) && isset($_POST['prerequi
 
     require_once '../clases/DB.php';
 
-    $nombre = DB::limpiarSQL($_POST['nombre']);
-    $enlace = DB::limpiarSQL($_POST['enlace']);
-    $prerequisitos = DB::limpiarSQL($_POST['prerequisitos']);
-    $idMetodo = DB::limpiarSQL($_POST['idMetodo']);
+    $nombre = $_POST['nombre'];
+    $enlace = $_POST['enlace'];
+    $prerequisitos = $_POST['prerequisitos'];
+    $idMetodo = $_POST['idMetodo'];
 
     $nuevoRecurso = array(
         "nombres_mostrar" => $nombre,

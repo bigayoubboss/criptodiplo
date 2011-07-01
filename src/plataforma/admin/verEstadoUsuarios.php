@@ -73,7 +73,7 @@ function imprimirActividades() {
     $db = new DB();
     $db->conectar();
 
-    $consulta = "SELECT nombre,id_actividad FROM actividades ORDER BY id_actividad";
+    $consulta = "SELECT nombre,id_actividad FROM actividades WHERE visible=1 ORDER BY id_actividad";
     $actividadesSQL = $db->consulta($consulta);
 
     while ($actividad = mysql_fetch_object($actividadesSQL)) {

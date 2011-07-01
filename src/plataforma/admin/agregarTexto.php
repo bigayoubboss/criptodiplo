@@ -84,11 +84,11 @@ if (isset($_POST['idiomaTexto']) && isset($_POST['metodoCifrado']) && isset($_PO
 
     require_once '../clases/DB.php';
 
-    $id_idioma = DB::limpiarSQL($_POST['idiomaTexto']);
-    $id_metodo = DB::limpiarSQL($_POST['metodoCifrado']);
-    $texto_plano = DB::limpiarSQL($_POST['textoPlano']);
-    $texto_cifrado = DB::limpiarSQL($_POST['textoCifrado']);
-    $clave = DB::limpiarSQL($_POST['clave']);
+    $id_idioma = $_POST['idiomaTexto'];
+    $id_metodo = $_POST['metodoCifrado'];
+    $texto_plano = $_POST['textoPlano'];
+    $texto_cifrado = $_POST['textoCifrado'];
+    $clave = $_POST['clave'];
 
     $nuevoTexto = array(
         "id_idioma" => $id_idioma,

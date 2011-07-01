@@ -58,8 +58,8 @@ if (isset($_POST['actividad']) && isset($_POST['estadoActividad'])) {
 
     require_once '../clases/DB.php';
 
-    $id_actividad = DB::limpiarSQL($_POST['actividad']);
-    $habilitada = DB::limpiarSQL($_POST['estadoActividad']);
+    $id_actividad = $_POST['actividad'];
+    $habilitada = $_POST['estadoActividad'];
 
     $estadoActividad = array(
         "habilitada" => $habilitada

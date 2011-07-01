@@ -42,14 +42,15 @@ function cargarRecursos() {
     $db = new DB();
     $db->conectar();
 
-    $consulta = "SELECT id_recursos,substring(nombres_mostrar,1,50) as nombres_mostrar,IF(habilitado = 1, '[H]','[D]') as habilitado
-                FROM recursos
-                ORDER BY id_metodo";
+    $consulta = "SELECT r.id_recursos as id_recurso,substring(r.nombres_mostrar,1,50) as nombres_mostrar,IF(r.habilitado = 1, '[H]','[D]') as habilitado,m.metodo as metodo
+                FROM recursos r,metodos m
+                WHERE m.id_metodo = r.id_metodo
+                ORDER BY m.metodo";
 
     $recursosSQL = $db->consulta($consulta);
 
     while ($recurso = mysql_fetch_object($recursosSQL)) {
-        echo '<option value = "' . $recurso->id_recursos . '">' . $recurso->habilitado . ' ' . $recurso->nombres_mostrar . '</option>';
+        echo '<option value = "' . $recurso->id_recursos . '">' .  ' ' .$recurso->habilitado . ' ' . $recurso->metodo . ' - ' . $recurso->nombres_mostrar . '</option>';
     }
 }
 
@@ -57,8 +58,8 @@ if (isset($_POST['recurso']) && isset($_POST['estadoRecurso'])) {
 
     require_once '../clases/DB.php';
 
-    $id_recurso = DB::limpiarSQL($_POST['recurso']);
-    $habilitado = DB::limpiarSQL($_POST['estadoRecurso']);
+    $id_recurso = $_POST['recurso'];
+    $habilitado = $_POST['estadoRecurso'];
 
     $estadoRecurso = array(
         "habilitado" => $habilitado

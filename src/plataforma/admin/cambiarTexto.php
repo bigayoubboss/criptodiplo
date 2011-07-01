@@ -32,7 +32,7 @@ function imprimirActividades() {
     $db = new DB();
     $db->conectar();
 
-    $consulta = "SELECT nombre,id_actividad FROM actividades ORDER BY id_actividad";
+    $consulta = "SELECT nombre,id_actividad FROM actividades WHERE visible = 1 ORDER BY id_actividad";
     $actividadesSQL = $db->consulta($consulta);
 
     echo '<select id="idActividad">';
@@ -64,8 +64,8 @@ function imprimirUsuarios() {
 
 if (isset($_POST['idUsuario']) && isset($_POST['idActividad'])) {
     require_once '../clases/DB.php';
-    $id_usuario = DB::limpiarSQL($_POST['idUsuario']);
-    $id_actividad = DB::limpiarSQL($_POST['idActividad']);
+    $id_usuario = $_POST['idUsuario'];
+    $id_actividad = $_POST['idActividad'];
 
     $id_textoViejo = inicioActividad($id_usuario, $id_actividad);
 

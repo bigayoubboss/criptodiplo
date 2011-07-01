@@ -51,14 +51,16 @@ class Texto {
         if ($this->texto_plano == '') {
             return "Error: Texto Plano no encontrado, comun&iacute;quese con el administrador del sistema";
         }
-        return html_entity_decode($this->texto_plano, ENT_COMPAT, 'UTF-8');
+        return $this->texto_plano;
+//      return html_entity_decode($this->texto_plano, ENT_COMPAT, 'UTF-8');
     }
 
     public function getTextoCifrado() {
         if ($this->texto_cifrado == '') {
             return "Error: Texto Cifrado no encontrado, comun&iacute;quese con el administrador del sistema";
         }
-        return html_entity_decode($this->texto_cifrado, ENT_COMPAT, 'UTF-8');
+        return $this->texto_cifrado;
+//      return html_entity_decode($this->texto_cifrado, ENT_COMPAT, 'UTF-8');
     }
 
     public function getClave() {
