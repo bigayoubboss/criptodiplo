@@ -1,243 +1,249 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es" dir="ltr" >
-<head>  
-<!--<base href="http://www.ciencias.unal.edu.co/" /> -->
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <head>  
+        <!--<base href="http://www.ciencias.unal.edu.co/" /> -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-<title>Facultad de Ciencias - Universidad Nacional de Colombia</title>
-<link href="css/estilos_plantilla.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="css/estilos.css" rel="stylesheet" type="text/css" />
-<link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico"/>
-<link rel="stylesheet" href="css/jquery.css" type="text/css" media="screen" />
+        <title>Facultad de Ciencias - Universidad Nacional de Colombia</title>
+        <link href="css/estilos_plantilla.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="css/estilos.css" rel="stylesheet" type="text/css" />
+        <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico"/>
 
-    <meta name="keywords" content="universidad, nacional, colombia, ciencias, departamentos, museos, institutos" />
-	<meta name="description" content="El Departamento de Ciencias de la Universidad Nacional de Colombia." />
+        <link rel="stylesheet" href="css/jquery.css" type="text/css" media="screen" />
 
-<script src="src/pngfix.js" type="text/javascript"></script>
-<script language="Javascript" src="src/banerand.js" type="text/javascript"></script>
-<script type="text/javascript" src="src/jquery.js"></script>
+        <meta name="keywords" content="universidad, nacional, colombia, ciencias, departamentos, museos, institutos" />
+        <meta name="description" content="El Departamento de Ciencias de la Universidad Nacional de Colombia." />
 
-<script type="text/javascript">
-	
-	  // When the document loads do everything inside here ...
-	  $(document).ready(function(){
-		
-		// When a link is clicked
-		$("a.tab").click(function () {
-			
-			
-			// switch all tabs off
-			$(".active").removeClass("active");
-			
-			// switch this tab on
-			$(this).addClass("active");
-			
-			// slide all content up
-			$(".content").slideUp();
-			
-			// slide this content up
-			var content_show = $(this).attr("title");
-			$("#"+content_show).slideDown();
-		  
-		});
-	
-	  });
-  </script>
-<style type="text/css">
-<!--
-.Estilo1 {font-weight: bold}
--->
-</style>
-</head>
+        <script type="text/javascript" src="src/pngfix.js" ></script>
+        <script type="text/javascript" src="src/banerand.js" ></script>
+        <script type="text/javascript" src="src/jquery.js"></script>
+        <script type="text/javascript" src="src/load.js"></script>
 
-<body>
-<!-- Inicio #Contenido Web -->
-<div class="contenidoweb">
-<div class="encabezado">
-  <div id="header">
-		
-	<!--Cabezote Superior-->
-	<div id="header_sup">
-	<div id="header_sup_logo"><a href="http://www.unal.edu.co"><span class="hidden">Universidad Nacional de Colombia / Bogot&aacute; / Facultad de Ciencias</span></a></div>
-	<div id="header_sup_titulo">
-	  <p class="titulo">Diplomado en Criptograf&iacute;a</p>
-	</div>
-	<div id="header_sup_herra">
-	<div id="header_sup_herra_buscador">
-    <div id="buscador_un">
-    <div id="buscador" class="barraos"><form action="http://www.bogota.unal.edu.co/buscar.html" target="_parent">  <input type="hidden" name="cx" value="015779202118420744272:qk5u5rpebla" /><input type="hidden" name="cof" value="FORID:11" />  <input type="text" class="field" name="q" size="15" />
-    <input name="submit" type="image" value="Buscar" src="../template_inicio/images/bogo_go.gif" align="top"/>
-    <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=es"></script>
-   </form></div>		
-    </div></div>
-	<div id="header_sup_herra_barra"></div>
-	<div id="header_sup_herra_sedesun">
-	<div class="menusedes">
-   <ul>
-    <li><a href="javascript:void(0)"><span class="hidden">Sedes</span></a>
-    <ul><li>
-    <a href="javascript:void(0)"></a><a href="http://www.imani.unal.edu.co">Amazonia</a></li>
-    <li><a href="http://www.bogota.unal.edu.co">Bogot&aacute;</a></li>
-    <li><a href="http://www.caribe.unal.edu.co">Caribe</a></li>
-	<li><a href="http://www.manizales.unal.edu.co">Manizales</a></li>
-    <li><a href="http://www.unalmed.edu.co/">Medell&iacute;n</a></li>
-    <li><a href="http://www.arauca.unal.edu.co">Orinoquia</a></li>
-	<li><a href="http://www.palmira.unal.edu.co">Palmira</a></li>
-    </ul>
-	</li>
-  </ul>
-  </div>
-  
-  </div>
-	<div id="header_sup_herra_inicioun"><a href="http://www.unal.edu.co"><span class="hidden">Universidad Nacional de Colombia / Bogot&aacute;</span></a></div>
-	</div>
-	</div>
-	<!--Fin Cabezote Superior-->
-	<!--Cabezote Inferior-->
-	<div id="header_inf">
-	  <div id="header_inf_inicio"><a href="index.html"><img src="images/bogo_inicio.jpg" alt="Inicio de Facultad" width="82" height="18" border="0" /></a></div>
-	  <div id="header_inf_barra"></div>
-	  <div id="header_inf_final"></div>
-	  <div id="header_inf_correo">
-	    <div class="menucorreo">
-            <ul>
-               <li><a href="javascript:void(0)"><span class="hidden">Correo</span></a> 
-                 <ul><li>
-                   <a href="javascript:void(0)"></a>
-                   <a href="http://www.unal.edu.co/contenido/correo.php/">Correo UN</a></li>
-                   <li><a href="https://www.google.com/a/bt.unal.edu.co/">Correo UN / Google</a></li>
-                   <li><a href="http://www.unal.edu.co/contenido/calendario.php">Calendario</a></li>
-                </ul>
-                <!--[if lte IE 6]></td></tr></table></a><![endif]-->
-	           </li>
-            </ul>
-        </div>
-      </div>
-	  <div id="header_inf_fecha"> <script language="Javascript" type="text/javascript">
-//var currenttime = '<!--#config timefmt="%B %d, %Y %H:%M:%S"--><!--#echo var="DATE_LOCAL" -->' //SSI method of getting server date
-var currenttime = 'May 08, 2009 00:25:40' //PHP method of getting server date
+    </head>
 
-///////////Stop editting here///////////////////////////////
+    <body>
+        <!-- Inicio #Contenido Web -->
+        <div class="contenidoweb">
+            <div class="encabezado">
+                <div id="header">
 
-var montharray=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
-var serverdate=new Date(currenttime)
+                    <!--Cabezote Superior-->
+                    <div id="header_sup">
+                        <div id="header_sup_logo"><a href="http://www.unal.edu.co"><span class="hidden">Universidad Nacional de Colombia / Bogot&aacute; / Facultad de Ciencias</span></a></div>
+                        <div id="header_sup_titulo">
+                            <p class="titulo">Diplomado en Criptograf&iacute;a</p>
+                        </div>
+                        <div id="header_sup_herra">
+                            <div id="header_sup_herra_buscador">
+                                <div id="buscador_un">
+                                    <div id="buscador" class="barraos"><form action="http://www.bogota.unal.edu.co/buscar.html" target="_parent">  <input type="hidden" name="cx" value="015779202118420744272:qk5u5rpebla" /><input type="hidden" name="cof" value="FORID:11" />  <input type="text" class="field" name="q" size="15" />
+                                            <input name="submit" type="image" value="Buscar" src="../template_inicio/images/bogo_go.gif" align="top"/>
+                                            <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=es"></script>
+                                        </form></div>		
+                                </div></div>
+                            <div id="header_sup_herra_barra"></div>
+                            <div id="header_sup_herra_sedesun">
+                                <div class="menusedes">
+                                    <ul>
+                                        <li><a href="javascript:void(0)"><span class="hidden">Sedes</span></a>
+                                            <ul><li>
+                                                    <a href="javascript:void(0)"></a><a href="http://www.imani.unal.edu.co">Amazonia</a></li>
+                                                <li><a href="http://www.bogota.unal.edu.co">Bogot&aacute;</a></li>
+                                                <li><a href="http://www.caribe.unal.edu.co">Caribe</a></li>
+                                                <li><a href="http://www.manizales.unal.edu.co">Manizales</a></li>
+                                                <li><a href="http://www.unalmed.edu.co/">Medell&iacute;n</a></li>
+                                                <li><a href="http://www.arauca.unal.edu.co">Orinoquia</a></li>
+                                                <li><a href="http://www.palmira.unal.edu.co">Palmira</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
 
-function padlength(what){
-var output=(what.toString().length==1)? "0"+what : what
-return output
-}
+                            </div>
+                            <div id="header_sup_herra_inicioun"><a href="http://www.unal.edu.co"><span class="hidden">Universidad Nacional de Colombia / Bogot&aacute;</span></a></div>
+                        </div>
+                    </div>
+                    <!--Fin Cabezote Superior-->
+                    <!--Cabezote Inferior-->
+                    <div id="header_inf">
+                        <div id="header_inf_inicio"><a href="index.html"><img src="images/bogo_inicio.jpg" alt="Inicio de Facultad" width="82" height="18" border="0" /></a></div>
+                        <div id="header_inf_barra"></div>
+                        <div id="header_inf_final"></div>
+                        <div id="header_inf_correo">
+                            <div class="menucorreo">
+                                <ul>
+                                    <li><a href="javascript:void(0)"><span class="hidden">Correo</span></a> 
+                                        <ul><li>
+                                                <a href="javascript:void(0)"></a>
+                                                <a href="http://www.unal.edu.co/contenido/correo.php/">Correo UN</a></li>
+                                            <li><a href="https://www.google.com/a/bt.unal.edu.co/">Correo UN / Google</a></li>
+                                            <li><a href="http://www.unal.edu.co/contenido/calendario.php">Calendario</a></li>
+                                        </ul>
+                                        <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="header_inf_fecha"> <script language="Javascript" type="text/javascript">
+                            //var currenttime = '<!--#config timefmt="%B %d, %Y %H:%M:%S"--><!--#echo var="DATE_LOCAL" -->' //SSI method of getting server date
+                            var currenttime = 'May 08, 2009 00:25:40' //PHP method of getting server date
 
-function displaytime(){
-serverdate.setSeconds(serverdate.getSeconds()+1)
-var datestring=montharray[serverdate.getMonth()]+" "+padlength(serverdate.getDate())+", "+serverdate.getFullYear()
-var timestring=padlength(serverdate.getHours())+":"+padlength(serverdate.getMinutes())+":"+padlength(serverdate.getSeconds())
-document.getElementById("servertime").innerHTML=datestring+" "+timestring
-}
+                            ///////////Stop editting here///////////////////////////////
 
-window.onload=function(){
-setInterval("displaytime()", 1000)
-}
+                            var montharray=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
+                            var serverdate=new Date(currenttime)
 
-</script>
-<font class="fechatexto"><span id="servertime"></span></font></div>
-    </div>	
-</div>
+                            function padlength(what){
+                                var output=(what.toString().length==1)? "0"+what : what
+                                return output
+                            }
 
-<!--Fin Cabezote Inferior-->
+                            function displaytime(){
+                                serverdate.setSeconds(serverdate.getSeconds()+1)
+                                var datestring=montharray[serverdate.getMonth()]+" "+padlength(serverdate.getDate())+", "+serverdate.getFullYear()
+                                var timestring=padlength(serverdate.getHours())+":"+padlength(serverdate.getMinutes())+":"+padlength(serverdate.getSeconds())
+                                document.getElementById("servertime").innerHTML=datestring+" "+timestring
+                            }
 
-<div class="bloque_banners">
-	<script language="JavaScript" type="text/javascript">
-			<!--
-				RotativosAvisos();
-			//-->
-	</script></div>  
-</div>
-<div class="marcoweb">
-  
-  <!-- Inicio #Menu Izquierda -->
-  <div class="barraizquierda">
-    <ul>
-                        <li class="listmenu1">
-                            <div class="textmenu"><a href="index.html">Introducci&oacute;n</a></div>
-                        </li>
-                        <li class="listmenu2">
-                            <div class="textmenu"><a href="objetivos.html">Objetivos</a></div>
-                        </li>                        
-                        <li class="listmenu3">
-                            <div class="textmenu"><a href="metodologia.html">Metodolog&iacute;a</a></div>
-                        </li>
-                        <li class="listmenu4">
-                            <div class="textmenu"><a href="proceso_academico.html">Proceso Acad&eacute;mico </a></div>
-                        </li>                        
-                        <li class="listmenu5">
-                            <div class="textmenu"><a href="contacto.html" >Contacto</a></div>
-                        </li>
-			<!--<li class="listmenu5">
-                            <div class="textmenu"><a href="inscripcion.html" >Inscripci&oacute;n 2010 - II</a></div>
-                        </li>-->
-                        <li class="listmenu5">
-                            <div class="textmenu"><a href="plataforma.html" >Plataforma </a></div>
-                        </li>
-                    </ul>
-            <p>&nbsp;</p>
-            <div class="bloque_bannersizq">
-            	<ul>
-				  <li class="banners"></li>
-				  <li class="banners"><a href="http://www.cimun.unal.edu.co/"></a></li>
-  				  <li class="banners"></li>
-   		    	</ul>
+                            window.onload=function(){
+                                setInterval("displaytime()", 1000)
+                            }
+
+                            </script>
+                            <font class="fechatexto"><span id="servertime"></span></font></div>
+                    </div>	
+                </div>
+
+                <!--Fin Cabezote Inferior-->
+
+                <div class="bloque_banners">
+                    <script language="JavaScript" type="text/javascript">
+                        <!--
+                        RotativosAvisos();
+                        //-->
+                    </script></div>  
             </div>
-   </div>
-  <!-- Fin #Menu Izquierda -->
-  
-  <!-- Inicio #Menu Central -->
-  <div class="barracentral">
-          <div class="bloque_investigacion">
-       <h2 align="center" class="Estilo1">Criptograf&iacute;a para todos o el arte de Ocultar Informaci&oacute;n</h2>
-      
-        <p align="left">Uno  de los aspectos b&aacute;sicos de la vida cotidiana actual tiene que ver con la  seguridad inform&aacute;tica.Esto es, la seguridad que un individuo o compa&ntilde;&iacute;a debe  tener al realizar sus transacciones ya sean financieras o de informaci&oacute;n a  trav&eacute;s de la red. La secretitud de la clave que debe tener un usuario al pagar  bienes y servicios  adem&aacute;s de la  autenticaci&oacute;n de su identidad, son ejemplos   del tipo de servicios que en este tiempo son requeridos por la  sociedad.  En consecuencia, se ha  generado un nuevo mercado especializado en seguridad computacional para  proteger esta clase de informaci&oacute;n. De hecho, la adquisici&oacute;n de estos productos  a compa&ntilde;&iacute;as internacionales por lo general,   no ha permitido su real conocimiento, lo cual ha sido un impedimento  para el desarrollo de esta industria en el pa&iacute;s.     </p>
-        <p><strong>Contacto:</strong>
-          <br />
-          </p>
-        <p>Prof. Agust&iacute;n Moreno Ca&ntilde;adas</p>
-        <p>Oficina 321, Edificio 404.</p>
-        <p>Extensi&oacute;n: 13170.</p>
-        <p>E-mail: amorenoca@unal.edu.co  </p>
-          </div>
-          <br />
-  <div class="clear"></div> 
+            <div class="marcoweb">
 
-    <div class="bloque_noticias">
-    <h1>Kryptos</h1>
-    <code> 
-			<object width="440" height="350" data="images/banner_news.swf" type="application/x-shockwave-flash">
-            <br />
-			<param value="transparent" name="WMode"/>
-			<param value="high" name="quality"/>
-			<param value="false" name="menu"/>
-			<param value="true" name="allowFullScreen"/>
-			<param value="images/banner_news.swf" name="movie"/>
-			<p>Noticias Tem&aacute;ticas de cada Departamento dentro de la facultad.</p>
-			</object>
-		</code>	
-    </div>
-    <div class="clear"></div> 
-  </div>
-      <!-- Fin #Menu Central -->
+                <!-- Inicio #Menu Izquierda -->
+                <div class="barraizquierda">
+                    <ul>
+                        <li>
+                            <p>Diplomado en Criptograf&iacute;a</p>
+                            <ul>
+                                <li>
+                                    <a href="index.html">Introducci&oacute;n</a>
+                                </li>
+                                <li>
+                                    <a href="objetivos.html">Objetivos</a>
+                                </li>                        
+                                <li>
+                                    <a href="metodologia.html">Metodolog&iacute;a</a>
+                                </li>
+                                <li>
+                                    <a href="proceso_academico.html">Proceso Acad&eacute;mico </a>
+                                </li>                        
+                                <li>
+                                    <a href="contacto.html" >Contacto</a>
+                                </li>
+                                <!--<li">
+                                    <a href="inscripcion.html" >Inscripci&oacute;n 2010 - II</a>
+                                </li>-->
+                                <li>
+                                    <div><a href="plataforma.html" >Plataforma</a>
+                                </li>
+                            </ul>         
+                        </li>
+                        <li>
+                            <p>Curso de Criptograf&iacute;a Visual</p>
+                            <ul>
+                                <li>
+                                    <a href="visual/index.html">Introducci&oacute;n</a>
+                                </li>
+                                <li>
+                                    <a href="visual/objetivos.html">Objetivos</a>
+                                </li>                        
+                                <li>
+                                    <a href="visual/metodologia.html">Metodolog&iacute;a</a>
+                                </li>
+                                <li>
+                                    <a href="visual/proceso_academico.html">Proceso Acad&eacute;mico </a>
+                                </li>                        
+                                <li>
+                                    <a href="visual/contacto.html" >Contacto</a>
+                                </li>
+                                <!--<li>
+                                    <a href="visual/inscripcion.html" >Inscripci&oacute;n 2010 - II</a>
+                                </li>-->
+                                <!--<li>
+                                    <a href="visual/plataforma.html" >Plataforma</a>
+                                </li>-->
+                            </ul>         
+                        </li>
+                    </ul>                  
+                </div>
+                <!-- Fin #Menu Izquierda -->
 
-  <!-- Inicio #Menu Derecha -->
-  <!-- end Eventos -->
-  <!-- Fin #Menu Derecha -->
-<div class="clear"></div></div>
-<div class="piepagina">
-<div class="bloque_direccion">Universidad Nacional de Colombia<br />
-  Carrera 30 No 45 - 03 - Edificio 476<br />
-  Bogot&aacute; D.C. - Colombia</div>
-<div class="bloque_logosext"><a href="http://www.gobiernoenlinea.gov.co" target="_blank"><img src="images/bot_gobiernoenlinea.jpg" alt="Gobierno en L&iacute;nea" width="59" height="31" border="0" /></a> <a href="http://www.agenciadenoticias.unal.edu.co/"><img src="images/bot_agenciaun.jpg" alt="Agencia UN" width="80" height="31" border="0" /></a></div>
-<div class="bloque_correotel">
-PBX: 3165000 Ext: 15629
-  <a href="mailto:webmaster_fcbog@unal.edu.co">webmaster_fcbog@unal.edu.co</a> Aviso Legal - Copyright</div>
-<div class="clear"></div></div></div> 
-<!-- Fin #Contenido Web -->
-</body>
+                <!-- Inicio #Contenido Central -->
+                <div class="barracentral">
+                    <div class="bloque">
+                        <h1>Criptograf&iacute;a para todos o el arte de Ocultar Informaci&oacute;n</h1>
+
+                        <p>Uno  de los aspectos b&aacute;sicos de la vida cotidiana actual tiene que ver 
+                            con la  seguridad inform&aacute;tica.Esto es, la seguridad que un individuo o 
+                            compa&ntilde;&iacute;a debe  tener al realizar sus transacciones ya sean financieras 
+                            o de informaci&oacute;n a  trav&eacute;s de la red. La secretitud de la clave que 
+                            debe tener un usuario al pagar  bienes y servicios  adem&aacute;s de la  
+                            autenticaci&oacute;n de su identidad, son ejemplos   del tipo de servicios que 
+                            en este tiempo son requeridos por la  sociedad.  En consecuencia, se ha  
+                            generado un nuevo mercado especializado en seguridad computacional para  
+                            proteger esta clase de informaci&oacute;n. De hecho, la adquisici&oacute;n 
+                            de estos productos  a compa&ntilde;&iacute;as internacionales por lo general,   
+                            no ha permitido su real conocimiento, lo cual ha sido un impedimento  para el 
+                            desarrollo de esta industria en el pa&iacute;s.</p>
+
+                    </div>
+
+                    <div class="bloque">
+                        <h2>Kryptos</h2>
+                        <div class="center">
+                            <object width="440" height="350" data="images/banner_news.swf" type="application/x-shockwave-flash">
+                                <br />
+                                <param value="transparent" name="WMode"/>
+                                <param value="high" name="quality"/>
+                                <param value="false" name="menu"/>
+                                <param value="true" name="allowFullScreen"/>
+                                <param value="images/banner_news.swf" name="movie"/>
+                                <p>Noticias Tem&aacute;ticas de cada Departamento dentro de la facultad.</p>
+                            </object>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Fin #Contenido Central -->
+
+                <hr/> 
+
+            </div>
+
+            <div class="piepagina">
+                <div class="bloque_direccion">Universidad Nacional de Colombia<br />
+                    Carrera 30 No 45 - 03 - Edificio 476<br />
+                    Bogot&aacute; D.C. - Colombia</div>
+                <div class="bloque_logosext">
+                    <a href="http://www.gobiernoenlinea.gov.co" target="_blank">
+                        <img src="images/bot_gobiernoenlinea.jpg" alt="Gobierno en L&iacute;nea" width="59" height="31" border="0" />
+                    </a> 
+                    <a href="http://www.agenciadenoticias.unal.edu.co/">
+                        <img src="images/bot_agenciaun.jpg" alt="Agencia UN" width="80" height="31" border="0" />
+                    </a>
+                </div>
+                <div class="bloque_correotel">
+                    PBX: 3165000 Ext: 15629
+                    <a href="mailto:webmaster_fcbog@unal.edu.co">webmaster_fcbog@unal.edu.co</a> Aviso Legal - Copyright</div>
+                <hr/>
+            </div>
+        </div> 
+        <!-- Fin #Contenido Web -->
+    </body>
 </html>

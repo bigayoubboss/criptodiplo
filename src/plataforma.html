@@ -8,41 +8,17 @@
         <link href="css/estilos_plantilla.css" rel="stylesheet" type="text/css" media="screen" />
         <link href="css/estilos.css" rel="stylesheet" type="text/css" />
         <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico"/>
+
         <link rel="stylesheet" href="css/jquery.css" type="text/css" media="screen" />
 
         <meta name="keywords" content="universidad, nacional, colombia, ciencias, departamentos, museos, institutos" />
         <meta name="description" content="El Departamento de Ciencias de la Universidad Nacional de Colombia." />
 
-        <script src="src/pngfix.js" type="text/javascript"></script>
-        <script language="Javascript" src="src/banerand.js" type="text/javascript"></script>
+        <script type="text/javascript" src="src/pngfix.js" ></script>
+        <script type="text/javascript" src="src/banerand.js" ></script>
         <script type="text/javascript" src="src/jquery.js"></script>
+        <script type="text/javascript" src="src/load.js"></script>
 
-        <script type="text/javascript">
-
-            // When the document loads do everything inside here ...
-            $(document).ready(function(){
-
-                // When a link is clicked
-                $("a.tab").click(function () {
-
-
-                    // switch all tabs off
-                    $(".active").removeClass("active");
-
-                    // switch this tab on
-                    $(this).addClass("active");
-
-                    // slide all content up
-                    $(".content").slideUp();
-
-                    // slide this content up
-                    var content_show = $(this).attr("title");
-                    $("#"+content_show).slideDown();
-
-                });
-
-            });
-        </script>
     </head>
 
     <body>
@@ -55,13 +31,13 @@
                     <div id="header_sup">
                         <div id="header_sup_logo"><a href="http://www.unal.edu.co"><span class="hidden">Universidad Nacional de Colombia / Bogot&aacute; / Facultad de Ciencias</span></a></div>
                         <div id="header_sup_titulo">
-                            <p class="titulo">Diplomado de Criptograf&iacute;a</p>
+                            <p class="titulo">Diplomado en Criptograf&iacute;a</p>
                         </div>
                         <div id="header_sup_herra">
                             <div id="header_sup_herra_buscador">
                                 <div id="buscador_un">
                                     <div id="buscador" class="barraos"><form action="http://www.bogota.unal.edu.co/buscar.html" target="_parent">  <input type="hidden" name="cx" value="015779202118420744272:qk5u5rpebla" /><input type="hidden" name="cof" value="FORID:11" />  <input type="text" class="field" name="q" size="15" />
-                                            <input name="submit" type="image" value="Buscar" src="images/bogo_go.gif" align="top"/>
+                                            <input name="submit" type="image" value="Buscar" src="../template_inicio/images/bogo_go.gif" align="top"/>
                                             <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=es"></script>
                                         </form></div>		
                                 </div></div>
@@ -108,7 +84,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div id="header_inf_fecha"> <script type="text/javascript">
+                        <div id="header_inf_fecha"> <script language="Javascript" type="text/javascript">
                             //var currenttime = '<!--#config timefmt="%B %d, %Y %H:%M:%S"--><!--#echo var="DATE_LOCAL" -->' //SSI method of getting server date
                             var currenttime = 'May 08, 2009 00:25:40' //PHP method of getting server date
 
@@ -152,42 +128,65 @@
                 <!-- Inicio #Menu Izquierda -->
                 <div class="barraizquierda">
                     <ul>
-                        <li class="listmenu1">
-                            <div class="textmenu"><a href="index.html">Introducci&oacute;n</a></div>
+                        <li>
+                            <p>Diplomado en Criptograf&iacute;a</p>
+                            <ul>
+                                <li>
+                                    <a href="index.html">Introducci&oacute;n</a>
+                                </li>
+                                <li>
+                                    <a href="objetivos.html">Objetivos</a>
+                                </li>                        
+                                <li>
+                                    <a href="metodologia.html">Metodolog&iacute;a</a>
+                                </li>
+                                <li>
+                                    <a href="proceso_academico.html">Proceso Acad&eacute;mico </a>
+                                </li>                        
+                                <li>
+                                    <a href="contacto.html" >Contacto</a>
+                                </li>
+                                <!--<li">
+                                    <a href="inscripcion.html" >Inscripci&oacute;n 2010 - II</a>
+                                </li>-->
+                                <li>
+                                    <div><a href="plataforma.html" >Plataforma</a>
+                                </li>
+                            </ul>         
                         </li>
-                        <li class="listmenu2">
-                            <div class="textmenu"><a href="objetivos.html">Objetivos</a></div>
-                        </li>                        
-                        <li class="listmenu3">
-                            <div class="textmenu"><a href="metodologia.html">Metodolog&iacute;a</a></div>
+                        <li>
+                            <p>Curso de Criptograf&iacute;a Visual</p>
+                            <ul>
+                                <li>
+                                    <a href="visual/index.html">Introducci&oacute;n</a>
+                                </li>
+                                <li>
+                                    <a href="visual/objetivos.html">Objetivos</a>
+                                </li>                        
+                                <li>
+                                    <a href="visual/metodologia.html">Metodolog&iacute;a</a>
+                                </li>
+                                <li>
+                                    <a href="visual/proceso_academico.html">Proceso Acad&eacute;mico </a>
+                                </li>                        
+                                <li>
+                                    <a href="visual/contacto.html" >Contacto</a>
+                                </li>
+                                <!--<li>
+                                    <a href="visual/inscripcion.html" >Inscripci&oacute;n 2010 - II</a>
+                                </li>-->
+                                <!--<li>
+                                    <a href="visual/plataforma.html" >Plataforma</a>
+                                </li>-->
+                            </ul>         
                         </li>
-                        <li class="listmenu4">
-                            <div class="textmenu"><a href="proceso_academico.html">Proceso Acad&eacute;mico </a></div>
-                        </li>                        
-                        <li class="listmenu5">
-                            <div class="textmenu"><a href="contacto.html" >Contacto</a></div>
-                        </li>
-			<!--<li class="listmenu5">
-                            <div class="textmenu"><a href="inscripcion.html" >Inscripci&oacute;n 2010 - II</a></div>
-                        </li>-->
-                        <li class="listmenu5">
-                            <div class="textmenu"><a href="plataforma.html" >Plataforma </a></div>
-                        </li>
-                    </ul>
-                    <p>&nbsp;</p>
-                    <div class="bloque_bannersizq">
-                        <ul>
-                            <li class="banners"></li>
-                            <li class="banners"><a href="http://www.cimun.unal.edu.co/"></a></li>
-                            <li class="banners"></li>
-                        </ul>
-                    </div>
+                    </ul>                  
                 </div>
                 <!-- Fin #Menu Izquierda -->
 
-                <!-- Inicio #Menu Central -->
+                <!-- Inicio #Contenido Central -->
                 <div class="barracentral">
-                    <div class="bloque_investigacion">
+                    <div class="bloque_plataforma">
                         <script type="text/javascript">
                             <!--
                             function calcHeight()
@@ -223,32 +222,38 @@
                                     Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
                             </div>
                         </noscript>
-				<!--<div class="advertencia">
-                                <p>Atenci&oacute;n: La plataforma estar&aacute; habilitada hasta el 05 de Abril a las 11:59 AM</p>
-                            </div>-->
-                        <iframe src="plataforma/index.php" frameborder="0" id="the_iframe"  onload="calcHeight();" name="Plataforma Dimplomado"> Plataforma Dimplomado</iframe>
+                        <!--<div class="advertencia">
+                            <p>Atenci&oacute;n: La plataforma estar&aacute; habilitada hasta el 05 de Abril a las 11:59 AM</p>
+                        </div>-->
+                        <iframe width="700" src="plataforma/index.php" frameborder="0" id="the_iframe"  onload="calcHeight();" name="Plataforma Dimplomado"> Plataforma Dimplomado</iframe>
 
                     </div>
-                    <br />
-                    <div class="clear"></div> 
 
-                    <div class="clear"></div> 
                 </div>
-                <!-- Fin #Menu Central -->
+                <!-- Fin #Contenido Central -->
 
-                <!-- Inicio #Menu Derecha -->
-                <!-- end Eventos -->
-                <!-- Fin #Menu Derecha -->
-                <div class="clear"></div></div>
+                <hr/> 
+
+            </div>
+
             <div class="piepagina">
                 <div class="bloque_direccion">Universidad Nacional de Colombia<br />
                     Carrera 30 No 45 - 03 - Edificio 476<br />
                     Bogot&aacute; D.C. - Colombia</div>
-                <div class="bloque_logosext"><a href="http://www.gobiernoenlinea.gov.co" target="_blank"><img src="images/bot_gobiernoenlinea.jpg" alt="Gobierno en L&iacute;nea" width="59" height="31" border="0" /></a> <a href="http://www.agenciadenoticias.unal.edu.co/"><img src="images/bot_agenciaun.jpg" alt="Agencia UN" width="80" height="31" border="0" /></a></div>
+                <div class="bloque_logosext">
+                    <a href="http://www.gobiernoenlinea.gov.co" target="_blank">
+                        <img src="images/bot_gobiernoenlinea.jpg" alt="Gobierno en L&iacute;nea" width="59" height="31" border="0" />
+                    </a> 
+                    <a href="http://www.agenciadenoticias.unal.edu.co/">
+                        <img src="images/bot_agenciaun.jpg" alt="Agencia UN" width="80" height="31" border="0" />
+                    </a>
+                </div>
                 <div class="bloque_correotel">
                     PBX: 3165000 Ext: 15629
                     <a href="mailto:webmaster_fcbog@unal.edu.co">webmaster_fcbog@unal.edu.co</a> Aviso Legal - Copyright</div>
-                <div class="clear"></div></div></div> 
+                <hr/>
+            </div>
+        </div> 
         <!-- Fin #Contenido Web -->
     </body>
 </html>

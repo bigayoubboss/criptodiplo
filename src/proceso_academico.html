@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es" dir="ltr" >
-    <head>
+    <head>  
         <!--<base href="http://www.ciencias.unal.edu.co/" /> -->
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
@@ -8,41 +8,17 @@
         <link href="css/estilos_plantilla.css" rel="stylesheet" type="text/css" media="screen" />
         <link href="css/estilos.css" rel="stylesheet" type="text/css" />
         <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico"/>
+
         <link rel="stylesheet" href="css/jquery.css" type="text/css" media="screen" />
 
         <meta name="keywords" content="universidad, nacional, colombia, ciencias, departamentos, museos, institutos" />
         <meta name="description" content="El Departamento de Ciencias de la Universidad Nacional de Colombia." />
 
-        <script src="src/pngfix.js" type="text/javascript"></script>
-        <script language="Javascript" src="src/banerand.js" type="text/javascript"></script>
+        <script type="text/javascript" src="src/pngfix.js" ></script>
+        <script type="text/javascript" src="src/banerand.js" ></script>
         <script type="text/javascript" src="src/jquery.js"></script>
+        <script type="text/javascript" src="src/load.js"></script>
 
-        <script type="text/javascript">
-
-            // When the document loads do everything inside here ...
-            $(document).ready(function(){
-
-                // When a link is clicked
-                $("a.tab").click(function () {
-
-
-                    // switch all tabs off
-                    $(".active").removeClass("active");
-
-                    // switch this tab on
-                    $(this).addClass("active");
-
-                    // slide all content up
-                    $(".content").slideUp();
-
-                    // slide this content up
-                    var content_show = $(this).attr("title");
-                    $("#"+content_show).slideDown();
-
-                });
-
-            });
-        </script>
     </head>
 
     <body>
@@ -55,15 +31,15 @@
                     <div id="header_sup">
                         <div id="header_sup_logo"><a href="http://www.unal.edu.co"><span class="hidden">Universidad Nacional de Colombia / Bogot&aacute; / Facultad de Ciencias</span></a></div>
                         <div id="header_sup_titulo">
-                            <p class="titulo">Diplomado de Criptograf&iacute;a</p>
+                            <p class="titulo">Diplomado en Criptograf&iacute;a</p>
                         </div>
                         <div id="header_sup_herra">
                             <div id="header_sup_herra_buscador">
                                 <div id="buscador_un">
                                     <div id="buscador" class="barraos"><form action="http://www.bogota.unal.edu.co/buscar.html" target="_parent">  <input type="hidden" name="cx" value="015779202118420744272:qk5u5rpebla" /><input type="hidden" name="cof" value="FORID:11" />  <input type="text" class="field" name="q" size="15" />
-                                            <input name="submit" type="image" value="Buscar" src="images/bogo_go.gif" align="top"/>
+                                            <input name="submit" type="image" value="Buscar" src="../template_inicio/images/bogo_go.gif" align="top"/>
                                             <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=es"></script>
-                                        </form></div>
+                                        </form></div>		
                                 </div></div>
                             <div id="header_sup_herra_barra"></div>
                             <div id="header_sup_herra_sedesun">
@@ -96,7 +72,7 @@
                         <div id="header_inf_correo">
                             <div class="menucorreo">
                                 <ul>
-                                    <li><a href="javascript:void(0)"><span class="hidden">Correo</span></a>
+                                    <li><a href="javascript:void(0)"><span class="hidden">Correo</span></a> 
                                         <ul><li>
                                                 <a href="javascript:void(0)"></a>
                                                 <a href="http://www.unal.edu.co/contenido/correo.php/">Correo UN</a></li>
@@ -135,7 +111,7 @@
 
                             </script>
                             <font class="fechatexto"><span id="servertime"></span></font></div>
-                    </div>
+                    </div>	
                 </div>
 
                 <!--Fin Cabezote Inferior-->
@@ -145,76 +121,103 @@
                         <!--
                         RotativosAvisos();
                         //-->
-                    </script></div>
+                    </script></div>  
             </div>
             <div class="marcoweb">
 
                 <!-- Inicio #Menu Izquierda -->
                 <div class="barraizquierda">
                     <ul>
-                        <li class="listmenu1">
-                            <div class="textmenu"><a href="introduccion.html">Introducci&oacute;n</a></div>
+                        <li>
+                            <p>Diplomado en Criptograf&iacute;a</p>
+                            <ul>
+                                <li>
+                                    <a href="index.html">Introducci&oacute;n</a>
+                                </li>
+                                <li>
+                                    <a href="objetivos.html">Objetivos</a>
+                                </li>                        
+                                <li>
+                                    <a href="metodologia.html">Metodolog&iacute;a</a>
+                                </li>
+                                <li>
+                                    <a href="proceso_academico.html">Proceso Acad&eacute;mico </a>
+                                </li>                        
+                                <li>
+                                    <a href="contacto.html" >Contacto</a>
+                                </li>
+                                <!--<li">
+                                    <a href="inscripcion.html" >Inscripci&oacute;n 2010 - II</a>
+                                </li>-->
+                                <li>
+                                    <div><a href="plataforma.html" >Plataforma</a>
+                                </li>
+                            </ul>         
                         </li>
-                        <li class="listmenu2">
-                            <div class="textmenu"><a href="objetivos.html">Objetivos</a></div>
-                        </li>                        
-                        <li class="listmenu3">
-                            <div class="textmenu"><a href="metodologia.html">Metodolog&iacute;a</a></div>
+                        <li>
+                            <p>Curso de Criptograf&iacute;a Visual</p>
+                            <ul>
+                                <li>
+                                    <a href="visual/index.html">Introducci&oacute;n</a>
+                                </li>
+                                <li>
+                                    <a href="visual/objetivos.html">Objetivos</a>
+                                </li>                        
+                                <li>
+                                    <a href="visual/metodologia.html">Metodolog&iacute;a</a>
+                                </li>
+                                <li>
+                                    <a href="visual/proceso_academico.html">Proceso Acad&eacute;mico </a>
+                                </li>                        
+                                <li>
+                                    <a href="visual/contacto.html" >Contacto</a>
+                                </li>
+                                <!--<li>
+                                    <a href="visual/inscripcion.html" >Inscripci&oacute;n 2010 - II</a>
+                                </li>-->
+                                <!--<li>
+                                    <a href="visual/plataforma.html" >Plataforma</a>
+                                </li>-->
+                            </ul>         
                         </li>
-                        <li class="listmenu4">
-                            <div class="textmenu"><a href="proceso_academico.html">Proceso Acad&eacute;mico </a></div>
-                        </li>                        
-                        <li class="listmenu5">
-                            <div class="textmenu"><a href="contacto.html" >Contacto</a></div>
-                        </li>
-                       <!--<li class="listmenu5">
-                            <div class="textmenu"><a href="inscripcion.html" >Inscripci&oacute;n 2010 - II</a></div>
-                        </li>-->
-                        <li class="listmenu5">
-                            <div class="textmenu"><a href="plataforma.html" >Plataforma </a></div>
-                        </li>
-                    </ul>
-                    <p>&nbsp;</p>
-                    <div class="bloque_bannersizq">
-                        <ul>
-                            <li class="banners"></li>
-                            <li class="banners"><a href="http://www.cimun.unal.edu.co/"></a></li>
-                            <li class="banners"></li>
-                        </ul>
-                    </div>
+                    </ul>                  
                 </div>
                 <!-- Fin #Menu Izquierda -->
 
-                <!-- Inicio #Menu Central -->
+                <!-- Inicio #Contenido Central -->
                 <div class="barracentral">
-                    <div class="bloque_investigacion">
-                        <h2 align="center" class="Estilo1">Proceso Acad&eacute;mico</h2>
+                    <div class="bloque">
+                        <h1>Proceso Acad&eacute;mico</h1>
 
-                        <br />
-
-
-                        <h3>M&oacute;dulo I  30 Horas. </h3>
+                        <h2>M&oacute;dulo I  (30 Horas) </h2>
                         <strong>Criptograf&iacute;a cl&aacute;sica:</strong> Definici&oacute;n de criptosistema, criptosistema de sustituci&oacute;n, de desplazamiento, Af&iacute;n, transposici&oacute;n, Vigenere, Hill y algunos cifradores en cadena.
                         <ul>
-                            <li><strong>Definici&oacute;n de criptosistema </strong></li>
-                            <li>Criptosistema de Sustituci&oacute;n. </li>
-                            <li>Criptosistema por Desplazamiento. </li>
-                            <li>Criptosistema Af&iacute;n. </li>
-                            <li>Criptosistema de Transposici&oacute;n. </li>
-                            <li>Criptosistema de Vigenere. </li>
-                            <li>Criptosistema de Hill. </li>
-                            <li>Algunos cifradores en Cadena. </li>
+                            <li><strong>Definici&oacute;n de criptosistema </strong>
+                                <ul>
+                                    <li>Criptosistema de Sustituci&oacute;n </li>
+                                    <li>Criptosistema por Desplazamiento </li>
+                                    <li>Criptosistema Af&iacute;n </li>
+                                    <li>Criptosistema de Transposici&oacute;n </li>
+                                    <li>Criptosistema de Vigenere </li>
+                                    <li>Criptosistema de Hill </li>
+                                    <li>Algunos cifradores en Cadena </li>
+                                </ul>
+                            </li>
                         </ul>
                         <ul>
-                            <li><strong>Criptoan&aacute;lisis.</strong></li>
-                            <li>Definici&oacute;n de Criptoan&aacute;lisis.</li>
-                            <li>Tipos de Criptoan&aacute;lisis.</li>
-                            <li>Criptoan&aacute;lisis del Criptosistema Af&iacute;n.</li>
-                            <li>Criptoan&aacute;lisis del Criptosistema de Sustituci&oacute;n.</li>
-                            <li>Criptoan&aacute;lisis del Criptosistema de Vigenere.</li>
-                            <li>Criptoan&aacute;lisis del Criptosistema de Hill.</li>
+                            <li><strong>Criptoan&aacute;lisis.</strong>
+                                <ul>
+                                    <li>Definici&oacute;n de Criptoan&aacute;lisis.</li>
+                                    <li>Tipos de Criptoan&aacute;lisis.</li>
+                                    <li>Criptoan&aacute;lisis del Criptosistema Af&iacute;n.</li>
+                                    <li>Criptoan&aacute;lisis del Criptosistema de Sustituci&oacute;n.</li>
+                                    <li>Criptoan&aacute;lisis del Criptosistema de Vigenere.</li>
+                                    <li>Criptoan&aacute;lisis del Criptosistema de Hill.</li>
+                                </ul>
+                            </li>
+
                         </ul>
-                        <h3>M&oacute;dulo II  30 Horas. </h3>
+                        <h2>M&oacute;dulo II  (30 Horas) </h2>
                         <ul>
                             <li>DES (ENCRIPCION ESTANDAR DE DATOS)</li>
                             <li>REDES DE SUSTITUCION-PERMUTACION.</li>
@@ -239,7 +242,8 @@
                             </li>
                             <li>Autenticaci&oacute;n de usuario con un cifrador en bloque.</li>
                         </ul>
-                        <h3>M&oacute;dulo III  30 Horas.</h3>
+
+                        <h2>M&oacute;dulo III  (30 Horas)</h2>
                         <ul>
 
                             <li>Criptosistema RSA
@@ -271,7 +275,8 @@
                                 </ul>
                             </li>
                         </ul>
-                        <h3>M&oacute;dulo IV  30 Horas. </h3>
+
+                        <h2>M&oacute;dulo IV  (30 Horas) </h2>
                         <ul>
                             <li>                        Esteganograf&iacute;a.
                                 <ul>
@@ -283,27 +288,31 @@
                         </ul>
 
                     </div>
-                    <br />
-                    <div class="clear"></div>
-
-
-                    <div class="clear"></div>
                 </div>
-                <!-- Fin #Menu Central -->
+                <!-- Fin #Contenido Central -->
 
-                <!-- Inicio #Menu Derecha -->
-                <!-- end Eventos -->
-                <!-- Fin #Menu Derecha -->
-                <div class="clear"></div></div>
+                <hr/> 
+
+            </div>
+
             <div class="piepagina">
                 <div class="bloque_direccion">Universidad Nacional de Colombia<br />
                     Carrera 30 No 45 - 03 - Edificio 476<br />
                     Bogot&aacute; D.C. - Colombia</div>
-                <div class="bloque_logosext"><a href="http://www.gobiernoenlinea.gov.co" target="_blank"><img src="images/bot_gobiernoenlinea.jpg" alt="Gobierno en L&iacute;nea" width="59" height="31" border="0" /></a> <a href="http://www.agenciadenoticias.unal.edu.co/"><img src="images/bot_agenciaun.jpg" alt="Agencia UN" width="80" height="31" border="0" /></a></div>
+                <div class="bloque_logosext">
+                    <a href="http://www.gobiernoenlinea.gov.co" target="_blank">
+                        <img src="images/bot_gobiernoenlinea.jpg" alt="Gobierno en L&iacute;nea" width="59" height="31" border="0" />
+                    </a> 
+                    <a href="http://www.agenciadenoticias.unal.edu.co/">
+                        <img src="images/bot_agenciaun.jpg" alt="Agencia UN" width="80" height="31" border="0" />
+                    </a>
+                </div>
                 <div class="bloque_correotel">
                     PBX: 3165000 Ext: 15629
                     <a href="mailto:webmaster_fcbog@unal.edu.co">webmaster_fcbog@unal.edu.co</a> Aviso Legal - Copyright</div>
-                <div class="clear"></div></div></div>
+                <hr/>
+            </div>
+        </div> 
         <!-- Fin #Contenido Web -->
     </body>
 </html>

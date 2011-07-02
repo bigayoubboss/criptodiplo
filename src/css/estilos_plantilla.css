@@ -1,415 +1,415 @@
 /*
 ---------------------------------------
-Universidad Nacional de Colombia
-Facultad de Ciencias
-Version: 04-2009
+universidad nacional de colombia
+facultad de ciencias
+version: 04-2009
 --------------------------------------
 */
 
 td,th{
-	font-size:1em!important;
-	font-size:0.76em}
+    font-size:1em!important;
+    font-size:0.76em}
 
 #container{
-	width:950px;
-	text-align:left;
-	margin:5px auto;
-	padding-bottom:1px;
-	border-style:solid;
-	border-width:1px;
-	border-color:#CCCCCC;
-	background-color:#FFF;
-	display:table
+    width:950px;
+    text-align:left;
+    margin:5px auto;
+    padding-bottom:1px;
+    border-style:solid;
+    border-width:1px;
+    border-color:#cccccc;
+    background-color:#fff;
+    display:table
 }
 
 #contenido{
-	width:950px;
-	text-align:left;
-	margin:5px auto;
-	background:#fff;
-	padding-bottom:1px;
-	float:left
+    width:950px;
+    text-align:left;
+    margin:5px auto;
+    background:#fff;
+    padding-bottom:1px;
+    float:left
 }
 
 /*header*/
 #header{
-	width:950px;
+    width:950px;
 }
 
 #header_sup{
-	width:950px;
-	height:81px;
+    width:950px;
+    height:81px;
 }
 
 #header_sup_logo{
-	width:185px;
-	height:81px;
-	float:left;
-	background-image:url(../images/bogo_logo.gif);
+    width:185px;
+    height:81px;
+    float:left;
+    background-image:url(../images/bogo_logo.gif);
 }
 
 #header_sup_logo a{
-	display:block;
-	color:#fff;
-	text-decoration:none;
-	height:81px;
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    height:81px;
 }
 #header_sup_titulo{
-	width:765px;
-	height:63px;
-	float:left
+    width:765px;
+    height:63px;
+    float:left
 }
 
 #header_sup_herra{
-	width:765px;
-	height:18px;
-	float:left;
+    width:765px;
+    height:18px;
+    float:left;
 }
-	
+
 #header_sup_herra a{
-	display:block;
-	color:#fff;
-	text-decoration:none;
-	height:18px;
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    height:18px;
 }
 
 #header_sup_herra_buscador{
-	width:158px;
-	height:18px;
-	float:right;
-	background-image:url(../images/bogo_barraun.jpg);
+    width:158px;
+    height:18px;
+    float:right;
+    background-image:url(../images/bogo_barraun.jpg);
 }
 
 #header_sup_herra_barra{
-	width:170px;
-	height:18px;
-	float:right;
-	background-image:url(../images/bogo_barraun.jpg);
+    width:170px;
+    height:18px;
+    float:right;
+    background-image:url(../images/bogo_barraun.jpg);
 }
 
 #header_sup_herra_sedesun{
-	width:59px;
-	height:18px;
-	float:right;
-	background-image:url(../images/sedes_un.jpg);
+    width:59px;
+    height:18px;
+    float:right;
+    background-image:url(../images/sedes_un.jpg);
 }
 
 #header_sup_herra_inicioun{
-	width:95px;
-	height:18px;
-	float:right;
-	background-image:url(../images/bogo_inicioun.jpg);
+    width:95px;
+    height:18px;
+    float:right;
+    background-image:url(../images/bogo_inicioun.jpg);
 }
 
 #buscador_un{
-	height:18px;
-	width:142px;
-	margin-right:15px;
+    height:18px;
+    width:142px;
+    margin-right:15px;
 }
 
 
 #header_inf{width:950px;
-	height:18px;
-	float:left;
+            height:18px;
+            float:left;
 }
- 
+
 #header_inf_correo{
-	width:60px;
-	height:18px;
-	float:left;
-	background-image:url(../images/bogo_correo.jpg);
+    width:60px;
+    height:18px;
+    float:left;
+    background-image:url(../images/bogo_correo.jpg);
 }
- 
+
 #header_inf_correo a{
-	display:block;
-	color:#6673B1;
-	text-decoration:none;
-	height:18px
+    display:block;
+    color:#6673b1;
+    text-decoration:none;
+    height:18px
 }
- 
+
 #header_inf_fecha{
-	width:190px;
-	height:12px;
-	float:right;
-	padding-top: 5px;
+    width:190px;
+    height:12px;
+    float:right;
+    padding-top: 5px;
 }
 
 #header_inf_inicio{
-	width:82px;
-	height:18px;
-	float:left
+    width:82px;
+    height:18px;
+    float:left
 }
- 
+
 #header_inf_barra{ width:520px;
- height:18px;
-float:left;
- background-image:url(../images/bogo_barra.jpg)
+                   height:18px;
+                   float:left;
+                   background-image:url(../images/bogo_barra.jpg)
 }
- 
+
 #header_inf_final{
-	width:37px;
-	height:18px;
-	float:left;
-	background-image:url(../images/bogo_final.jpg)
+    width:37px;
+    height:18px;
+    float:left;
+    background-image:url(../images/bogo_final.jpg)
 }
 
 .fechatexto {
-	font-size: 10px;
-	font-family:Arial, Helvetica, sans-serif;
-	color: #666666;
-	text-align: right;
-	height:18px;
-	background-color: #FFFFFF;
-	margin-right: 8px;
+    font-size: 10px;
+    font-family:arial, helvetica, sans-serif;
+    color: #666666;
+    text-align: right;
+    height:18px;
+    background-color: #ffffff;
+    margin-right: 8px;
 }
 
 .titulo {
-	font-family:Georgia, "Times New Roman", Times, serif;
-	font-size:22px; color: #000;
-	float:right;
-	margin-right:35px;
-	margin-top:25px;
-	text-align:right
+    font-family:georgia, "times new roman", times, serif;
+    font-size:22px; color: #000;
+    float:right;
+    margin-right:35px;
+    margin-top:25px;
+    text-align:right
 }
 
 .field {
-	border: 1px solid #666;
-	width: 110px;
-	height: 12px;
-	font-size: 10px;
-	margin-bottom: 13px;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+    border: 1px solid #666;
+    width: 110px;
+    height: 12px;
+    font-size: 10px;
+    margin-bottom: 13px;
+    font-family: verdana, arial, helvetica, sans-serif;
 }
 
 .hidden {
-	display:none;
+    display:none;
 }
 
 .center {
-	margin-left:auto;
-	margin-right:auto;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .fechatexto {
-	font-size: 10px;
-	font-family:Arial, Helvetica, sans-serif;
-	color: #666666;
-	text-align: left;
-	height:18px;
-	background-color: #FFFFFF;
-	margin-right: 8px;	
+    font-size: 10px;
+    font-family:arial, helvetica, sans-serif;
+    color: #666666;
+    text-align: left;
+    height:18px;
+    background-color: #ffffff;
+    margin-right: 8px;
 }
 
 .menusedes {
- Z-INDEX: 1;
- width: 75px;
- FONT-FAMILY: arial, sans-serif;
- font-size:11px;
- POSITION: relative;
- HEIGHT: 18px;
- padding:0px;
- margin:0px;
+    z-index: 1;
+    width: 75px;
+    font-family: arial, sans-serif;
+    font-size:11px;
+    position: relative;
+    height: 18px;
+    padding:0px;
+    margin:0px;
 }
 
-* HTML .menusedes {
-	width: 75px
+* html .menusedes {
+    width: 75px
 }
 
-.menusedes UL {
-	PADDING-RIGHT: 0px;
-	PADDING-LEFT: 0px;
-	PADDING-BOTTOM: 0px;
-	MARGIN: 0px;
-	PADDING-TOP: 0px;
-	LIST-STYLE-TYPE: none;
+.menusedes ul {
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    padding-top: 0px;
+    list-style-type: none;
 }
 
-.menusedes UL UL {
-	width: 75px;
+.menusedes ul ul {
+    width: 75px;
 }
 
 
-.menusedes LI {FLOAT: left;
- width: 75px;
- padding:0px;
- margin:0px;
- POSITION: relative}
-.menusedes A {
-	DISPLAY: block;
-	PADDING-LEFT: 5px;
-	FONT-WEIGHT: bold;
-	FONT-SIZE: 11px;
-	COLOR: #000000;
-	width: 75px;
-	TEXT-DECORATION: none}
-.menusedes A:visited {DISPLAY: block;
- PADDING-LEFT: 5px;
- FONT-WEIGHT: bold;
- FONT-SIZE: 11px;
- BACKGROUND: #4A96E7;
- width: 75px;
- HEIGHT: 18px;
- TEXT-DECORATION: none}
-* HTML .menusedes A {width: 75px}
-* HTML .menusedes A:visited {width: 75px;
- background:#4A96E7}
-.menusedes UL UL {LEFT: 0px;
- VISIBILITY: hidden;
- width: 75px;
- POSITION: absolute;
- TOP: 18px}
-.menusedes TABLE {LEFT: 0px;
- POSITION: absolute;
- TOP: 0px;
- BORDER-COLLAPSE: collapse}
-.menusedes UL UL A {PADDING-RIGHT: 10px;
- PADDING-LEFT: 5px;
- BACKGROUND: #4A96E7;
- PADDING-BOTTOM: 0px;
- width: 75px;
- COLOR: #000000;
- PADDING-TOP: 0px;
-} /*submenus NO visitados ie7 ff*/
-.menusedes UL UL A:visited {PADDING-RIGHT: 10px;
- PADDING-LEFT: 5px;
- BACKGROUND: #4A96E7;
- /*submenus visitados ie7 ff*/ PADDING-BOTTOM: 0px;
- width: 75px;
- COLOR: #000000;
- PADDING-TOP: 0px;
- } 
-* HTML .menusedes UL UL A {width: 75px}
-* HTML .menusedes UL UL A:visited {width: 75px;
- background:#4A96E7}/*submenus visitados ie6*/
-.menusedes :hover > A { background:none}/*rollover de sedesun ie7 ff*/
-.menusedes A:hover { background-attachment:fixed} /*rollover de sedesun ie6*/
-.menusedes UL UL A:hover {BACKGROUND:#2D4D97} /*rollover de submenus NO visitados ie6*/
-.menusedes UL UL :hover > A {BACKGROUND: #405F97}/*rollover de submenus visitados ie7 ff*/
-* HTML .menusedes UL UL A:hover {BACKGROUND: #2D4D97;
- text-decoration:line-through}/*rollover de submenus visitados ie6*/
-.menusedes UL LI:hover UL {VISIBILITY: visible}
-.menusedes UL A:hover UL {VISIBILITY: visible;
- BACKGROUND:#FFFF00}
-.menusedes UL :hover UL UL {VISIBILITY: hidden}
-.menusedes UL :hover UL :hover UL {VISIBILITY: visible}
+.menusedes li {float: left;
+               width: 75px;
+               padding:0px;
+               margin:0px;
+               position: relative}
+.menusedes a {
+    display: block;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 11px;
+    color: #000000;
+    width: 75px;
+    text-decoration: none}
+.menusedes a:visited {display: block;
+                      padding-left: 5px;
+                      font-weight: bold;
+                      font-size: 11px;
+                      background: #4a96e7;
+                      width: 75px;
+                      height: 18px;
+                      text-decoration: none}
+* html .menusedes a {width: 75px}
+* html .menusedes a:visited {width: 75px;
+                             background:#4a96e7}
+.menusedes ul ul {left: 0px;
+                  visibility: hidden;
+                  width: 75px;
+                  position: absolute;
+                  top: 18px}
+.menusedes table {left: 0px;
+                  position: absolute;
+                  top: 0px;
+                  border-collapse: collapse}
+.menusedes ul ul a {padding-right: 10px;
+                    padding-left: 5px;
+                    background: #4a96e7;
+                    padding-bottom: 0px;
+                    width: 75px;
+                    color: #000000;
+                    padding-top: 0px;
+} /*submenus no visitados ie7 ff*/
+.menusedes ul ul a:visited {padding-right: 10px;
+                            padding-left: 5px;
+                            background: #4a96e7;
+                            /*submenus visitados ie7 ff*/ padding-bottom: 0px;
+                            width: 75px;
+                            color: #000000;
+                            padding-top: 0px;
+}
+* html .menusedes ul ul a {width: 75px}
+* html .menusedes ul ul a:visited {width: 75px;
+                                   background:#4a96e7}/*submenus visitados ie6*/
+.menusedes :hover > a { background:none}/*rollover de sedesun ie7 ff*/
+.menusedes a:hover { background-attachment:fixed} /*rollover de sedesun ie6*/
+.menusedes ul ul a:hover {background:#2d4d97} /*rollover de submenus no visitados ie6*/
+.menusedes ul ul :hover > a {background: #405f97}/*rollover de submenus visitados ie7 ff*/
+* html .menusedes ul ul a:hover {background: #2d4d97;
+                                 text-decoration:line-through}/*rollover de submenus visitados ie6*/
+.menusedes ul li:hover ul {visibility: visible}
+.menusedes ul a:hover ul {visibility: visible;
+                          background:#ffff00}
+.menusedes ul :hover ul ul {visibility: hidden}
+.menusedes ul :hover ul :hover ul {visibility: visible}
 
 .menucorreo {
- WIDTH: 56px;
- FONT-FAMILY: arial, sans-serif;
- font-size:11px;
- POSITION: relative;
- HEIGHT: 18px;
- z-index:1;
- }
-* HTML .menucorreo {WIDTH: 56px}
+    width: 56px;
+    font-family: arial, sans-serif;
+    font-size:11px;
+    position: relative;
+    height: 18px;
+    z-index:1;
+}
+* html .menucorreo {width: 56px}
 
 
-.menucorreo UL {PADDING-RIGHT: 0px;
- PADDING-LEFT: 0px;
- PADDING-BOTTOM: 0px;
- MARGIN: 0px;
- PADDING-TOP: 0px;
- LIST-STYLE-TYPE: none}
+.menucorreo ul {padding-right: 0px;
+                padding-left: 0px;
+                padding-bottom: 0px;
+                margin: 0px;
+                padding-top: 0px;
+                list-style-type: none}
 
-.menucorreo UL UL {
-	WIDTH: 115px}
+.menucorreo ul ul {
+    width: 115px}
 
-.menucorreo LI {FLOAT: left;
- WIDTH: 61px;
- padding:0px;
- margin:0px;
- POSITION: relative}
+.menucorreo li {float: left;
+                width: 61px;
+                padding:0px;
+                margin:0px;
+                position: relative}
 
-.menucorreo A {
-	DISPLAY: block;
-	PADDING-LEFT: 5px;
-	FONT-WEIGHT: bold;
-	FONT-SIZE: 11px;
-	COLOR: #6673B1;
-	TEXT-DECORATION: none;
+.menucorreo a {
+    display: block;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 11px;
+    color: #6673b1;
+    text-decoration: none;
 }
 
-.menucorreo A:visited {DISPLAY: block;
- PADDING-LEFT: 5px;
- FONT-WEIGHT: bold;
- FONT-SIZE: 11px;
- BACKGROUND: #FFFFFF;
- HEIGHT: 18px;
- TEXT-DECORATION: none}
+.menucorreo a:visited {display: block;
+                       padding-left: 5px;
+                       font-weight: bold;
+                       font-size: 11px;
+                       background: #ffffff;
+                       height: 18px;
+                       text-decoration: none}
 
-* HTML .menucorreo A {WIDTH: 61px}
+* html .menucorreo a {width: 61px}
 
-* HTML .menucorreo A:visited {WIDTH: 61px;
- background:#FFFFFF}
+* html .menucorreo a:visited {width: 61px;
+                              background:#ffffff}
 
-.menucorreo UL UL {LEFT: 0px;
- VISIBILITY: hidden;
- WIDTH: 115px;
- POSITION: absolute;
- TOP: 18px}
+.menucorreo ul ul {left: 0px;
+                   visibility: hidden;
+                   width: 115px;
+                   position: absolute;
+                   top: 18px}
 
-.menucorreo TABLE {LEFT: 0px;
- POSITION: absolute;
- TOP: 0px;
- BORDER-COLLAPSE: collapse}
+.menucorreo table {left: 0px;
+                   position: absolute;
+                   top: 0px;
+                   border-collapse: collapse}
 
-.menucorreo UL UL A {PADDING-RIGHT: 10px;
- PADDING-LEFT: 5px;
- BACKGROUND: #FFFFFF;
- PADDING-BOTTOM: 0px;
- WIDTH: 115px;
- COLOR: #6673B1;
- PADDING-TOP: 0px} /*submenus NO visitados ie7 ff*/
+.menucorreo ul ul a {padding-right: 10px;
+                     padding-left: 5px;
+                     background: #ffffff;
+                     padding-bottom: 0px;
+                     width: 115px;
+                     color: #6673b1;
+                     padding-top: 0px} /*submenus no visitados ie7 ff*/
 
-.menucorreo UL UL A:visited {PADDING-RIGHT: 10px;
- PADDING-LEFT: 5px;
- BACKGROUND: #FFFFFF;
- /*submenus visitados ie7 ff*/ PADDING-BOTTOM: 0px;
- WIDTH: 115px;
- COLOR: #6673B1;
- PADDING-TOP: 0px} 
+.menucorreo ul ul a:visited {padding-right: 10px;
+                             padding-left: 5px;
+                             background: #ffffff;
+                             /*submenus visitados ie7 ff*/ padding-bottom: 0px;
+                             width: 115px;
+                             color: #6673b1;
+                             padding-top: 0px}
 
-* HTML .menucorreo UL UL A {WIDTH: 115px}
+* html .menucorreo ul ul a {width: 115px}
 
-* HTML .menucorreo UL UL A:visited {WIDTH: 115px;
- background:#FFFFFF}/*submenus visitados ie6*/
+* html .menucorreo ul ul a:visited {width: 115px;
+                                    background:#ffffff}/*submenus visitados ie6*/
 
-.menucorreo :hover > A {background:none}/*rollover de sedesun ie7 ff*/
+.menucorreo :hover > a {background:none}/*rollover de sedesun ie7 ff*/
 
-.menucorreo A:hover {background-attachment:fixed} /*rollover de sedesun ie6*/
+.menucorreo a:hover {background-attachment:fixed} /*rollover de sedesun ie6*/
 
-.menucorreo UL UL A:hover {BACKGROUND:#CEE7FB} /*rollover de submenus NO visitados ie6*/
+.menucorreo ul ul a:hover {background:#cee7fb} /*rollover de submenus no visitados ie6*/
 
-.menucorreo UL UL :hover > A {BACKGROUND: #CEE7FB}/*rollover de submenus visitados ie7 ff*/
+.menucorreo ul ul :hover > a {background: #cee7fb}/*rollover de submenus visitados ie7 ff*/
 
-* HTML .menucorreo UL UL A:hover {
-	BACKGROUND: #CEE7FB;
- text-decoration:line-through}/*rollover de submenus visitados ie6*/
+* html .menucorreo ul ul a:hover {
+    background: #cee7fb;
+    text-decoration:line-through}/*rollover de submenus visitados ie6*/
 
-.menucorreo UL LI:hover UL {
-	VISIBILITY: visible;
+.menucorreo ul li:hover ul {
+    visibility: visible;
 }
 
-.menucorreo UL A:hover UL {VISIBILITY: visible;
- BACKGROUND:#FFFFFF}
+.menucorreo ul a:hover ul {visibility: visible;
+                           background:#ffffff}
 
-.menucorreo UL :hover UL UL {VISIBILITY: hidden}
+.menucorreo ul :hover ul ul {visibility: hidden}
 
-.menucorreo UL :hover UL :hover UL {VISIBILITY: visible}
+.menucorreo ul :hover ul :hover ul {visibility: visible}
 
 .footer{
-	width:950px;
-	height:49px;
-	background: #CCCCCC;
-	float:left;
+    width:950px;
+    height:49px;
+    background: #cccccc;
+    float:left;
 }
 
 .footer_fill{
-	width:405px;
-	height:49px;
-	float:left}
+    width:405px;
+    height:49px;
+    float:left}
 
 .footer_logos{width:140px;
- height:49px;
- float:left;
+              height:49px;
+              float:left;
 }
