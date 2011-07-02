@@ -9,11 +9,11 @@ body {
 
 /* ---------- HEADERS ---------- */
 h1 {
-    background-image: url(imagenes/bgTitulo.jpg);
-    color: #ffffff;
+    background-color: #3C5270;
+    color: #fff;
     font-size: 20px;
-    margin: 10px 0;
-    padding: 4px 0;
+    margin: 5px;
+    padding: 5px;
     text-align: center;
 }
 
@@ -87,7 +87,7 @@ textarea {
 
 form,.caja {
     background-color: #fbfbfb;
-    border: 1px solid #173981;
+    border: 1px solid  #3C5270;
     display: block;
     margin: 20px auto;
     padding: 10px 0 0;
