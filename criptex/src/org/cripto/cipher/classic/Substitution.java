@@ -17,7 +17,7 @@ import org.cripto.utils.Code;
  *
  * @author damontanofe,lvmorenoc,carodriguezb
  */
-public class SubstitutionCipher implements Cipher {
+public class Substitution implements Cipher {
 
     @Override
     public String encode(Object plainText, Object key, Object[] params) {

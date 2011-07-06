@@ -17,7 +17,7 @@ import org.cripto.utils.Code;
  *
  * @author damontanofe,lvmorenoc,carodriguezb
  */
-public class ShiftCipher implements Cipher {
+public class Shift implements Cipher {
 
     /**
      * Returns the encoded plain text shifted <i>n</i> positions 

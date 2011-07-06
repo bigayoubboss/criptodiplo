@@ -20,13 +20,13 @@ import static org.junit.Assert.*;
  *
  * @author cacolorador,damontanof,lvmorenoc,carodriguezb
  */
-public class AffineCipherTest {
+public class AffineTest {
 
-    private static AffineCipher cipher;
+    private static Affine cipher;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        cipher = new AffineCipher();
+        cipher = new Affine();
     }
 
     @Test
@@ -52,9 +52,9 @@ public class AffineCipherTest {
         System.out.println("Affine Cipher Valid CryptoAnalysis");
 
         String cipherText = "FMXVEDKAPHFERBNDKRXRSREFMORUDSDKDVSHVUFEDKAPRKDLYEVLRHHRH";
-        AffineCipher expResult = new AffineCipher("algorithmsarequitegeneraldefinitionsofarithmeticprocesses", 3, 5, 4);
+        Affine expResult = new Affine("algorithmsarequitegeneraldefinitionsofarithmeticprocesses", 3, 5, 4);
 
-        ArrayList<AffineCipher> result = cipher.cryptoAnalysis(cipherText);
+        ArrayList<Affine> result = cipher.cryptoAnalysis(cipherText);
 
         assertTrue(result.contains(expResult));
 

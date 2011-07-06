@@ -19,13 +19,13 @@ import static org.junit.Assert.*;
  *
  * @author cacolorador,damontanof,lvmorenoc,carodriguezb
  */
-public class SubstitutionCipherTest {
+public class SubstitutionTest {
 
-    private static SubstitutionCipher cipher;
+    private static Substitution cipher;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        cipher = new SubstitutionCipher();
+        cipher = new Substitution();
     }
 
     @Test

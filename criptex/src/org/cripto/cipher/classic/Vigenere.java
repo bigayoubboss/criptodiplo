@@ -19,16 +19,16 @@ import org.cripto.cipher.Cipher;
  *
  * @author damontanofe,lvmorenoc,carodriguezb
  */
-public class VigenereCipher implements Cipher {
+public class Vigenere implements Cipher {
 
     // TODO Refactor Vigenere cipher delete set,get
     private String text;
     private String key2;
 
-    public VigenereCipher() {
+    public Vigenere() {
     }
 
-    public VigenereCipher(String t, String k) {
+    public Vigenere(String t, String k) {
         this.text = t;
         this.key2 = k;
     }
@@ -67,9 +67,9 @@ public class VigenereCipher implements Cipher {
      * @return array of possible decrypted texts
      */
     @Override
-    public ArrayList<VigenereCipher> cryptoAnalysis(String cipherText) {
+    public ArrayList<Vigenere> cryptoAnalysis(String cipherText) {
 
-        ArrayList<VigenereCipher> possiblePlainTexts = new ArrayList<VigenereCipher>();
+        ArrayList<Vigenere> possiblePlainTexts = new ArrayList<Vigenere>();
         int[] mod26CipherText = Code.encodeMod26(cipherText);
 
         int keySize = friedManTest(cipherText);
@@ -106,7 +106,7 @@ public class VigenereCipher implements Cipher {
         String plainText = Code.decodeMod26(mod26PlainText);
         String key = Code.decodeMod26(mod26Key);
 
-        VigenereCipher posibility = new VigenereCipher(plainText, key);
+        Vigenere posibility = new Vigenere(plainText, key);
         possiblePlainTexts.add(posibility);
 
         return possiblePlainTexts;

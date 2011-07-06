@@ -16,7 +16,7 @@ import org.cripto.cipher.Cipher;
  * 
  * @author damontanofe,lvmorenoc,carodriguezb
  */
-public class PermutationCipher implements Cipher {
+public class Permutation implements Cipher {
 
     @Override
     public String encode(Object oPlainText, Object oKey, Object[] params) {
@@ -54,7 +54,7 @@ public class PermutationCipher implements Cipher {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public String encodeSimple(String plainText, String keyNumberString, int blocks, int keySize) {
+    private String encodeSimple(String plainText, String keyNumberString, int blocks, int keySize) {
 
         String secret = "";
 
@@ -68,7 +68,7 @@ public class PermutationCipher implements Cipher {
 
     }
 
-    public String encodeAlternate(String plainText, String keyNumberString, int blocks, int keySize) {
+    private String encodeAlternate(String plainText, String keyNumberString, int blocks, int keySize) {
 
         String secret = "";
 

@@ -19,13 +19,13 @@ import static org.junit.Assert.*;
  *
  * @author cacolorador,damontanof,lvmorenoc,carodriguezb
  */
-public class ShiftCipherTest {
+public class ShiftTest {
 
-    private static ShiftCipher cipher;
+    private static Shift cipher;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        cipher = new ShiftCipher();
+        cipher = new Shift();
     }
 
     @Test

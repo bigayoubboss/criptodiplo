@@ -11,7 +11,7 @@
  */
 package org.cripto.cipher.classic;
 
-import org.cripto.cipher.classic.VigenereCipher;
+import org.cripto.cipher.classic.Vigenere;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -24,13 +24,13 @@ import static org.junit.Assert.*;
  *
  * @author cacolorador,damontanof,lvmorenoc,carodriguezb
  */
-public class VigenereCipherTest {
+public class VigenereTest {
 
-    private static VigenereCipher cipher;
+    private static Vigenere cipher;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        cipher = new VigenereCipher();
+        cipher = new Vigenere();
     }
 
     @Test
@@ -48,7 +48,7 @@ public class VigenereCipherTest {
     }
 
     /**
-     * Test of cryptoAnalysis method, of class VigenereCipher.
+     * Test of cryptoAnalysis method, of class Vigenere.
      */
     @Test
     public void testValidCryptoanalysis1() {
@@ -70,7 +70,7 @@ public class VigenereCipherTest {
                 + "erstreatedtheirvinesandthemorelackadaisicalneighborshurriedto"
                 + "dothepruningtheyshouldhavedoneinnovember";
 
-        ArrayList<VigenereCipher> obtainedResults = cipher.cryptoAnalysis(cipherText);
+        ArrayList<Vigenere> obtainedResults = cipher.cryptoAnalysis(cipherText);
 
         boolean found = false;
 
@@ -94,7 +94,7 @@ public class VigenereCipherTest {
         String cipherText = cipherText = "OAGNEYEKNLVLWSEZSBRGPUEJBWKEIJLWEKEFRWABRUVWWHRUIAZOXPHSRMIRWLBUWLWSLOYJLSGASUMKISEPXZXCEJXOXHPKLGYOMJOAGNHFQSGKXYIKISIEHGKHRUKDHYCFJZBZQRNWLACBMFZHLRWMXYYJSJWLVVHZBZULIWGCEJLLBASRTHXHVSIXHYIYMETUHYMKZBIJXKPLEIMFZOIIGJHDRKSVBZTCEQALVSISNAC";
         String expectedResult = expectedResult = "kingahasuerusalsoknownasxerxesheldaonehundredandeightydayfeastinsusashushantodisplaythevastwealthofhiskingdomandthesplendorandgloryofhismajestykingahasuerusorderedhisqueenvashtitoappearbeforehimandhisguestswearinghercrowntodisplayherbeauty";
 
-        ArrayList<VigenereCipher> obtainedResults = cipher.cryptoAnalysis(cipherText);
+        ArrayList<Vigenere> obtainedResults = cipher.cryptoAnalysis(cipherText);
 
         boolean found = false;
 

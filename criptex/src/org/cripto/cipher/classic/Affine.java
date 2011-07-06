@@ -23,7 +23,7 @@ import org.cripto.cipher.Cipher;
  *
  * @author damontanofe,lvmorenoc,carodriguezb
  */
-public class AffineCipher implements Comparator, Cipher {
+public class Affine implements Comparator, Cipher {
     
     // TODO Refactor Affinecipher delete set,get
     private String text;
@@ -31,10 +31,10 @@ public class AffineCipher implements Comparator, Cipher {
     private int additiveKey;
     private int mostFrequentLetter;
 
-    public AffineCipher() {
+    public Affine() {
     }
 
-    public AffineCipher(String t, int m, int a, int l) {
+    public Affine(String t, int m, int a, int l) {
         this.text = t;
         this.multiplicativeKey = m;
         this.additiveKey = a;
@@ -43,7 +43,7 @@ public class AffineCipher implements Comparator, Cipher {
 
     @Override
     public String decode(String cipherText, Object oKey) {
-        // TODO Implement AffineCipher
+        // TODO Implement Affine
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -80,13 +80,13 @@ public class AffineCipher implements Comparator, Cipher {
      * @return arrayList of possible decrypted texts with with its multiplicative and additive keys
      */
     @Override
-    public ArrayList<AffineCipher> cryptoAnalysis(String cipherText) {
+    public ArrayList<Affine> cryptoAnalysis(String cipherText) {
         int[] encodedCipherText = Code.encodeMod26(cipherText);
         ArrayList<LettersOcurrence> letterFrequencies = LettersOcurrence.frequencies(encodedCipherText);
         Collections.sort(letterFrequencies, new LettersOcurrence());
         int[] aux = new int[encodedCipherText.length];
 
-        ArrayList<AffineCipher> possiblePlainTexts = new ArrayList<AffineCipher>();
+        ArrayList<Affine> possiblePlainTexts = new ArrayList<Affine>();
         for (int va = 0; va < LettersOcurrence.commonEnglisLetters().length; va++) {
             for (int vc = 0; vc < letterFrequencies.size(); vc++) {
                 for (int vd = 0; vd < LettersOcurrence.commonEnglisLetters().length; vd++) {
@@ -119,8 +119,8 @@ public class AffineCipher implements Comparator, Cipher {
                                         }
                                     }
                                     String possibility = Code.decodeMod26(aux).trim().toLowerCase();
-                                    if (!possiblePlainTexts.contains(new AffineCipher(possibility, a, b, va))) {
-                                        possiblePlainTexts.add(new AffineCipher(possibility, a, b, va));
+                                    if (!possiblePlainTexts.contains(new Affine(possibility, a, b, va))) {
+                                        possiblePlainTexts.add(new Affine(possibility, a, b, va));
                                     }
                                 }
                             }
@@ -168,7 +168,7 @@ public class AffineCipher implements Comparator, Cipher {
      */
     @Override
     public boolean equals(Object o) {
-        AffineCipher aux = (AffineCipher) o;
+        Affine aux = (Affine) o;
         return (this.text.equals(aux.getText()) && this.multiplicativeKey == aux.getMultiplicativeKey() && this.additiveKey == aux.getAdditiveKey()) ? true : false;
     }
 
@@ -181,8 +181,8 @@ public class AffineCipher implements Comparator, Cipher {
      */
     @Override
     public int compare(Object o1, Object o2) {
-        AffineCipher ac1 = (AffineCipher) o1;
-        AffineCipher ac2 = (AffineCipher) o2;
+        Affine ac1 = (Affine) o1;
+        Affine ac2 = (Affine) o2;
         return (ac1.getMostFrequentLetter() - ac2.getMostFrequentLetter());
     }
 }

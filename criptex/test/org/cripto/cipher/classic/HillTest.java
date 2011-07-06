@@ -20,13 +20,13 @@ import static org.junit.Assert.*;
  *
  * @author cacolorador,damontanof,lvmorenoc,carodriguezb
  */
-public class HillCipherTest {
+public class HillTest {
 
-    private static HillCipher cipher;
+    private static Hill cipher;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        cipher = new HillCipher();
+        cipher = new Hill();
     }
 
     @Test

@@ -18,7 +18,7 @@ import org.cripto.utils.jama.Matrix;
  *
  * @author damontanofe,lvmorenoc,carodriguezb
  */
-public class HillCipher implements Cipher {
+public class Hill implements Cipher {
 
     @Override
     public String[] cryptoAnalysis(String cipherText) {

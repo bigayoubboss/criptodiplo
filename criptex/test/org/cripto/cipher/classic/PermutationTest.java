@@ -19,13 +19,13 @@ import static org.junit.Assert.*;
  *
  * @author cacolorador,damontanof,lvmorenoc,carodriguezb
  */
-public class PermutationCipherTest {
+public class PermutationTest {
 
-    private static PermutationCipher cipher;
+    private static Permutation cipher;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        cipher = new PermutationCipher();
+        cipher = new Permutation();
     }
 
     @Test
