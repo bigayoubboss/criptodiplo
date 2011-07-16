@@ -26,9 +26,9 @@ public class DESTest {
 
         System.out.println("DES Cipher Valid Encode 1");
 
-        String plainText = "0123456789abcdef";
-        String key = "133457799bbcdff1";
-        String expResult = "85e813540f0ab405";
+        String plainText = "0123456789ABCDEF";
+        String key = "133457799BBCDFF1";
+        String expResult = "85E813540F0AB405";
 
         String result = cipher.encode(plainText, key, null);
         assertEquals(expResult, result);
@@ -39,9 +39,9 @@ public class DESTest {
 
         System.out.println("DES Cipher Valid Encode 2");
 
-        String plainText = "01224537888bcaaf";
-        String key = "01224537888bcaaf";
-        String expResult = "672e1079b4883520";
+        String plainText = "01224537888BCAAF";
+        String key = "01224537888BCAAF";
+        String expResult = "672E1079B4883520";
 
         String result = cipher.encode(plainText, key, null);
         assertEquals(expResult, result);
@@ -53,8 +53,8 @@ public class DESTest {
         System.out.println("DES Cipher Valid Encode 3");
 
         String plainText = "4368726973746961";
-        String key = "4c61757261204d6f";
-        String expResult = "b52c4fc1118e0d8f";
+        String key = "4C61757261204D6F";
+        String expResult = "B52C4FC1118E0D8F";
 
         String result = cipher.encode(plainText, key, null);
         assertEquals(expResult, result);
@@ -65,9 +65,9 @@ public class DESTest {
 
         System.out.println("DES Cipher Valid Decode 1");
 
-        String cipherText = "85e813540f0ab405";
-        String key = "133457799bbcdff1";
-        String expResult = "0123456789abcdef";
+        String cipherText = "85E813540F0AB405";
+        String key = "133457799BBCDFF1";
+        String expResult = "0123456789ABCDEF";
 
         String result = cipher.decode(cipherText, key);
         assertEquals(expResult, result);
@@ -78,9 +78,9 @@ public class DESTest {
 
         System.out.println("DES Cipher Valid Decode 2");
 
-        String cipherText = "100da76b99a62cc8";
-        String key = "70656e7461676f6e";
-        String expResult = "616c63616c646961";
+        String cipherText = "100DA76B99A62CC8";
+        String key = "70656E7461676F6E";
+        String expResult = "616C63616C646961";
 
         String result = cipher.decode(cipherText, key);
         assertEquals(expResult, result);
@@ -91,8 +91,8 @@ public class DESTest {
 
         System.out.println("DES Cipher Valid Decode 3");
 
-        String cipherText = "b52c4fc1118e0d8f";
-        String key = "4c61757261204d6f";
+        String cipherText = "B52C4FC1118E0D8F";
+        String key = "4C61757261204D6F";
         String expResult = "4368726973746961";
 
         String result = cipher.decode(cipherText, key);

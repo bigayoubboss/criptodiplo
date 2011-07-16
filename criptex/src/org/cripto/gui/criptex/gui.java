@@ -43,13 +43,15 @@ import java.util.logging.Logger;
 import org.cripto.cipher.Cipher;
 import org.cripto.authentication.CBCMac;
 import org.cripto.cipher.block.AESCipher;
-import org.cripto.cipher.block.DESCipher;
+import org.cripto.cipher.block.DES;
 import org.cripto.cipher.block.SDES;
+import org.cripto.cipher.block.TripleDES;
 import org.cripto.cipher.block.TripleSDES;
 import org.cripto.cipher.classic.Permutation;
 import org.cripto.cipher.classic.Vigenere;
 import org.cripto.cipher.publickey.BellareRogawayCipher;
 import org.cripto.utils.BigramsOcurrence;
+import org.cripto.utils.HexTools;
 import org.cripto.utils.LettersOcurrence;
 import org.cripto.utils.TrigramsOcurrence;
 
@@ -4980,7 +4982,6 @@ public class gui extends javax.swing.JFrame {
 
             String clave = claveTripleDESS.getText();
             if (clave.length() == 30) {
-                String stringTemp = "";
                 for (int x = 0; x < textoPlano.length(); x++) {
 
                     textoHexa = org.cripto.utils.HexTools.fromASCIIStringToHexString(textoPlano.substring(x,
@@ -5008,6 +5009,8 @@ public class gui extends javax.swing.JFrame {
 
     private void encriptarDES(String textoPlano) {
 
+        cipherMachine = new DES();
+
         try {
             cajaTextoPlano.setText(textoPlano);
             String claveHexa = "";
@@ -5024,7 +5027,7 @@ public class gui extends javax.swing.JFrame {
                 for (int x = 0; x < textoPlano.length(); x = x + 8) {
                     textoHexa = org.cripto.utils.HexTools.fromASCIIStringToHexString(textoPlano.substring(x,
                             x + 8));
-                    textoCifrado = textoCifrado.concat(DESCipher.encryptDecrypt(textoHexa, claveHexa, true));
+                    textoCifrado = textoCifrado.concat(cipherMachine.encode(textoHexa, claveHexa, null));
                 }
                 cajaTextoCifrado.setText(textoCifrado);
             } else {
@@ -5045,6 +5048,8 @@ public class gui extends javax.swing.JFrame {
 
     private void encriptarTDES(String textoPlano) {
 
+        cipherMachine = new TripleDES();
+
         try {
             cajaTextoPlano.setText(textoPlano);
             String claveHexa = "";
@@ -5058,16 +5063,12 @@ public class gui extends javax.swing.JFrame {
 
             claveHexa = claveTDES.getText();
             if (claveHexa.length() == 48) {
-                String stringTemp = "";
                 for (int x = 0; x < textoPlano.length(); x = x + 8) {
                     textoHexa = org.cripto.utils.HexTools.fromASCIIStringToHexString(textoPlano.substring(x,
                             x + 8));
-                    stringTemp = DESCipher.encryptDecrypt(textoHexa,
-                            claveHexa.substring(0, 16), true);
-                    stringTemp = DESCipher.encryptDecrypt(stringTemp,
-                            claveHexa.substring(16, 32), false);
-                    textoCifrado = textoCifrado.concat(DESCipher.encryptDecrypt(stringTemp,
-                            claveHexa.substring(32, 48), true));
+
+                    textoCifrado = textoCifrado.concat(cipherMachine.encode(textoHexa,
+                            claveHexa, null));
                 }
                 cajaTextoCifrado.setText(textoCifrado);
                 cajaTextoPlano.setText(textoPlano);
@@ -5549,6 +5550,8 @@ public class gui extends javax.swing.JFrame {
 
     private void descifrarDES(String textoCifrado) {
 
+        cipherMachine = new DES();
+
         try {
             String claveHexa = "";
             String textoHexa = "";
@@ -5564,8 +5567,8 @@ public class gui extends javax.swing.JFrame {
             if (claveHexa.length() == 16) {
                 for (int x = 0; x < textoCifrado.length(); x = x + 16) {
                     textoHexa = textoCifrado.substring(x, x + 16);
-                    textoPlano = textoPlano.concat(DESCipher.encryptDecrypt(
-                            textoHexa, claveHexa, false));
+                    textoPlano = textoPlano.concat(cipherMachine.decode(
+                            textoHexa, claveHexa));
                 }
                 cajaTextoPlano.setText(org.cripto.utils.HexTools.fromHexStringToASCIIString(textoPlano));
                 cajaTextoCifrado.setText(textoCifrado);
@@ -5586,6 +5589,9 @@ public class gui extends javax.swing.JFrame {
     }
 
     private void descifrarTDES(String textoCifrado) {
+
+        cipherMachine = new TripleDES();
+
         try {
             String claveHexa = "";
             String textoHexa = "";
@@ -5599,16 +5605,10 @@ public class gui extends javax.swing.JFrame {
 
             claveHexa = claveTDES.getText();
             if (claveHexa.length() == 48) {
-                String stringTemp = "";
                 for (int x = 0; x < textoCifrado.length(); x = x + 16) {
                     textoHexa = textoCifrado.substring(x, x + 16);
 
-                    stringTemp = DESCipher.encryptDecrypt(textoHexa,
-                            claveHexa.substring(32, 48), false);
-                    stringTemp = DESCipher.encryptDecrypt(stringTemp,
-                            claveHexa.substring(16, 32), true);
-                    textoPlano = textoPlano.concat(DESCipher.encryptDecrypt(
-                            stringTemp, claveHexa.substring(0, 16), false));
+                    textoPlano = textoPlano.concat(cipherMachine.decode(textoHexa, claveHexa));
 
                 }
                 cajaTextoPlano.setText(org.cripto.utils.HexTools.fromHexStringToASCIIString(textoPlano));

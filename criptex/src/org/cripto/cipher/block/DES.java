@@ -89,7 +89,7 @@ public class DES implements Cipher {
         String key = oKey.toString();
         String plainText = encryptDecrypt(cipherText, key, false);
 
-        return plainText;
+        return plainText.toUpperCase();
     }
 
     @Override
@@ -99,7 +99,7 @@ public class DES implements Cipher {
         String plainText = oPlainText.toString();
         String cipherText = encryptDecrypt(plainText, key, true);
 
-        return cipherText;
+        return cipherText.toUpperCase();
     }
 
     private String encryptDecrypt(String text, String keyMod16,
