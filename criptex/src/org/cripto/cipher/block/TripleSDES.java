@@ -26,7 +26,7 @@ public class TripleSDES implements Cipher {
 
     @Override
     public Object cryptoAnalysis(String cipherText) {
-        // TODO Implement Triple SDES cryptoanalysis
+        // TODO Implement Triple SDES cipher cryptoanalysis
         throw new UnsupportedOperationException();
     }
 

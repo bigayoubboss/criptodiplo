@@ -43,7 +43,7 @@ public class Affine implements Comparator, Cipher {
 
     @Override
     public String decode(String cipherText, Object oKey) {
-        // TODO Implement Affine
+        // TODO Implement Affine cipher decode
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
