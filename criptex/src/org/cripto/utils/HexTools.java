@@ -58,4 +58,43 @@ public class HexTools {
         }
         return hexString;
     }
+
+    public static int[] fromASCIIStringToIntArray(String text) {
+        int[] dbyte = new int[16];
+
+        // check length of data
+        if (text.length() > 16) {
+            // System.out.println(text + " is too long, using the first 16 ASCII characters");
+        }
+
+        // does ASCII data have 16 characters?
+        if (text.length() >= 16) {
+            // 16 or more characters
+            for (int i = 0; i < 16; i++) {
+                dbyte[i] = text.codePointAt(i);
+            }
+        } else {
+            // less than 16 characters - fill with NULLs
+            for (int i = 0; i < text.length(); i++) {
+                dbyte[i] = text.codePointAt(i);
+            }
+            for (int i = text.length(); i < 16; i++) {
+                dbyte[i] = 0;
+            }
+        }
+
+        return dbyte;
+    }
+
+    public static int[] fromHexaStringToHexaArray(String key) {
+
+        int[] dbyte = new int[16];
+
+        int j = 0;
+        for (int i = 0; i < 32; i += 2) {
+            dbyte[j] = Integer.valueOf(key.substring(i, i + 2), 16);
+            j++;
+        }
+        return dbyte;
+    }
 }

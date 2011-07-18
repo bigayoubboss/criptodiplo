@@ -6,7 +6,7 @@
 package org.cripto.authentication;
 
 import org.cripto.authentication.CBCMac;
-import org.cripto.cipher.block.AESCipher;
+import org.cripto.cipher.block.AES;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

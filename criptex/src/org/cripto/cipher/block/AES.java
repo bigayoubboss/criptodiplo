@@ -52,7 +52,7 @@ public class AES implements Cipher {
         0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28, 0xdf,
         0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68,
         0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16};
-    private int[] invS_BOX = new int[]{
+    private int[] SBoxInv = new int[]{
         0x52, 0x09, 0x6a, 0xd5, 0x30, 0x36, 0xa5, 0x38,
         0xbf, 0x40, 0xa3, 0x9e, 0x81, 0xf3, 0xd7, 0xfb,
         0x7c, 0xe3, 0x39, 0x82, 0x9b, 0x2f, 0xff, 0x87,
@@ -86,10 +86,6 @@ public class AES implements Cipher {
         0x17, 0x2b, 0x04, 0x7e, 0xba, 0x77, 0xd6, 0x26,
         0xe1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0c, 0x7d
     };
-    private final int I00 = 0;
-    private final int I01 = 1;
-    private final int I02 = 2;
-    private final int I03 = 3;
     private final int I10 = 4;
     private final int I11 = 5;
     private final int I12 = 6;
@@ -105,6 +101,7 @@ public class AES implements Cipher {
 
     @Override
     public Object cryptoAnalysis(String cipherText) {
+        // TODO Implement AES cipher cryptoanalysis
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -121,9 +118,9 @@ public class AES implements Cipher {
         int block = 0;
         int blockStart = 0;
         double numberOfBlocks = cipherText.length() / 32;
-        
+
         while (block < numberOfBlocks) {
-            
+
             plainText = plainText.concat(this.decodeBlock(cipherText.substring(blockStart, blockStart + 32), subKeys));
             block += 1;
             blockStart = block * 32;
@@ -151,7 +148,7 @@ public class AES implements Cipher {
         double numberOfBlocks = plainText.length() / 16;
 
         while (block < numberOfBlocks) {
-            
+
             cipherText = cipherText.concat(this.encodeBlock(plainText.substring(blockStart, blockStart + 16), subKeys));
             block += 1;
             blockStart = block * 16;
@@ -161,6 +158,97 @@ public class AES implements Cipher {
         }
 
         return cipherText;
+    }
+
+    /**
+     * Returns an encrypted cipherText using the Rijndael Block Cipher
+     * using a key of 128 bits
+     *
+     *@param cipherText the String cipherText we want to cipher
+     *@param keyMod16 the Array key used to encrypt is an array of 16 hexadecimal numbers
+     *@return the resulting cipherText
+     */
+    public String encodeBlock(String plainText, int[] subKeys) {
+        // We represent the String as an array of ASCII text
+        int[] plainTextMod256 = HexTools.fromASCIIStringToIntArray(plainText);
+
+        // Initialize STATE matrix using transpose operation
+        int[] state = transpose(plainTextMod256);
+
+        // first call to ADD-ROUND KEY
+        state = addRoundKey(state, subKeys, 0);
+
+        // Next 9 rounds
+        for (int Nr = 1; Nr < 10; Nr++) {
+            state = subBytes(state);
+            state = shiftRows(state);
+            state = mixColumns(state);
+            // note here the spec uses 32-bit words, we are using bytes, so an extra *4
+            state = addRoundKey(state, subKeys, Nr * 4 * 4);
+        }
+
+        // last Operations
+        subBytes(state);
+        shiftRows(state);
+        addRoundKey(state, subKeys, 10 * 4 * 4);
+
+        // from hexadecimal array to String
+        String cipherBlock = "";
+        state = transpose(state);
+        for (int i = 0; i < state.length; i++) {
+            String actualState = Integer.toHexString(state[i]);
+            cipherBlock += actualState.length() == 2 ? actualState : "0".concat(actualState);
+        }
+
+        return cipherBlock;
+    }
+
+    /**
+     * Returns an decrypted PlainText using the Rijndael Block Cipher
+     * using a key of 128 bits
+     *
+     *@param cipherText the String cipherText we want to cipher
+     *@param key_byte the Array key used to encrypt is an array of 16 hexadecimal numbers
+     *@return the resulting PlainText
+     */
+    private String decodeBlock(String cypherText, int[] word) {
+
+        int[] cipherTextMod16 = HexTools.fromHexaStringToHexaArray(cypherText);
+
+        word = invKey(word);
+
+        // Initialize STATE matrix using transpose operation
+        int[] state = transpose(cipherTextMod16);
+
+        // Cero round
+        state = addRoundKey(state, word, 0);
+        state = subBytesInv(state);
+        state = shiftRowsInv(state);
+
+        // Next 9 rounds
+        for (int Nr = 1; Nr < 10; Nr++) {
+            // note here the spec uses 32-bit words, we are using bytes, so an extra *4
+            state = addRoundKey(state, word, Nr * 4 * 4);
+            state = mixColumnsInv(state);
+            state = subBytesInv(state);
+            state = shiftRowsInv(state);
+        }
+
+        //Final round
+        addRoundKey(state, word, 10 * 4 * 4);
+
+        state = transpose(state);
+
+        // from hexadecimal array to String
+        String plainBlock = "";
+        for (int i = 0; i < state.length; i++) {
+            //    System.out.print(state[i]);
+            plainBlock += Character.toString((char) state[i]);
+        }
+
+        return plainBlock;
+
+
     }
 
     /**
@@ -227,15 +315,15 @@ public class AES implements Cipher {
 
         int sBoxValue, value;
 
-        int[] returned = new int[16];
+        int[] subWord = new int[16];
 
         for (int position = 0; position < 4; position++) {
             value = roundWord[position];
             sBoxValue = SBox[value];
-            returned[position] = sBoxValue;
+            subWord[position] = sBoxValue;
         }
 
-        return returned;
+        return subWord;
     }
 
     /**
@@ -245,7 +333,7 @@ public class AES implements Cipher {
      */
     private int rcon(int exp) {
         int val = 2;
-        int result = 1;
+        int rconValue = 1;
 
         // remember to calculate x^(exp-1)
         exp--;
@@ -253,7 +341,7 @@ public class AES implements Cipher {
         // process the exponent using normal shift and multiply
         while (exp > 0) {
             if ((exp & 1) != 0) {
-                result = AESMult(result, val);
+                rconValue = AESMult(rconValue, val);
             }
             // square the value
             val = AESMult(val, val);
@@ -261,7 +349,7 @@ public class AES implements Cipher {
             exp >>= 1;
         }
 
-        return result;
+        return rconValue;
     }
 
     /**
@@ -314,13 +402,13 @@ public class AES implements Cipher {
      * @param message_byte array to transpose
      * @return transposed array
      */
-    private int[] transpose(int[] message_byte) {
+    private int[] transpose(int[] word) {
         int row, col;
         int[] state = new int[16];
 
         for (row = 0; row < 4; row++) {
             for (col = 0; col < 4; col++) {
-                state[I(row, col)] = message_byte[I(col, row)];
+                state[I(row, col)] = word[I(col, row)];
             }
         }
 
@@ -330,19 +418,19 @@ public class AES implements Cipher {
     /**
      * AES operation. Does an X-OR between the Sub-Keys and the STATE matrix
      * @param STATE is the actual state matrix
-     * @param w is the key matrix
+     * @param word is the key matrix
      * @param base is the begininng position in which we will save the information
      *in the state matrix
      * @return updated STATE matrix
      */
-    private int[] addRoundKey(int[] state, int[] w, int base) {
+    private int[] addRoundKey(int[] state, int[] word, int base) {
         int col;
 
         for (col = 0; col < 4; col++) {
-            state[I(0, col)] ^= w[base + col * 4];
-            state[I(1, col)] ^= w[base + col * 4 + 1];
-            state[I(2, col)] ^= w[base + col * 4 + 2];
-            state[I(3, col)] ^= w[base + col * 4 + 3];
+            state[I(0, col)] ^= word[base + col * 4];
+            state[I(1, col)] ^= word[base + col * 4 + 1];
+            state[I(2, col)] ^= word[base + col * 4 + 2];
+            state[I(3, col)] ^= word[base + col * 4 + 3];
         }
 
         return state;
@@ -366,9 +454,9 @@ public class AES implements Cipher {
      * @param state array representing the STATE matrix
      * @return updated STATE matrix as an array
      */
-    private int[] invSubBytes(int[] state) {
+    private int[] subBytesInv(int[] state) {
         for (int i = 0; i < 16; i++) {
-            state[i] = invS_BOX[state[i]];
+            state[i] = SBoxInv[state[i]];
         }
 
         return state;
@@ -422,7 +510,7 @@ public class AES implements Cipher {
      * @param state array representing the STATE matrix
      * @return updated STATE matrix as an array
      */
-    private int[] invShiftRows(int[] state) {
+    private int[] shiftRowsInv(int[] state) {
         int t0, t1, t2, t3;
 
         // top row (row 0) isn't shifted
@@ -499,7 +587,7 @@ public class AES implements Cipher {
      * @param state is the STATE matrix represented as an array
      * @return updated STATE matrix
      */
-    private int[] invMixColumns(int[] state) {
+    private int[] mixColumnsInv(int[] state) {
         int col;
         int c0, c1, c2, c3;
 
@@ -517,107 +605,6 @@ public class AES implements Cipher {
         }
 
         return state;
-    }
-
-    /**
-     * Returns an encrypted cipherText using the Rijndael Block Cipher
-     * using a key of 128 bits
-     *
-     *@param cipherText the String cipherText we want to cipher
-     *@param keyMod16 the Array key used to encrypt is an array of 16 hexadecimal numbers
-     *@return the resulting cipherText
-     */
-    public String encodeBlock(String plainText, int[] subKeys) {
-        // We represent the String as an array of ASCII text
-        int[] plainTextMod256 = HexTools.fromASCIIStringToIntArray(plainText);
-
-        // Initialize STATE matrix using transpose operation
-        int[] state = transpose(plainTextMod256);
-
-        // first call to ADD-ROUND KEY
-        state = addRoundKey(state, subKeys, 0);
-
-        // Next 9 rounds
-        for (int Nr = 1; Nr < 10; Nr++) {
-            state = subBytes(state);
-            state = shiftRows(state);
-            state = mixColumns(state);
-            // note here the spec uses 32-bit words, we are using bytes, so an extra *4
-            state = addRoundKey(state, subKeys, Nr * 4 * 4);
-        }
-
-        // last Operations
-        subBytes(state);
-        shiftRows(state);
-        addRoundKey(state, subKeys, 10 * 4 * 4);
-        
-        // from hexadecimal array to String
-        String y = "";
-        state = transpose(state);
-        for (int i = 0; i < state.length; i++) {
-            String actualState = Integer.toHexString(state[i]);
-            y += actualState.length() == 2 ? actualState : "0".concat(actualState);
-        }
-
-        return y;
-    }
-
-    /**
-     * Returns an decrypted PlainText using the Rijndael Block Cipher
-     * using a key of 128 bits
-     *
-     *@param cipherText the String cipherText we want to cipher
-     *@param key_byte the Array key used to encrypt is an array of 16 hexadecimal numbers
-     *@return the resulting PlainText
-     */
-    private String decodeBlock(String cypherText, int[] w) {
-
-        // We represent the String as an array of ASCII text
-
-        int[] cipherTextMod16 = HexTools.fromHexaStringToHexaArray(cypherText); 
-
-        // EVALUABLE POINT (use it if you want to see any matrix, do respective changes)
-        //for (int i = 0; i < message_byte.length; i++) {
-        //    System.out.print(Integer.toHexString(message_byte[i]) + " ");
-        //    if ((i + 1) % 4 == 0) {
-        //        System.out.println("");
-        //    }
-        //}
-
-        w = invKey(w);
-
-        // Initialize STATE matrix using transpose operation
-        int[] state = transpose(cipherTextMod16);
-
-        // Cero round
-        state = addRoundKey(state, w, 0);
-        state = invSubBytes(state);
-        state = invShiftRows(state);
-
-        // Next 9 rounds
-        for (int Nr = 1; Nr < 10; Nr++) {
-            // note here the spec uses 32-bit words, we are using bytes, so an extra *4
-            state = addRoundKey(state, w, Nr * 4 * 4);
-            state = invMixColumns(state);
-            state = invSubBytes(state);
-            state = invShiftRows(state);
-        }
-
-        //Final round
-        addRoundKey(state, w, 10 * 4 * 4);
-
-        state = transpose(state);
-
-        // from hexadecimal array to String
-        String y = "";
-        for (int i = 0; i < state.length; i++) {
-            //    System.out.print(state[i]);
-            y += Character.toString((char) state[i]);
-        }
-
-        return y;
-
-
     }
 
     private int[] invKey(int[] w) {

@@ -42,7 +42,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.cripto.cipher.Cipher;
 import org.cripto.authentication.CBCMac;
-import org.cripto.cipher.block.AESCipher;
+import org.cripto.cipher.block.AES;
 import org.cripto.cipher.block.DES;
 import org.cripto.cipher.block.SDES;
 import org.cripto.cipher.block.TripleDES;
@@ -5090,12 +5090,14 @@ public class gui extends javax.swing.JFrame {
 
     private void encriptarAES(String textoPlano) {
 
+        cipherMachine = new AES();
+
         try {
             String clave = claveAES.getText();
             if (clave.length() != 32) {
                 throw new NumberFormatException();
             }
-            String textoCifrado = AESCipher.longEncrypt(textoPlano, clave);
+            String textoCifrado = cipherMachine.encode(textoPlano, clave, null);
             cajaTextoCifrado.setText(textoCifrado);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(
@@ -5630,6 +5632,9 @@ public class gui extends javax.swing.JFrame {
     }
 
     private void descifrarAES(String textoCifrado) {
+        
+        cipherMachine = new AES();
+        
         String clave = claveAES.getText();
         cajaTextoCifrado.setText(textoCifrado);
         String textoPlano = "";
@@ -5637,7 +5642,7 @@ public class gui extends javax.swing.JFrame {
             if (clave.length() != 32) {
                 throw new NumberFormatException();
             }
-            textoPlano = AESCipher.longDecrypt(textoCifrado, clave);
+            textoPlano = cipherMachine.decode(textoCifrado, clave);
             cajaTextoPlano.setText(textoPlano);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(

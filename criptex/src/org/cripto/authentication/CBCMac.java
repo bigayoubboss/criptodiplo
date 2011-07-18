@@ -11,8 +11,6 @@
 
 package org.cripto.authentication;
 
-import org.cripto.cipher.block.AESCipher;
-
 /**
  *
  * @author damontanofe,lvmorenoc,carodriguezb
